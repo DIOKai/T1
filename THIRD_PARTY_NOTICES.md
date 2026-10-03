@@ -34,7 +34,7 @@ Skills in `.claude/skills/` were copied from the repositories below. Local chang
 
 - Source: https://github.com/arjun988/blender-skills (commit `8f778d2405a214b508d4c7d80742be8e43acdd52`)
 - License: MIT
-- Skills: animation, asset-optimization, collision-proxy, export-pipeline, hard-surface, lod-pipeline, retopology, rigging, texture-workflow, uv-workflow, vehicle-artist
+- Skills: animation, archviz, asset-optimization, collision-proxy, environment-artist, export-pipeline, hard-surface, lod-pipeline, prop-artist, retopology, rigging, set-dressing, texture-workflow, uv-workflow, vehicle-artist
 
 ## germanfndez/fiveai-skills
 
@@ -53,3 +53,9 @@ Skills in `.claude/skills/` were copied from the repositories below. Local chang
 - Source: https://github.com/MuscleOtter/quantity-surveyor (commit `a3f788c38e7cc32f75f3f229ea04fa31b14098ca`)
 - License: MIT (LICENSE included in the skill folder)
 - Skills: quantity-surveyor
+
+## LVTD-LLC/skills
+
+- Source: https://github.com/LVTD-LLC/skills (commit `a3ad087f5d1f14c09166de9f70b88c48e63209a7`)
+- License: MIT (LICENSE copied into each skill folder)
+- Skills: game-balance-economy, game-interface-feedback

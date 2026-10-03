@@ -15,12 +15,14 @@
 
 `anthropics/knowledge-work-plugins` 只登记了市场，没有默认启用，原因见下。
 
-## 直接放进仓库的技能（52 个，`.claude/skills/`）
+## 直接放进仓库的技能（58 个，`.claude/skills/`）
 
 - **FiveM**：`fivem-pro`（[leminhhuy113/fivem-pro](https://github.com/leminhhuy113/fivem-pro)，MIT）讲开发、性能优化，以及用 Sollumz + CodeWalker 做地图/MLO；`fivem-security-audit`（[matiaspalmac/fivem-audit-skill](https://github.com/matiaspalmac/fivem-audit-skill)，MIT）查后门、漏洞、性能问题
 - **FiveM ox 系列和 NUI**：oxlib、oxmysql、ox-inventory、ox-target（[germanfndez/fiveai-skills](https://github.com/germanfndez/fiveai-skills)，MIT）；fivem-react-nui（[proelias7/fivem-skill](https://github.com/proelias7/fivem-skill)，MIT），用 React + TypeScript + Vite + Tailwind 做 NUI
 - **车辆模组**：`fivem-vehicle-mod`（本仓库自己写的）——addon 车资源的结构、meta 文件、改装套件、涂装、警笛、贴图/大小限制、GTA V Enhanced 转换、故障排查，附 `check_vehicle_resource.py` 交叉检查脚本（检查名字对不对得上、改装套件/警笛 id 撞号、无效的 data_file 类型）。资料来自 FiveM 源码和官方文档源码。配合免费工具：[fivem-vehicle-validator](https://github.com/PrestigeRoleplay/fivem-vehicle-validator)、[fivem-handling-presets](https://github.com/PrestigeRoleplay/fivem-handling-presets)、[fivem-joaat-hash](https://github.com/PrestigeRoleplay/fivem-joaat-hash)（都用 npx 跑）和游戏内调 handling 的 [vehicleDebug](https://github.com/kerminal/vehicleDebug)（放进测试服 resources）
 - **土木工程**：quantity-surveyor（[MuscleOtter/quantity-surveyor](https://github.com/MuscleOtter/quantity-surveyor)，MIT），算工程量、BOQ、单价分析、投标、变更、现金流
+- **室内设计（Blender）**：set-dressing、archviz、prop-artist、environment-artist（[arjun988/blender-skills](https://github.com/arjun988/blender-skills)，MIT）——室内布置、真实尺寸和灯光、家具道具、模块化房间
+- **游戏设计**：game-balance-economy、game-interface-feedback（[LVTD-LLC/skills](https://github.com/LVTD-LLC/skills)，MIT）——经济与数值平衡（工作收入、抢劫奖励、声望曲线）、界面反馈和小游戏手感
 - **Blender 建模 / 模型优化 / 动作**：从 [arjun988/blender-skills](https://github.com/arjun988/blender-skills)（MIT）挑了 11 个：retopology、lod-pipeline、asset-optimization、uv-workflow、rigging、animation、export-pipeline，以及做车用的 vehicle-artist、hard-surface、collision-proxy、texture-workflow。需要下面的 Blender MCP
 
 - 20 个 Cowork 技能，来自 [EAIconsulting/cowork-skills-library](https://github.com/EAIconsulting/cowork-skills-library)（MIT）
@@ -60,6 +62,33 @@ Blender 技能要在你自己的电脑上跑，Claude 通过 [MCP for Blender](h
 装好后，Claude 改完 Lua 会自动跑 `qbx-lint` 检查。
 
 NUI 起手模板（免费）：[fivem-react-boilerplate-lua](https://github.com/project-error/fivem-react-boilerplate-lua)
+
+## 房屋相关的 FiveM 资源（放进你的伺服器，不是装进 T1，都免费）
+
+| 资源 | 作用 | 许可证 |
+|---|---|---|
+| [bob74_ipl](https://github.com/Bob74/bob74_ipl) | 加载原版室内（公寓、办公室、夜店等）和切换 entity set | MIT |
+| [qbx_properties](https://github.com/Qbox-project/qbx_properties) | Qbox 官方房屋系统，可以买房、装修 | GPL-3.0 |
+| [object_gizmo](https://github.com/Demigod916/object_gizmo) | 游戏里用 3D 方式移动、旋转家具（qbx_properties 装修会用到） | GPL-3.0 |
+
+安装步骤：
+1. 下载（在伺服器的 `resources` 文件夹里）：
+   ```
+   git clone https://github.com/Bob74/bob74_ipl
+   git clone https://github.com/Qbox-project/qbx_properties
+   git clone https://github.com/Demigod916/object_gizmo
+   ```
+   不用 git 的话，到各自的 GitHub 页面点 **Code → Download ZIP**，解压后去掉文件夹名后面的 `-main`。
+2. qbx_properties 第一次启动前，照它 README 的说明导入 SQL 文件到数据库。
+3. 在 `server.cfg` 里按顺序加（放在 `ox_lib`、`qbx_core` 之后）：
+   ```
+   ensure bob74_ipl
+   ensure object_gizmo
+   ensure qbx_properties
+   ```
+4. 重启伺服器，看控制台有没有报错。各资源的设定在它们的 `config` 文件里，改之前先看 README。
+
+不要用付费的 bcs_housing、qs-housing、nolag_properties；ps-housing 是 CC BY-NC-SA（禁止商用）而且已经停止维护。
 
 ## muto-atlas 资料库（在你自己的电脑上建一次）
 
