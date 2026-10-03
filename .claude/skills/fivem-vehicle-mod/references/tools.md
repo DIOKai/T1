@@ -43,6 +43,7 @@ python .claude/skills/fivem-vehicle-mod/scripts/check_vehicle_resource.py <path>
 | MODKIT_ID_RANGE | error | modkit id above 65535 |
 | MODKIT_ID_LOW | info | modkit id below 1024 — may collide with vanilla; prefer ≥1024 |
 | SIREN_ID_RANGE / LIGHT_ID_RANGE | error | siren/light settings id above 255 (one-byte field) |
+| NOT_RSC7 | warn | a .yft/.ytd/.ydr/.ydd under `stream/` doesn't start with the `RSC7` magic of Legacy resources — corrupt, placeholder, CodeWalker XML, or a misplaced Gen9 file |
 | YFT_HI_MISSING | info | no `<model>_hi.yft` (only exported when the model has a Very High LOD) |
 | YTD_MISSING | warn | `txdName` has no matching `.ytd` |
 | KIT_NOT_DEFINED | warn | carvariations uses a kit not defined in this resource's carcols (fine if it's a vanilla kit) |

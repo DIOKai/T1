@@ -191,6 +191,13 @@ def check(paths):
                 continue
             full = os.path.join(res, rp)
             stream.setdefault(ext, {})[stem] = full
+            # Legacy RAGE resources start with the 'RSC7' magic (0x37435352, CodeWalker ResourceBuilder.cs).
+            # Gen9 files for the Enhanced client (stream_enhanced/) use another format, so only check stream/.
+            if not rp.lower().startswith('stream_enhanced/'):
+                with open(full, 'rb') as fh:
+                    magic = fh.read(4)
+                if magic != b'RSC7':
+                    add('warn', 'NOT_RSC7', res, f'{rp} 开头不是 RSC7，不像有效的 GTA V（Legacy）资源文件：可能损坏、只是占位、是 CodeWalker XML，或是放错到 stream/ 的 Gen9 文件。用 CodeWalker 或 OpenIV 打开确认')
             mb = os.path.getsize(full) / 1024 / 1024
             if mb > ASSET_ERROR_MB:
                 add('error', 'ASSET_OVER_48MIB', res, f'{name} 有 {mb:.1f}MB，超过 48MiB，FXServer 会明确警告一定会出串流问题（模型不加载、贴图掉）')
