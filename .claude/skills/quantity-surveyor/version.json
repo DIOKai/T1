@@ -1,0 +1,7 @@
+{
+  "name": "quantity-surveyor",
+  "version": "2.1.1",
+  "repository": "MuscleOtter/quantity-surveyor",
+  "release_url": "https://github.com/MuscleOtter/quantity-surveyor/releases",
+  "update_policy": "explicit-check-and-ask"
+}

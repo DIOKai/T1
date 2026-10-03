@@ -4,6 +4,7 @@ Skills in `.claude/skills/` were copied from the repositories below. Local chang
 
 - `video-downloader`: frontmatter `name` changed from `youtube-downloader` to match its directory; example commands use the repo-relative script path; `download_video.py` tolerates missing or fractional `duration` metadata.
 - `cowork-vs-chat-demo`, `safe-first-task`, `what-can-cowork-do`: removed a link to `references/role-profiles.md`, which does not exist upstream.
+- `fivem-react-nui`: removed the "fxmind agent vision (NUI dump)" section, which depends on fxmind MCP tools that are not installed here.
 
 ## EAIconsulting/cowork-skills-library
 
@@ -34,3 +35,21 @@ Skills in `.claude/skills/` were copied from the repositories below. Local chang
 - Source: https://github.com/arjun988/blender-skills (commit `8f778d2405a214b508d4c7d80742be8e43acdd52`)
 - License: MIT
 - Skills: animation, asset-optimization, collision-proxy, export-pipeline, hard-surface, lod-pipeline, retopology, rigging, texture-workflow, uv-workflow, vehicle-artist
+
+## germanfndez/fiveai-skills
+
+- Source: https://github.com/germanfndez/fiveai-skills (commit `c9d13e0cf5b327790fceb7aaeaba02e1276e14f4`)
+- License: MIT
+- Skills: oxlib, oxmysql, ox-inventory, ox-target
+
+## proelias7/fivem-skill
+
+- Source: https://github.com/proelias7/fivem-skill (commit `5b4504a7ceacee0e0d83a0d0d40be92deac4a8f0`)
+- License: MIT (stated in the upstream README; the repository has no LICENSE file)
+- Skills: fivem-react-nui
+
+## MuscleOtter/quantity-surveyor
+
+- Source: https://github.com/MuscleOtter/quantity-surveyor (commit `a3f788c38e7cc32f75f3f229ea04fa31b14098ca`)
+- License: MIT (LICENSE included in the skill folder)
+- Skills: quantity-surveyor

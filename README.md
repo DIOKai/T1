@@ -15,9 +15,11 @@
 
 `anthropics/knowledge-work-plugins` 只登记了市场，没有默认启用，原因见下。
 
-## 直接放进仓库的技能（45 个，`.claude/skills/`）
+## 直接放进仓库的技能（51 个，`.claude/skills/`）
 
 - **FiveM**：`fivem-pro`（[leminhhuy113/fivem-pro](https://github.com/leminhhuy113/fivem-pro)，MIT）讲开发、性能优化，以及用 Sollumz + CodeWalker 做地图/MLO；`fivem-security-audit`（[matiaspalmac/fivem-audit-skill](https://github.com/matiaspalmac/fivem-audit-skill)，MIT）查后门、漏洞、性能问题
+- **FiveM ox 系列和 NUI**：oxlib、oxmysql、ox-inventory、ox-target（[germanfndez/fiveai-skills](https://github.com/germanfndez/fiveai-skills)，MIT）；fivem-react-nui（[proelias7/fivem-skill](https://github.com/proelias7/fivem-skill)，MIT），用 React + TypeScript + Vite + Tailwind 做 NUI
+- **土木工程**：quantity-surveyor（[MuscleOtter/quantity-surveyor](https://github.com/MuscleOtter/quantity-surveyor)，MIT），算工程量、BOQ、单价分析、投标、变更、现金流
 - **Blender 建模 / 模型优化 / 动作**：从 [arjun988/blender-skills](https://github.com/arjun988/blender-skills)（MIT）挑了 11 个：retopology、lod-pipeline、asset-optimization、uv-workflow、rigging、animation、export-pipeline，以及做车用的 vehicle-artist、hard-surface、collision-proxy、texture-workflow。需要下面的 Blender MCP
 
 - 20 个 Cowork 技能，来自 [EAIconsulting/cowork-skills-library](https://github.com/EAIconsulting/cowork-skills-library)（MIT）
@@ -35,6 +37,28 @@ Blender 技能要在你自己的电脑上跑，Claude 通过 [MCP for Blender](h
 4. 在 T1 里打开 Claude Code，同意启用 `blender` 这个 MCP 服务
 
 不要开它的付费功能（Premium 的 AI 生成 3D 模型）；Sketchfab、Poly Haven 这些免费素材可以用。做 GTA 模型时，在 Blender 里完成后再用 [Sollumz](https://github.com/Sollumz/Sollumz) 导出成 .ydr/.yft/.ycd。
+
+## 其他 MCP 服务（`.mcp.json`，都免费）
+
+| 服务 | 作用 | 你要准备的 |
+|---|---|---|
+| `fivem` | [fivem-mcp](https://github.com/ziyacivan/fivem-mcp)：让 Claude 看你测试服的后台、F8 日志、截图、调用 native | Node 22+；`server.cfg` 设 `rcon_password`，再把同一个密码设成环境变量 `FIVEM_RCON_PASSWORD`。**只连本机测试服**，它权限很大 |
+| `freecad` | [freecad-mcp](https://github.com/neka-nat/freecad-mcp)：操作 FreeCAD 建模、跑 FEM 结构分析 | [FreeCAD](https://www.freecad.org/)（免费）；把 `addon/FreeCADMCP` 复制到 FreeCAD 的 Mod 文件夹，选 **MCP Addon** 工作台，点 **Start RPC Server** |
+| `ifc` | [IfcOpenShell ifcmcp](https://docs.ifcopenshell.org/ifcmcp.html)：不用 Revit 也能查、改 BIM/IFC 模型，算工程量 | 只要 uv |
+
+用不到的服务，Claude Code 第一次问要不要启用时选不启用就行。
+
+## qbx-lint（Qbox 官方 Lua 检查工具）
+
+[Qbox-project/qbx-lua](https://github.com/Qbox-project/qbx-lua)（GPL-3.0，免费）会按 fxmanifest 分清 client/server/shared，检查 FiveM Lua 的错误。
+
+1. 到 [Releases](https://github.com/Qbox-project/qbx-lua/releases) 下载 `qbx-lint-<你的系统>`，解压后把 `qbx-lint.exe` 放进 PATH 里的文件夹
+2. 在资源文件夹里跑 `qbx-lint` 检查，`qbx-lint fmt` 排版
+3. 用 VS Code 的话装 [Qbox Lua](https://marketplace.visualstudio.com/items?itemName=Qbox.qbx-lua) 扩展
+
+装好后，Claude 改完 Lua 会自动跑 `qbx-lint` 检查。
+
+NUI 起手模板（免费）：[fivem-react-boilerplate-lua](https://github.com/project-error/fivem-react-boilerplate-lua)
 
 ## muto-atlas 资料库（在你自己的电脑上建一次）
 
@@ -88,3 +112,6 @@ claude plugin install episodic-memory@superpowers-marketplace
 | arjun988/blender-skills 其余 87 个技能 | 只挑了建模优化和动作相关的，避免技能列表过长 |
 | wojzj57/fiveai-skills | 没有许可证 |
 | CodeCrafter98/fivem-agent-skills | 43 个技能太多，内容和 fivem-pro 重叠 |
+| germanfndez/fiveai-skills 其余技能 | `fivemanage` 是付费服务；其他和 fivem-pro 重叠 |
+| proelias7/fivem-skill 其余技能 | 和 fivem-pro 重叠，ESX/vRP 用不到 |
+| AutoCAD、Revit、Civil 3D、ETABS 相关的 MCP | 软件本身要付费 |

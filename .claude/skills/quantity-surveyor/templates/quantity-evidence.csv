@@ -1,0 +1,1 @@
+quantity_id,physical_instance_or_scope_id,file_id,source_hash,revision,sheet_number,pdf_page_1based,view_locator,location,description,measurement_method,dimensions_or_count,unit,deduction_basis,waste_basis,calculation,quantity,evidence_status,related_quantity_ids,unresolved_queries,reviewer,reviewed_at

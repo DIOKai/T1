@@ -2,10 +2,36 @@
   "mcpServers": {
     "blender": {
       "command": "uvx",
-      "args": ["mcp-for-blender"],
+      "args": [
+        "mcp-for-blender"
+      ],
       "env": {
         "DISABLE_TELEMETRY": "true"
       }
+    },
+    "fivem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "fivem-mcp-server"
+      ],
+      "env": {
+        "FIVEM_RCON_PASSWORD": "${FIVEM_RCON_PASSWORD:-}"
+      }
+    },
+    "freecad": {
+      "command": "uvx",
+      "args": [
+        "freecad-mcp"
+      ]
+    },
+    "ifc": {
+      "command": "uvx",
+      "args": [
+        "--from",
+        "ifcopenshell-mcp[mcp]",
+        "ifcmcp"
+      ]
     }
   }
 }
