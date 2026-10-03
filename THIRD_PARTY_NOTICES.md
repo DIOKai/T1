@@ -75,3 +75,7 @@ Skills in `.claude/skills/` were copied from the repositories below. Local chang
 ## fivem-graphics-pack (written for this repository)
 
 No third-party code is included. `assets/timecycle_vars.txt` is a list of the timecycle variable names (identifiers only, no values) as they appear in GTA V's `w_extrasunny.xml`; GTA V is © Rockstar Games. `scripts/make_lut.py` writes the LUT layout that ReShade's `LUT.fx` (crosire/reshade-shaders) reads; no ReShade code or images are copied.
+
+## fivem-mlo-housing (written for this repository)
+
+No third-party code is included. The workflow summarises the Sollumz wiki (GPL-3 project), the FiveM documentation, and the public READMEs and configs of qbx_properties, qb-interior, qb-houses, ps-housing, bob74_ipl, object_gizmo and ht_mlotool; flag names and values were read from the Sollumz source (`ytyp/properties/flags.py`) and XML element names from Sollumz szio (MIT).
