@@ -59,3 +59,15 @@ Skills in `.claude/skills/` were copied from the repositories below. Local chang
 - Source: https://github.com/LVTD-LLC/skills (commit `a3ad087f5d1f14c09166de9f70b88c48e63209a7`)
 - License: MIT (LICENSE copied into each skill folder)
 - Skills: game-balance-economy, game-interface-feedback
+
+## ra100/blender-claude-plugin
+
+- Source: https://github.com/ra100/blender-claude-plugin (commit `78e9151fdc9e01ce37f1d16a9b677c3047411885`)
+- License: MIT (LICENSE copied into the skill folder)
+- Skills: blender-animation-rigging
+
+## LobzyJay/motion-design-with-claude
+
+- Source: https://github.com/LobzyJay/motion-design-with-claude (commit `a4d48c55ccb54a3b8bc4e100e34f6dcaca3bbfea`)
+- License: MIT (LICENSE copied into the skill folder)
+- Skills: motion-design

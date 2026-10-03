@@ -15,13 +15,14 @@
 
 `anthropics/knowledge-work-plugins` 只登记了市场，没有默认启用，原因见下。
 
-## 直接放进仓库的技能（58 个，`.claude/skills/`）
+## 直接放进仓库的技能（60 个，`.claude/skills/`）
 
 - **FiveM**：`fivem-pro`（[leminhhuy113/fivem-pro](https://github.com/leminhhuy113/fivem-pro)，MIT）讲开发、性能优化，以及用 Sollumz + CodeWalker 做地图/MLO；`fivem-security-audit`（[matiaspalmac/fivem-audit-skill](https://github.com/matiaspalmac/fivem-audit-skill)，MIT）查后门、漏洞、性能问题
 - **FiveM ox 系列和 NUI**：oxlib、oxmysql、ox-inventory、ox-target（[germanfndez/fiveai-skills](https://github.com/germanfndez/fiveai-skills)，MIT）；fivem-react-nui（[proelias7/fivem-skill](https://github.com/proelias7/fivem-skill)，MIT），用 React + TypeScript + Vite + Tailwind 做 NUI
 - **车辆模组**：`fivem-vehicle-mod`（本仓库自己写的）——addon 车资源的结构、meta 文件、改装套件、涂装、警笛、贴图/大小限制、GTA V Enhanced 转换、故障排查，附 `check_vehicle_resource.py` 交叉检查脚本（检查名字对不对得上、改装套件/警笛 id 撞号、无效的 data_file 类型）。资料来自 FiveM 源码和官方文档源码。配合免费工具：[fivem-vehicle-validator](https://github.com/PrestigeRoleplay/fivem-vehicle-validator)、[fivem-handling-presets](https://github.com/PrestigeRoleplay/fivem-handling-presets)、[fivem-joaat-hash](https://github.com/PrestigeRoleplay/fivem-joaat-hash)（都用 npx 跑）和游戏内调 handling 的 [vehicleDebug](https://github.com/kerminal/vehicleDebug)（放进测试服 resources）
 - **土木工程**：quantity-surveyor（[MuscleOtter/quantity-surveyor](https://github.com/MuscleOtter/quantity-surveyor)，MIT），算工程量、BOQ、单价分析、投标、变更、现金流
 - **室内设计（Blender）**：set-dressing、archviz、prop-artist、environment-artist（[arjun988/blender-skills](https://github.com/arjun988/blender-skills)，MIT）——室内布置、真实尺寸和灯光、家具道具、模块化房间
+- **动画**：motion-design（[LobzyJay/motion-design-with-claude](https://github.com/LobzyJay/motion-design-with-claude)，MIT）——12 条动画原则、时间和间距、缓动；blender-animation-rigging（[ra100/blender-claude-plugin](https://github.com/ra100/blender-claude-plugin)，MIT）——Blender 5.x 关键帧、曲线编辑器、NLA、驱动器、约束、IK/FK、形态键
 - **游戏设计**：game-balance-economy、game-interface-feedback（[LVTD-LLC/skills](https://github.com/LVTD-LLC/skills)，MIT）——经济与数值平衡（工作收入、抢劫奖励、声望曲线）、界面反馈和小游戏手感
 - **Blender 建模 / 模型优化 / 动作**：从 [arjun988/blender-skills](https://github.com/arjun988/blender-skills)（MIT）挑了 11 个：retopology、lod-pipeline、asset-optimization、uv-workflow、rigging、animation、export-pipeline，以及做车用的 vehicle-artist、hard-surface、collision-proxy、texture-workflow。需要下面的 Blender MCP
 
