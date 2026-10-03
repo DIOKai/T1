@@ -133,6 +133,8 @@ def check(paths):
             with open(f, 'rb') as fh:
                 if fh.read(4) != b'RSC7' and 'stream_enhanced' not in parts:
                     add('warn', 'NOT_RSC7', r, '开头不是 RSC7，不像编译好的 .ycd（可能是改了扩展名的 XML、损坏或放错的 Gen9 文件）')
+            if os.path.getsize(f) < 256:
+                add('warn', 'YCD_TOO_SMALL', r, f'只有 {os.path.getsize(f)} 字节，实际的动画通常有好几 KB，可能是空的或没编译完整（经验判断）')
             if stem != stem.lower() or ' ' in stem:
                 add('warn', 'NAME_CASE', r, f"字典名 '{stem}' 有大写或空格，建议全小写、不要空格")
 

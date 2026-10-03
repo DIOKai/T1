@@ -53,7 +53,7 @@ CodeWalker ▸ RPF Explorer ▸ Import XML turns `<dict>.ycd.xml` into `<dict>.y
 - After adding a new `.ycd`, rejoin the server (reported that a resource restart isn't enough).
 
 ### 7. Check
-Run `python .claude/skills/fivem-animation/scripts/check_anim_resource.py <resource-or-export-folder>` (local, read-only, Python only). It catches: empty/duplicate clip Hash, clip↔animation links, Rate ≠ 1 (wrong speed), animations not at 30 fps, `.ycd.xml` left in `stream/`, uncompiled/corrupt `.ycd` (no RSC7 header), bad names, missing `stream_enhanced` copies, duplicate dictionaries, and rpemotes entries whose clip isn't in the matching `.ycd.xml`. Point it at both the export folder (the `.ycd.xml`) and the resource. Then test in game on male and female peds.
+Run `python .claude/skills/fivem-animation/scripts/check_anim_resource.py <resource-or-export-folder>` (local, read-only, Python only). It catches: empty/duplicate clip Hash, clip↔animation links, Rate ≠ 1 (wrong speed), animations not at 30 fps, `.ycd.xml` left in `stream/`, uncompiled/corrupt `.ycd` (no RSC7 header, suspiciously tiny), custom `.ycd` files no emote uses, bad names, missing `stream_enhanced` copies, duplicate dictionaries, and rpemotes entries whose clip isn't in the matching `.ycd.xml`. Point it at both the export folder (the `.ycd.xml`) and the resource. Then test in game on male and female peds.
 
 ## Ground rules
 - Don't invent bone tags, flags, natives or rpemotes option names — use the reference tables or the sources they cite.
