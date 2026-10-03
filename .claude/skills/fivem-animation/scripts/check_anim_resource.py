@@ -20,7 +20,8 @@ Checks
 - stream_enhanced/ present but a .ycd only in stream/ (the Enhanced client
   loads stream_enhanced instead of stream, fivem-docs legacy-vs-enhanced).
 - rpemotes AnimationListCustom.lua: dictionaries with no local .ycd (fine only
-  if vanilla) and clips missing from a matching local .ycd.xml.
+  if vanilla), clips missing from a matching local .ycd.xml, and custom .ycd
+  files no emote uses.
 """
 import argparse
 import json
@@ -156,7 +157,12 @@ def check(paths):
             text = open(f, encoding='utf-8', errors='replace').read()
             text = re.sub(r'--\[\[.*?\]\]', '', text, flags=re.S)
             text = re.sub(r'--[^\n]*', '', text)
-            for emote, d, clip in ENTRY_RE.findall(text):
+            entries = ENTRY_RE.findall(text)
+            used = {d.lower() for _, d, _ in entries}
+            for stem, where in ycd_stems.items():
+                if stem not in used and any('custom emotes' in w.lower() for w in where):
+                    add('info', 'YCD_NOT_REGISTERED', where[0], f"'{stem}.ycd' 放进了 [Custom Emotes]，但 AnimationListCustom.lua 里没有表情用它，菜单里不会出现")
+            for emote, d, clip in entries:
                 dl = d.lower()
                 if dl not in ycd_stems:
                     add('info', 'DICT_NOT_LOCAL', rel(f, paths), f"表情 '{emote}' 用的字典 '{d}' 没有在这里找到 .ycd：原版动画就没问题，自定义的话要放进 stream/[Custom Emotes]/")
