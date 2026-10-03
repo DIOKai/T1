@@ -69,24 +69,25 @@ NUI 起手模板（免费）：[fivem-react-boilerplate-lua](https://github.com/
 |---|---|---|
 | [bob74_ipl](https://github.com/Bob74/bob74_ipl) | 加载原版室内（公寓、办公室、夜店等）和切换 entity set | MIT |
 | [qbx_properties](https://github.com/Qbox-project/qbx_properties) | Qbox 官方房屋系统，可以买房、装修 | GPL-3.0 |
-| [object_gizmo](https://github.com/Demigod916/object_gizmo) | 游戏里用 3D 方式移动、旋转家具（qbx_properties 装修会用到） | GPL-3.0 |
+| [object_gizmo](https://github.com/Demigod916/object_gizmo) | 通用的游戏内 3D 移动、旋转物件工具，给自己写的家具或道具摆放用。qbx_properties 自带装修工具，不需要它 | GPL-3.0 |
 
 安装步骤：
-1. 下载（在伺服器的 `resources` 文件夹里）：
+1. **qbx_properties 先清掉旧系统**（照它 README）：从伺服器移除 `qbx_apartments` 和 `qbx_houses`；出生点不要用别的公寓选择系统（用 [qbx_spawn](https://github.com/Qbox-project/qbx_spawn) 或不用出生系统）。
+2. 下载（在伺服器的 `resources` 文件夹里）：
    ```
    git clone https://github.com/Bob74/bob74_ipl
    git clone https://github.com/Qbox-project/qbx_properties
-   git clone https://github.com/Demigod916/object_gizmo
+   git clone https://github.com/Demigod916/object_gizmo   # 需要时才装
    ```
-   不用 git 的话，到各自的 GitHub 页面点 **Code → Download ZIP**，解压后去掉文件夹名后面的 `-main`。
-2. qbx_properties 第一次启动前，照它 README 的说明导入 SQL 文件到数据库。
-3. 在 `server.cfg` 里按顺序加（放在 `ox_lib`、`qbx_core` 之后）：
+   不用 git 的话，到 GitHub 页面点 **Code → Download ZIP**，解压后把文件夹名后面的 `-main` 去掉。
+3. 把 qbx_properties 里的 3 个 SQL 文件导入数据库：`property.sql`、`property_garages.sql`、`decorations.sql`（用 HeidiSQL 之类的工具执行）。
+4. 在 `server.cfg` 里加（放在 `oxmysql`、`ox_lib`、`qbx_core` 之后）：
    ```
    ensure bob74_ipl
-   ensure object_gizmo
    ensure qbx_properties
+   ensure object_gizmo   # 需要时才加
    ```
-4. 重启伺服器，看控制台有没有报错。各资源的设定在它们的 `config` 文件里，改之前先看 README。
+5. 重启伺服器，看控制台有没有报错。设定在各资源的 `config` 文件夹里。
 
 不要用付费的 bcs_housing、qs-housing、nolag_properties；ps-housing 是 CC BY-NC-SA（禁止商用）而且已经停止维护。
 
