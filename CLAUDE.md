@@ -34,6 +34,7 @@
 - `oxlib`、`oxmysql`、`ox-inventory`、`ox-target`：ox 系列的 API 速查
 - `fivem-react-nui`：用 React + TypeScript + Vite + Tailwind 做 NUI
 - `fivem-vehicle-mod`：做、修、上架 addon 车辆资源（meta 文件、改装套件、涂装、警笛、贴图大小、Enhanced 转换）。车辆资源上服前先跑它自带的 `check_vehicle_resource.py`（本地、只读，直接跑）；npx 工具第一次跑会下载套件，先说一声
+- `fivem-graphics-pack`：画质包、调色（暖色/电影感）、visualsettings、2K/4K 贴图、ReShade 和 LUT。它的三个脚本都是本地运行、只写到指定的输出文件夹或只读，直接跑。ReShade 是玩家自己装的，只在 Legacy 版、伺服器允许插件时有效
 
 改完 FiveM 的 Lua 后，如果用户电脑上有 `qbx-lint`，就对改过的文件跑一次检查（只读，直接跑）；要用 `qbx-lint --fix` 或 `qbx-lint fmt` 改文件前先问。
 

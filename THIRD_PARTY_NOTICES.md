@@ -71,3 +71,7 @@ Skills in `.claude/skills/` were copied from the repositories below. Local chang
 - Source: https://github.com/LobzyJay/motion-design-with-claude (commit `a4d48c55ccb54a3b8bc4e100e34f6dcaca3bbfea`)
 - License: MIT (LICENSE copied into the skill folder)
 - Skills: motion-design
+
+## fivem-graphics-pack (written for this repository)
+
+No third-party code is included. `assets/timecycle_vars.txt` is a list of the timecycle variable names (identifiers only, no values) as they appear in GTA V's `w_extrasunny.xml`; GTA V is © Rockstar Games. `scripts/make_lut.py` writes the LUT layout that ReShade's `LUT.fx` (crosire/reshade-shaders) reads; no ReShade code or images are copied.

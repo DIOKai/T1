@@ -35,8 +35,8 @@ python .claude/skills/fivem-vehicle-mod/scripts/check_vehicle_resource.py <path>
 | VARIATION_MODEL_UNKNOWN | error | carvariations entry for a model not in vehicles.meta |
 | MODKIT_ID_DUPLICATE | error | two kits share a modkit id |
 | SIREN_ID_DUPLICATE / LIGHT_ID_DUPLICATE | error | shared siren/light settings id |
-| ASSET_OVER_48MIB | error | a .yft/.ytd/.ydr/.ydd file over 48 MiB — FXServer says it WILL cause streaming issues |
-| ASSET_OVER_16MIB | warn | file over 16 MiB — FXServer will print a size warning (memory use can be higher than file size, so also read the console) |
+| ASSET_OVER_48MIB | error | a .yft/.ytd/.ydr/.ydd using over 48 MiB of virtual or physical memory (RSC7 header) — FXServer says it WILL cause streaming issues |
+| ASSET_OVER_16MIB | warn | virtual or physical memory over 16 MiB, decoded from the RSC7 header like FXServer does (falls back to file size for non-RSC files) — FXServer will print a size warning |
 | DATA_FILE_INVALID_TYPE | warn | data_file type not in the Cfx list (e.g. `DLCTEXT_FILE`, `CARCONTENTUNLOCKS_FILE`) — ignored by FiveM |
 | DATA_FILE_REFUSED | warn | `TEXTFILE_METAFILE` (dlctext.meta) — refused by FiveM |
 | HANDLING_NAME_DUPLICATE | warn | same handlingName in two resources — last loaded wins |

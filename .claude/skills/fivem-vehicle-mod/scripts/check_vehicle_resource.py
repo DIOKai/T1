@@ -19,6 +19,7 @@ import fnmatch
 import json
 import os
 import re
+import struct
 import sys
 import xml.etree.ElementTree as ET
 
@@ -63,10 +64,29 @@ KNOWN_DATA_FILE_TYPES = {
 }
 # FXServer warns when a streamed asset uses more than 16 MiB of physical or virtual memory and adds
 # "Oversized assets can and WILL lead to streaming issues" above 48 MiB (ResourceStreamComponent.cpp).
-# Memory use is at least the file size, so file size is only a lower bound.
+# It measures the virtual and physical memory decoded from the RSC7 header (ConvertRSC7Size), not
+# the compressed file size, so a 15 MB .ytd on disk can be a 30 MiB asset. Decode it the same way.
 ASSET_WARN_MB = 16.0
 ASSET_ERROR_MB = 48.0
 STREAM_EXTS = ('.yft', '.ytd', '.ydr', '.ydd')
+
+
+def rsc_page_size(flags):
+    # FXServer ConvertRSC7Size / CodeWalker RpfFile.GetSizeFromFlags
+    s = (((flags >> 27) & 0x1) + (((flags >> 26) & 0x1) << 1) + (((flags >> 25) & 0x1) << 2)
+         + (((flags >> 24) & 0x1) << 3) + (((flags >> 17) & 0x7F) << 4) + (((flags >> 11) & 0x3F) << 5)
+         + (((flags >> 7) & 0xF) << 6) + (((flags >> 5) & 0x3) << 7) + (((flags >> 4) & 0x1) << 8))
+    return (0x200 << (flags & 0xF)) * s
+
+
+def rsc_memory(path):
+    """(virtual, physical) bytes from an RSC7/RSC8 header, or None."""
+    with open(path, 'rb') as fh:
+        head = fh.read(16)
+    if len(head) < 16 or head[:4] not in (b'RSC7', b'RSC8'):
+        return None
+    _, _, virt, phys = struct.unpack('<4sIII', head)
+    return rsc_page_size(virt), rsc_page_size(phys)
 
 
 def find_resources(paths):
@@ -198,11 +218,16 @@ def check(paths):
                     magic = fh.read(4)
                 if magic != b'RSC7':
                     add('warn', 'NOT_RSC7', res, f'{rp} 开头不是 RSC7，不像有效的 GTA V（Legacy）资源文件：可能损坏、只是占位、是 CodeWalker XML，或是放错到 stream/ 的 Gen9 文件。用 CodeWalker 或 OpenIV 打开确认')
-            mb = os.path.getsize(full) / 1024 / 1024
+            mem = rsc_memory(full)
+            if mem:
+                size, what = max((mem[0], '虚拟内存'), (mem[1], '物理（显存）内存'))
+            else:
+                size, what = os.path.getsize(full), '文件大小'
+            mb = size / 1024 / 1024
             if mb > ASSET_ERROR_MB:
-                add('error', 'ASSET_OVER_48MIB', res, f'{name} 有 {mb:.1f}MB，超过 48MiB，FXServer 会明确警告一定会出串流问题（模型不加载、贴图掉）')
+                add('error', 'ASSET_OVER_48MIB', res, f'{name} 的{what}是 {mb:.1f} MiB，超过 48MiB，FXServer 会明确警告一定会出串流问题（模型不加载、贴图掉）')
             elif mb > ASSET_WARN_MB:
-                add('warn', 'ASSET_OVER_16MIB', res, f'{name} 有 {mb:.1f}MB，FXServer 启动时会出现超过 16MiB 的警告，建议压缩贴图或拆出 +hi')
+                add('warn', 'ASSET_OVER_16MIB', res, f'{name} 的{what}是 {mb:.1f} MiB（按 RSC 头算，不是磁盘上的文件大小），FXServer 启动时会出现超过 16MiB 的警告，建议压缩贴图或拆出 +hi')
 
         handling_names, layout_names, kit_names = set(), set(), set()
         vehicles = []

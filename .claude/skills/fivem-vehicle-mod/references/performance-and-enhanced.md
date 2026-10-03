@@ -3,7 +3,7 @@
 ## Size warnings — what FiveM actually checks
 - FXServer measures each streamed asset's **physical and virtual memory** use (not the file size). Over **16 MiB** it prints `Asset <resource>/<file> uses <n> MiB of <physical|virtual> memory.` (colour escalates at 32 and 64 MiB). Only above **48 MiB** does it add "Oversized assets can and WILL lead to streaming issues (such as models not loading/rendering)." The resource start line then shows `Started resource X (N warnings)`. (FiveM source: ResourceStreamComponent.cpp ValidateSize)
 - So "16 MB" is a warning threshold per asset per memory type, not a hard block — but treat it as the budget, because many heavy cars together cause texture loss.
-- Memory use is at least the file size; a file under 16 MB can still trigger the warning. The server console after `ensure` is the authoritative check — read it.
+- The memory sizes come from the RSC7 header's page flags (`ConvertRSC7Size`), and files on disk are compressed, so a 15 MB `.ytd` can be a 30 MiB asset. `check_vehicle_resource.py` decodes the header the same way; the server console after `ensure` is still the final word.
 
 ## Texture loss ("city bug")
 Cfx describes it as streaming issues "caused by loading larger amounts of custom addon player vehicles". Mitigations: smaller and compressed textures, split HD textures into `+hi.ytd` (base ytd keeps a half-res copy), fewer/lighter vehicles in the same area.
