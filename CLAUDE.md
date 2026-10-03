@@ -33,6 +33,7 @@
 - superpowers（规划、调试、审查）和安全检查技能（insecure-defaults、sharp-edges）
 - `oxlib`、`oxmysql`、`ox-inventory`、`ox-target`：ox 系列的 API 速查
 - `fivem-react-nui`：用 React + TypeScript + Vite + Tailwind 做 NUI
+- `fivem-vehicle-mod`：做、修、上架 addon 车辆资源（meta 文件、改装套件、涂装、警笛、贴图大小、Enhanced 转换）。车辆资源上服前先跑它自带的 `check_vehicle_resource.py`（本地、只读，直接跑）；npx 工具第一次跑会下载套件，先说一声
 
 改完 FiveM 的 Lua 后，如果用户电脑上有 `qbx-lint`，就对改过的文件跑一次检查（只读，直接跑）；要用 `qbx-lint --fix` 或 `qbx-lint fmt` 改文件前先问。
 
