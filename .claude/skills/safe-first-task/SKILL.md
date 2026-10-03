@@ -23,8 +23,6 @@ description: 'A zero-risk first Cowork experience for discovering what Cowork do
 - `cowork-explained.md` — plain-language explanation of Chat vs Cowork differences
 - `what-to-try-next.md` — personalized 3-step next actions based on their stated priorities
 
-For role-specific content, see [references/role-profiles.md](../references/role-profiles.md)
-
 ## Why This Skill Exists
 
 Most people try Cowork for the first time and either:

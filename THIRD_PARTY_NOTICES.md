@@ -1,6 +1,9 @@
 # Third-Party Notices
 
-Skills in `.claude/skills/` were copied unmodified from the repositories below.
+Skills in `.claude/skills/` were copied from the repositories below. Local changes:
+
+- `video-downloader`: frontmatter `name` changed from `youtube-downloader` to match its directory; example commands use the repo-relative script path; `download_video.py` tolerates missing or fractional `duration` metadata.
+- `cowork-vs-chat-demo`, `safe-first-task`, `what-can-cowork-do`: removed a link to `references/role-profiles.md`, which does not exist upstream.
 
 ## EAIconsulting/cowork-skills-library
 

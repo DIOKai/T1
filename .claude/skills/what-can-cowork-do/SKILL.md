@@ -22,8 +22,6 @@ description: 'Discover what Cowork can do for YOUR specific role and tasks, for 
 - A personalized skill library learning path (3-5 specific skills to try next)
 - A conservative estimate of weekly time savings
 
-For role-specific content, see [references/role-profiles.md](../references/role-profiles.md)
-
 ## Why This Skill Exists
 
 Most people hear "Cowork is an AI agent that controls your computer" and think "cool but what do I actually DO with it?" Generic feature lists don't stick. What sticks is: "Oh, it can pull my Slack messages, check my calendar, and write my morning briefing automatically? THAT I can use."

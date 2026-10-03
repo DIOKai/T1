@@ -85,7 +85,8 @@ def download_video(url, output_path="/mnt/user-data/outputs", quality="best", fo
         # Get video info first
         info = get_video_info(url)
         print(f"Title: {info.get('title', 'Unknown')}")
-        print(f"Duration: {info.get('duration', 0) // 60}:{info.get('duration', 0) % 60:02d}")
+        duration = int(info.get('duration') or 0)
+        print(f"Duration: {duration // 60}:{duration % 60:02d}")
         print(f"Uploader: {info.get('uploader', 'Unknown')}\n")
         
         # Download the video

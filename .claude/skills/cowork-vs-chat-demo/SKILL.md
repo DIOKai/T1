@@ -22,8 +22,6 @@ description: 'See the difference between Chat and Cowork with a live side-by-sid
 - A filled comparison table mapping this specific task across 7 Chat vs Cowork dimensions
 - 3 concrete next steps personalized to what resonated during the demonstration
 
-For role-specific content, see [references/role-profiles.md](../references/role-profiles.md)
-
 ## Why This Skill Exists
 
 People ask "why would I use Cowork when ChatGPT/Claude Chat already works?" The answer isn't a feature list — it's an experience. Once someone SEES the difference with their own task, they get it instantly.
