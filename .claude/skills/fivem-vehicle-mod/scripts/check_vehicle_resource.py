@@ -214,6 +214,12 @@ def check(paths):
                     add('error', 'XML_INVALID', res, f'{rp} 不是合法的 XML：{root}')
                     continue
                 if base == 'handling.meta':
+                    for item in root.iter('Item'):
+                        hn = (item.findtext('handlingName') or '').strip()
+                        if hn and item.get('type', 'CHandlingData') == 'CHandlingData':
+                            fields = [c.tag for c in item if c.tag.startswith(('f', 'n', 'vec', 'str'))]
+                            if len(fields) < 20:
+                                add('warn', 'HANDLING_SPARSE', res, f"handling '{hn}' 只有 {len(fields)} 个字段（原版车通常有几十个），缺的会用默认值；建议从相似的原版车复制完整条目再调")
                     names = {t.upper() for t in texts(root, 'handlingName')}
                     handling_names |= names
                     for hn in names:
@@ -242,6 +248,9 @@ def check(paths):
                         model = (item.findtext('modelName') or '').strip()
                         if not model:
                             continue
+                        missing = [f for f in ('layout', 'lodDistances', 'vehicleClass', 'type') if item.find(f) is None]
+                        if missing:
+                            add('warn', 'VEHICLES_META_SPARSE', res, f"'{model}' 的 vehicles.meta 缺少 {', '.join(missing)}，会用默认值；建议从相似的原版车复制完整条目再改")
                         vehicles.append({
                             'model': model,
                             'txd': (item.findtext('txdName') or '').strip(),

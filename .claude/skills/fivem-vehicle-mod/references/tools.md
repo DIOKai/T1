@@ -49,6 +49,8 @@ python .claude/skills/fivem-vehicle-mod/scripts/check_vehicle_resource.py <path>
 | KIT_NOT_DEFINED | warn | carvariations uses a kit not defined in this resource's carcols (fine if it's a vanilla kit) |
 | LAYOUT_UNKNOWN | warn | layout not defined locally and not a vanilla `LAYOUT_*` name |
 | NO_AUDIO | warn | empty `audioNameHash` |
+| VEHICLES_META_SPARSE | warn | vehicles.meta entry lacks `layout`, `lodDistances`, `vehicleClass` or `type` |
+| HANDLING_SPARSE | warn | a handling entry has fewer than 20 fields — copy a full vanilla entry instead |
 | HANDLING_VANILLA | info | no handling.meta in the resource; only works if `handlingId` is a vanilla name |
 | LEGACY_MANIFEST | warn | `__resource.lua` instead of `fxmanifest.lua` |
 
