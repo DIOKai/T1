@@ -34,4 +34,13 @@
 
 ## 3D 模型和动作
 
-Blender 技能（retopology、lod-pipeline、asset-optimization、uv-workflow、rigging、animation、export-pipeline）要通过 `blender` MCP 在用户自己的 Blender 里执行代码，用之前先问。做 GTA 模型时，在 Blender 里完成后提醒用户用 Sollumz 导出成 .ydr/.yft/.ycd。
+Blender 技能（retopology、lod-pipeline、asset-optimization、uv-workflow、rigging、animation、export-pipeline、vehicle-artist、hard-surface、collision-proxy、texture-workflow）要通过 `blender` MCP 在用户自己的 Blender 里执行代码，用之前先问。做 GTA 模型时，在 Blender 里完成后提醒用户用 Sollumz 导出成 .ydr/.yft/.ycd。
+
+这些 Blender 技能是通用游戏美术流程，用于 GTA 时以 GTA 的规则为准：
+- 车辆骨骼名必须用 GTA 的固定名字（如 `door_dside_f`、`wheel_lf`），用 muto-atlas 查（`/vehicle`），不要用技能里的 `SM_Vehicle_*` 命名
+- 碰撞用 Sollumz 的 bounds 和碰撞 flag（muto-atlas `trunk/flags.md`），不用 collision-proxy 里的 UCX/UHX 命名
+- 参考数字：车辆 LOD0 最好在 5 万个三角面以下
+
+## muto-atlas
+
+GTA V / FiveM 资料库插件。回答游戏资料相关的问题（原版车规格、骨骼名、archetype、native）时先查它，不要猜。它的指令会跑本地脚本，第一次建资料库（`/asset-setup`）前先问用户。不要用 `build_atlas_db.py --tagger claude`（要付费 API key），用 `--tagger rules`。

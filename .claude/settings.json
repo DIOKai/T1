@@ -52,7 +52,8 @@
     "github-triage@trailofbits": true,
     "open-sourcing@trailofbits": true,
     "writing-lean-proofs@trailofbits": true,
-    "modern-cpp@trailofbits": true
+    "modern-cpp@trailofbits": true,
+    "muto-atlas@muto-atlas": true
   },
   "extraKnownMarketplaces": {
     "anthropic-agent-skills": {
@@ -89,6 +90,12 @@
       "source": {
         "source": "github",
         "repo": "phuryn/pm-skills"
+      }
+    },
+    "muto-atlas": {
+      "source": {
+        "source": "github",
+        "repo": "B7Kompirine/muto-atlas"
       }
     }
   }
