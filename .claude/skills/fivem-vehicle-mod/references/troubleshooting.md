@@ -17,6 +17,11 @@ Always start with: the **server console** after `ensure <resource>` (size warnin
 | No engine sound / wrong sound | `audioNameHash` doesn't match a loaded bank; audio data_file paths wrong (drop the number suffix and `.rel`); `.rel`/`.awc` missing from `files {}` | `references/resource-and-meta.md` §9; quick fix: a vanilla car name |
 | Tuning menu empty / shows another car's parts / floating parts | modkit id collision; carvariations `<kits>` ≠ carcols `kitName`; script didn't call `SetVehicleModKit(veh, 0)` | `MODKIT_ID_DUPLICATE`, `KIT_NOT_DEFINED`; use ids ≥ 1024 |
 | Wrong siren pattern / wrong light colours | siren or light settings id shared with another resource, or > 255 | `SIREN_ID_DUPLICATE`, `LIGHT_ID_DUPLICATE`, `*_RANGE` |
+| Siren lights don't flash at all | carvariations `sirenSettings` 0 or pointing at a missing id; no `siren1…` bones on the model | `SIREN_ID_UNDEFINED`; check bones with muto-atlas `/vehicle`; `references/police-emergency.md` |
+| Some siren lights dead | more `<sirens>` items than siren bones, or > 20 lights | match bone count; `SIREN_LIGHTS_OVER_20` |
+| Siren sound wrong, unsynced or goes silent | vanilla siren not muted by the controller; tone names not configured for the model; another script leaking `GetSoundId()` without `ReleaseSoundId()` | configure the model in the siren controller (Renewed-Sirensync `config.lua`); find the leaking script |
+| Extra 10 never appears | bone named `extra_10` instead of `extra_ten` | rename the bone |
+| Extras on/off reversed in a script | `SetVehicleExtra`'s third argument means **disable** | pass `false` to turn on, or use `qbx.setVehicleExtra(veh, id, enable)` |
 | Livery button does nothing | `FLAG_HAS_LIVERY` missing (texture method) or livery parts not in a `VMT_LIVERY_MOD` kit (modkit method) | `references/modkits-liveries-sirens.md` |
 | Name shows as NULL / label key | no `AddTextEntry` for `gameName` / `vehicleMakeName` / `modShopLabel` | `vehicle_names.lua` |
 | Enhanced client: car broken, Legacy fine | assets not converted, or both `stream/` and `stream_enhanced/` exist (Enhanced uses only `stream_enhanced`) | convert with Alchemist or Sollumz Gen9 export |

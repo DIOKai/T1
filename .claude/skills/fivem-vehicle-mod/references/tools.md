@@ -43,6 +43,9 @@ python .claude/skills/fivem-vehicle-mod/scripts/check_vehicle_resource.py <path>
 | MODKIT_ID_RANGE | error | modkit id above 65535 |
 | MODKIT_ID_LOW | info | modkit id below 1024 — may collide with vanilla; prefer ≥1024 |
 | SIREN_ID_RANGE / LIGHT_ID_RANGE | error | siren/light settings id above 255 (one-byte field) |
+| SIREN_LIGHTS_OVER_20 | warn | a siren setting with more than 20 lights (vanilla limit siren1–siren20; more needs the client-side SSLA, impossible on Enhanced) |
+| SIREN_ID_UNDEFINED | info | carvariations `sirenSettings` points at an id no scanned carcols.meta defines — fine for vanilla ids, otherwise a typo or a missing resource |
+| EMERGENCY_FLAGS | info | `VC_EMERGENCY` vehicle without `FLAG_LAW_ENFORCEMENT` / `FLAG_EMERGENCY_SERVICE` |
 | NOT_RSC7 | warn | a .yft/.ytd/.ydr/.ydd under `stream/` doesn't start with the `RSC7` magic of Legacy resources — corrupt, placeholder, CodeWalker XML, or a misplaced Gen9 file |
 | YFT_HI_MISSING | info | no `<model>_hi.yft` (only exported when the model has a Very High LOD) |
 | YTD_MISSING | warn | `txdName` has no matching `.ytd` |

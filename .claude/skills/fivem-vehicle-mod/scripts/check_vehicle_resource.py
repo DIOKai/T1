@@ -168,6 +168,7 @@ def check(paths):
         return findings, resources
 
     kit_ids, siren_ids, light_ids, model_owner, handling_owner = {}, {}, {}, {}, {}
+    siren_uses = []
 
     for res in resources:
         manifest_name, files_decl, data_files = parse_manifest(res)
@@ -268,6 +269,11 @@ def check(paths):
                             sid = value_attr(item.find('id'))
                             if sid is not None:
                                 bucket.setdefault(sid, []).append(os.path.basename(res))
+                            if section == 'Sirens':
+                                lights = item.find('sirens')
+                                n = len(list(lights)) if lights is not None else 0
+                                if n > 20:
+                                    add('warn', 'SIREN_LIGHTS_OVER_20', res, f"siren 设置 {sid}（{(item.findtext('name') or '').strip()}）有 {n} 个灯，原版上限是 20 个（siren1…siren20），多出来的要靠玩家装 SSLA，Enhanced 不能用")
                 elif base == 'vehicles.meta':
                     for item in root.iter('Item'):
                         model = (item.findtext('modelName') or '').strip()
@@ -282,6 +288,8 @@ def check(paths):
                             'handling': (item.findtext('handlingId') or '').strip(),
                             'layout': (item.findtext('layout') or '').strip(),
                             'audio': (item.findtext('audioNameHash') or '').strip(),
+                            'class': (item.findtext('vehicleClass') or '').strip().upper(),
+                            'flags': set((item.findtext('flags') or '').upper().split()),
                         })
                 elif base == 'carvariations.meta':
                     for item in root.iter('Item'):
@@ -316,11 +324,15 @@ def check(paths):
                 add('info', 'HANDLING_VANILLA', res, f"'{v['model']}' 用 handlingId '{v['handling']}'，这个资源没有 handling.meta，只有它是原版名字才会生效")
             if v['layout'] and layout_names and v['layout'].upper() not in layout_names and not v['layout'].upper().startswith('LAYOUT_'):
                 add('warn', 'LAYOUT_UNKNOWN', res, f"layout '{v['layout']}' 不在本资源的 vehiclelayouts.meta 里，也不像原版 LAYOUT_*")
+            if v['class'] == 'VC_EMERGENCY' and not v['flags'] & {'FLAG_EMERGENCY_SERVICE', 'FLAG_LAW_ENFORCEMENT'}:
+                add('info', 'EMERGENCY_FLAGS', res, f"'{v['model']}' 是 VC_EMERGENCY，但 flags 里没有 FLAG_LAW_ENFORCEMENT / FLAG_EMERGENCY_SERVICE（警车通常两个都加，影响 NPC 反应和通缉逻辑）")
             if not v['audio'] or v['audio'] == '0':
                 add('warn', 'NO_AUDIO', res, f"'{v['model']}' 的 audioNameHash 是空的，可能没有引擎声")
         for var in variations:
             if model_set and var['model'].lower() not in model_set:
                 add('error', 'VARIATION_MODEL_UNKNOWN', res, f"carvariations.meta 的 modelName '{var['model']}' 不在 vehicles.meta 里")
+            if var['siren'] not in (None, '0', ''):
+                siren_uses.append((res, var['model'], var['siren']))
             for k in var['kits']:
                 if k.lower() not in kit_names and not k.lower().startswith('0_default'):
                     add('warn', 'KIT_NOT_DEFINED', res, f"carvariations 用了改装套件 '{k}'，但本资源的 carcols.meta 里没有定义")
@@ -337,6 +349,9 @@ def check(paths):
         if len(owners) > 1:
             who = ', '.join(f'{r}:{k}' for r, k in owners)
             add('error', 'MODKIT_ID_DUPLICATE', None, f'改装套件 id {kid} 被用了 {len(owners)} 次（{who}），改装菜单会错乱或消失')
+    for res, model, sid in siren_uses:
+        if sid not in siren_ids:
+            add('info', 'SIREN_ID_UNDEFINED', res, f"'{model}' 的 carvariations sirenSettings={sid}，扫描到的 carcols.meta 里没有这个 siren id：用原版的 siren 设置就没问题；如果是自定义的，要把定义它的资源一起扫，或检查 id 有没有写错")
     for label, bucket, code in (('警笛 siren', siren_ids, 'SIREN_ID_DUPLICATE'), ('灯光 light', light_ids, 'LIGHT_ID_DUPLICATE')):
         for sid, owners in bucket.items():
             try:

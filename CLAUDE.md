@@ -33,7 +33,7 @@
 - superpowers（规划、调试、审查）和安全检查技能（insecure-defaults、sharp-edges）
 - `oxlib`、`oxmysql`、`ox-inventory`、`ox-target`：ox 系列的 API 速查
 - `fivem-react-nui`：用 React + TypeScript + Vite + Tailwind 做 NUI
-- `fivem-vehicle-mod`：做、修、上架 addon 车辆资源（meta 文件、改装套件、涂装、警笛、贴图大小、Enhanced 转换）。车辆资源上服前先跑它自带的 `check_vehicle_resource.py`（本地、只读，直接跑）；npx 工具第一次跑会下载套件，先说一声
+- `fivem-vehicle-mod`：做、修、上架 addon 车辆资源（meta 文件、改装套件、涂装、警笛、贴图大小、Enhanced 转换），包括模组警车和用 Sollumz 做车的流程。车辆资源上服前先跑它自带的 `check_vehicle_resource.py`（本地、只读，直接跑）；npx 工具第一次跑会下载套件，先说一声
 - `fivem-graphics-pack`：画质包、调色（暖色/电影感）、visualsettings、2K/4K 贴图、ReShade 和 LUT。它的三个脚本都是本地运行、只写到指定的输出文件夹或只读，直接跑。ReShade 是玩家自己装的，只在 Legacy 版、伺服器允许插件时有效
 - `fivem-mlo-housing`：做或修 MLO、原版室内（IPL、entity set）、房屋系统（qbx_properties 等）、家具摆放。它的 `check_mlo_resource.py` 是本地只读检查，直接跑；要在 Blender 里动手时照下面 3D 的规则先问
 
