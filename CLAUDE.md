@@ -31,6 +31,12 @@
 - `fivem-pro`：FiveM 开发规范、resmon 性能优化、Sollumz + CodeWalker 做地图/MLO
 - `fivem-security-audit`：审查 script 的后门、漏洞、性能问题，也能判断来路不明的 script 安不安全
 - superpowers（规划、调试、审查）和安全检查技能（insecure-defaults、sharp-edges）
+- `oxlib`、`oxmysql`、`ox-inventory`、`ox-target`：ox 系列的 API 速查
+- `fivem-react-nui`：用 React + TypeScript + Vite + Tailwind 做 NUI
+
+改完 FiveM 的 Lua 后，如果用户电脑上有 `qbx-lint`，就对改过的文件跑一次检查（只读，直接跑）；要用 `qbx-lint --fix` 或 `qbx-lint fmt` 改文件前先问。
+
+`fivem` MCP 能在用户的伺服器上下指令、调用 native，权限很大：用之前先问，只连本机测试服，不要连正式服。
 
 ## 3D 模型和动作
 
@@ -44,3 +50,10 @@ Blender 技能（retopology、lod-pipeline、asset-optimization、uv-workflow、
 ## muto-atlas
 
 GTA V / FiveM 资料库插件。回答游戏资料相关的问题（原版车规格、骨骼名、archetype、native）时先查它，不要猜。它的指令会跑本地脚本，第一次建资料库（`/asset-setup`）前先问用户。不要用 `build_atlas_db.py --tagger claude`（要付费 API key），用 `--tagger rules`。
+
+## 土木工程
+
+- `quantity-surveyor`：算工程量、BOQ、单价分析，明显相关就直接用。它没有马来西亚 SMM2 的资料，单价和计量规则要用户提供，不要自己编。
+- `freecad` MCP（FreeCAD 建模、FEM 分析）和 `ifc` MCP（BIM/IFC 模型）会在用户电脑上执行操作，用之前先问。
+- 马来西亚标准：MS EN 1992 就是 Eurocode 2 加马来西亚国家附件。用 Eurocode 的方法算，国家附件的数值请用户提供，不要猜。
+- AutoCAD、Revit、Civil 3D、ETABS 是付费软件，不推荐基于它们的工具。
