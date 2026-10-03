@@ -11,7 +11,7 @@ Reference files (read the one you need, not all of them):
 - `references/resource-and-meta.md` — folder layout, fxmanifest template, what each meta file controls, which names must match across files, field-by-field notes.
 - `references/handling.md` — handling.meta fields, units, sane ranges, how to tune.
 - `references/modkits-liveries-sirens.md` — carcols/carvariations: modkit ids, tuning parts, liveries, sirens, lights.
-- `references/performance-and-enhanced.md` — texture/poly budgets, LODs, server convars, GTA V Enhanced conversion.
+- `references/performance-and-enhanced.md` — what FiveM's size warnings really mean, texture/poly budgets, LODs, client texture caps, GTA V Enhanced conversion.
 - `references/troubleshooting.md` — symptom → cause → fix table.
 - `references/tools.md` — exact usage and known quirks of every tool below.
 
@@ -40,13 +40,14 @@ See `references/modkits-liveries-sirens.md`. The two classic breakages are a mod
 
 ### 6. Check before it goes on the server
 Run both checks; they catch different things:
-1. `python .claude/skills/fivem-vehicle-mod/scripts/check_vehicle_resource.py <resource-or-cars-folder>` — names that must match across files, modkit/siren/light id collisions between resources, files{}/data_file entries (understands globs), YTD sizes. Point it at the whole `resources/[cars]` folder to catch collisions between packs. Exit code 1 means errors.
-2. `npx -y fivem-vehicle-validator <resource>` (bin name `fivem-validate`) — manifest basics, required vehicles.meta fields, handling value ranges, stream file presence, YTD size, junk files, nested resources. It reports a false error when files{} uses globs like `'data/**/*.meta'`; trust the cross-check script for that case.
+1. `python .claude/skills/fivem-vehicle-mod/scripts/check_vehicle_resource.py <resource-or-cars-folder>` — names that must match across files, modkit/siren/light id collisions and ranges, handlingName overrides between resources, invalid data_file types (e.g. `DLCTEXT_FILE`), files{}/data_file entries (understands globs), asset sizes against FiveM's 16/48 MiB warning levels. Point it at the whole `resources/[cars]` folder to catch collisions between packs. Exit code 1 means errors.
+2. `npx -y fivem-vehicle-validator <resource>` (bin name `fivem-validate`) — manifest basics, required vehicles.meta fields, handling value ranges, stream file presence, junk files, nested resources. It reports a false error when files{} uses globs like `'data/**/*.meta'`, and it treats 16 MB as a hard limit (it's really FiveM's warning level); trust the cross-check script for those cases.
+3. After `ensure`, read the **server console**: FXServer prints `Asset … uses N MiB of physical/virtual memory` for heavy assets — that's the real size check, since memory use can exceed file size.
 
 Fix errors first, then warnings that make sense. Explain each finding to the user in plain words — what will break in game and how to fix it.
 
 ### 7. Test in game
-On the dev server: `refresh`, `ensure <resource>`, spawn the car, then walk the checklist — textures at all distances, doors/hood/trunk open, wheels turn and steer, lights and indicators, engine sound, tuning menu shows the right parts, livery switches, siren works (emergency vehicles), handling feels right. Anything wrong → `references/troubleshooting.md`.
+On the dev server: `refresh`, `ensure <resource>`, read the server console and the client F8 console (data_file and handling messages appear there), spawn the car, then walk the checklist — textures at all distances, doors/hood/trunk open, wheels turn and steer, lights and indicators, engine sound, tuning menu shows the right parts, livery switches, siren works (emergency vehicles), handling feels right. Anything wrong → `references/troubleshooting.md`.
 
 ## Ground rules
 - Never invent meta field names, flag names, data_file types or bone names. If unsure, check the reference files, muto-atlas, or a vanilla vehicle's files — a made-up value usually fails silently in game, which is the worst kind of bug.

@@ -1,2 +1,5 @@
 # Cache created by the Serena MCP server (zeroize-audit plugin)
 .serena/
+
+# Python bytecode
+__pycache__/

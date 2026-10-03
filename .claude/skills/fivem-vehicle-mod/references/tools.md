@@ -35,9 +35,15 @@ python .claude/skills/fivem-vehicle-mod/scripts/check_vehicle_resource.py <path>
 | VARIATION_MODEL_UNKNOWN | error | carvariations entry for a model not in vehicles.meta |
 | MODKIT_ID_DUPLICATE | error | two kits share a modkit id |
 | SIREN_ID_DUPLICATE / LIGHT_ID_DUPLICATE | error | shared siren/light settings id |
-| YTD_OVER_16MB | error | texture dictionary over the 16 MB streaming limit |
-| YTD_NEAR_16MB | warn | over 12 MB |
-| YFT_HI_MISSING | warn | no `<model>_hi.yft` |
+| ASSET_OVER_48MIB | error | a .yft/.ytd/.ydr/.ydd file over 48 MiB — FXServer says it WILL cause streaming issues |
+| ASSET_OVER_16MIB | warn | file over 16 MiB — FXServer will print a size warning (memory use can be higher than file size, so also read the console) |
+| DATA_FILE_INVALID_TYPE | warn | data_file type not in the Cfx list (e.g. `DLCTEXT_FILE`, `CARCONTENTUNLOCKS_FILE`) — ignored by FiveM |
+| DATA_FILE_REFUSED | warn | `TEXTFILE_METAFILE` (dlctext.meta) — refused by FiveM |
+| HANDLING_NAME_DUPLICATE | warn | same handlingName in two resources — last loaded wins |
+| MODKIT_ID_RANGE | error | modkit id above 65535 |
+| MODKIT_ID_LOW | info | modkit id below 1024 — may collide with vanilla; prefer ≥1024 |
+| SIREN_ID_RANGE / LIGHT_ID_RANGE | error | siren/light settings id above 255 (one-byte field) |
+| YFT_HI_MISSING | info | no `<model>_hi.yft` (only exported when the model has a Very High LOD) |
 | YTD_MISSING | warn | `txdName` has no matching `.ytd` |
 | KIT_NOT_DEFINED | warn | carvariations uses a kit not defined in this resource's carcols (fine if it's a vanilla kit) |
 | LAYOUT_UNKNOWN | warn | layout not defined locally and not a vanilla `LAYOUT_*` name |
@@ -56,7 +62,7 @@ npx -y fivem-vehicle-validator <resource> --json
 
 Exit codes: 0 pass, 1 errors, 2 warnings only.
 
-Checks: fxmanifest exists, `fx_version` (cerulean/bodacious/adamant), `game 'gta5'`; vehicles.meta/handling.meta/carcols.meta/carvariations.meta listed in `files {}` and declared with the right `data_file` type; vehicles.meta has `modelName`, `txdName`, `handlingId`, `gameName` (warns on missing `vehicleMakeName`, `vehicleClass`, `type`, `audioNameHash`); duplicate modelNames within the file; handling.meta looks like handling XML and the first `fMass` (100–50000), `fInitialDragCoeff` (0.1–100), `fBrakeForce` (0.1–10), `nInitialDriveGears` (1–12) are in range; stream files exist; YTD >16 MB error, >12 MB warning; YFT without YTD; `_hi.yft` without base `.yft`; YFT >25 MB; total stream >50 MB; stream files in root, junk files (.bak, Thumbs.db…), nested fxmanifest, folder depth >5.
+Checks (its 16 MB YTD "limit" is really FiveM's warning level, see performance-and-enhanced.md): fxmanifest exists, `fx_version` (cerulean/bodacious/adamant), `game 'gta5'`; vehicles.meta/handling.meta/carcols.meta/carvariations.meta listed in `files {}` and declared with the right `data_file` type; vehicles.meta has `modelName`, `txdName`, `handlingId`, `gameName` (warns on missing `vehicleMakeName`, `vehicleClass`, `type`, `audioNameHash`); duplicate modelNames within the file; handling.meta looks like handling XML and the first `fMass` (100–50000), `fInitialDragCoeff` (0.1–100), `fBrakeForce` (0.1–10), `nInitialDriveGears` (1–12) are in range; stream files exist; YTD >16 MB error, >12 MB warning; YFT without YTD; `_hi.yft` without base `.yft`; YFT >25 MB; total stream >50 MB; stream files in root, junk files (.bak, Thumbs.db…), nested fxmanifest, folder depth >5.
 
 Known gaps and false results (verified):
 - **Does not check `handlingId` against `handlingName`.** A resource with `handlingId MYCAR` and `handlingName MYCARX` passes, although the handling will not apply in game. The bundled script catches this.

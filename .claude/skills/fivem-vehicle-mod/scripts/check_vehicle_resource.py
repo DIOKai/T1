@@ -3,7 +3,8 @@
 
 Covers what fivem-vehicle-validator does not: names that must match across
 files (modelName / .yft, txdName / .ytd, handlingId / handlingName, kit names),
-modkit / siren / light id collisions between resources, vehiclelayouts
+modkit / siren / light id collisions and ranges between resources, handlingName
+overrides between resources, invalid data_file types, vehiclelayouts
 declarations, and files{} / data_file entries written with globs.
 
 Usage:
@@ -28,8 +29,44 @@ DATA_FILE_TYPES = {
     'carvariations.meta': 'VEHICLE_VARIATION_FILE',
     'vehiclelayouts.meta': 'VEHICLE_LAYOUTS_FILE',
 }
-YTD_LIMIT_MB = 16.0
-YTD_WARN_MB = 12.0
+# Valid data_file types, from citizenfx/fivem-docs game-references/data-files.md (commit c2b2125, 2026-10-01).
+# FiveM ignores any other type and logs "Could not add data_file ... invalid type".
+KNOWN_DATA_FILE_TYPES = {
+    'ACTION_TABLE_DEFINITIONS', 'ALTERNATE_VARIATIONS_FILE', 'AMBIENT_PED_MODEL_SET_FILE',
+    'AMBIENT_PROP_MODEL_SET_FILE', 'AMBIENT_VEHICLE_MODEL_SET_FILE',
+    'AMB_PROCEDURAL_BLOOD_FILE', 'AUDIO_CURVEDATA', 'AUDIO_DYNAMIXDATA', 'AUDIO_GAMEDATA',
+    'AUDIO_SOUNDDATA', 'AUDIO_SPEECHDATA', 'AUDIO_SYNTHDATA', 'AUDIO_WAVEPACK', 'CARCOLS_FILE',
+    'CLIP_SETS_FILE', 'COMBAT_BEHAVIOUR_OVERRIDE_FILE', 'CONDITIONAL_ANIMS_FILE',
+    'CONTENT_UNLOCKING_META_FILE', 'DLC_ITYP_REQUEST', 'DLC_POP_GROUPS', 'DLC_SCRIPT_METAFILE',
+    'DLC_WEAPON_PICKUPS', 'DRIVER_RULES_STD_FILE', 'EVENTS_OVERRIDE_FILE', 'EXPLOSIONFX_FILE',
+    'EXPLOSION_INFO_FILE', 'EXPRESSION_SETS_FILE', 'EXTRA_FOLDER_MOUNT_DATA',
+    'EXTRA_TITLE_UPDATE_DATA', 'FACIAL_CLIPSET_GROUPS_FILE', 'FIVEM_LOVES_YOU_1F764C843460150',
+    'FIVEM_LOVES_YOU_447B37BE29496FA0', 'FIVEM_LOVES_YOU_9605D14551590909',
+    'GTXD_PARENTING_DATA', 'HANDLING_FILE', 'INTERIOR_PROXY_ORDER_FILE',
+    'LEVEL_STREAMING_FILE', 'LOADOUTS_FILE', 'MOVE_NETWORK_DEFS', 'MP_STATS_DISPLAY_LIST_FILE',
+    'MP_STATS_UI_LIST_FILE', 'NM_TUNING_FILE', 'OVERLAY_INFO_FILE', 'PEDSTREAM_FILE',
+    'PED_BOUNDS_FILE', 'PED_BRAWLING_STYLE_FILE', 'PED_COMPONENT_SETS_FILE',
+    'PED_DAMAGE_APPEND_FILE', 'PED_DAMAGE_OVERRIDE_FILE', 'PED_FIRST_PERSON_ALTERNATE_DATA',
+    'PED_FIRST_PERSON_ASSET_DATA', 'PED_METADATA_FILE', 'PED_OVERLAY_FILE',
+    'PED_PERCEPTION_FILE', 'PED_PERSONALITY_FILE', 'PED_TASK_DATA_FILE', 'POPSCHED_FILE',
+    'PTFXASSETINFO_FILE', 'SCALEFORM_DLC_FILE', 'SCALEFORM_PREALLOC_FILE',
+    'SCENARIO_INFO_FILE', 'SCENARIO_POINTS_FILE', 'SCENARIO_POINTS_OVERRIDE_FILE',
+    'SCENARIO_POINTS_OVERRIDE_PSO_FILE', 'SCENARIO_POINTS_PSO_FILE', 'SCRIPTFX_FILE',
+    'SCRIPT_BRAIN_FILE', 'SHOP_PED_APPAREL_META_FILE', 'SP_STATS_DISPLAY_LIST_FILE',
+    'SP_STATS_UI_LIST_FILE', 'STREAMING_REQUEST_LISTS_FILE', 'TATTOO_SHOP_DLC_FILE',
+    'TEXTFILE_METAFILE', 'TIMECYCLEMOD_FILE', 'TRAINCONFIGS_FILE', 'TRAINTRACK_FILE',
+    'VEHICLEEXTRAS_FILE', 'VEHICLE_LAYOUTS_FILE', 'VEHICLE_METADATA_FILE',
+    'VEHICLE_SHOP_DLC_FILE', 'VEHICLE_VARIATION_FILE', 'VFXVEHICLEINFO_FILE',
+    'WEAPONCOMPONENTSINFO_FILE', 'WEAPONINFO_FILE', 'WEAPONINFO_FILE_PATCH',
+    'WEAPON_ANIMATIONS_FILE', 'WEAPON_METADATA_FILE', 'WEAPON_SHOP_INFO_METADATA_FILE',
+    'ZONEBIND_FILE',
+}
+# FXServer warns when a streamed asset uses more than 16 MiB of physical or virtual memory and adds
+# "Oversized assets can and WILL lead to streaming issues" above 48 MiB (ResourceStreamComponent.cpp).
+# Memory use is at least the file size, so file size is only a lower bound.
+ASSET_WARN_MB = 16.0
+ASSET_ERROR_MB = 48.0
+STREAM_EXTS = ('.yft', '.ytd', '.ydr', '.ydd')
 
 
 def find_resources(paths):
@@ -110,7 +147,7 @@ def check(paths):
         add('error', 'NO_RESOURCE', '', '找不到 fxmanifest.lua，路径要指向一个资源，或包含资源的文件夹')
         return findings, resources
 
-    kit_ids, siren_ids, light_ids, model_owner = {}, {}, {}, {}
+    kit_ids, siren_ids, light_ids, model_owner, handling_owner = {}, {}, {}, {}, {}
 
     for res in resources:
         manifest_name, files_decl, data_files = parse_manifest(res)
@@ -128,6 +165,11 @@ def check(paths):
         declared_types = {}
         for dtype, pattern in data_files:
             declared_types.setdefault(dtype, []).append(pattern)
+        for dtype in declared_types:
+            if dtype == 'TEXTFILE_METAFILE':
+                add('warn', 'DATA_FILE_REFUSED', res, "data_file 'TEXTFILE_METAFILE'（dlctext.meta）FiveM 会直接拒绝，删掉；显示名用 AddTextEntry")
+            elif dtype not in KNOWN_DATA_FILE_TYPES:
+                add('warn', 'DATA_FILE_INVALID_TYPE', res, f"data_file 类型 '{dtype}' 不是有效类型，FiveM 会忽略（常见的错误写法：DLCTEXT_FILE、CARCONTENTUNLOCKS_FILE）")
         for dtype, patterns in declared_types.items():
             for pattern in patterns:
                 if not any(glob_match(pattern, rp) for rp in allrel):
@@ -145,14 +187,15 @@ def check(paths):
         for rp in allrel:
             name = rp.split('/')[-1]
             stem, ext = os.path.splitext(name.lower())
-            if ext in ('.yft', '.ytd'):
-                stream.setdefault(ext, {})[stem] = os.path.join(res, rp)
-        for stem, full in stream.get('.ytd', {}).items():
+            if ext not in STREAM_EXTS:
+                continue
+            full = os.path.join(res, rp)
+            stream.setdefault(ext, {})[stem] = full
             mb = os.path.getsize(full) / 1024 / 1024
-            if mb > YTD_LIMIT_MB:
-                add('error', 'YTD_OVER_16MB', res, f'{stem}.ytd 有 {mb:.1f}MB，超过 FiveM 16MB 串流上限')
-            elif mb > YTD_WARN_MB:
-                add('warn', 'YTD_NEAR_16MB', res, f'{stem}.ytd 有 {mb:.1f}MB，接近 16MB 上限')
+            if mb > ASSET_ERROR_MB:
+                add('error', 'ASSET_OVER_48MIB', res, f'{name} 有 {mb:.1f}MB，超过 48MiB，FXServer 会明确警告一定会出串流问题（模型不加载、贴图掉）')
+            elif mb > ASSET_WARN_MB:
+                add('warn', 'ASSET_OVER_16MIB', res, f'{name} 有 {mb:.1f}MB，FXServer 启动时会出现超过 16MiB 的警告，建议压缩贴图或拆出 +hi')
 
         handling_names, layout_names, kit_names = set(), set(), set()
         vehicles = []
@@ -164,7 +207,12 @@ def check(paths):
                     add('error', 'XML_INVALID', res, f'{rp} 不是合法的 XML：{root}')
                     continue
                 if base == 'handling.meta':
-                    handling_names |= {t.upper() for t in texts(root, 'handlingName')}
+                    names = {t.upper() for t in texts(root, 'handlingName')}
+                    handling_names |= names
+                    for hn in names:
+                        owner = handling_owner.setdefault(hn, os.path.basename(res))
+                        if owner != os.path.basename(res):
+                            add('warn', 'HANDLING_NAME_DUPLICATE', res, f"handlingName '{hn}' 也在 {owner} 里，后加载的会覆盖前面的")
                 elif base == 'vehiclelayouts.meta':
                     layout_names |= {t.upper() for t in texts(root, 'Name')}
                 elif base == 'carcols.meta':
@@ -216,7 +264,7 @@ def check(paths):
             if m not in yfts:
                 add('error', 'YFT_MISSING', res, f"vehicles.meta 的 modelName '{v['model']}' 找不到 {m}.yft，车会生成不了")
             if m + '_hi' not in yfts:
-                add('warn', 'YFT_HI_MISSING', res, f"没有 {m}_hi.yft（近距离高模），确认是不是故意的")
+                add('info', 'YFT_HI_MISSING', res, f"没有 {m}_hi.yft（近距离高模）。Sollumz 只在模型有 Very High LOD 时才导出它，没有也能用")
             if v['txd'] and v['txd'].lower() not in ytds:
                 add('warn', 'YTD_MISSING', res, f"txdName '{v['txd']}' 找不到 {v['txd'].lower()}.ytd，车可能没有贴图")
             if not v['handling']:
@@ -237,11 +285,24 @@ def check(paths):
                     add('warn', 'KIT_NOT_DEFINED', res, f"carvariations 用了改装套件 '{k}'，但本资源的 carcols.meta 里没有定义")
 
     for kid, owners in kit_ids.items():
+        try:
+            kid_num = int(kid)
+        except ValueError:
+            kid_num = None
+        if kid_num is not None and kid_num > 65535:
+            add('error', 'MODKIT_ID_RANGE', None, f'改装套件 id {kid} 超过 65535（FiveM 的上限）')
+        elif kid_num is not None and kid_num < 1024:
+            add('info', 'MODKIT_ID_LOW', None, f'改装套件 id {kid} 小于 1024，可能和原版或别的车撞号，建议用 1024 以上并在服务器上统一登记')
         if len(owners) > 1:
             who = ', '.join(f'{r}:{k}' for r, k in owners)
             add('error', 'MODKIT_ID_DUPLICATE', None, f'改装套件 id {kid} 被用了 {len(owners)} 次（{who}），改装菜单会错乱或消失')
     for label, bucket, code in (('警笛 siren', siren_ids, 'SIREN_ID_DUPLICATE'), ('灯光 light', light_ids, 'LIGHT_ID_DUPLICATE')):
         for sid, owners in bucket.items():
+            try:
+                if int(sid) > 255:
+                    add('error', code.replace('DUPLICATE', 'RANGE'), None, f'{label} id {sid} 超过 255（这个 id 只有一个字节，会溢出和别的撞号）')
+            except ValueError:
+                pass
             if len(owners) > 1:
                 add('error', code, None, f'{label} id {sid} 重复：{", ".join(owners)}')
     return findings, resources
