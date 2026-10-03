@@ -2,7 +2,7 @@
 
 用 Claude Code 打开这个仓库时，`.claude/settings.json` 会自动登记 6 个插件市场，并提示你安装下面已启用的插件；`.claude/skills/` 里的技能直接可用，不用安装。
 
-## 已启用的插件（53 个，`.claude/settings.json`）
+## 已启用的插件（54 个，`.claude/settings.json`）
 
 | 来源 | 插件 |
 |---|---|
@@ -11,13 +11,14 @@
 | [lackeyjb/playwright-skill](https://github.com/lackeyjb/playwright-skill) | `playwright-skill`（首次使用需在插件目录跑 `npm run setup`） |
 | [phuryn/pm-skills](https://github.com/phuryn/pm-skills) | 全部 9 个 `pm-*` 插件 |
 | [trailofbits/skills](https://github.com/trailofbits/skills) | 44 个中的 38 个（见下方"刻意没启用"） |
+| [B7Kompirine/muto-atlas](https://github.com/B7Kompirine/muto-atlas) | `muto-atlas`：GTA V / FiveM 资料库（车辆骨骼名、碰撞 flag、Sollumz/CodeWalker 常见坑、原版车规格），19 个指令，要先建资料库（见下） |
 
 `anthropics/knowledge-work-plugins` 只登记了市场，没有默认启用，原因见下。
 
-## 直接放进仓库的技能（41 个，`.claude/skills/`）
+## 直接放进仓库的技能（45 个，`.claude/skills/`）
 
 - **FiveM**：`fivem-pro`（[leminhhuy113/fivem-pro](https://github.com/leminhhuy113/fivem-pro)，MIT）讲开发、性能优化，以及用 Sollumz + CodeWalker 做地图/MLO；`fivem-security-audit`（[matiaspalmac/fivem-audit-skill](https://github.com/matiaspalmac/fivem-audit-skill)，MIT）查后门、漏洞、性能问题
-- **Blender 建模 / 模型优化 / 动作**：从 [arjun988/blender-skills](https://github.com/arjun988/blender-skills)（MIT）挑了 7 个：retopology、lod-pipeline、asset-optimization、uv-workflow、rigging、animation、export-pipeline。需要下面的 Blender MCP
+- **Blender 建模 / 模型优化 / 动作**：从 [arjun988/blender-skills](https://github.com/arjun988/blender-skills)（MIT）挑了 11 个：retopology、lod-pipeline、asset-optimization、uv-workflow、rigging、animation、export-pipeline，以及做车用的 vehicle-artist、hard-surface、collision-proxy、texture-workflow。需要下面的 Blender MCP
 
 - 20 个 Cowork 技能，来自 [EAIconsulting/cowork-skills-library](https://github.com/EAIconsulting/cowork-skills-library)（MIT）
 - 12 个通用技能，来自 [ComposioHQ/awesome-claude-skills](https://github.com/ComposioHQ/awesome-claude-skills)（Apache-2.0）：changelog-generator、competitive-ads-extractor、content-research-writer、domain-name-brainstormer、file-organizer、image-enhancer、invoice-organizer、lead-research-assistant、meeting-insights-analyzer、raffle-winner-picker、tailored-resume-generator、video-downloader
@@ -34,6 +35,17 @@ Blender 技能要在你自己的电脑上跑，Claude 通过 [MCP for Blender](h
 4. 在 T1 里打开 Claude Code，同意启用 `blender` 这个 MCP 服务
 
 不要开它的付费功能（Premium 的 AI 生成 3D 模型）；Sketchfab、Poly Haven 这些免费素材可以用。做 GTA 模型时，在 Blender 里完成后再用 [Sollumz](https://github.com/Sollumz/Sollumz) 导出成 .ydr/.yft/.ycd。
+
+## muto-atlas 资料库（在你自己的电脑上建一次）
+
+插件本身不带游戏资料，要用你电脑上的 GTA V 和 CodeWalker 建资料库：
+
+1. 在 T1 里打开 Claude Code，同意安装 muto-atlas 插件
+2. 输入 `/asset-setup`，按提示填 GTA V 路径、`CodeWalker.Core.dll` 路径、你的服务器 `resources` 路径
+
+会跑本地 Python/PowerShell 脚本，并从 GitHub 和 runtime.fivem.net 下载公开的 GTA/FiveM 资料（免费）。不要用 `build_atlas_db.py --tagger claude`，那要付费的 Anthropic API key；用 `--tagger rules`。
+
+做车辆可以参考：[awesome-fivem-vehicles](https://github.com/PrestigeRoleplay/awesome-fivem-vehicles)、[Sollumz 车辆制作教程](https://sollumz.com/2026/06/16/sollumz-vehicle-creation-guide-for-gta-v-fivem/)。
 
 ## 在 Cowork 里安装
 

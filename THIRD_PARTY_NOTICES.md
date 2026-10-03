@@ -33,4 +33,4 @@ Skills in `.claude/skills/` were copied from the repositories below. Local chang
 
 - Source: https://github.com/arjun988/blender-skills (commit `8f778d2405a214b508d4c7d80742be8e43acdd52`)
 - License: MIT
-- Skills: animation, asset-optimization, export-pipeline, lod-pipeline, retopology, rigging, uv-workflow
+- Skills: animation, asset-optimization, collision-proxy, export-pipeline, hard-surface, lod-pipeline, retopology, rigging, texture-workflow, uv-workflow, vehicle-artist
