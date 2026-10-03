@@ -21,6 +21,17 @@
 
 **不用**：没有相关技能，或者用户明确说不要用。
 
+## 不用付费的东西
+
+用户不要付费的工具和服务。需要付费 API key、订阅或额度的技能和功能都不用，也不推荐；只有免费的替代方案时才提，并说明它是免费的。比如 Blender MCP 的 Premium AI 生成 3D 模型、Gemini/Nano Banana 生图 API，都不要用。
+
 ## 写 FiveM / QBCore / Qbox 相关代码时
 
-优先用用户自己的 `fivem-script` 技能，再按需要搭配 superpowers（规划、调试、审查）和安全检查技能（insecure-defaults、sharp-edges）。
+优先用用户自己的 `fivem-script` 技能，再按需要搭配：
+- `fivem-pro`：FiveM 开发规范、resmon 性能优化、Sollumz + CodeWalker 做地图/MLO
+- `fivem-security-audit`：审查 script 的后门、漏洞、性能问题，也能判断来路不明的 script 安不安全
+- superpowers（规划、调试、审查）和安全检查技能（insecure-defaults、sharp-edges）
+
+## 3D 模型和动作
+
+Blender 技能（retopology、lod-pipeline、asset-optimization、uv-workflow、rigging、animation、export-pipeline）要通过 `blender` MCP 在用户自己的 Blender 里执行代码，用之前先问。做 GTA 模型时，在 Blender 里完成后提醒用户用 Sollumz 导出成 .ydr/.yft/.ycd。

@@ -14,12 +14,26 @@
 
 `anthropics/knowledge-work-plugins` 只登记了市场，没有默认启用，原因见下。
 
-## 直接放进仓库的技能（35 个，`.claude/skills/`）
+## 直接放进仓库的技能（44 个，`.claude/skills/`）
+
+- **FiveM**：`fivem-pro`（[leminhhuy113/fivem-pro](https://github.com/leminhhuy113/fivem-pro)，MIT）讲开发、性能优化，以及用 Sollumz + CodeWalker 做地图/MLO；`fivem-security-audit`（[matiaspalmac/fivem-audit-skill](https://github.com/matiaspalmac/fivem-audit-skill)，MIT）查后门、漏洞、性能问题
+- **Blender 建模 / 模型优化 / 动作**：从 [arjun988/blender-skills](https://github.com/arjun988/blender-skills)（MIT）挑了 7 个：retopology、lod-pipeline、asset-optimization、uv-workflow、rigging、animation、export-pipeline。需要下面的 Blender MCP
 
 - 21 个 Cowork 技能，来自 [EAIconsulting/cowork-skills-library](https://github.com/EAIconsulting/cowork-skills-library)（MIT）
 - 14 个通用技能，来自 [ComposioHQ/awesome-claude-skills](https://github.com/ComposioHQ/awesome-claude-skills)（Apache-2.0）：changelog-generator、competitive-ads-extractor、content-research-writer、developer-growth-analysis、domain-name-brainstormer、file-organizer、image-enhancer、invoice-organizer、langsmith-fetch、lead-research-assistant、meeting-insights-analyzer、raffle-winner-picker、tailored-resume-generator、video-downloader
 
 来源与许可证见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
+
+## Blender MCP（`.mcp.json`）
+
+Blender 技能要在你自己的电脑上跑，Claude 通过 [MCP for Blender](https://github.com/ahujasid/blender-mcp)（MIT，免费）操作 Blender。已在 `.mcp.json` 里设置好，并关闭了匿名统计（`DISABLE_TELEMETRY`）。
+
+1. 装 [uv](https://docs.astral.sh/uv/getting-started/installation/)
+2. 运行 `uvx mcp-for-blender install-addon`，然后在 Blender 的 Edit → Preferences → Add-ons 里启用 "MCP for Blender"
+3. 在 Blender 3D 视图按 N，在侧边栏里点启动服务
+4. 在 T1 里打开 Claude Code，同意启用 `blender` 这个 MCP 服务
+
+不要开它的付费功能（Premium 的 AI 生成 3D 模型）；Sketchfab、Poly Haven 这些免费素材可以用。做 GTA 模型时，在 Blender 里完成后再用 [Sollumz](https://github.com/Sollumz/Sollumz) 导出成 .ydr/.yft/.ycd。
 
 ## 在 Cowork 里安装
 
@@ -52,3 +66,7 @@ claude plugin install episodic-memory@superpowers-marketplace
 | `skill-share`、`twitter-algorithm-optimizer`（Composio） | 许可证缺失或为 AGPL |
 | hesreallyhim/awesome-claude-code、travisvn/awesome-claude-skills | 只是链接清单，没有可安装的技能 |
 | ErinSpringmeyer/skills | 仓库目前是空的 |
+| Nano Banana 等生图技能 | 要付费的 API key |
+| arjun988/blender-skills 其余 87 个技能 | 只挑了建模优化和动作相关的，避免技能列表过长 |
+| wojzj57/fiveai-skills | 没有许可证 |
+| CodeCrafter98/fivem-agent-skills | 43 个技能太多，内容和 fivem-pro 重叠 |
