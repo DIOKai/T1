@@ -2,7 +2,7 @@
 
 用 Claude Code 打开这个仓库时，`.claude/settings.json` 会自动登记 6 个插件市场，并提示你安装下面已启用的插件；`.claude/skills/` 里的技能直接可用，不用安装。
 
-## 已启用的插件（56 个，`.claude/settings.json`）
+## 已启用的插件（53 个，`.claude/settings.json`）
 
 | 来源 | 插件 |
 |---|---|
@@ -10,17 +10,17 @@
 | [obra/superpowers-marketplace](https://github.com/obra/superpowers-marketplace) | `superpowers` |
 | [lackeyjb/playwright-skill](https://github.com/lackeyjb/playwright-skill) | `playwright-skill`（首次使用需在插件目录跑 `npm run setup`） |
 | [phuryn/pm-skills](https://github.com/phuryn/pm-skills) | 全部 9 个 `pm-*` 插件 |
-| [trailofbits/skills](https://github.com/trailofbits/skills) | 44 个中的 41 个（见下方"刻意没启用"） |
+| [trailofbits/skills](https://github.com/trailofbits/skills) | 44 个中的 38 个（见下方"刻意没启用"） |
 
 `anthropics/knowledge-work-plugins` 只登记了市场，没有默认启用，原因见下。
 
-## 直接放进仓库的技能（44 个，`.claude/skills/`）
+## 直接放进仓库的技能（41 个，`.claude/skills/`）
 
 - **FiveM**：`fivem-pro`（[leminhhuy113/fivem-pro](https://github.com/leminhhuy113/fivem-pro)，MIT）讲开发、性能优化，以及用 Sollumz + CodeWalker 做地图/MLO；`fivem-security-audit`（[matiaspalmac/fivem-audit-skill](https://github.com/matiaspalmac/fivem-audit-skill)，MIT）查后门、漏洞、性能问题
 - **Blender 建模 / 模型优化 / 动作**：从 [arjun988/blender-skills](https://github.com/arjun988/blender-skills)（MIT）挑了 7 个：retopology、lod-pipeline、asset-optimization、uv-workflow、rigging、animation、export-pipeline。需要下面的 Blender MCP
 
-- 21 个 Cowork 技能，来自 [EAIconsulting/cowork-skills-library](https://github.com/EAIconsulting/cowork-skills-library)（MIT）
-- 14 个通用技能，来自 [ComposioHQ/awesome-claude-skills](https://github.com/ComposioHQ/awesome-claude-skills)（Apache-2.0）：changelog-generator、competitive-ads-extractor、content-research-writer、developer-growth-analysis、domain-name-brainstormer、file-organizer、image-enhancer、invoice-organizer、langsmith-fetch、lead-research-assistant、meeting-insights-analyzer、raffle-winner-picker、tailored-resume-generator、video-downloader
+- 20 个 Cowork 技能，来自 [EAIconsulting/cowork-skills-library](https://github.com/EAIconsulting/cowork-skills-library)（MIT）
+- 12 个通用技能，来自 [ComposioHQ/awesome-claude-skills](https://github.com/ComposioHQ/awesome-claude-skills)（Apache-2.0）：changelog-generator、competitive-ads-extractor、content-research-writer、domain-name-brainstormer、file-organizer、image-enhancer、invoice-organizer、lead-research-assistant、meeting-insights-analyzer、raffle-winner-picker、tailored-resume-generator、video-downloader
 
 来源与许可证见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
 
@@ -38,7 +38,7 @@ Blender 技能要在你自己的电脑上跑，Claude 通过 [MCP for Blender](h
 ## 在 Cowork 里安装
 
 Cowork 的插件只能在 Cowork 界面里装：打开 [claude.com/plugins](https://claude.com/plugins/)，安装 Productivity、Sales、Marketing、Data 等职能插件。
-EAIconsulting 的 21 个技能也可以打包上传到 Cowork（Settings → Capabilities → Skills），每个技能文件夹就是一个 skill。
+EAIconsulting 的 20 个技能也可以打包上传到 Cowork（Settings → Capabilities → Skills），每个技能文件夹就是一个 skill。
 
 ## 按需再装（已登记市场，一条命令即可）
 
@@ -67,6 +67,12 @@ claude plugin install episodic-memory@superpowers-marketplace
 | hesreallyhim/awesome-claude-code、travisvn/awesome-claude-skills | 只是链接清单，没有可安装的技能 |
 | ErinSpringmeyer/skills | 仓库目前是空的 |
 | Nano Banana 等生图技能 | 要付费的 API key |
+| `burpsuite-project-parser@trailofbits` | 要 Burp Suite Professional（付费） |
+| `second-opinion@trailofbits` | 要 OpenAI Codex 或 Gemini CLI 账号 |
+| `culture-index@trailofbits` | 要付费的 Culture Index 测验结果 |
+| `dispatch-starter`（EAIconsulting） | 要 Cowork Max 方案 |
+| `developer-growth-analysis`（Composio） | 要 Composio Rube 账号和 Slack |
+| `langsmith-fetch`（Composio） | 要 LangSmith 账号，只对 LangChain 开发有用 |
 | arjun988/blender-skills 其余 87 个技能 | 只挑了建模优化和动作相关的，避免技能列表过长 |
 | wojzj57/fiveai-skills | 没有许可证 |
 | CodeCrafter98/fivem-agent-skills | 43 个技能太多，内容和 fivem-pro 重叠 |
