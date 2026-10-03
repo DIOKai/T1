@@ -35,14 +35,17 @@ python .claude/skills/fivem-vehicle-mod/scripts/check_vehicle_resource.py <path>
 | VARIATION_MODEL_UNKNOWN | error | carvariations entry for a model not in vehicles.meta |
 | MODKIT_ID_DUPLICATE | error | two kits share a modkit id |
 | SIREN_ID_DUPLICATE / LIGHT_ID_DUPLICATE | error | shared siren/light settings id |
-| ASSET_OVER_48MIB | error | a .yft/.ytd/.ydr/.ydd file over 48 MiB — FXServer says it WILL cause streaming issues |
-| ASSET_OVER_16MIB | warn | file over 16 MiB — FXServer will print a size warning (memory use can be higher than file size, so also read the console) |
+| ASSET_OVER_48MIB | error | a .yft/.ytd/.ydr/.ydd using over 48 MiB of virtual or physical memory (RSC7 header) — FXServer says it WILL cause streaming issues |
+| ASSET_OVER_16MIB | warn | virtual or physical memory over 16 MiB, decoded from the RSC7 header like FXServer does (falls back to file size for non-RSC files) — FXServer will print a size warning |
 | DATA_FILE_INVALID_TYPE | warn | data_file type not in the Cfx list (e.g. `DLCTEXT_FILE`, `CARCONTENTUNLOCKS_FILE`) — ignored by FiveM |
 | DATA_FILE_REFUSED | warn | `TEXTFILE_METAFILE` (dlctext.meta) — refused by FiveM |
 | HANDLING_NAME_DUPLICATE | warn | same handlingName in two resources — last loaded wins |
 | MODKIT_ID_RANGE | error | modkit id above 65535 |
 | MODKIT_ID_LOW | info | modkit id below 1024 — may collide with vanilla; prefer ≥1024 |
 | SIREN_ID_RANGE / LIGHT_ID_RANGE | error | siren/light settings id above 255 (one-byte field) |
+| SIREN_LIGHTS_OVER_20 | warn | a siren setting with more than 20 lights (vanilla limit siren1–siren20; more needs the client-side SSLA, impossible on Enhanced) |
+| SIREN_ID_UNDEFINED | info | carvariations `sirenSettings` points at an id no scanned carcols.meta defines — fine for vanilla ids, otherwise a typo or a missing resource |
+| EMERGENCY_FLAGS | info | `VC_EMERGENCY` vehicle without `FLAG_LAW_ENFORCEMENT` / `FLAG_EMERGENCY_SERVICE` |
 | NOT_RSC7 | warn | a .yft/.ytd/.ydr/.ydd under `stream/` doesn't start with the `RSC7` magic of Legacy resources — corrupt, placeholder, CodeWalker XML, or a misplaced Gen9 file |
 | YFT_HI_MISSING | info | no `<model>_hi.yft` (only exported when the model has a Very High LOD) |
 | YTD_MISSING | warn | `txdName` has no matching `.ytd` |

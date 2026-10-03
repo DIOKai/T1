@@ -34,7 +34,7 @@ Skills in `.claude/skills/` were copied from the repositories below. Local chang
 
 - Source: https://github.com/arjun988/blender-skills (commit `8f778d2405a214b508d4c7d80742be8e43acdd52`)
 - License: MIT
-- Skills: animation, asset-optimization, collision-proxy, export-pipeline, hard-surface, lod-pipeline, retopology, rigging, texture-workflow, uv-workflow, vehicle-artist
+- Skills: animation, archviz, asset-optimization, collision-proxy, environment-artist, export-pipeline, hard-surface, lod-pipeline, prop-artist, retopology, rigging, set-dressing, texture-workflow, uv-workflow, vehicle-artist
 
 ## germanfndez/fiveai-skills
 
@@ -53,3 +53,29 @@ Skills in `.claude/skills/` were copied from the repositories below. Local chang
 - Source: https://github.com/MuscleOtter/quantity-surveyor (commit `a3f788c38e7cc32f75f3f229ea04fa31b14098ca`)
 - License: MIT (LICENSE included in the skill folder)
 - Skills: quantity-surveyor
+
+## LVTD-LLC/skills
+
+- Source: https://github.com/LVTD-LLC/skills (commit `a3ad087f5d1f14c09166de9f70b88c48e63209a7`)
+- License: MIT (LICENSE copied into each skill folder)
+- Skills: game-balance-economy, game-interface-feedback
+
+## ra100/blender-claude-plugin
+
+- Source: https://github.com/ra100/blender-claude-plugin (commit `78e9151fdc9e01ce37f1d16a9b677c3047411885`)
+- License: MIT (LICENSE copied into the skill folder)
+- Skills: blender-animation-rigging
+
+## LobzyJay/motion-design-with-claude
+
+- Source: https://github.com/LobzyJay/motion-design-with-claude (commit `a4d48c55ccb54a3b8bc4e100e34f6dcaca3bbfea`)
+- License: MIT (LICENSE copied into the skill folder)
+- Skills: motion-design
+
+## fivem-graphics-pack (written for this repository)
+
+No third-party code is included. `assets/timecycle_vars.txt` is a list of the timecycle variable names (identifiers only, no values) as they appear in GTA V's `w_extrasunny.xml`; GTA V is © Rockstar Games. `scripts/make_lut.py` writes the LUT layout that ReShade's `LUT.fx` (crosire/reshade-shaders) reads; no ReShade code or images are copied.
+
+## fivem-mlo-housing (written for this repository)
+
+No third-party code is included. The workflow summarises the Sollumz wiki (GPL-3 project), the FiveM documentation, and the public READMEs and configs of qbx_properties, qb-interior, qb-houses, ps-housing, bob74_ipl, object_gizmo and ht_mlotool; flag names and values were read from the Sollumz source (`ytyp/properties/flags.py`) and XML element names from Sollumz szio (MIT).

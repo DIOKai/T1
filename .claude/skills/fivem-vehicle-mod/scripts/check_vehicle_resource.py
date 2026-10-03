@@ -19,6 +19,7 @@ import fnmatch
 import json
 import os
 import re
+import struct
 import sys
 import xml.etree.ElementTree as ET
 
@@ -63,10 +64,29 @@ KNOWN_DATA_FILE_TYPES = {
 }
 # FXServer warns when a streamed asset uses more than 16 MiB of physical or virtual memory and adds
 # "Oversized assets can and WILL lead to streaming issues" above 48 MiB (ResourceStreamComponent.cpp).
-# Memory use is at least the file size, so file size is only a lower bound.
+# It measures the virtual and physical memory decoded from the RSC7 header (ConvertRSC7Size), not
+# the compressed file size, so a 15 MB .ytd on disk can be a 30 MiB asset. Decode it the same way.
 ASSET_WARN_MB = 16.0
 ASSET_ERROR_MB = 48.0
 STREAM_EXTS = ('.yft', '.ytd', '.ydr', '.ydd')
+
+
+def rsc_page_size(flags):
+    # FXServer ConvertRSC7Size / CodeWalker RpfFile.GetSizeFromFlags
+    s = (((flags >> 27) & 0x1) + (((flags >> 26) & 0x1) << 1) + (((flags >> 25) & 0x1) << 2)
+         + (((flags >> 24) & 0x1) << 3) + (((flags >> 17) & 0x7F) << 4) + (((flags >> 11) & 0x3F) << 5)
+         + (((flags >> 7) & 0xF) << 6) + (((flags >> 5) & 0x3) << 7) + (((flags >> 4) & 0x1) << 8))
+    return (0x200 << (flags & 0xF)) * s
+
+
+def rsc_memory(path):
+    """(virtual, physical) bytes from an RSC7/RSC8 header, or None."""
+    with open(path, 'rb') as fh:
+        head = fh.read(16)
+    if len(head) < 16 or head[:4] not in (b'RSC7', b'RSC8'):
+        return None
+    _, _, virt, phys = struct.unpack('<4sIII', head)
+    return rsc_page_size(virt), rsc_page_size(phys)
 
 
 def find_resources(paths):
@@ -148,6 +168,7 @@ def check(paths):
         return findings, resources
 
     kit_ids, siren_ids, light_ids, model_owner, handling_owner = {}, {}, {}, {}, {}
+    siren_uses = []
 
     for res in resources:
         manifest_name, files_decl, data_files = parse_manifest(res)
@@ -198,11 +219,16 @@ def check(paths):
                     magic = fh.read(4)
                 if magic != b'RSC7':
                     add('warn', 'NOT_RSC7', res, f'{rp} 开头不是 RSC7，不像有效的 GTA V（Legacy）资源文件：可能损坏、只是占位、是 CodeWalker XML，或是放错到 stream/ 的 Gen9 文件。用 CodeWalker 或 OpenIV 打开确认')
-            mb = os.path.getsize(full) / 1024 / 1024
+            mem = rsc_memory(full)
+            if mem:
+                size, what = max((mem[0], '虚拟内存'), (mem[1], '物理（显存）内存'))
+            else:
+                size, what = os.path.getsize(full), '文件大小'
+            mb = size / 1024 / 1024
             if mb > ASSET_ERROR_MB:
-                add('error', 'ASSET_OVER_48MIB', res, f'{name} 有 {mb:.1f}MB，超过 48MiB，FXServer 会明确警告一定会出串流问题（模型不加载、贴图掉）')
+                add('error', 'ASSET_OVER_48MIB', res, f'{name} 的{what}是 {mb:.1f} MiB，超过 48MiB，FXServer 会明确警告一定会出串流问题（模型不加载、贴图掉）')
             elif mb > ASSET_WARN_MB:
-                add('warn', 'ASSET_OVER_16MIB', res, f'{name} 有 {mb:.1f}MB，FXServer 启动时会出现超过 16MiB 的警告，建议压缩贴图或拆出 +hi')
+                add('warn', 'ASSET_OVER_16MIB', res, f'{name} 的{what}是 {mb:.1f} MiB（按 RSC 头算，不是磁盘上的文件大小），FXServer 启动时会出现超过 16MiB 的警告，建议压缩贴图或拆出 +hi')
 
         handling_names, layout_names, kit_names = set(), set(), set()
         vehicles = []
@@ -243,6 +269,11 @@ def check(paths):
                             sid = value_attr(item.find('id'))
                             if sid is not None:
                                 bucket.setdefault(sid, []).append(os.path.basename(res))
+                            if section == 'Sirens':
+                                lights = item.find('sirens')
+                                n = len(list(lights)) if lights is not None else 0
+                                if n > 20:
+                                    add('warn', 'SIREN_LIGHTS_OVER_20', res, f"siren 设置 {sid}（{(item.findtext('name') or '').strip()}）有 {n} 个灯，原版上限是 20 个（siren1…siren20），多出来的要靠玩家装 SSLA，Enhanced 不能用")
                 elif base == 'vehicles.meta':
                     for item in root.iter('Item'):
                         model = (item.findtext('modelName') or '').strip()
@@ -257,6 +288,8 @@ def check(paths):
                             'handling': (item.findtext('handlingId') or '').strip(),
                             'layout': (item.findtext('layout') or '').strip(),
                             'audio': (item.findtext('audioNameHash') or '').strip(),
+                            'class': (item.findtext('vehicleClass') or '').strip().upper(),
+                            'flags': set((item.findtext('flags') or '').upper().split()),
                         })
                 elif base == 'carvariations.meta':
                     for item in root.iter('Item'):
@@ -291,11 +324,15 @@ def check(paths):
                 add('info', 'HANDLING_VANILLA', res, f"'{v['model']}' 用 handlingId '{v['handling']}'，这个资源没有 handling.meta，只有它是原版名字才会生效")
             if v['layout'] and layout_names and v['layout'].upper() not in layout_names and not v['layout'].upper().startswith('LAYOUT_'):
                 add('warn', 'LAYOUT_UNKNOWN', res, f"layout '{v['layout']}' 不在本资源的 vehiclelayouts.meta 里，也不像原版 LAYOUT_*")
+            if v['class'] == 'VC_EMERGENCY' and not v['flags'] & {'FLAG_EMERGENCY_SERVICE', 'FLAG_LAW_ENFORCEMENT'}:
+                add('info', 'EMERGENCY_FLAGS', res, f"'{v['model']}' 是 VC_EMERGENCY，但 flags 里没有 FLAG_LAW_ENFORCEMENT / FLAG_EMERGENCY_SERVICE（警车通常两个都加，影响 NPC 反应和通缉逻辑）")
             if not v['audio'] or v['audio'] == '0':
                 add('warn', 'NO_AUDIO', res, f"'{v['model']}' 的 audioNameHash 是空的，可能没有引擎声")
         for var in variations:
             if model_set and var['model'].lower() not in model_set:
                 add('error', 'VARIATION_MODEL_UNKNOWN', res, f"carvariations.meta 的 modelName '{var['model']}' 不在 vehicles.meta 里")
+            if var['siren'] not in (None, '0', ''):
+                siren_uses.append((res, var['model'], var['siren']))
             for k in var['kits']:
                 if k.lower() not in kit_names and not k.lower().startswith('0_default'):
                     add('warn', 'KIT_NOT_DEFINED', res, f"carvariations 用了改装套件 '{k}'，但本资源的 carcols.meta 里没有定义")
@@ -312,6 +349,9 @@ def check(paths):
         if len(owners) > 1:
             who = ', '.join(f'{r}:{k}' for r, k in owners)
             add('error', 'MODKIT_ID_DUPLICATE', None, f'改装套件 id {kid} 被用了 {len(owners)} 次（{who}），改装菜单会错乱或消失')
+    for res, model, sid in siren_uses:
+        if sid not in siren_ids:
+            add('info', 'SIREN_ID_UNDEFINED', res, f"'{model}' 的 carvariations sirenSettings={sid}，扫描到的 carcols.meta 里没有这个 siren id：用原版的 siren 设置就没问题；如果是自定义的，要把定义它的资源一起扫，或检查 id 有没有写错")
     for label, bucket, code in (('警笛 siren', siren_ids, 'SIREN_ID_DUPLICATE'), ('灯光 light', light_ids, 'LIGHT_ID_DUPLICATE')):
         for sid, owners in bucket.items():
             try:

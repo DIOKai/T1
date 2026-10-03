@@ -1,6 +1,6 @@
 ---
 name: fivem-vehicle-mod
-description: Build, fix and ship FiveM add-on vehicle resources (GTA V car mods) — the stream/ files (.yft, _hi.yft, .ytd), the data/ meta files (vehicles.meta, handling.meta, carcols.meta, carvariations.meta, vehiclelayouts.meta), fxmanifest data_file entries, modkits/tuning parts, liveries, sirens, LODs, texture limits, engine sounds, GTA V Enhanced conversion, and pre-release checks. Use this whenever the user wants to add, convert, tune, optimize or debug a custom car/bike/truck/police vehicle for FiveM or a car pack — including "车不能生成", "改装菜单没东西", "没有引擎声", "贴图掉了", "handling 不生效", "addon car", "debadge", "handling.meta" — even if they never say "skill" or "resource". Pair with muto-atlas (/vehicle) for GTA bone names and vanilla specs, and with the Blender/Sollumz skills when the model itself is being built.
+description: Build, fix and ship FiveM add-on vehicle resources (GTA V car mods) — the stream/ files (.yft, _hi.yft, .ytd), the data/ meta files (vehicles.meta, handling.meta, carcols.meta, carvariations.meta, vehiclelayouts.meta), fxmanifest data_file entries, modkits/tuning parts, liveries, sirens, LODs, texture limits, engine sounds, GTA V Enhanced conversion, and pre-release checks. Use this whenever the user wants to add, convert, tune, optimize or debug a custom car/bike/truck/police vehicle for FiveM or a car pack — including "车不能生成", "改装菜单没东西", "没有引擎声", "贴图掉了", "handling 不生效", "addon car", "debadge", "handling.meta", "警车", "模组警车", "警灯", "警笛", "siren", "lightbar", "ELS" — even if they never say "skill" or "resource". Pair with muto-atlas (/vehicle) for GTA bone names and vanilla specs, and with the Blender/Sollumz skills when the model itself is being built.
 ---
 
 # FiveM add-on vehicle mods
@@ -11,6 +11,8 @@ Reference files (read the one you need, not all of them):
 - `references/resource-and-meta.md` — folder layout, fxmanifest template, what each meta file controls, which names must match across files, field-by-field notes.
 - `references/handling.md` — handling.meta fields, units, sane ranges, how to tune.
 - `references/modkits-liveries-sirens.md` — carcols/carvariations: modkit ids, tuning parts, liveries, sirens, lights.
+- `references/modeling-sollumz.md` — how modded cars are built in Blender + Sollumz: importing a vanilla base, rigging parts to GTA bones, vehicle shaders and paint layers, light IDs, windows, LODs, export options.
+- `references/police-emergency.md` — police/EMS/fire vehicles: siren bones and carcols siren settings (sequencers, wig-wag), extras (`extra_ten`!), liveries, emergency flags, police job configs (qbx_police, qb-policejob), siren controllers (Renewed-Sirensync, LVC) and custom server-side siren sounds.
 - `references/performance-and-enhanced.md` — what FiveM's size warnings really mean, texture/poly budgets, LODs, client texture caps, GTA V Enhanced conversion.
 - `references/troubleshooting.md` — symptom → cause → fix table.
 - `references/tools.md` — exact usage and known quirks of every tool below.
@@ -23,7 +25,7 @@ Reference files (read the one you need, not all of them):
 - If the car will have tuning parts or a livery kit, reserve a **modkit id** now that no other vehicle on the server uses (see `references/modkits-liveries-sirens.md`). Run the cross-check script on the whole cars folder to see which ids are taken.
 
 ### 2. Model (only if building or editing the model)
-Hand this to the Blender skills (`vehicle-artist`, `hard-surface`, `retopology`, `lod-pipeline`, `uv-workflow`, `texture-workflow`) through the `blender` MCP, and follow the GTA rules from the project CLAUDE.md: GTA's fixed vehicle bone names (look them up with muto-atlas `/vehicle` — doors, wheels, windows, lights only work when the bone name is exact), Sollumz bounds for collision, LOD0 under ~50k triangles. Export with Sollumz to `<name>.yft`, `<name>_hi.yft` and `<name>.ytd` (+ `<name>+hi.ytd` if the high-detail textures are split out).
+Read `references/modeling-sollumz.md` first (vanilla-base vs custom-model routes, Sollumz settings). Hand this to the Blender skills (`vehicle-artist`, `hard-surface`, `retopology`, `lod-pipeline`, `uv-workflow`, `texture-workflow`) through the `blender` MCP, and follow the GTA rules from the project CLAUDE.md: GTA's fixed vehicle bone names (look them up with muto-atlas `/vehicle` — doors, wheels, windows, lights only work when the bone name is exact), Sollumz bounds for collision, LOD0 under ~50k triangles. Export with Sollumz to `<name>.yft`, `<name>_hi.yft` and `<name>.ytd` (+ `<name>+hi.ytd` if the high-detail textures are split out).
 
 ### 3. Build the resource
 Use the layout and fxmanifest template in `references/resource-and-meta.md`. Start the meta files from a similar vanilla vehicle rather than from scratch — muto-atlas `/vehicle <vanilla>` gives its handlingId, layout, modkit and class, which are good defaults for class, layout, audio and handling.
@@ -36,7 +38,7 @@ Two good starting points, then tune in game:
 Then tune live on a **dev server** with vehicleDebug (Right Alt in a vehicle), click "Copy Handling", and paste the lines back over the matching fields in handling.meta. Changes made in vehicleDebug are client-side only and vanish on respawn, so nothing is saved until it's pasted into the file. `references/handling.md` explains what each field does.
 
 ### 5. Tuning parts, liveries, sirens
-See `references/modkits-liveries-sirens.md`. The two classic breakages are a modkit id shared with another car (tuning menu empty or shows the other car's parts) and a siren/light settings id shared with another car.
+See `references/modkits-liveries-sirens.md`; for police/EMS/fire vehicles follow `references/police-emergency.md` (siren setting, extras, liveries, job config, siren controller). The two classic breakages are a modkit id shared with another car (tuning menu empty or shows the other car's parts) and a siren/light settings id shared with another car.
 
 ### 6. Check before it goes on the server
 Run both checks; they catch different things:

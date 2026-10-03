@@ -33,7 +33,9 @@
 - superpowers（规划、调试、审查）和安全检查技能（insecure-defaults、sharp-edges）
 - `oxlib`、`oxmysql`、`ox-inventory`、`ox-target`：ox 系列的 API 速查
 - `fivem-react-nui`：用 React + TypeScript + Vite + Tailwind 做 NUI
-- `fivem-vehicle-mod`：做、修、上架 addon 车辆资源（meta 文件、改装套件、涂装、警笛、贴图大小、Enhanced 转换）。车辆资源上服前先跑它自带的 `check_vehicle_resource.py`（本地、只读，直接跑）；npx 工具第一次跑会下载套件，先说一声
+- `fivem-vehicle-mod`：做、修、上架 addon 车辆资源（meta 文件、改装套件、涂装、警笛、贴图大小、Enhanced 转换），包括模组警车和用 Sollumz 做车的流程。车辆资源上服前先跑它自带的 `check_vehicle_resource.py`（本地、只读，直接跑）；npx 工具第一次跑会下载套件，先说一声
+- `fivem-graphics-pack`：画质包、调色（暖色/电影感）、visualsettings、2K/4K 贴图、ReShade 和 LUT。它的三个脚本都是本地运行、只写到指定的输出文件夹或只读，直接跑。ReShade 是玩家自己装的，只在 Legacy 版、伺服器允许插件时有效
+- `fivem-mlo-housing`：做或修 MLO、原版室内（IPL、entity set）、房屋系统（qbx_properties 等）、家具摆放。它的 `check_mlo_resource.py` 是本地只读检查，直接跑；要在 Blender 里动手时照下面 3D 的规则先问
 
 改完 FiveM 的 Lua 后，如果用户电脑上有 `qbx-lint`，就对改过的文件跑一次检查（只读，直接跑）；要用 `qbx-lint --fix` 或 `qbx-lint fmt` 改文件前先问。
 
@@ -41,12 +43,20 @@
 
 ## 3D 模型和动作
 
-Blender 技能（retopology、lod-pipeline、asset-optimization、uv-workflow、rigging、animation、export-pipeline、vehicle-artist、hard-surface、collision-proxy、texture-workflow）要通过 `blender` MCP 在用户自己的 Blender 里执行代码，用之前先问。做 GTA 模型时，在 Blender 里完成后提醒用户用 Sollumz 导出成 .ydr/.yft/.ycd。
+Blender 技能（retopology、lod-pipeline、asset-optimization、uv-workflow、rigging、animation、export-pipeline、vehicle-artist、hard-surface、collision-proxy、texture-workflow，以及做室内用的 set-dressing、archviz、prop-artist、environment-artist）要通过 `blender` MCP 在用户自己的 Blender 里执行代码，用之前先问。做 GTA 模型时，在 Blender 里完成后提醒用户用 Sollumz 导出成 .ydr/.yft/.ycd。
+
+做 GTA/FiveM 角色动画或自定义表情时用 `fivem-animation`（流程：Blender → Sollumz → CodeWalker → rpemotes/TaskPlayAnim），它自带的 `check_anim_resource.py` 是本地只读检查，直接跑。
+
+学或做动画时：先用 `motion-design` 讲原则（时间、间距、缓动、预备动作、跟随），再用 `blender-animation-rigging` 和 `animation` 在 Blender 里操作；用户想学的时候配合 `anthropic-skills:learn` 一步步教，每一步让用户自己动手。`blender-animation-rigging` 写的是 Blender Lab 官方 MCP，这里装的是 `blender` MCP（mcp-for-blender），用它的 `execute_blender_code` 执行同样的 bpy 代码。`motion-design` 提到的 blender-motion、aftereffects-motion 没有装（前者会接付费的 Higgsfield），不要去找。
 
 这些 Blender 技能是通用游戏美术流程，用于 GTA 时以 GTA 的规则为准：
 - 车辆骨骼名必须用 GTA 的固定名字（如 `door_dside_f`、`wheel_lf`），用 muto-atlas 查（`/vehicle`），不要用技能里的 `SM_Vehicle_*` 命名
 - 碰撞用 Sollumz 的 bounds 和碰撞 flag（muto-atlas `trunk/flags.md`），不用 collision-proxy 里的 UCX/UHX 命名
 - 参考数字：车辆 LOD0 最好在 5 万个三角面以下
+
+## 游戏设计
+
+设计工作收入、抢劫奖励、声望/等级曲线、商店价格这类数值时，用 `game-balance-economy`（可以用它的 `expected_value.py` 算期望收益）；设计小游戏、HUD、通知这类玩家看到的反馈时，用 `game-interface-feedback`。经济相关的奖励一定要由伺服器判定（配合 `fivem-security-audit`）。
 
 ## muto-atlas
 

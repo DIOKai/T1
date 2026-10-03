@@ -39,7 +39,7 @@ Root `<CVehicleModelInfoVarGlobal>` with `<Kits>`, `<Lights>`, `<Sirens>`.
 - `<Sirens><Item><id value="190"/><name>…</name>` + timing/flash settings + a `<sirens>` list of up to **20 lights**, one per bone `siren1`…`siren20`.
 - Siren-setting ids are **one byte**: usable 1–254 (carcols-id-fixer); above 255 overflows and collides. Shared ids between resources = wrong patterns.
 - SirenSetting Limit Adjuster (SSLA) raises ids to 65535 and lights to 32, but it's a client ASI every player must install, and the Enhanced client runs in pure mode (no client mods) — don't rely on it.
-- Siren glass: in Sollumz set the collision child's shattermap mode to `MANUAL_NO_SHATTERMAP`.
+- Siren glass: in current Sollumz set the glass collision's shattermap mode to **Simple** (breaks completely, no shattermap); older Sollumz versions called this `MANUAL_NO_SHATTERMAP`. Full police workflow: `police-emergency.md`.
 
 ### Lights
 `<Lights><Item><id value="65"/>` with indicator / headLight / tailLight / reversingLight settings and coronas. Light-setting ids are also one byte (usable 1–255) and global — same collision rules as sirens.

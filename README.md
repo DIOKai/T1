@@ -15,12 +15,18 @@
 
 `anthropics/knowledge-work-plugins` 只登记了市场，没有默认启用，原因见下。
 
-## 直接放进仓库的技能（52 个，`.claude/skills/`）
+## 直接放进仓库的技能（63 个，`.claude/skills/`）
 
 - **FiveM**：`fivem-pro`（[leminhhuy113/fivem-pro](https://github.com/leminhhuy113/fivem-pro)，MIT）讲开发、性能优化，以及用 Sollumz + CodeWalker 做地图/MLO；`fivem-security-audit`（[matiaspalmac/fivem-audit-skill](https://github.com/matiaspalmac/fivem-audit-skill)，MIT）查后门、漏洞、性能问题
 - **FiveM ox 系列和 NUI**：oxlib、oxmysql、ox-inventory、ox-target（[germanfndez/fiveai-skills](https://github.com/germanfndez/fiveai-skills)，MIT）；fivem-react-nui（[proelias7/fivem-skill](https://github.com/proelias7/fivem-skill)，MIT），用 React + TypeScript + Vite + Tailwind 做 NUI
-- **车辆模组**：`fivem-vehicle-mod`（本仓库自己写的）——addon 车资源的结构、meta 文件、改装套件、涂装、警笛、贴图/大小限制、GTA V Enhanced 转换、故障排查，附 `check_vehicle_resource.py` 交叉检查脚本（检查名字对不对得上、改装套件/警笛 id 撞号、无效的 data_file 类型）。资料来自 FiveM 源码和官方文档源码。配合免费工具：[fivem-vehicle-validator](https://github.com/PrestigeRoleplay/fivem-vehicle-validator)、[fivem-handling-presets](https://github.com/PrestigeRoleplay/fivem-handling-presets)、[fivem-joaat-hash](https://github.com/PrestigeRoleplay/fivem-joaat-hash)（都用 npx 跑）和游戏内调 handling 的 [vehicleDebug](https://github.com/kerminal/vehicleDebug)（放进测试服 resources）
+- **车辆模组**：`fivem-vehicle-mod`（本仓库自己写的）——addon 车资源的结构、meta 文件、改装套件、涂装、警笛、贴图/大小限制、GTA V Enhanced 转换、故障排查；模组车在 Blender + Sollumz 里怎么做（用原版车当底、骨骼、车漆层、灯光 ID、车窗、LOD）；模组警车/救护车/消防车（siren 骨骼和 carcols 警灯设置、extras、涂装、qbx_police/qb-policejob 配置、Renewed-Sirensync 等警笛控制和自定义警笛声），附 `check_vehicle_resource.py` 交叉检查脚本（检查名字对不对得上、改装套件/警笛 id 撞号、无效的 data_file 类型）。资料来自 FiveM 源码和官方文档源码。配合免费工具：[fivem-vehicle-validator](https://github.com/PrestigeRoleplay/fivem-vehicle-validator)、[fivem-handling-presets](https://github.com/PrestigeRoleplay/fivem-handling-presets)、[fivem-joaat-hash](https://github.com/PrestigeRoleplay/fivem-joaat-hash)（都用 npx 跑）和游戏内调 handling 的 [vehicleDebug](https://github.com/kerminal/vehicleDebug)（放进测试服 resources）
+- **FiveM 动画**：`fivem-animation`（本仓库自己写的）——Blender → Sollumz（.ycd.xml）→ CodeWalker（.ycd）→ FiveM，用 rpemotes-reborn 自定义表情或 TaskPlayAnim 播放；GTA 骨骼 tag、30 fps、四元数、烘焙、mover、clip Hash/Duration、道具挂载、故障排查，附 `check_anim_resource.py` 检查脚本。资料来自 Sollumz、CodeWalker、FiveM 源码、citizenfx/natives 和 rpemotes 源码
+- **画质包**：`fivem-graphics-pack`（本仓库自己写的）——三种画质包：伺服器端的色调（timecycle modifier 做暖色/冷色/电影感/写实，玩家自动拿到、可用 `/graphics` 切换或关掉）、visualsettings（车灯、夜间灯光）、2K/4K 贴图替换（内存计算、16/48 MiB 限制、`+hi` 只在"非常高"贴图画质下加载、车辆贴图默认被限到 1024），以及玩家自己装的 ReShade（FiveM 的 plugins 文件夹、ReShade 5 要在 CitizenFX.ini 加确认行、LUT 调色）。附三个脚本：`make_timecycle_pack.py`（一键生成画质包资源）、`make_lut.py`（生成 ReShade LUT，预设 warm/cool/cinematic/realistic/vivid/noir）、`check_graphics_pack.py`（检查 numMods、拼错的变量、没注册的 XML、按 RSC 头算的贴图内存）。资料来自 FiveM 源码（TimecycleEditor、VisualSettingsNatives、ReShadeFixups、TextureStreamingLimits、ResourceStreamComponent）、citizenfx/natives 和 ReShade 的 LUT.fx。只推荐免费工具（NVE、QuantV、iMMERSE Pro 要付费，不用）
+- **室内和房屋**：`fivem-mlo-housing`（本仓库自己写的）——三种室内怎么选（MLO、原版 IPL、shell），用 Blender + Sollumz + CodeWalker 做 MLO（limbo、房间、portal、实体、entity set、房间 timecycle、门、碰撞、顶点色灯光、`_manifest.ymf`、ht_mlotool 声音遮挡），在脚本里切换 entity set 和 IPL，以及 qbx_properties / qb-houses / ps-housing 怎么用 shell 和公寓、家具摆放和授权。附 `check_mlo_resource.py`，检查 this_is_a_map、manifest、portal 连错房间、房间没 portal、实体没放进房间（进屋看不到）、门的 flag、ymap extents、撞名。资料来自 Sollumz wiki 和源码、FiveM 官方资产教程和源码、citizenfx/natives 以及各房屋脚本自己的代码
 - **土木工程**：quantity-surveyor（[MuscleOtter/quantity-surveyor](https://github.com/MuscleOtter/quantity-surveyor)，MIT），算工程量、BOQ、单价分析、投标、变更、现金流
+- **室内设计（Blender）**：set-dressing、archviz、prop-artist、environment-artist（[arjun988/blender-skills](https://github.com/arjun988/blender-skills)，MIT）——室内布置、真实尺寸和灯光、家具道具、模块化房间
+- **动画**：motion-design（[LobzyJay/motion-design-with-claude](https://github.com/LobzyJay/motion-design-with-claude)，MIT）——12 条动画原则、时间和间距、缓动；blender-animation-rigging（[ra100/blender-claude-plugin](https://github.com/ra100/blender-claude-plugin)，MIT）——Blender 5.x 关键帧、曲线编辑器、NLA、驱动器、约束、IK/FK、形态键
+- **游戏设计**：game-balance-economy、game-interface-feedback（[LVTD-LLC/skills](https://github.com/LVTD-LLC/skills)，MIT）——经济与数值平衡（工作收入、抢劫奖励、声望曲线）、界面反馈和小游戏手感
 - **Blender 建模 / 模型优化 / 动作**：从 [arjun988/blender-skills](https://github.com/arjun988/blender-skills)（MIT）挑了 11 个：retopology、lod-pipeline、asset-optimization、uv-workflow、rigging、animation、export-pipeline，以及做车用的 vehicle-artist、hard-surface、collision-proxy、texture-workflow。需要下面的 Blender MCP
 
 - 20 个 Cowork 技能，来自 [EAIconsulting/cowork-skills-library](https://github.com/EAIconsulting/cowork-skills-library)（MIT）
@@ -60,6 +66,34 @@ Blender 技能要在你自己的电脑上跑，Claude 通过 [MCP for Blender](h
 装好后，Claude 改完 Lua 会自动跑 `qbx-lint` 检查。
 
 NUI 起手模板（免费）：[fivem-react-boilerplate-lua](https://github.com/project-error/fivem-react-boilerplate-lua)
+
+## 房屋相关的 FiveM 资源（放进你的伺服器，不是装进 T1，都免费）
+
+| 资源 | 作用 | 许可证 |
+|---|---|---|
+| [bob74_ipl](https://github.com/Bob74/bob74_ipl) | 加载原版室内（公寓、办公室、夜店等）和切换 entity set | MIT |
+| [qbx_properties](https://github.com/Qbox-project/qbx_properties) | Qbox 官方房屋系统，可以买房、装修 | GPL-3.0 |
+| [object_gizmo](https://github.com/Demigod916/object_gizmo) | 通用的游戏内 3D 移动、旋转物件工具，给自己写的家具或道具摆放用。qbx_properties 自带装修工具，不需要它 | GPL-3.0 |
+
+安装步骤：
+1. **qbx_properties 先清掉旧系统**（照它 README）：从伺服器移除 `qbx_apartments` 和 `qbx_houses`；出生点不要用别的公寓选择系统（用 [qbx_spawn](https://github.com/Qbox-project/qbx_spawn) 或不用出生系统）。
+2. 下载（在伺服器的 `resources` 文件夹里）：
+   ```
+   git clone https://github.com/Bob74/bob74_ipl
+   git clone https://github.com/Qbox-project/qbx_properties
+   git clone https://github.com/Demigod916/object_gizmo   # 需要时才装
+   ```
+   不用 git 的话，到 GitHub 页面点 **Code → Download ZIP**，解压后把文件夹名后面的 `-main` 去掉。
+3. 把 qbx_properties 里的 3 个 SQL 文件导入数据库：`property.sql`、`property_garages.sql`、`decorations.sql`（用 HeidiSQL 之类的工具执行）。
+4. 在 `server.cfg` 里加（放在 `oxmysql`、`ox_lib`、`qbx_core` 之后）：
+   ```
+   ensure bob74_ipl
+   ensure qbx_properties
+   ensure object_gizmo   # 需要时才加
+   ```
+5. 重启伺服器，看控制台有没有报错。设定在各资源的 `config` 文件夹里。
+
+不要用付费的 bcs_housing、qs-housing、nolag_properties；ps-housing 是 CC BY-NC-SA（禁止商用）而且已经停止维护。
 
 ## muto-atlas 资料库（在你自己的电脑上建一次）
 
