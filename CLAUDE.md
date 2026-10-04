@@ -16,7 +16,7 @@
 - 只是可能相关，不确定是不是用户要的
 - 技能会大幅改变做法，比如 superpowers 的 brainstorming 会先问一轮需求，TDD 会先写测试
 - 会安装依赖、跑脚本、开浏览器、连外部服务或需要登录，比如 playwright-skill、video-downloader、knowledge-work 插件里的连接器
-- 会派出多个子代理或跑很久，比如 trailofbits 的 c-review、zeroize-audit
+- 会派出多个子代理或跑很久，比如 `code-improver`、`static-analysis` 的 CodeQL 扫描、superpowers 的 subagent-driven-development
 - 用户没要求、但用了明显有帮助的技能（主动建议）
 
 **不用**：没有相关技能，或者用户明确说不要用。

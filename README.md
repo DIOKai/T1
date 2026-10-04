@@ -2,18 +2,17 @@
 
 用 Claude Code 打开这个仓库时，`.claude/settings.json` 会自动登记 6 个插件市场，并提示你安装下面已启用的插件；`.claude/skills/` 里的技能直接可用，不用安装。
 
-## 已启用的插件（54 个，`.claude/settings.json`）
+## 已启用的插件（15 个，`.claude/settings.json`）
 
 | 来源 | 插件 |
 |---|---|
 | [anthropics/skills](https://github.com/anthropics/skills) | `document-skills`、`example-skills`、`claude-api`、`academy-guide` |
 | [obra/superpowers-marketplace](https://github.com/obra/superpowers-marketplace) | `superpowers` |
 | [lackeyjb/playwright-skill](https://github.com/lackeyjb/playwright-skill) | `playwright-skill`（首次使用需在插件目录跑 `npm run setup`） |
-| [phuryn/pm-skills](https://github.com/phuryn/pm-skills) | 全部 9 个 `pm-*` 插件 |
-| [trailofbits/skills](https://github.com/trailofbits/skills) | 44 个中的 38 个（见下方"刻意没启用"） |
+| [trailofbits/skills](https://github.com/trailofbits/skills) | 8 个和 FiveM（Lua/JS/Python）、GitHub 有关的：`sharp-edges`、`insecure-defaults`、`differential-review`、`static-analysis`、`supply-chain-risk-auditor`、`variant-analysis`、`git-cleanup`、`code-improver` |
 | [B7Kompirine/muto-atlas](https://github.com/B7Kompirine/muto-atlas) | `muto-atlas`：GTA V / FiveM 资料库（车辆骨骼名、碰撞 flag、Sollumz/CodeWalker 常见坑、原版车规格），19 个指令，要先建资料库（见下） |
 
-`anthropics/knowledge-work-plugins` 只登记了市场，没有默认启用，原因见下。
+`anthropics/knowledge-work-plugins` 和 `phuryn/pm-skills` 只登记了市场，没有默认启用，原因见下。要用时 `claude plugin install <插件>@<市场>`。
 
 ## 直接放进仓库的技能（64 个，`.claude/skills/`）
 
@@ -125,11 +124,22 @@ claude plugin install elements-of-style@superpowers-marketplace
 claude plugin install episodic-memory@superpowers-marketplace
 ```
 
+## OpenAI Codex 也能用
+
+Codex 不读 `CLAUDE.md` 和 `.claude/skills/`，它读 `AGENTS.md` 和 `.agents/skills/`。所以：
+
+- `AGENTS.md` 让 Codex 先读 `CLAUDE.md` 和 `LESSONS.md`，两边用同一套规则和同一份纠正记录。
+- `.agents/skills` 是指向 `.claude/skills` 的链接（symlink），64 个技能两边共用，不会有两份内容不同步。
+- 插件（superpowers、muto-atlas 等）和 MCP 是 Claude Code 专用的，Codex 里没有。
+- Windows 上 clone 时，git 默认可能把链接变成普通文本文件：用 `git clone -c core.symlinks=true …` 并开启 Windows 开发者模式。Codex 云端（Linux）不受影响。
+
 ## 刻意没启用的
 
 | 插件 | 原因 |
 |---|---|
 | knowledge-work-plugins 的全部插件 | 主要为 Cowork 设计；16 个职能插件合计约 170 个 MCP 连接器、180 多个技能，全部在 Claude Code 里启用会拖慢启动并挤占技能列表 |
+| `phuryn/pm-skills` 的 9 个插件 | 产品经理用的（PRD、OKR、市场分析），和 FiveM 无关；每次对话开头的技能说明约占 5,800 token |
+| trailofbits 其余 30 个插件 | 智能合约、C/C++、Rust、Android、Lean、二进制分析、塔罗牌等，和 FiveM 无关；关掉后每次对话开头少读约 6,800 token |
 | `discernment-nudge@anthropic-agent-skills` | 会在每个回答后面追加追问 |
 | `gh-cli@trailofbits` | hook 会拦截所有 GitHub 网页抓取改走 `gh` |
 | `modern-python@trailofbits` | 会在 PATH 里放 shim，拦截 `pip`/`python` 命令 |
