@@ -2,28 +2,20 @@
 
 用户用中文交流，回复也用中文。
 
-## 什么时候直接用、什么时候先问
+## 用技能前一律先问
 
-每次收到请求，先看已安装的技能里有没有和这件事相关的。
+每次收到请求，先看已安装的技能、插件和 MCP 里有没有和这件事相关的。有的话，**先问用户要不要用，等用户同意再用**，即使明显对得上也一样。问的时候说清楚：
+- 用哪个技能
+- 它会做什么、为什么适合这件事
+- 会不会改文件、装东西、跑脚本、开浏览器、连外部服务、要登录、派出子代理或跑很久
 
-这条规则适用于所有技能和插件，包括用户以后新加的。新加的技能不用等用户再交代，同样按下面的方式判断：直接用，或者先问。
+几个相关的技能可以一次列出来问，不要一个一个问。用户说"直接做"、或这次对话里已经同意过同一个技能，就不用再问。用户明确说不要用的，就不用。
 
-**直接用，用的时候告诉用户用了哪个**（一句话，例如"我用 systematic-debugging 来查这个问题"）：
-- 请求和技能明显对得上，比如要 PDF 就用 `document-skills:pdf`，要查 bug 就用 `superpowers:systematic-debugging`
-- 技能只是给出做事的方法或步骤，不会额外改文件、装东西或连外部服务
-
-**先问用户要不要用，说明这个技能会做什么、为什么适合**：
-- 只是可能相关，不确定是不是用户要的
-- 技能会大幅改变做法，比如 superpowers 的 brainstorming 会先问一轮需求，TDD 会先写测试
-- 会安装依赖、跑脚本、开浏览器、连外部服务或需要登录，比如 playwright-skill、video-downloader、knowledge-work 插件里的连接器
-- 会派出多个子代理或跑很久，比如 `code-improver`、`static-analysis` 的 CodeQL 扫描、superpowers 的 subagent-driven-development
-- 用户没要求、但用了明显有帮助的技能（主动建议）
-
-**不用**：没有相关技能，或者用户明确说不要用。
+这条规则适用于所有技能和插件，包括用户以后新加的。
 
 ## 记住用户的纠正
 
-用户说我哪里做错了，或说"下次/以后/记住…"时，用 `correction-memory` 技能：先改好，再把规则写进 `LESSONS.md` 并提交（直接用，不用问）。下面导入的就是之前记下的经验，照着做：
+用户说我哪里做错了，或说"下次/以后/记住…"时，用 `correction-memory` 技能：先改好，再把规则写进 `LESSONS.md` 并提交。这是用户自己要求的固定流程，不用再问。下面导入的就是之前记下的经验，照着做：
 
 @LESSONS.md
 
@@ -33,15 +25,15 @@
 
 ## 写 FiveM / QBCore / Qbox 相关代码时
 
-优先用用户自己的 `fivem-script` 技能，再按需要搭配：
+优先建议用户自己的 `fivem-script` 技能，再按需要搭配（都照上面的规则先问）：
 - `fivem-pro`：FiveM 开发规范、resmon 性能优化、Sollumz + CodeWalker 做地图/MLO
 - `fivem-security-audit`：审查 script 的后门、漏洞、性能问题，也能判断来路不明的 script 安不安全
 - superpowers（规划、调试、审查）和安全检查技能（insecure-defaults、sharp-edges）
 - `oxlib`、`oxmysql`、`ox-inventory`、`ox-target`：ox 系列的 API 速查
 - `fivem-react-nui`：用 React + TypeScript + Vite + Tailwind 做 NUI
-- `fivem-vehicle-mod`：做、修、上架 addon 车辆资源（meta 文件、改装套件、涂装、警笛、贴图大小、Enhanced 转换），包括模组警车和用 Sollumz 做车的流程。车辆资源上服前先跑它自带的 `check_vehicle_resource.py`（本地、只读，直接跑）；npx 工具第一次跑会下载套件，先说一声
-- `fivem-graphics-pack`：画质包、调色（暖色/电影感）、visualsettings、2K/4K 贴图、ReShade 和 LUT。它的三个脚本都是本地运行、只写到指定的输出文件夹或只读，直接跑。ReShade 是玩家自己装的，只在 Legacy 版、伺服器允许插件时有效
-- `fivem-mlo-housing`：做或修 MLO、原版室内（IPL、entity set）、房屋系统（qbx_properties 等）、家具摆放。它的 `check_mlo_resource.py` 是本地只读检查，直接跑；要在 Blender 里动手时照下面 3D 的规则先问
+- `fivem-vehicle-mod`：做、修、上架 addon 车辆资源（meta 文件、改装套件、涂装、警笛、贴图大小、Enhanced 转换），包括模组警车和用 Sollumz 做车的流程。车辆资源上服前跑它自带的 `check_vehicle_resource.py`（本地、只读；用户同意用这个技能后就可以直接跑）；npx 工具第一次跑会下载套件，先说一声
+- `fivem-graphics-pack`：画质包、调色（暖色/电影感）、visualsettings、2K/4K 贴图、ReShade 和 LUT。它的三个脚本都是本地运行、只写到指定的输出文件夹或只读，用户同意用这个技能后就可以直接跑。ReShade 是玩家自己装的，只在 Legacy 版、伺服器允许插件时有效
+- `fivem-mlo-housing`：做或修 MLO、原版室内（IPL、entity set）、房屋系统（qbx_properties 等）、家具摆放。它的 `check_mlo_resource.py` 是本地只读检查，用户同意用这个技能后就可以直接跑；要在 Blender 里动手时照下面 3D 的规则先问
 
 改完 FiveM 的 Lua 后，如果用户电脑上有 `qbx-lint`，就对改过的文件跑一次检查（只读，直接跑）；要用 `qbx-lint --fix` 或 `qbx-lint fmt` 改文件前先问。
 
@@ -51,7 +43,7 @@
 
 Blender 技能（retopology、lod-pipeline、asset-optimization、uv-workflow、rigging、animation、export-pipeline、vehicle-artist、hard-surface、collision-proxy、texture-workflow，以及做室内用的 set-dressing、archviz、prop-artist、environment-artist）要通过 `blender` MCP 在用户自己的 Blender 里执行代码，用之前先问。做 GTA 模型时，在 Blender 里完成后提醒用户用 Sollumz 导出成 .ydr/.yft/.ycd。
 
-做 GTA/FiveM 角色动画或自定义表情时用 `fivem-animation`（流程：Blender → Sollumz → CodeWalker → rpemotes/TaskPlayAnim），它自带的 `check_anim_resource.py` 是本地只读检查，直接跑。
+做 GTA/FiveM 角色动画或自定义表情时用 `fivem-animation`（流程：Blender → Sollumz → CodeWalker → rpemotes/TaskPlayAnim），它自带的 `check_anim_resource.py` 是本地只读检查，用户同意用这个技能后就可以直接跑。
 
 学或做动画时：先用 `motion-design` 讲原则（时间、间距、缓动、预备动作、跟随），再用 `blender-animation-rigging` 和 `animation` 在 Blender 里操作；用户想学的时候配合 `anthropic-skills:learn` 一步步教，每一步让用户自己动手。`blender-animation-rigging` 写的是 Blender Lab 官方 MCP，这里装的是 `blender` MCP（mcp-for-blender），用它的 `execute_blender_code` 执行同样的 bpy 代码。`motion-design` 提到的 blender-motion、aftereffects-motion 没有装（前者会接付费的 Higgsfield），不要去找。
 
@@ -70,7 +62,7 @@ GTA V / FiveM 资料库插件。回答游戏资料相关的问题（原版车规
 
 ## 土木工程
 
-- `quantity-surveyor`：算工程量、BOQ、单价分析，明显相关就直接用。它没有马来西亚 SMM2 的资料，单价和计量规则要用户提供，不要自己编。
+- `quantity-surveyor`：算工程量、BOQ、单价分析，相关时先问要不要用。它没有马来西亚 SMM2 的资料，单价和计量规则要用户提供，不要自己编。
 - `freecad` MCP（FreeCAD 建模、FEM 分析）和 `ifc` MCP（BIM/IFC 模型）会在用户电脑上执行操作，用之前先问。
 - 马来西亚标准：MS EN 1992 就是 Eurocode 2 加马来西亚国家附件。用 Eurocode 的方法算，国家附件的数值请用户提供，不要猜。
 - AutoCAD、Revit、Civil 3D、ETABS 是付费软件，不推荐基于它们的工具。
