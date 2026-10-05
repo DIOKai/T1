@@ -124,6 +124,25 @@ claude plugin install elements-of-style@superpowers-marketplace
 claude plugin install episodic-memory@superpowers-marketplace
 ```
 
+## 在自己电脑上用（local 模式）
+
+在 T1 文件夹里开 local 会话，会直接读到这里的技能、规则和插件设置（第一次会问你要不要信任这个文件夹）。在**别的文件夹**开 local 会话，比如 FiveM 伺服器、Blender 项目，就只会读你电脑上的 `~/.claude`（Windows 是 `C:\Users\你的名字\.claude`）。所以要跑一次安装脚本：
+
+```
+git clone https://github.com/DIOKai/T1
+cd T1
+python scripts/install_local.py --dry-run --all   # 先看会做什么
+python scripts/install_local.py --all             # 技能 + 规则 + 插件 + MCP
+```
+
+它会做这些事：
+- 把 64 个技能链接到 `~/.claude/skills/`。用的是链接不是复制，以后在 T1 里 `git pull`，技能就跟着更新；你自己建的同名技能不会被覆盖
+- 在 `~/.claude/CLAUDE.md` 加一段，导入 T1 的 `CLAUDE.md`（它再导入 `LESSONS.md`），所以在哪个文件夹都用同一套规则，包括"用技能前一律先问"。原来的 CLAUDE.md 会先备份成 `CLAUDE.md.bak`
+- `--plugins`：用 `claude` 命令把 15 个插件装到用户范围
+- `--mcp`：把 blender、fivem、freecad、ifc 四个 MCP 加到用户范围（要先装 uv 和 Node.js）
+
+只加 `--plugins` 或 `--mcp` 就只装那一部分，不加就只装技能和规则。`git pull` 之后再跑一次就会加上新技能、移除已删掉的技能。`--uninstall` 会移除链接和那段规则。Windows 不用管理员权限，链接做不了时会自动改用 junction。需要 Python 3（技能自带的检查脚本本来也要用）。
+
 ## OpenAI Codex 也能用
 
 Codex 不读 `CLAUDE.md` 和 `.claude/skills/`，它读 `AGENTS.md` 和 `.agents/skills/`。所以：

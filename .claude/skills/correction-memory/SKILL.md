@@ -20,7 +20,8 @@ Every session starts from zero; the only thing that carries over is what's in th
 
    Keep it to one or two lines. Concrete beats vague: name the tool, file, command or wording.
 5. **Tell the user in one line** what you recorded, e.g. `已记下：做完一批工作后直接开 PR 合并到 main。`
-6. **Commit it** with whatever you're working on (or on its own: `Lessons: <short rule>`), and push. A new session clones `main`, so the lesson only takes effect in future sessions after the branch is merged — it rides along with the next PR the user asks you to open and merge. If the session is ending with the lesson unmerged, say so in your final message.
+6. **Which `LESSONS.md`**: inside the T1 repo, the one at its root. In a local session in another folder (your FiveM server, a Blender project), use the T1 path written in the `T1:begin` block of `~/.claude/CLAUDE.md` (set up by `scripts/install_local.py`) and commit there with `git -C "<T1 path>"`. Locally the change takes effect in the next session straight away, because `~/.claude/CLAUDE.md` imports the local T1 copy.
+7. **Commit it** with whatever you're working on (or on its own: `Lessons: <short rule>`), and push. A new cloud session clones `main`, so in the cloud the lesson only takes effect after the branch is merged — it rides along with the next PR the user asks you to open and merge. If the session is ending with the lesson unmerged, say so in your final message.
 
 ## Also record
 
