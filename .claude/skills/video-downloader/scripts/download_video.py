@@ -5,24 +5,34 @@ Downloads videos from YouTube with customizable quality and format options.
 """
 
 import argparse
+import importlib.util
+import os
+import shutil
 import sys
 import subprocess
 import json
 
-
-def check_yt_dlp():
-    """Check if yt-dlp is installed, install if not."""
-    try:
-        subprocess.run(["yt-dlp", "--version"], capture_output=True, check=True)
-    except (subprocess.CalledProcessError, FileNotFoundError):
-        print("yt-dlp not found. Installing...")
-        subprocess.run([sys.executable, "-m", "pip", "install", "--break-system-packages", "yt-dlp"], check=True)
+# The user's Downloads folder works on Windows, macOS and Linux.
+DEFAULT_OUTPUT = os.path.join(os.path.expanduser("~"), "Downloads")
 
 
-def get_video_info(url):
+def find_yt_dlp():
+    """Return the command that runs yt-dlp, or None if it is not installed.
+
+    Does not install anything: installing software is left to the user.
+    """
+    exe = shutil.which("yt-dlp")
+    if exe:
+        return [exe]
+    if importlib.util.find_spec("yt_dlp") is not None:
+        return [sys.executable, "-m", "yt_dlp"]
+    return None
+
+
+def get_video_info(yt_dlp, url):
     """Get information about the video without downloading."""
     result = subprocess.run(
-        ["yt-dlp", "--dump-json", "--no-playlist", url],
+        yt_dlp + ["--dump-json", "--no-playlist", url],
         capture_output=True,
         text=True,
         check=True
@@ -30,7 +40,7 @@ def get_video_info(url):
     return json.loads(result.stdout)
 
 
-def download_video(url, output_path="/mnt/user-data/outputs", quality="best", format_type="mp4", audio_only=False):
+def download_video(url, output_path=DEFAULT_OUTPUT, quality="best", format_type="mp4", audio_only=False):
     """
     Download a YouTube video.
     
@@ -41,10 +51,15 @@ def download_video(url, output_path="/mnt/user-data/outputs", quality="best", fo
         format_type: Output format (mp4, webm, mkv, etc.)
         audio_only: Download only audio (mp3)
     """
-    check_yt_dlp()
-    
+    yt_dlp = find_yt_dlp()
+    if yt_dlp is None:
+        print("yt-dlp is not installed. Install it first, then run this again:")
+        print(f'    "{sys.executable}" -m pip install yt-dlp')
+        return False
+    os.makedirs(output_path, exist_ok=True)
+
     # Build command
-    cmd = ["yt-dlp"]
+    cmd = list(yt_dlp)
     
     if audio_only:
         cmd.extend([
@@ -70,7 +85,7 @@ def download_video(url, output_path="/mnt/user-data/outputs", quality="best", fo
     
     # Output template
     cmd.extend([
-        "-o", f"{output_path}/%(title)s.%(ext)s",
+        "-o", os.path.join(output_path, "%(title)s.%(ext)s"),
         "--no-playlist",  # Don't download playlists by default
     ])
     
@@ -83,7 +98,7 @@ def download_video(url, output_path="/mnt/user-data/outputs", quality="best", fo
     
     try:
         # Get video info first
-        info = get_video_info(url)
+        info = get_video_info(yt_dlp, url)
         print(f"Title: {info.get('title', 'Unknown')}")
         duration = int(info.get('duration') or 0)
         print(f"Duration: {duration // 60}:{duration % 60:02d}")
@@ -108,8 +123,8 @@ def main():
     parser.add_argument("url", help="YouTube video URL")
     parser.add_argument(
         "-o", "--output",
-        default="/mnt/user-data/outputs",
-        help="Output directory (default: /mnt/user-data/outputs)"
+        default=DEFAULT_OUTPUT,
+        help=f"Output directory (default: {DEFAULT_OUTPUT})"
     )
     parser.add_argument(
         "-q", "--quality",

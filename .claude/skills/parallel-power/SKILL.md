@@ -153,5 +153,4 @@ Solution: Step 1 of the skill is the safeguard — but if it's discovered mid-ru
 ## Related Skills
 
 See also: **workflow-builder** — many multi-step workflows contain a batch phase that can be parallelized; redesign those phases with parallel workers for a major speed gain.
-Related: **dispatch-starter** — large parallel batch jobs can be triggered via Dispatch so they run on your desktop while you're away, with results waiting when you return.
 See also: **skill-creator-guide** — if you run the same parallel batch pattern regularly, package it as a custom skill so you trigger it with a phrase instead of rewriting the prompt each time.

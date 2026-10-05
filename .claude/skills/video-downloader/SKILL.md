@@ -15,7 +15,9 @@ The simplest way to download a video:
 python .claude/skills/video-downloader/scripts/download_video.py "https://www.youtube.com/watch?v=VIDEO_ID"
 ```
 
-This downloads the video in best available quality as MP4 to `/mnt/user-data/outputs/`.
+This downloads the video in best available quality as MP4 to the user's `Downloads` folder (`~/Downloads`, on Windows `C:\Users\<name>\Downloads`).
+
+Needs `yt-dlp` (and `ffmpeg` to merge video + audio or make MP3). The script does not install anything; if yt-dlp is missing it prints the install command (`python -m pip install yt-dlp`) — ask the user before running it.
 
 ## Options
 
@@ -84,7 +86,7 @@ python .claude/skills/video-downloader/scripts/download_video.py "https://www.yo
 ## How It Works
 
 The skill uses `yt-dlp`, a robust YouTube downloader that:
-- Automatically installs itself if not present
+- Is found on PATH or as the `yt_dlp` Python module (never auto-installed)
 - Fetches video information before downloading
 - Selects the best available streams matching your criteria
 - Merges video and audio streams when needed
@@ -92,8 +94,8 @@ The skill uses `yt-dlp`, a robust YouTube downloader that:
 
 ## Important Notes
 
-- Downloads are saved to `/mnt/user-data/outputs/` by default
+- Downloads are saved to the user's `Downloads` folder by default (created if missing)
 - Video filename is automatically generated from the video title
-- The script handles installation of yt-dlp automatically
+- yt-dlp must be installed first; the script only prints the install command
 - Only single videos are downloaded (playlists are skipped by default)
 - Higher quality videos may take longer to download and use more disk space

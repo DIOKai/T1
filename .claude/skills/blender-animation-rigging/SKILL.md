@@ -27,7 +27,7 @@ Prefer the **official Blender MCP Server** (Blender Lab, Blender 5.1+) for inser
 
 **Workflow:** inspect with a `get_*` / `search_*` tool → mutate via `execute_blender_code` → verify with a screenshot or summary tool. Keep code blocks small and idempotent so failures are easy to localize.
 
-Setup: see [docs/blender-mcp-setup.md](../../docs/blender-mcp-setup.md).
+Setup: T1 uses the `blender` MCP server (mcp-for-blender), not the Blender Lab server — see the "Blender MCP" section of the T1 README. Run the same `bpy` code through its `execute_blender_code` tool.
 
 ## Task Decision Tree
 

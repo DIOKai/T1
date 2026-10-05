@@ -93,9 +93,9 @@ for _, player in pairs(players) do
     local result = MySQL.query.await("SELECT * FROM users WHERE id = ?", { player.id })
 end
 
--- GOOD: single query
-local ids = table.concat(playerIds, ',')
-local results = MySQL.query.await("SELECT * FROM users WHERE id IN (?)", { ids })
+-- GOOD: single query — pass the id table itself; oxmysql expands it to IN (1, 2, 3).
+-- Do NOT table.concat the ids into one string: that binds a single value '1,2,3'.
+local results = MySQL.query.await("SELECT * FROM users WHERE id IN (?)", { playerIds })
 ```
 
 ## 2.4 Streaming Assets (MEDIUM)

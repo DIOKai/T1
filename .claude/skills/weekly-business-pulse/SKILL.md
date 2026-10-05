@@ -213,4 +213,3 @@ deleted, re-run this skill and say "set this as a recurring task every Friday at
 
 See also: **meeting-machine** — for processing individual meetings that show up in the weekly pulse.
 Related: **client-context-system** — for scoping a pulse to a specific client workspace.
-Related: **weekly-planning-session** (Tier 3) — for translating the pulse into next-week priorities.

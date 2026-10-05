@@ -292,4 +292,3 @@ the missing detail rather than leaving them ambiguous.
 
 See also: **weekly-business-pulse** — surfaces meetings and follow-ups that need attention across the week.
 Related: **client-context-system** — stores meeting decisions and notes inside a per-client workspace.
-Related: **email-triage** (Tier 3) — handles the follow-up emails this skill drafts after meetings.

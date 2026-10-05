@@ -2,9 +2,14 @@
 
 Skills in `.claude/skills/` were copied from the repositories below. Local changes:
 
-- `video-downloader`: frontmatter `name` changed from `youtube-downloader` to match its directory; example commands use the repo-relative script path; `download_video.py` tolerates missing or fractional `duration` metadata.
+- `video-downloader`: frontmatter `name` changed from `youtube-downloader` to match its directory; example commands use the repo-relative script path; `download_video.py` tolerates missing or fractional `duration` metadata, saves to the user's `Downloads` folder by default instead of `/mnt/user-data/outputs`, and no longer runs `pip install` itself (it finds yt-dlp on PATH or as a Python module, otherwise prints the install command).
+- `blender-animation-rigging`: the setup line pointed at `docs/blender-mcp-setup.md` (the Blender Lab MCP server, not bundled); it now points at the T1 README's Blender MCP section (mcp-for-blender).
 - `cowork-vs-chat-demo`, `safe-first-task`, `what-can-cowork-do`: removed a link to `references/role-profiles.md`, which does not exist upstream.
 - `fivem-react-nui`: removed the "fxmind agent vision (NUI dump)" section, which depends on fxmind MCP tools that are not installed here.
+- `.claude/skills/references/` (asset-pipeline, naming-conventions, polycount-budgets, validation-checklist, reference-image-match, reference-analysis-template, visual-match-checklist): shared Blender references copied unchanged from arjun988/blender-skills, because several of its skills link to `../references/`.
+- `fivem-pro/CHEATSHEET.md`: copied from leminhhuy113/fivem-pro; the NUI line that said to use `drop-shadow` instead of `box-shadow` was reversed to match `fivem-react-nui` (CEF filters cost FPS).
+- `fivem-security-audit` `checks/performance.md`: the N+1 "GOOD" example joined ids into one string for `IN (?)`, which binds a single value; it now passes the id table.
+- `client-context-system`, `meeting-machine`, `weekly-business-pulse`, `parallel-power`, `first-scheduled-task`, `what-can-cowork-do`: removed "related skill" pointers to `email-triage`, `weekly-planning-session` and `dispatch-starter`, which are not included in T1.
 
 ## EAIconsulting/cowork-skills-library
 

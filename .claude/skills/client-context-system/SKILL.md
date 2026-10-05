@@ -285,4 +285,3 @@ the schedule.
 
 See also: **meeting-machine** — for processing client meetings and logging decisions to the decision log.
 Related: **weekly-business-pulse** — can be scoped to a specific client project for a focused briefing.
-Related: **email-triage** (Tier 3) — handles client emails with communication preferences automatically applied.

@@ -87,7 +87,7 @@ Present a prioritized list of 5-7 recommendations:
 
 **Unlock later (once comfortable):**
 5. [Scheduled task recommendation] — [Why + point to first-scheduled-task skill]
-6. [Dispatch recommendation] — [Why + point to dispatch-starter skill]
+6. [Dispatch recommendation, only if the user's Cowork plan includes Dispatch] — [Why + what to send from the phone]
 
 **Your estimated time savings:** Based on what you've told me, implementing these could save you roughly [X] hours per week."
 

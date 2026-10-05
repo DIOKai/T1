@@ -169,4 +169,3 @@ Solution: Add a filename pattern with the date (e.g., `morning-brief-2026-03-26.
 
 See also: **memory-system** — scheduled tasks that read from memory files (like `active-projects.md`) produce far more relevant output; set up memory first.
 Related: **workflow-builder** — a workflow can be packaged as a scheduled task; build the workflow manually first, then automate the trigger.
-See also: **dispatch-starter** — scheduled tasks run automatically on a timer; Dispatch gives you on-demand control from your phone — together they cover both sides of Cowork automation.
