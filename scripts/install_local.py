@@ -14,11 +14,15 @@ user-level ~/.claude. This script links T1 into it:
   3. with --plugins: the marketplaces and enabled plugins from
      .claude/settings.json, installed at user scope with the `claude` CLI
   4. with --mcp: the MCP servers from .mcp.json, added at user scope
+  5. with --remotion: Remotion's video skills via `npx skills add remotion-dev/skills`
+     (not vendored in T1 because that repo has no licence file)
+Agents in .claude/agents (impeccable's reviewers) are linked into ~/.claude/agents too.
 
 Usage (from the T1 folder):
     python scripts/install_local.py              # skills + rules
     python scripts/install_local.py --plugins    # + plugins
     python scripts/install_local.py --mcp        # + blender/fivem/freecad/ifc MCP
+    python scripts/install_local.py --remotion   # + Remotion video skills (needs Node.js)
     python scripts/install_local.py --all        # everything
     python scripts/install_local.py --dry-run --all
     python scripts/install_local.py --uninstall  # remove links and the block
@@ -134,6 +138,53 @@ T1 仓库位置：`{t1}`。技能已链接到 `~/.claude/skills/`。下面导入
 """
 
 
+USER_AGENTS = os.path.join(HOME_CLAUDE, 'agents')
+
+
+def sync_agents(dry, uninstall):
+    """Link .claude/agents/*.md (e.g. impeccable's reviewers) into ~/.claude/agents."""
+    src = os.path.join(T1, '.claude', 'agents')
+    names = sorted(n for n in os.listdir(src) if n.endswith('.md')) if os.path.isdir(src) else []
+    os.makedirs(USER_AGENTS, exist_ok=True)
+    added = removed = skipped = 0
+    for n in os.listdir(USER_AGENTS):
+        p = os.path.join(USER_AGENTS, n)
+        if os.path.islink(p) and points_into_t1(p) and (uninstall or n not in names):
+            if not dry:
+                os.unlink(p)
+            removed += 1
+    if not uninstall:
+        for n in names:
+            link, target = os.path.join(USER_AGENTS, n), os.path.join(src, n)
+            if os.path.lexists(link):
+                if not (os.path.islink(link) and points_into_t1(link)):
+                    log(f'  ! skip agent {n}: already exists and is not a T1 link')
+                    skipped += 1
+                continue
+            if not dry:
+                try:
+                    os.symlink(target, link)
+                except (OSError, NotImplementedError):
+                    shutil.copyfile(target, link)  # Windows without Developer Mode: copy (re-run after git pull)
+            added += 1
+    log(f'agents: {added} added, {removed} removed, {skipped} skipped')
+
+
+def sync_remotion(dry):
+    """Remotion's skills have no licence file, so T1 can't vendor them; install them with Remotion's own command."""
+    npx = shutil.which('npx')
+    if not npx and not dry:
+        log('  ! npx not found: install Node.js, then re-run with --remotion')
+        return
+    cmd = [npx or 'npx', '-y', 'skills', 'add', 'remotion-dev/skills', '-g', '-a', 'claude-code', '-s', '*', '-y']
+    log('  $ ' + ' '.join(cmd))
+    if not dry:
+        env = dict(os.environ, DO_NOT_TRACK='1', DISABLE_TELEMETRY='1')
+        r = subprocess.run(cmd, env=env)
+        log('remotion: installed into ~/.claude/skills' if r.returncode == 0 else '  ! remotion install failed')
+    log('remotion: free for individuals and companies of up to 3 people; 4+ need a paid Remotion licence.')
+
+
 def sync_memory(dry, uninstall):
     old = ''
     if os.path.exists(USER_MEMORY):
@@ -221,7 +272,8 @@ def main():
     ap = argparse.ArgumentParser(description="Use T1's skills and rules in local Claude Code sessions")
     ap.add_argument('--plugins', action='store_true', help='also install the enabled plugins at user scope')
     ap.add_argument('--mcp', action='store_true', help='also add the .mcp.json servers at user scope')
-    ap.add_argument('--all', action='store_true', help='skills + rules + plugins + mcp')
+    ap.add_argument('--remotion', action='store_true', help="also install Remotion's video skills (npx skills add remotion-dev/skills)")
+    ap.add_argument('--all', action='store_true', help='skills + rules + plugins + mcp + remotion')
     ap.add_argument('--dry-run', action='store_true', help='show what would change')
     ap.add_argument('--uninstall', action='store_true', help='remove T1 skill links and the CLAUDE.md block')
     args = ap.parse_args()
@@ -229,6 +281,7 @@ def main():
         log('(dry run - nothing is changed)')
     log(f'T1: {T1}\nuser config: {HOME_CLAUDE}')
     sync_skills(args.dry_run, args.uninstall)
+    sync_agents(args.dry_run, args.uninstall)
     sync_memory(args.dry_run, args.uninstall)
     if args.uninstall:
         log('plugins/MCP are left installed; remove them with `claude plugin uninstall` / `claude mcp remove -s user`.')
@@ -237,6 +290,8 @@ def main():
         sync_plugins(args.dry_run)
     if args.mcp or args.all:
         sync_mcp(args.dry_run)
+    if args.remotion or args.all:
+        sync_remotion(args.dry_run)
     log('done. Open a new local Claude Code session (CLI or desktop "Local") in any folder.')
 
 

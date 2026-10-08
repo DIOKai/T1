@@ -84,3 +84,21 @@ No third-party code is included. `assets/timecycle_vars.txt` is a list of the ti
 ## fivem-mlo-housing (written for this repository)
 
 No third-party code is included. The workflow summarises the Sollumz wiki (GPL-3 project), the FiveM documentation, and the public READMEs and configs of qbx_properties, qb-interior, qb-houses, ps-housing, bob74_ipl, object_gizmo and ht_mlotool; flag names and values were read from the Sollumz source (`ytyp/properties/flags.py`) and XML element names from Sollumz szio (MIT).
+
+## pbakaus/impeccable
+
+- Source: https://github.com/pbakaus/impeccable (commit `778c8a7b71ccd5bfe3ca6ac68c15d9d872d0f87d`, plugin version 4.5.0)
+- License: Apache 2.0 (LICENSE and NOTICE.md copied into the skill folder)
+- Included: `plugin/skills/impeccable` → `.claude/skills/impeccable`, and `plugin/agents/*.md` → `.claude/agents/`
+- Local modification: the plugin's hooks (`plugin/hooks/hooks.json`, which run the impeccable engine on SessionStart, after every Edit/Write and on Stop) were deliberately not included.
+
+## Leonxlnx/taste-skill
+
+- Source: https://github.com/Leonxlnx/taste-skill (reviewed at commit `b482f7a970abb98c4108d4a9f761e458c64cefc8`)
+- License: MIT
+- Not vendored: enabled as the `taste-skill@taste-skill` plugin from its own marketplace in `.claude/settings.json`.
+
+## remotion-dev/skills
+
+- Source: https://github.com/remotion-dev/skills (reviewed at commit `32b241b97f4e0e4ab61fe9a41b05e6e64503f8c5`)
+- No licence file in the repository, so nothing is vendored. `scripts/install_local.py --remotion` installs it on the user's own machine with Remotion's documented command (`npx skills add remotion-dev/skills`). Remotion itself is free for individuals and companies of up to 3 people; larger companies need a Remotion licence.
