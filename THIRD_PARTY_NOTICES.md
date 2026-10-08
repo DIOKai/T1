@@ -131,3 +131,34 @@ No third-party code is included. Facts come from the FiveM documentation and sou
 - Source: https://github.com/jakubkrehel/make-interfaces-feel-better (commit `35545ea1512ad59fa463e6b1f95ca9c052981fe6`)
 - License: MIT (LICENSE copied into the skill folder)
 - Skills: make-interfaces-feel-better (unmodified)
+
+## Owl-Listener/designer-skills
+
+- Source: https://github.com/Owl-Listener/designer-skills (reviewed at commit `9a6930cf84a822eb458624bd11c61aac5bbdf224`)
+- License: MIT
+- Not vendored: the `visual-critique`, `ui-design` and `interaction-design` plugins are enabled from the repo's own marketplace (`designer-skills`) in `.claude/settings.json`.
+
+## mastepanoski/claude-skills
+
+- Source: https://github.com/mastepanoski/claude-skills (commit `fbdde8adb5645dd3ab8531200a651c9112472b2b`)
+- License: MIT (LICENSE copied into the skill folder)
+- Skills: ui-design-review (unmodified)
+
+## vercel-labs/agent-skills
+
+- Source: https://github.com/vercel-labs/agent-skills (commit `063bee94c3f4df8453406c830b0a7df0f2860278`)
+- License: MIT (stated in the repository README; there is no separate LICENSE file)
+- Skills: web-design-guidelines (unmodified; it fetches its rules from vercel-labs/web-interface-guidelines at run time)
+
+## wshobson/agents
+
+- Source: https://github.com/wshobson/agents (commit `46891e7e60da0e52baf1050b7b6391b64e84c6d9`)
+- License: MIT (LICENSE copied into the skill folder)
+- Skills: interaction-design from `plugins/ui-design/skills/` (unmodified)
+
+## julianoczkowski/designer-skills
+
+- Source: https://github.com/julianoczkowski/designer-skills (commit `c259656c76d9758d7ead46b0d2f125cbe84f8665`)
+- License: Apache 2.0 (LICENSE copied into each skill folder)
+- Skills: design-brief, design-tokens, design-review, and frontend-design renamed to `designer-frontend-design`
+- Local modification: `frontend-design` was renamed to `designer-frontend-design` (it clashed with Anthropic's frontend-design skill), and the references to it in design-brief, design-tokens and design-review were updated.

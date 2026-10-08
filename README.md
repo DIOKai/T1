@@ -1,8 +1,8 @@
 # T1 — Claude Code / Cowork Skills 合集
 
-用 Claude Code 打开这个仓库时，`.claude/settings.json` 会自动登记 8 个插件市场，并提示你安装下面已启用的插件；`.claude/skills/` 里的技能直接可用，不用安装。
+用 Claude Code 打开这个仓库时，`.claude/settings.json` 会自动登记 9 个插件市场，并提示你安装下面已启用的插件；`.claude/skills/` 里的技能直接可用，不用安装。
 
-## 已启用的插件（16 个，`.claude/settings.json`）
+## 已启用的插件（19 个，`.claude/settings.json`）
 
 | 来源 | 插件 |
 |---|---|
@@ -11,11 +11,12 @@
 | [lackeyjb/playwright-skill](https://github.com/lackeyjb/playwright-skill) | `playwright-skill`（首次使用需在插件目录跑 `npm run setup`） |
 | [trailofbits/skills](https://github.com/trailofbits/skills) | 8 个和 FiveM（Lua/JS/Python）、GitHub 有关的：`sharp-edges`、`insecure-defaults`、`differential-review`、`static-analysis`、`supply-chain-risk-auditor`、`variant-analysis`、`git-cleanup`、`code-improver` |
 | [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill) | `taste-skill`（MIT）：让网页、界面不像 AI 套模板。主技能 `design-taste-frontend`，另有 redesign（旧站改造）、minimalist、soft、brutalist 等风格，以及 `brandkit`、`imagegen-frontend-*` 这类出参考图的技能（要配 ChatGPT Images 之类的生图工具，Claude Code 自己不能生图） |
+| [Owl-Listener/designer-skills](https://github.com/Owl-Listener/designer-skills) | 3 个设计插件（MIT）：`visual-critique`（7 个挑毛病技能：配色、字体、构图、信息密度、视觉层次、可点感、品牌一致性，加 `/critique-screen` 整个画面点评）、`ui-design`（19 个：间距系统、字体比例、配色系统、深色模式、网格、各种设计定律）、`interaction-design`（22 个：加载状态、错误处理、反馈模式、微交互规格等）。同一个市场里其他的研究、管理类插件没启用 |
 | [B7Kompirine/muto-atlas](https://github.com/B7Kompirine/muto-atlas) | `muto-atlas`：GTA V / FiveM 资料库（车辆骨骼名、碰撞 flag、Sollumz/CodeWalker 常见坑、原版车规格），19 个指令，要先建资料库（见下） |
 
 `anthropics/knowledge-work-plugins` 和 `phuryn/pm-skills` 只登记了市场，没有默认启用，原因见下。要用时 `claude plugin install <插件>@<市场>`。
 
-## 直接放进仓库的技能（78 个，`.claude/skills/`）
+## 直接放进仓库的技能（85 个，`.claude/skills/`）
 
 - **FiveM**：`fivem-pro`（[leminhhuy113/fivem-pro](https://github.com/leminhhuy113/fivem-pro)，MIT）讲开发、性能优化，以及用 Sollumz + CodeWalker 做地图/MLO；`fivem-security-audit`（[matiaspalmac/fivem-audit-skill](https://github.com/matiaspalmac/fivem-audit-skill)，MIT）查后门、漏洞、性能问题
 - **FiveM ox 系列和 NUI**：oxlib、oxmysql、ox-inventory、ox-target（[germanfndez/fiveai-skills](https://github.com/germanfndez/fiveai-skills)，MIT）；fivem-react-nui（[proelias7/fivem-skill](https://github.com/proelias7/fivem-skill)，MIT），用 React + TypeScript + Vite + Tailwind 做 NUI
@@ -29,6 +30,7 @@
 - **游戏界面和手感**：`game-ui-ux`、`game-feel`（[gamedev-skills/awesome-gamedev-agent-skills](https://github.com/gamedev-skills/awesome-gamedev-agent-skills)，Apache 2.0）——菜单层级、键盘/手柄选择、分辨率缩放；按钮反馈、缓动这类"手感"
 - **设计资料库**：`ui-ux-pro-max`（[nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill)，MIT）——本机搜索 79 种风格、192 套配色、74 组字体搭配、119 条 UX 规则，不用联网。只装了核心技能，同仓库要付费生图 API 的 logo/banner 技能没装；脚本路径已改成 `${CLAUDE_SKILL_DIR}`，测试文件没放进来
 - **界面细节和动效**：Emil Kowalski（Sonner、Vaul 的作者）的 8 个技能（[emilkowalski/skill](https://github.com/emilkowalski/skill)，MIT）——`emil-design-eng`（界面打磨和动效的整体原则）、`break-ui`（用超长名字、零商品、超大数字这类极端数据测试界面会不会坏）、`review-animations`（审查动效）、`find-animation-opportunities`（找哪里该加、哪里不该加动效）、`improve-animations`（动效审查和改进计划）、`animate`（从头做一个动效）、`prototype`（同一个界面做几个完全不同的版本给你挑，只在你叫它时才用）、`animation-vocabulary`（把"那个弹一下的效果"翻成正确的名称）。同仓库的 Swift、React Native/Expo、手机网页、Sonner、选库技能和 FiveM 无关，没装。另加 Jakub Krehel 的 `make-interfaces-feel-better`（[jakubkrehel/make-interfaces-feel-better](https://github.com/jakubkrehel/make-interfaces-feel-better)，MIT）——文字换行、圆角层次、视觉对齐、阴影代替边框、可中断的动画这些小细节
+- **设计审查和设计系统**：`ui-design-review`（[mastepanoski/claude-skills](https://github.com/mastepanoski/claude-skills)，MIT，从 10 个方面审查视觉）、`web-design-guidelines`（[Vercel](https://github.com/vercel-labs/agent-skills)，MIT，100 多条界面规范逐行检查；每次用时会从 GitHub 下载最新规则）、`interaction-design`（[wshobson/agents](https://github.com/wshobson/agents)，MIT，微交互和反馈，附代码）、`design-brief` → `design-tokens` → `design-review`（[julianoczkowski/designer-skills](https://github.com/julianoczkowski/designer-skills)，Apache 2.0：先访谈定方向、再生成颜色/间距/字体变量、最后对照方向审查），以及它们参考的风格清单 `designer-frontend-design`（原名 frontend-design，跟 Anthropic 的同名技能撞名所以改了名）
 - **做视频（Remotion）**：`remotion-best-practices` 等 12 个技能（[remotion-dev/skills](https://github.com/remotion-dev/skills)），用 React 写代码做视频。那个仓库没有授权文件，所以没有复制进 T1；在自己电脑上用 `python scripts/install_local.py --remotion` 安装（会执行 Remotion 官方的 `npx skills add remotion-dev/skills`，并关掉它的追踪），云端对话里没有。Remotion 本身个人和 3 人以下公司免费，4 人以上要付费授权
 - **土木工程**：quantity-surveyor（[MuscleOtter/quantity-surveyor](https://github.com/MuscleOtter/quantity-surveyor)，MIT），算工程量、BOQ、单价分析、投标、变更、现金流
 - **室内设计（Blender）**：set-dressing、archviz、prop-artist、environment-artist（[arjun988/blender-skills](https://github.com/arjun988/blender-skills)，MIT）——室内布置、真实尺寸和灯光、家具道具、模块化房间
@@ -163,9 +165,9 @@ python scripts/install_local.py --all             # 技能 + 规则 + 插件 + M
 ```
 
 它会做这些事：
-- 把 78 个技能链接到 `~/.claude/skills/`。用的是链接不是复制，以后在 T1 里 `git pull`，技能就跟着更新；你自己建的同名技能不会被覆盖
+- 把 85 个技能链接到 `~/.claude/skills/`。用的是链接不是复制，以后在 T1 里 `git pull`，技能就跟着更新；你自己建的同名技能不会被覆盖
 - 在 `~/.claude/CLAUDE.md` 加一段，导入 T1 的 `CLAUDE.md`（它再导入 `LESSONS.md`），所以在哪个文件夹都用同一套规则，包括"用技能前一律先问"。原来的 CLAUDE.md 会先备份成 `CLAUDE.md.bak`
-- `--plugins`：用 `claude` 命令把 16 个插件装到用户范围
+- `--plugins`：用 `claude` 命令把 19 个插件装到用户范围
 - `--mcp`：把 blender、fivem、freecad、ifc 四个 MCP 加到用户范围（要先装 uv 和 Node.js）
 - `--remotion`：装 Remotion 的 12 个做视频技能（要先装 Node.js）
 - `.claude/agents/` 里的子代理（impeccable 的 4 个）也会一起链接到 `~/.claude/agents/`
