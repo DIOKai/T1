@@ -15,7 +15,10 @@
     "supply-chain-risk-auditor@trailofbits": true,
     "code-improver@trailofbits": true,
     "muto-atlas@muto-atlas": true,
-    "taste-skill@taste-skill": true
+    "taste-skill@taste-skill": true,
+    "visual-critique@designer-skills": true,
+    "ui-design@designer-skills": true,
+    "interaction-design@designer-skills": true
   },
   "extraKnownMarketplaces": {
     "anthropic-agent-skills": {
@@ -64,6 +67,12 @@
       "source": {
         "source": "github",
         "repo": "Leonxlnx/taste-skill"
+      }
+    },
+    "designer-skills": {
+      "source": {
+        "source": "github",
+        "repo": "Owl-Listener/designer-skills"
       }
     }
   }
