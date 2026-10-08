@@ -145,6 +145,7 @@ function setFold(fold, notify = true) {
 const toggleFold = () => setFold(state.fold === 'open' ? 'closed' : 'open');
 function setDevice(id, notify = true) {
   if (!DEVICES[id] || id === state.device) return;
+  window.exitFlex?.('open');
   morph(() => { state.device = id; if (!DEVICES[id].fold) state.fold = 'closed'; applyDevice(); });
   if (notify) saveSettings();
 }
@@ -178,6 +179,7 @@ function setOpen(open) {
     renderLock();
     raf2(() => phone.classList.add('is-open'));
   } else {
+    window.exitFlex?.('open');
     phone.classList.remove('is-open');
     hideCC();
     document.activeElement?.blur();
@@ -230,6 +232,7 @@ function renderCC() {
       <button class="cc-tile ${state.dnd ? 'on' : ''}" data-cc="dnd">${icon('bell-off')}<span class="cap">${T.dnd}</span></button>
       ${foldable ? `<button class="cc-tile" data-cc="fold">${icon(dev().fold === 'tri' ? 'columns-3' : 'columns-2')}<span class="cap">${state.fold === 'open' ? T.foldUp : T.unfold}</span></button>` : ''}
       ${state.allowDeviceChange ? `<button class="cc-tile" data-cc="model">${icon('smartphone')}<span class="cap">${T.model}</span></button>` : ''}
+      ${window.flexTile?.() || ''}
       <label class="cc-tile cc-wide"><span>${T.phoneSize}</span><input type="range" data-cc="size" min="0.65" max="1" step="0.01" value="${state.scale}" /></label>
     </div>`;
 }

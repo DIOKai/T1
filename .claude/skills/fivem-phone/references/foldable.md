@@ -59,6 +59,19 @@ Android guidance, applied:
 
 Draw a subtle hinge line on the inner screen (a 1px gradient or a soft shadow column) so players read it as one folded screen.
 
+## Flex mode: standing on a table (tabletop posture)
+
+Samsung's zones (Galaxy Z Fold support guide, design range 75–115°): **75–80° cover view, 80–115° Flex view, 115–180° full view**. The hinge is not guaranteed to hold outside 75–115°. Samsung's developer page describes two uses: fold **below 90°** to use the cover screen for wide media, or open wider for a split main screen. The template implements this in `web/flex.js` (Fold8 Ultra-style `tall`, `flip`, and the Duo-style `passport`. Fold8 is left out because Samsung US lists Flex mode as unsupported there, and the TriFold has no half-open state):
+
+| Angle | Shape | Top half | Bottom half |
+|---|---|---|---|
+| 90–115° obtuse | L: base flat, top leans back | content (video, chat, album art, balance) | full Flex panel: progress, transport controls, chats/quick replies/composer, shortcuts, panel bar (screenshot, angle, exit) |
+| 80–90° acute | L: top leans forward over the base | content, slightly larger text | only big primary controls, pushed to the **front edge**. The top half covers the back of the base |
+| 75–80° | tent: hinge up, cover screen facing you | — | the cover screen turned landscape: wide media plus one notification |
+| > 115° / < 75° | — | snap to fully open / closed | |
+
+How to render it cheaply: two DOM slabs (top/bottom, or front for the tent), `transform-style: preserve-3d`, the base `rotateX(90deg)` lying on the table, the top `rotateX(angle − 90°)` about the hinge, the stage `rotateX(−30deg)` for a camera looking slightly down. Use 2D gradients for lighting (obtuse catches light, acute is darker) and for the contact shadow. 3D box-shadows and z-fighting along the shared hinge edge create artefacts, so let the black glass overlap the hinge by 2 pt. Dragging the top edge changes the angle 1:1 with transitions off. Zones re-render when crossed, and release snaps out of range. Interaction stays inside the phone: Control Centre → Flex 模式, drag the top edge, the ↑/↓ keys, and the panel's exit button.
+
 ## Fold animation (cheap)
 
 Animate **only** `transform` and `opacity`. Don't animate `width`/`height`, which relays out every app. Two approaches:

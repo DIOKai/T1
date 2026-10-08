@@ -15,6 +15,7 @@ files {
     'web/index.html',
     'web/style.css',
     'web/app.js',
+    'web/flex.js',
     'web/icons.js',
     'web/fonts/*.woff2',
 }
