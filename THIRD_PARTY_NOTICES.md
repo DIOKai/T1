@@ -102,3 +102,20 @@ No third-party code is included. The workflow summarises the Sollumz wiki (GPL-3
 
 - Source: https://github.com/remotion-dev/skills (reviewed at commit `32b241b97f4e0e4ab61fe9a41b05e6e64503f8c5`)
 - No licence file in the repository, so nothing is vendored. `scripts/install_local.py --remotion` installs it on the user's own machine with Remotion's documented command (`npx skills add remotion-dev/skills`). Remotion itself is free for individuals and companies of up to 3 people; larger companies need a Remotion licence.
+
+## gamedev-skills/awesome-gamedev-agent-skills
+
+- Source: https://github.com/gamedev-skills/awesome-gamedev-agent-skills (commit `d4b0e35550c55ae70bdfcab4ef5a0e94610438a9`)
+- License: Apache 2.0 (LICENSE and NOTICE copied into each skill folder)
+- Skills: game-ui-ux, game-feel (unmodified)
+
+## nextlevelbuilder/ui-ux-pro-max-skill
+
+- Source: https://github.com/nextlevelbuilder/ui-ux-pro-max-skill (commit `477bcb28c9812b385cb51a4605ddf30d7b2266e2`)
+- License: MIT (LICENSE copied into the skill folder)
+- Skills: ui-ux-pro-max only (the repo's banner/brand/design/logo skills use paid image APIs and were not included)
+- Local modifications: script paths changed from `${CLAUDE_PLUGIN_ROOT}/.claude/skills/ui-ux-pro-max/` to `${CLAUDE_SKILL_DIR}/`; `scripts/tests` removed.
+
+## fivem-menu-design (written for this repository)
+
+No third-party code is included. Facts come from the FiveM documentation and source (nui-resources, nui-core), ox_lib (LGPL-3.0) and qb-menu (GPL-3.0) source, read for reference only.
