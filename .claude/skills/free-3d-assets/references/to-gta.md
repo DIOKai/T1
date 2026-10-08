@@ -7,7 +7,7 @@ Sources: muto-ped-rig v0.3.2 README (character steps, measured limits), this rep
 ### 1. Clean up in Blender
 1. Import (`.glb`: File ▸ Import ▸ glTF; the importer converts glTF's Y-up to Blender's Z-up). Hunyuan3D and library models arrive at **arbitrary scale**. The `blender` MCP reports `world_bounding_box`.
 2. **Scale to real size**: 1 Blender unit = 1 metre = 1 GTA unit. A burger ≈ 0.1 m, a chair seat ≈ 0.45 m high, a door ≈ 2.0–2.1 m. Apply scale (Ctrl+A ▸ Scale).
-3. **Origin at the bottom centre** (where it touches the ground), so `PlaceObjectOnGroundProperly` and `ox_target` offsets behave. Front faces **-Y**, matching vanilla props (rule of thumb).
+3. **Origin**: for props that stand in the world, at the **bottom centre** (where it touches the ground), so `PlaceObjectOnGroundProperly` and `ox_target` offsets behave. For **hand-held** props, at the **grip point** (where the fingers close), so attach offsets stay near zero. Front faces **-Y**, matching vanilla props (rule of thumb).
 4. Delete junk: generated models often have a ground plate, floating bits and internal faces. Merge by distance, recalculate normals (Shift+N), check for non-manifold edges.
 5. Rename: `prop_<server>_<thing>` (e.g. `prop_dio_burger`), lowercase, no spaces. The name becomes the model hash, so it must be unique. Vanilla uses `prop_`, `v_`, `p_` prefixes: don't reuse a vanilla name unless you mean to replace it.
 
@@ -23,7 +23,7 @@ Generated meshes are dense and uneven (Hunyuan3D's default `face_count` is 40,00
 
 - Quick: Decimate modifier (Collapse), then fix the UVs if they break. Better: retopology (`retopology` skill, ask first).
 - Hunyuan3D shape-only output has **no UVs**. Unwrap before texturing (`uv-workflow`); a mesh without UVs also bloats the file.
-- AI meshes are often **triangle soup** with uneven density. Remesh (Voxel) then Decimate gives cleaner results than Decimate alone.
+- AI meshes are often **triangle soup** with uneven density. Remesh (Voxel) then Decimate gives cleaner results than Decimate alone. Set the voxel size relative to the object, about 1/100 to 1/200 of its largest side (a 0.1 m burger → 0.0005–0.001 m; a 1 m chair → 0.005–0.01 m), *after* scaling to real size. Too big a voxel melts details; check before applying (rule of thumb).
 
 ### 3. Textures
 - Sollumz needs **power-of-two** sizes (256, 512, 1024, 2048) and converts to **DDS**. Hand-held props: 256–512 px; furniture: 512–1024; big props: 1024–2048. Avoid 4K on props: it costs VRAM for every player.
@@ -32,7 +32,7 @@ Generated meshes are dense and uneven (Hunyuan3D's default `face_count` is 40,00
 - Put textures in a `.ytd` named like the drawable, or embed them. Several props sharing one `.ytd` saves memory.
 
 ### 4. LODs and distance
-- Sollumz Drawable has High / Medium / Low / Very Low slots. Small props usually need High plus one lower level. Halve the triangles and textures per step (512 → 256 → 128, as in `maps-sollumz.md`).
+- Sollumz Drawable has High / Medium / Low / Very Low slots. **Hand-held props** (only seen up close, short `lodDist`): High only is fine. **Anything placed in the world**: High plus at least one lower level. Halve the triangles and textures per step (512 → 256 → 128, as in `maps-sollumz.md`).
 - `lodDist` in the `.ytyp` archetype sets the draw distance. Small props ~30–60 m, furniture ~60–100 m, big props more (rule of thumb). A huge draw distance on many props hurts FPS.
 - `lod-pipeline` / `asset-optimization` can automate this (ask first).
 
@@ -71,7 +71,7 @@ local obj = CreateObject(model, c.x, c.y + 1.0, c.z, false, false, false)
 PlaceObjectOnGroundProperly(obj)
 SetModelAsNoLongerNeeded(model)
 ```
-If it's invisible: check the ytyp is loaded (`data_file`), names match exactly, the binaries (not XML) are in `stream/`, and the textures are found (pink/white = missing `.ytd`). Hand-held: `AttachEntityToEntity(obj, ped, GetPedBoneIndex(ped, 28422), …)`. `GetPedBoneIndex` takes the bone **tag**: 28422 = `PH_R_Hand` (right prop holder), 60309 = `PH_L_Hand`, 57005 = `SKEL_R_Hand` (`fivem-animation/references/skeleton-and-authoring.md`). Use `fivem-animation` for the holding animation.
+If it's invisible: check the ytyp is loaded (`data_file`), names match exactly, the binaries (not XML) are in `stream/`, and the textures are found (pink/white = missing `.ytd`). Hand-held: `AttachEntityToEntity(obj, ped, GetPedBoneIndex(ped, 28422), 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, true, true, false, true, 1, true)`, then tune the six offsets in game (copy a similar vanilla emote's `PropPlacement` from rpemotes as a start). `GetPedBoneIndex` takes the bone **tag**: 28422 = `PH_R_Hand` (right prop holder), 60309 = `PH_L_Hand`, 57005 = `SKEL_R_Hand` (`fivem-animation/references/skeleton-and-authoring.md`). Use `fivem-animation` for the holding animation.
 
 For **placing props in the world permanently** (ymap) or inside an interior, continue with `fivem-mlo-housing`.
 

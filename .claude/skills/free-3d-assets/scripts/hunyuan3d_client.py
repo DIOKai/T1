@@ -161,7 +161,7 @@ def main(argv=None):
     g.add_argument("--texture", action="store_true", help="also paint textures (needs much more VRAM)")
     g.add_argument("--seed", type=int, default=1234)
     g.add_argument("--octree", type=int, default=256, help="mesh detail 64-512 (default 256)")
-    g.add_argument("--steps", type=int, default=5, help="inference steps 1-20 (server default 5)")
+    g.add_argument("--steps", type=int, default=20, help="inference steps 1-20 (default 20; the server alone defaults to 5)")
     g.add_argument("--guidance", type=float, default=5.0)
     g.add_argument("--faces", type=int, default=40000, help="max faces for texturing 1000-100000")
     g.add_argument("--no-remove-bg", action="store_true", help="image already has a clean/transparent background")

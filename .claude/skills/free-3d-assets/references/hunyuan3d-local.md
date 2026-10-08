@@ -1,17 +1,28 @@
 # Hunyuan3D on the user's own PC
 
-Sources: Tencent-Hunyuan/Hunyuan3D-2.1 (README, `api_server.py`, `api_models.py`, `API_DOCUMENTATION.md`, LICENSE), YanWenKun/Hunyuan3D-2-WinPortable (README), ahujasid/blender-mcp (`addon.py`: `create_hunyuan_job_local_site`, scene properties). All read 2026-10-08.
+Sources: Tencent-Hunyuan/Hunyuan3D-2.1 (README, `api_server.py`, `api_models.py`, `API_DOCUMENTATION.md`, LICENSE), YanWenKun/Hunyuan3D-2-WinPortable (README), ahujasid/blender-mcp v2.1.9 (`addon.py`, `src/blender_mcp/server.py`, `generation.py`). All read 2026-10-08. The installed `blender` MCP is this package: its PyPI name is `mcp-for-blender` and its tools (`get_addon_status`, `search_assets`, `import_asset`, `generate_3d`, `look`) are the ones in that source.
 
 ## Which version
 
 | | Hunyuan3D 2.1 (2025-06) | Hunyuan3D 2.0 / 2mini / 2mv |
 |---|---|---|
-| input | **image only** (API has no text field) | image; 2.0's demo also had a text-to-image front end (UNVERIFIED in the API) |
+| input | **image only** (API has no text field) | image; the Windows pack's 2.0 web UI also has **text → 3D** (it makes an image first with HunyuanDiT) |
 | output | mesh + **PBR** textures | mesh + plain colour texture |
-| VRAM (official numbers) | shape 10 GB, texture 21 GB, both 29 GB | lower; 2mini is the lightest |
+| VRAM (official numbers) | shape 10 GB, texture 21 GB, both 29 GB | lower (no official table read); 2mini is the lightest |
 | licence | Tencent Hunyuan 3D 2.1 Community License | Tencent Hunyuan 3D 2.0 Community License (same structure) |
 
-The Windows pack below bundles both. On a 12–16 GB card: generate the **shape with 2.1**, then texture with the pack's low-VRAM options (its README says geometry can run in ≥ 3 GB and texture in ≥ 6 GB with its "mmgp" optimisations, at the cost of system RAM, ≥ 24 GB recommended), or texture in Blender yourself.
+The Windows pack below bundles both, with "mmgp" memory optimisations that move model parts to system RAM. Its README: geometry in ≥ 3 GB VRAM (2.1, maximum optimisation), texture in ≥ 6 GB (2.0, maximum optimisation), **≥ 24 GB system RAM** (less VRAM → more RAM). Which program has mmgp matters:
+
+| Pack program | mmgp | Use on a 12–16 GB card |
+|---|---|---|
+| **Hunyuan3D 2.1** (web UI, :8080) | yes | shape + PBR texture in one go, slower. Best quality route |
+| Hunyuan3D 2.0 (web UI) | yes | lighter; also text → 3D |
+| **API 2.0** | partial | what Blender / the client script can use with **texture on** |
+| **API 2.1** | **no** | official VRAM numbers apply: shape (~10 GB) fits on 12 GB, texture (~21 GB) won't |
+
+So on 12 GB: the web UI 2.1 for textured models, or API 2.1 shape-only and paint the texture yourself (below), or API 2.0 with texture. The API takes an image and returns a finished model; there's no "texture this existing mesh" call. Close FiveM, browsers and other GPU programs while generating, and ask the user how much system RAM they have before suggesting the mmgp modes.
+
+**Texturing a shape-only mesh in Blender** (free): unwrap (Smart UV Project), then project the original photo onto it. Texture Paint mode → Texture Slots → paint with the photo as a *stencil* brush texture from the matching view, or use the camera-projection method (UV Project modifier from a camera aligned to the photo), then bake to the UVs. Back and hidden sides need hand painting or a second photo. `texture-workflow` covers baking (ask first).
 
 ## Install
 
@@ -21,10 +32,10 @@ YanWenKun/Hunyuan3D-2-WinPortable:
 2. Extract to a short path such as `C:\AI\HY3D2` (Windows 260-character path limit).
 3. For textures, install the **CUDA Toolkit** (12.9.1 per the README) and the **Visual C++ Build Tools**. Without them it still makes meshes, but no textures.
 4. Run `UPDATE.bat`, then `RUN.bat`. In the launcher pick the program: "Hunyuan3D 2.1" (web UI) or **"API 2.1"** (the server the `blender` MCP talks to). Ticking "Enable Texture Generation" compiles the texture parts on first launch, which takes a while.
-5. Models download on first start. The web UI says `running on http://0.0.0.0:8080`; open http://localhost:8080. For the API mode, use the address the window prints (UNVERIFIED which port the pack uses for the API).
+5. Models download on first start. The web UI says `running on http://0.0.0.0:8080`; open http://localhost:8080. For the API programs, use the address the window prints (UNVERIFIED which port the pack uses; the official `api_server.py` defaults to 8081, and the Blender addon's default URL is `http://localhost:8081`).
 
-### Option B: official repo (Linux/Windows with Python)
-Python 3.10, PyTorch 2.5.1 + CUDA 12.4 (as tested by Tencent):
+### Option B: official repo (Linux, or WSL2 on Windows)
+Python 3.10, PyTorch 2.5.1 + CUDA 12.4 (as tested by Tencent). The build steps use `bash` and `wget`; on plain Windows use Option A.
 ```bash
 pip install torch==2.5.1 torchvision==0.20.1 torchaudio==2.5.1 --index-url https://download.pytorch.org/whl/cu124
 pip install -r requirements.txt
@@ -58,16 +69,20 @@ Request fields (`api_models.GenerationRequest`, with ranges):
 | `num_chunks` | 8000 | 1000 – 20000 |
 | `face_count` | 40000 | 1000 – 100000 (max faces for texturing) |
 
-`scripts/hunyuan3d_client.py` wraps `/health` and `/generate` (standard library only).
+`scripts/hunyuan3d_client.py` wraps `/health` and `/generate` (standard library only). Its `--steps` default is 20 (quality); the server's own default is 5 (fast drafts). It must run on the PC with the server: copy the single file there, or run it from the T1 checkout if T1 is cloned on that PC (`python C:\path\to\T1\.claude\skills\free-3d-assets\scripts\hunyuan3d_client.py ...`, or `py` if `python` opens the Microsoft Store).
 
 ## Connecting the `blender` MCP (local mode)
 
-The installed `blender` MCP (mcp-for-blender) has a Hunyuan3D panel: 3D Viewport ▸ N ▸ BlenderMCP ▸ Tencent Hunyuan 3D → mode **Local API** → **API URL** = `http://127.0.0.1:8081` (or the pack's address). Then `generate_3d` (or the panel) sends `POST {url}/generate` and imports the GLB.
+Settings in Blender: 3D Viewport ▸ N ▸ MCP for Blender sidebar ▸ tick **Tencent Hunyuan 3D** → Mode **local api** (the other mode, "official api", is Tencent Cloud with SecretId/SecretKey: an account and paid quota, don't use) → **API URL** (default `http://localhost:8081`; change it to the pack's address) → Octree Resolution, **Inference Steps**, Guidance Scale, Generate Texture.
 
-- **Keep "Inference Steps" at 20.** The addon only allows 20–50 and Hunyuan3D 2.1 only accepts 1–20, so anything above 20 fails with a validation error (422). Octree 256 and guidance 5.5 are fine.
-- Leave "Texture" off on 12–16 GB cards unless the server runs in low-VRAM mode.
-- The MCP docs say `generate_3d` prefers **Premium** generators automatically. Premium is a paid service; don't sign up. With Premium off, the local generator is used.
-- The tool takes an image path or URL. A text prompt only works if the server supports text, and 2.1 doesn't.
+How `generate_3d` picks a generator (`generation.choose_provider`): if **Premium** is active, everything goes through Premium (paid), even `provider="hunyuan3d"`. Without Premium, `auto` takes the first enabled own generator in the order Hunyuan3D, then Hyper3D Rodin. So:
+1. `get_addon_status` first: `premium_generators` must be empty, and Hunyuan3D should show as on. Never paste a Premium licence key.
+2. Call `generate_3d(image="C:/full/path/burger.png", provider="hunyuan3d")`. Being explicit avoids falling through to Rodin (which needs a paid key).
+3. The addon sends `POST {url}/generate` (image as base64, timeout 600 s) and imports the GLB. The local call is synchronous; if the MCP call times out on a slow card, use the panel or `hunyuan3d_client.py` and import the GLB.
+
+- **Inference Steps: keep 20.** The addon only allows 20–50 (default 20) and Hunyuan3D 2.1 only accepts 1–20, so anything above 20 fails with a validation error (422). Octree 256 and guidance 5.5 (addon defaults) are fine.
+- "Generate Texture" on API 2.1 needs ~21 GB more VRAM. Leave it off on 12–16 GB, or point the URL at API 2.0.
+- The tool takes an image path or URL. Images pasted in chat can't be passed; ask for a file path. A text prompt only works on a server that supports text (2.1 doesn't).
 
 ## Getting good results
 

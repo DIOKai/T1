@@ -33,7 +33,7 @@ What this means on a FiveM server:
 
 Pixabay has music and sound effects on the site, but the API serves images and videos only. Download by hand:
 1. pixabay.com/music or pixabay.com/sound-effects → search → listen → Download (log in).
-2. Save the page URL and author in the resource's `CREDITS-pixabay.md` (add a row by hand, same table).
+2. Record it: `pixabay.py credit --out <folder> --file <name> --page <page URL> --user <author> --kind music` (adds a row to `CREDITS-pixabay.md`; editing the `.md` by hand gets overwritten on the next download).
 3. Convert for FiveM: **OGG** (Vorbis) for NUI `<audio>` in CEF, mono for short UI sounds, ~96–128 kbps for music. Keep UI sounds short (< 1 s) and quiet.
 
 **YouTube/Twitch Content ID**: some Pixabay music is registered with Content ID by its authors, so a streamer playing on your server can get an automatic claim even though use is allowed. Third-party guides say Pixabay offers a downloadable licence certificate per track to dispute claims (UNVERIFIED on Pixabay's own FAQ). For loading-screen music that streamers will hear, prefer tracks without a Content ID note, or let players mute it.

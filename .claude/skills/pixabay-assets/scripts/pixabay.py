@@ -9,6 +9,7 @@ Standard library only. Needs a free Pixabay API key in the PIXABAY_API_KEY envir
   python pixabay.py get 195893 [--video]
   python pixabay.py download 195893 --out assets/ [--size large]
   python pixabay.py download 125 --video --size medium --out assets/
+  python pixabay.py credit --out assets/ --file rain_theme.ogg --page https://pixabay.com/music/... --user Name --kind music
 
 API facts (pixabay.com/api/docs): images at https://pixabay.com/api/, videos at /api/videos/;
 per_page 3-200; results cached 24 h by us as Pixabay asks; free keys get previewURL (150 px),
@@ -69,11 +70,14 @@ def cache_path(params):
 
 
 def api_get(endpoint, params, use_cache=True):
-    key = api_key()
     path = cache_path(dict(params, _endpoint=endpoint))
     if use_cache and os.path.isfile(path) and time.time() - os.path.getmtime(path) < CACHE_SECONDS:
-        with open(path, encoding="utf-8") as f:
-            return json.load(f)
+        try:
+            with open(path, encoding="utf-8") as f:
+                return json.load(f)
+        except ValueError:
+            pass
+    key = api_key()
 
     url = urllib.parse.urljoin(API_BASE, endpoint) + "?" + urllib.parse.urlencode(dict(params, key=key))
     for attempt in range(2):
@@ -85,7 +89,11 @@ def api_get(endpoint, params, use_cache=True):
         except urllib.error.HTTPError as e:
             text = redact(e.read()[:500].decode("utf-8", "replace"), key)
             if e.code == 429 and attempt == 0:
-                wait = min(int(e.headers.get("X-RateLimit-Reset", "30") or 30), 60)
+                try:
+                    wait = float(e.headers.get("X-RateLimit-Reset") or 30)
+                except ValueError:
+                    wait = 30
+                wait = int(min(max(wait, 2), 60))
                 print(f"rate limited by Pixabay, waiting {wait} s...", file=sys.stderr)
                 time.sleep(wait)
                 continue
@@ -126,6 +134,12 @@ def slug(text, limit=40):
     return s[:limit].strip("_") or "asset"
 
 
+def file_label(name, hit):
+    # Non-Latin names (e.g. Chinese) slug to nothing; fall back to the first tag.
+    label = slug(name or "")
+    return label if label != "asset" else slug(first_tag(hit))
+
+
 def first_tag(hit):
     return (hit.get("tags") or "").split(",")[0].strip()
 
@@ -146,6 +160,9 @@ def summarize(hit, video):
         base["duration_s"] = hit.get("duration")
         base["sizes"] = {s: f"{v.get('width')}x{v.get('height')} {round((v.get('size') or 0) / 1e6, 1)} MB"
                          for s, v in video_files(hit)}
+        thumbs = [v.get("thumbnail") for _, v in video_files(hit) if v.get("thumbnail")]
+        if thumbs:
+            base["thumbnail"] = thumbs[-1]
     else:
         base["size"] = f"{hit.get('imageWidth')}x{hit.get('imageHeight')}"
         base["preview"] = hit.get("previewURL")
@@ -171,6 +188,11 @@ def cmd_search(args):
     if args.editors_choice:
         params["editors_choice"] = "true"
     if args.video:
+        ignored = [f for f, on in (("--orientation", args.orientation != "all"), ("--colors", args.colors),
+                                   ("--type", args.type != "all")) if on]
+        if ignored:
+            print(f"note: Pixabay's video search ignores {', '.join(ignored)}; check width x height in the results",
+                  file=sys.stderr)
         params["video_type"] = args.video_type
         data = api_get("videos/", params, use_cache=not args.no_cache)
     else:
@@ -187,7 +209,10 @@ def cmd_search(args):
     for h in hits:
         sizes = ", ".join(h["sizes"]) if not args.video else ", ".join(f"{k} {v}" for k, v in h["sizes"].items())
         extra = f"{h.get('duration_s')} s" if args.video else h["size"]
-        print(f"- {h['id']}  {extra}  [{h['tags']}] by {h['user']}\n    {h['page']}\n    sizes: {sizes}")
+        thumb = f"\n    preview: {h.get('thumbnail') or h.get('preview')}" if (h.get('thumbnail') or h.get('preview')) else ""
+        print(f"- {h['id']}  {extra}  [{h['tags']}] by {h['user']}\n    {h['page']}\n    sizes: {sizes}{thumb}")
+    if not args.video:
+        print("Free keys download at most 1280 px (--size large). For the original size, download by hand from the page.")
     print("Source: Pixabay (pixabay.com). Download with: pixabay.py download <id> --out <folder>")
     return 0
 
@@ -225,10 +250,14 @@ def pick_url(hit, video, size):
     return url, size, None
 
 
+class OffHostRedirect(Exception):
+    pass
+
+
 class PixabayOnlyRedirects(urllib.request.HTTPRedirectHandler):
     def redirect_request(self, req, fp, code, msg, headers, newurl):
         if not host_allowed(newurl):
-            fail(f"download was redirected to {urllib.parse.urlsplit(newurl).hostname}, not pixabay.com; stopped")
+            raise OffHostRedirect(urllib.parse.urlsplit(newurl).hostname)
         return super().redirect_request(req, fp, code, msg, headers, newurl)
 
 
@@ -248,14 +277,22 @@ def download(url, dest):
                         break
                     total += len(chunk)
                     if total > MAX_DOWNLOAD_BYTES:
-                        f.close()
-                        os.remove(tmp)
-                        fail("file is larger than 500 MB; stopped")
+                        raise OverflowError
                     f.write(chunk)
+    except OffHostRedirect as e:
+        problem = f"download was redirected to {e}, not pixabay.com; stopped"
+    except OverflowError:
+        problem = "file is larger than 500 MB; stopped"
     except urllib.error.HTTPError as e:
-        fail(f"download failed: HTTP {e.code} (image URLs expire after 24 h; run the command again)")
+        problem = f"download failed: HTTP {e.code}"
     except (urllib.error.URLError, OSError) as e:
-        fail(f"download failed: {getattr(e, 'reason', e)}")
+        problem = f"download failed: {getattr(e, 'reason', e)}"
+    else:
+        problem = None
+    if problem:
+        if os.path.exists(tmp):
+            os.remove(tmp)
+        fail(problem)
     os.replace(tmp, dest)
     return total
 
@@ -268,16 +305,20 @@ def write_credits(out_dir, entry):
             with open(jpath, encoding="utf-8") as f:
                 items = json.load(f)
         except ValueError:
-            items = []
-    items = [i for i in items if i.get("file") != entry["file"]] + [entry]
+            fail(f"{jpath} is not valid JSON; fix or delete it (CREDITS-pixabay.md is rebuilt from it)")
+        if not isinstance(items, list):
+            fail(f"{jpath} should be a JSON list; fix or delete it")
+    items = [i for i in items if isinstance(i, dict) and i.get("file") != entry["file"]] + [entry]
     with open(jpath, "w", encoding="utf-8") as f:
         json.dump(items, f, ensure_ascii=False, indent=1)
     lines = ["# Pixabay credits", "",
-             "Content from Pixabay under the Pixabay Content License (https://pixabay.com/service/license-summary/). "
-             "Attribution isn't required; this list records where each file came from.", "",
+             "Content from Pixabay under the Pixabay Content License (https://pixabay.com/service/license/). "
+             "Attribution isn't required; this list records where each file came from.",
+             f"Generated from {CREDITS_JSON} by pixabay.py: add rows with `pixabay.py credit`, not by editing this file.", "",
              "| File | Pixabay page | Author | Type | Downloaded |", "|---|---|---|---|---|"]
     for i in items:
-        lines.append(f"| {i['file']} | {i['page']} | {i['user']} | {i['kind']} | {i['date']} |")
+        cells = [str(i.get(k) or "") .replace("|", "/") for k in ("file", "page", "user", "kind", "date")]
+        lines.append("| " + " | ".join(cells) + " |")
     with open(os.path.join(out_dir, CREDITS_MD), "w", encoding="utf-8") as f:
         f.write("\n".join(lines) + "\n")
 
@@ -295,7 +336,8 @@ def cmd_download(args):
     if not re.fullmatch(r"\.[a-z0-9]{2,5}", ext):
         ext = ".mp4" if args.video else ".jpg"
     os.makedirs(args.out, exist_ok=True)
-    name = f"pixabay_{hit.get('id')}_{slug(args.name or first_tag(hit))}_{got}{ext}"
+    label = file_label(args.name, hit)
+    name = f"pixabay_{hit.get('id')}_{label + '_' if label != 'asset' else ''}{got}{ext}"
     dest = os.path.join(args.out, name)
     if os.path.exists(dest) and not args.force:
         fail(f"{dest} already exists (use --force)")
@@ -306,6 +348,19 @@ def cmd_download(args):
     write_credits(args.out, entry)
     print(json.dumps({"file": dest, "bytes": nbytes, "size": got, "page": hit.get("pageURL"),
                       "credits": os.path.join(args.out, CREDITS_MD)}, ensure_ascii=False))
+    return 0
+
+
+def cmd_credit(args):
+    """Record a file downloaded by hand (music, sound effects, original-size images)."""
+    page = args.page.strip()
+    if not host_allowed(page) and not page.startswith("https://pixabay.com/"):
+        print("note: page is not a pixabay.com address; recording it anyway", file=sys.stderr)
+    os.makedirs(args.out, exist_ok=True)
+    entry = {"file": os.path.basename(args.file), "id": None, "page": page, "user": args.user,
+             "kind": args.kind, "tags": None, "date": time.strftime("%Y-%m-%d")}
+    write_credits(args.out, entry)
+    print(json.dumps({"recorded": entry["file"], "credits": os.path.join(args.out, CREDITS_MD)}, ensure_ascii=False))
     return 0
 
 
@@ -348,12 +403,26 @@ def main(argv=None):
     d.add_argument("id", type=int)
     d.add_argument("--out", required=True)
     d.add_argument("--video", action="store_true")
-    d.add_argument("--size", help="images: preview|web|large (default large, 1280 px); videos: large|medium|small|tiny (default medium)")
+    d.add_argument("--size", help="images: preview|web|large (default large, 1280 px; full|original|vector need full API "
+                                  "access); videos: large|medium|small|tiny (default medium)")
     d.add_argument("--name", help="name part of the file (default: first tag)")
     d.add_argument("--force", action="store_true")
 
+    c = sub.add_parser("credit", help="add a hand-downloaded file (music, SFX) to the credits file")
+    c.add_argument("--out", required=True, help="folder holding the credits files")
+    c.add_argument("--file", required=True)
+    c.add_argument("--page", required=True, help="the Pixabay page URL")
+    c.add_argument("--user", required=True, help="author name")
+    c.add_argument("--kind", default="music", help="e.g. music, sound effect, image original")
+
+    # Windows consoles and pipes may not be UTF-8; never crash on a tag or name.
+    for stream in (sys.stdout, sys.stderr):
+        try:
+            stream.reconfigure(errors="replace")
+        except (AttributeError, ValueError):
+            pass
     args = p.parse_args(argv)
-    return {"search": cmd_search, "get": cmd_get, "download": cmd_download}[args.cmd](args)
+    return {"search": cmd_search, "get": cmd_get, "download": cmd_download, "credit": cmd_credit}[args.cmd](args)
 
 
 if __name__ == "__main__":

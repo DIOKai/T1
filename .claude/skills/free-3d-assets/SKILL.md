@@ -8,7 +8,7 @@ description: Use when the user wants 3D models for GTA V / FiveM (props, furnitu
 Paid generators (Tripo, Meshy, Rodin, Blender MCP Premium) are off the table: the project rules forbid paid tools, and Tripo's free-plan output is non-commercial anyway. Two free routes cover almost everything:
 
 1. **Generate locally with Hunyuan3D** (Tencent, free weights, runs on the user's NVIDIA GPU). It is **image → 3D**: give it a clear picture of one object.
-2. **Download from free libraries** (Poly Haven CC0, Poly Pizza, Sketchfab models with a free licence). The `blender` MCP already searches and imports these.
+2. **Download from free libraries** (Poly Haven CC0, Poly Pizza, Sketchfab models with a free licence). The `blender` MCP can search and import these (`search_assets` / `import_asset`; ask before using it, per the project rules).
 
 Either way, the model is not game-ready when it arrives. `references/to-gta.md` turns it into a FiveM prop or ped.
 
@@ -21,19 +21,20 @@ Related skills (ask before using, per the project rules): `retopology`, `uv-work
 
 ## Workflow
 
-### 1. Decide: find or generate
-- Common real-world object (chair, crate, plant, food) → search the libraries first (`blender` MCP `search_assets` / `import_asset`). Ready topology and textures, zero GPU time.
-- Unique object, from a photo or concept art → Hunyuan3D.
+### 1. Decide: vanilla, find or generate
+- **Vanilla first.** GTA already has thousands of props (food, drinks, phones, tools, furniture). Check muto-atlas `/prop` or CodeWalker for one that fits (UNVERIFIED example: a burger prop like `prop_cs_burger_01`; look the name up, don't guess). A vanilla prop costs no download for players.
+- Common real-world object with no good vanilla match (chair, crate, plant, food) → search the libraries (`search_assets` / `import_asset`). Ready topology and textures, zero GPU time.
+- Unique object, or the user wants **their own photo** turned into 3D → Hunyuan3D. When the user explicitly asks for their photo, mention the vanilla/library options in one line and then do what they asked.
 - Character → Hunyuan3D or a library model, then **muto-ped-rig** (ask first; it installs a Blender extension). Never ship a ped without the GTA skeleton.
 
 ### 2. Generate with Hunyuan3D (the user's PC)
 - One object, centred, plain background, three-quarter view, good light. Hunyuan3D removes the background itself (`remove_background`).
 - **No text prompts in 2.1.** For "make me a burger", find or make an image first: a photo, a Pixabay image (`pixabay-assets`), or the user's sketch.
-- Shape only needs ~10 GB VRAM (official). Texture needs ~21 GB on the official code, so a 12–16 GB card should generate the **shape** and texture it in Blender, or use the Windows pack's low-VRAM mode (see the reference).
-- Drive it from Blender (`blender` MCP `generate_3d` with Hunyuan3D in **Local API** mode, steps = 20) or with `scripts/hunyuan3d_client.py` (Python standard library, talks to the local API server):
-  ```bash
-  python .claude/skills/free-3d-assets/scripts/hunyuan3d_client.py health --url http://localhost:8081
-  python .claude/skills/free-3d-assets/scripts/hunyuan3d_client.py generate burger.png --out burger.glb
+- VRAM: shape ~10 GB, texture ~21 GB on the official code. On a **12–16 GB** card: the Windows pack's **2.1 web UI** (memory-optimised, needs ≥ 24 GB system RAM) makes textured models; the **API 2.1** program fits shape only, so paint the texture in Blender or use API 2.0. Table and Blender texturing steps in the reference. Close FiveM and browsers while generating.
+- Drive it from the web UI, from Blender (`blender` MCP: `get_addon_status` → Premium must be off → `generate_3d(image=<full path>, provider="hunyuan3d")`, sidebar mode **local api**, Inference Steps **20**), or with `scripts/hunyuan3d_client.py` (Python standard library; runs on the PC with the server, so copy the file there or run it from a local T1 clone):
+  ```powershell
+  py hunyuan3d_client.py health --url http://localhost:8081
+  py hunyuan3d_client.py generate burger.png --out burger.glb --steps 20
   ```
 - Running code in the user's Blender, and starting servers on their PC, are ask-first actions.
 
