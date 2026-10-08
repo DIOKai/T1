@@ -13,11 +13,6 @@ The fivem-phone skill's reference implementation. Copy it as the starting point 
   | `tall` | Galaxy Z Fold8 Ultra | 6.5" 21:9 | 8" 近正方形，两栏 |
   | `flip` | Galaxy Z Flip8 | 4.1" 外屏（时钟、通知卡片、5 个固定 app） | 6.9" 长屏，中间横向折痕 |
   | `trifold` | Galaxy Z TriFold | 6.5" | 10" 三栏，先右后左两段展开动画 |
-- **Flex 模式（立在桌上）**：长折叠、翻盖、护照折叠可以用。控制中心 → Flex 模式进入；拖上半部的上缘调角度（↑ ↓ 键也行），完全照三星的角度分区：
-  - 90°–115° 钝角：上半部往后仰显示内容，下半部是完整控制面板。
-  - 80°–90° 锐角：上半部往前倾，盖住下半部后面，下半部只留靠前缘的大按钮。
-  - 75°–80°：变帐篷姿势，外屏转横向播放内容。
-  - 超过 115° 就完全打开，小于 75° 就合上。
 - **锁屏**：时间、日期、最新 3 条通知；点击、上滑、Enter 或 ↑ 解锁（`Config.LockScreen` 可关）。
 - **控制中心**：点状态栏右边的信号/电量图标打开。里面有深色模式、勿扰（勿扰时不弹通知）、展开/合上、手机型号、手机大小。
 - **折叠方式**：拖手机外侧的边缘（书本式和三折叠拖左边，翻盖拖上边），或点一下边缘、按 F、用控制中心。折叠时信息 app 选中的对话、打到一半的字、钱包表单都会保留。
@@ -36,7 +31,7 @@ The fivem-phone skill's reference implementation. Copy it as the starting point 
 
 ## 浏览器预览（不用进游戏）
 
-直接用 Chromium 打开 `web/index.html`，会用假资料运行，没有任何多出来的按钮。预览专用按键：**O** 开/关、**N** 模拟通知。截图用网址参数：`?device=trifold&fold=open&app=messages&thread=1&theme=light&sheet=1&unlock=1&cc=1&note=1`，Flex 模式加 `&device=tall&flex=95`。
+直接用 Chromium 打开 `web/index.html`，会用假资料运行，没有任何多出来的按钮。预览专用按键：**O** 开/关、**N** 模拟通知。截图用网址参数：`?device=trifold&fold=open&app=messages&thread=1&theme=light&sheet=1&unlock=1&cc=1&note=1`。
 
 ## 安全和性能（已经做好，改的时候别弄坏）
 
