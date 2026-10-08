@@ -12,8 +12,8 @@
 
 :root {
   --phone-scale: 0.85;                                              /* player setting, 0.65–1 */
-  --pt: max(calc(var(--phone-scale) * 100vh / 984), 0.6px);         /* tallest canvas (flip open 964 + bezel) fits */
-  --bezel: 9;
+  --pt: max(calc(var(--phone-scale) * 100vh / 1010), 0.6px);        /* tallest body (flip open, 999 pt) fits */
+  --rim: 6;                                                         /* visible metal edge, ≈1 mm */
 
   --spring: linear(0, 0.057, 0.18, 0.32, 0.455, 0.573, 0.671, 0.75, 0.812, 0.86, 0.896, 0.924,
     0.944, 0.96, 0.971, 0.979, 0.985, 0.989, 0.992, 0.994, 0.996, 0.997, 0.998, 0.999, 1);
@@ -60,14 +60,17 @@ button { cursor: pointer; }
 
 /* ───────── device ───────── */
 .anchor { position: fixed; right: 4vh; bottom: 3vh; }
+body.embed .anchor { right: 50%; transform: translateX(50%); }
 .phone {
   position: relative;
-  width: calc((var(--sw) + 2 * var(--bezel)) * var(--pt));
-  height: calc((var(--sh) + 2 * var(--bezel)) * var(--pt));
-  padding: calc(var(--bezel) * var(--pt));
+  width: calc(var(--bw) * var(--pt));
+  height: calc(var(--bh) * var(--pt));
+  padding: calc(var(--by) * var(--pt)) calc(var(--bx) * var(--pt));
   border-radius: calc(var(--r-frame) * var(--pt));
-  background: #0c0c0e;
-  box-shadow: 0 0 0 calc(1.5 * var(--pt)) #2b2b30 inset, 0 calc(24 * var(--pt)) calc(60 * var(--pt)) rgba(0, 0, 0, 0.5);
+  /* metal rim (≈1 mm) around a black glass border: the border is drawn by .screen's outer shadow */
+  background: linear-gradient(145deg, var(--metal-hi), var(--metal) 35%, var(--metal-lo) 70%, var(--metal));
+  box-shadow: inset 0 0 0 calc(0.8 * var(--pt)) rgba(255, 255, 255, 0.14), 0 calc(24 * var(--pt)) calc(60 * var(--pt)) rgba(0, 0, 0, 0.5);
+  --metal: #3b3b3f; --metal-hi: #6e6e74; --metal-lo: #1f1f22;
   transform-origin: 100% 100%;
   transform: translateY(calc(100% + 6vh));
   transition: transform var(--spring-dur) var(--spring);
@@ -75,14 +78,21 @@ button { cursor: pointer; }
   font-size: calc(17 * var(--pt));
   line-height: 1.3;
   user-select: none;
-  --r-frame: 56; --r-screen: 47;
+  --r-screen: 52;
+  --r-frame: calc(var(--r-screen) + min(var(--bx), var(--by)));     /* concentric corners */
 }
-.phone[data-brand='samsung'] { --r-frame: 44; --r-screen: 36; }
-.phone[data-state='open'][data-fold='book'], .phone[data-state='open'][data-fold='tri'] { --r-frame: 30; --r-screen: 22; }
-.phone[data-fold='clam'][data-state='closed'] { --r-frame: 48; --r-screen: 40; }
+/* screen corner radii in pt (≈, measured from product photos; not published specs) */
+.phone[data-device='passport'] { --r-screen: 44; }
+.phone[data-brand='samsung'] { --r-screen: 30; }
+.phone[data-state='open'][data-fold='book'], .phone[data-state='open'][data-fold='tri'] { --r-screen: 20; }
+.phone[data-device='passport'][data-state='open'] { --r-screen: 36; }
+.phone[data-fold='clam'][data-state='closed'] { --r-screen: 34; }
+.phone[data-fold='clam'][data-state='open'] { --r-screen: 34; }
 .phone.is-open { transform: none; }
 
-.screen { position: relative; width: 100%; height: 100%; overflow: hidden; border-radius: calc(var(--r-screen) * var(--pt)); background: var(--bg); isolation: isolate; }
+.screen { position: relative; width: 100%; height: 100%; overflow: hidden; border-radius: calc(var(--r-screen) * var(--pt)); background: var(--bg); isolation: isolate;
+  box-shadow: 0 0 0 calc((min(var(--bx), var(--by)) - var(--rim)) * var(--pt)) #050506; }   /* black glass border up to the rim */
+.phone[data-brand='samsung'] { --metal: #2e3034; --metal-hi: #5c6066; --metal-lo: #18191b; }
 .content { position: absolute; inset: 0; transition: opacity 140ms linear; }
 .phone.is-swapping .content, .phone.is-swapping .statusbar { opacity: 0; transition-duration: 80ms; }
 

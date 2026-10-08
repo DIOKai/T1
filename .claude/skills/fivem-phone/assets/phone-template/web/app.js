@@ -12,15 +12,23 @@ const IN_GAME = typeof window.GetParentResourceName === 'function';
 const RES = IN_GAME ? window.GetParentResourceName() : 'phone-template';
 const params = new URLSearchParams(location.search);
 
-/* Screen canvases in points (≈152 pt per inch), from real devices (references/real-foldables.md).
+/* Real proportions at 152 pt per inch (references/real-foldables.md):
+   body = the phone's measured outline (mm), screen = resolution / ppi (or diagonal + aspect).
+   The frame around the screen is whatever is left over, so every device keeps its own bezels.
    Labels shown to players are generic. */
 const DEVICES = {
-  bar:      { label: '直板手机', brand: 'apple', fold: '', closed: [390, 844] },
-  passport: { label: '护照折叠（书本式，宽）', brand: 'apple', fold: 'book', closed: [465, 676], open: [945, 665], hinges: [0.5] },      // iPhone Duo
-  wide:     { label: '宽折叠（书本式）', brand: 'samsung', fold: 'book', closed: [443, 709], open: [924, 693], hinges: [0.5] },           // Galaxy Z Fold8
-  tall:     { label: '长折叠（书本式）', brand: 'samsung', fold: 'book', closed: [389, 908], open: [903, 813], hinges: [0.5] },           // Galaxy Z Fold8 Ultra
-  flip:     { label: '翻盖折叠', brand: 'samsung', fold: 'clam', closed: [418, 462], open: [413, 964], hinges: [0.5], hingeDir: 'h' },  // Galaxy Z Flip8
-  trifold:  { label: '三折叠', brand: 'samsung', fold: 'tri', closed: [389, 908], open: [1225, 899], hinges: [1 / 3, 2 / 3] },      // Galaxy Z TriFold
+  bar:      { label: '直板手机', brand: 'apple', fold: '',                                              // iPhone 16
+              closed: { screen: [390, 845], body: [428, 883] } },
+  passport: { label: '护照折叠（书本式，宽）', brand: 'apple', fold: 'book', hinges: [0.5],               // iPhone Duo
+              closed: { screen: [462, 672], body: [503, 705] }, open: { screen: [944, 664], body: [985, 705] } },
+  wide:     { label: '宽折叠（书本式）', brand: 'samsung', fold: 'book', hinges: [0.5],                   // Galaxy Z Fold8
+              closed: { screen: [443, 709], body: [490, 741] }, open: { screen: [924, 693], body: [966, 741] } },
+  tall:     { label: '长折叠（书本式）', brand: 'samsung', fold: 'book', hinges: [0.5],                   // Galaxy Z Fold8 Ultra
+              closed: { screen: [389, 908], body: [436, 948] }, open: { screen: [813, 902], body: [857, 948] } },
+  flip:     { label: '翻盖折叠', brand: 'samsung', fold: 'clam', hinges: [0.5], hingeDir: 'h',            // Galaxy Z Flip8
+              closed: { screen: [418, 462], body: [451, 513] }, open: { screen: [414, 965], body: [451, 999] } },
+  trifold:  { label: '三折叠', brand: 'samsung', fold: 'tri', hinges: [1 / 3, 2 / 3],                     // Galaxy Z TriFold
+              closed: { screen: [389, 908], body: [449, 953] }, open: { screen: [1221, 895], body: [1281, 953] } },
 };
 
 const T = {
@@ -95,10 +103,12 @@ const tileHTML = (id) => `<span class="tile" style="background:${appMeta(id).bg}
 /* ───────── device + fold ───────── */
 function applyDevice() {
   const d = dev();
-  const [w, h] = isOpenState() ? d.open : d.closed;
+  const { screen: [sw, sh], body: [bw, bh] } = isOpenState() ? d.open : d.closed;
   Object.assign(phone.dataset, { device: state.device, brand: d.brand, fold: d.fold, state: d.fold ? state.fold : 'closed', panes: panes() });
-  phone.style.setProperty('--sw', w);
-  phone.style.setProperty('--sh', h);
+  phone.style.setProperty('--bw', bw);
+  phone.style.setProperty('--bh', bh);
+  phone.style.setProperty('--bx', (bw - sw) / 2);
+  phone.style.setProperty('--by', (bh - sh) / 2);
   phone.style.setProperty('--panes', panes());
   $('#hinges').innerHTML = isOpenState()
     ? d.hinges.map((p) => (d.hingeDir === 'h' ? `<div class="hinge h" style="top:${p * 100}%"></div>` : `<div class="hinge v" style="left:${p * 100}%"></div>`)).join('')
@@ -683,7 +693,7 @@ $('#sbIcons').innerHTML = icon('signal') + icon('wifi') + icon('battery-full');
 setScale(state.scale);
 applyDevice();
 if (!IN_GAME) {
-  document.body.classList.add('preview');
+  document.body.classList.add(params.get('embed') ? 'embed' : 'preview'); // embed: transparent, centred (for side-by-side comparisons)
   const now = new Date();
   const p = (k) => params.get(k);
   if (p('theme')) setTheme(p('theme'));

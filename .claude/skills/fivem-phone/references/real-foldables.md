@@ -7,9 +7,9 @@ Copy real devices: players know them, and "almost like a Fold" reads as cheap. S
 | Device | Fold | Closed (cover) screen | Open (inner) screen | Body | Notes |
 |---|---|---|---|---|---|
 | **Apple iPhone Duo** (announced 2026-09-09) | book, inward | 5.4" portrait, 1398 × 2034 | 7.6", 1878 × 2670, used **landscape** when open | open 117.8 × 164.6 × 5.2 mm, closed 117.8 × 84.1 × 11.3 mm, 254 g | both screens share one aspect ratio, so content scales when opening. Short and wide when closed ("passport"). Touch ID in the side button. Matte nano-texture reduces (doesn't remove) the crease |
-| **Samsung Galaxy Z Fold8** (2026) | book, inward | 5.5", **10:16** (wide) | 7.6", **4:3** | 4.5 mm open, 201 g | new wide shape, closer to a normal phone when closed |
+| **Samsung Galaxy Z Fold8** (2026) | book, inward | 5.5", **10:16** (wide) | 7.6", **4:3** | closed 81.9 × 123.9 × 9.7 mm, open 161.4 × 123.9 × 4.5 mm, 201 g | new wide shape, closer to a normal phone when closed |
 | **Samsung Galaxy Z Fold8 Ultra** (2026) | book, inward | 6.5", 2520 × 1080, **21:9** (tall, narrow) | 8.0", ≈ 2504 × 2256 (near square; some sources list Fold7's 2184 × 1968) | open 158.4 × 143.2 × 4.1 mm, closed 158.4 × 72.8 × 8.9 mm, 215 g | the classic tall Fold shape. Same as Fold7 |
-| **Samsung Galaxy Z Flip8** (2026) | clamshell (top folds onto bottom) | 4.1" FlexWindow, 948 × 1048 (almost square) | 6.9", 2520 × 1080, 21:9 | 180 g | cover runs widgets and up to 5 pinned apps, about 16 apps can run fully on the cover. Flex mode: half-folded with content on top and controls below |
+| **Samsung Galaxy Z Flip8** (2026) | clamshell (top folds onto bottom) | 4.1" FlexWindow, 948 × 1048 (almost square) | 6.9", 2520 × 1080, 21:9 | closed 75.4 × 85.7 × 13.1 mm, open 75.4 × 166.9 × 6.1 mm, 180 g | cover runs widgets and up to 5 pinned apps, about 16 apps can run fully on the cover. Flex mode: half-folded with content on top and controls below |
 | **Samsung Galaxy Z TriFold** (2025-12) | two hinges, both **inward** ("G" fold), different sizes | 6.5", 2520 × 1080, 21:9 | 10.0", 2160 × 1584, 4:3 | open 159.2 × 214.1 × 3.9–4.2 mm, closed 159.2 × 75 × 12.9 mm, 309 g | unfold **right side first, then left**. Only fully folded or fully open. Warns (screen + haptic) on a wrong fold order. "Three 6.5-inch phones side by side": 3 portrait apps, standalone DeX |
 | **Huawei Mate XTs** (2025-09) | two hinges, **outward** "Z" fold | 6.4" single | 7.9" dual (2048 × 2232), 10.2" triple (2232 × 3184, 16:11) | 3.8 mm open, 12.8 mm closed, 298 g | three usable states. The screen is on the outside (no cover screen). The later Mate XT 2 switched to inward folding |
 
@@ -28,6 +28,13 @@ Copy real devices: players know them, and "almost like a Fold" reads as cheap. S
 - **Flip8 FlexWindow**: a consistent cover layout, a widget page, 5 pinned apps, editing the apps/widgets/Quick Panel without opening the phone, the wallpaper stretched with the clock repositioning, Now Bar/Now Brief, and Mirror View (cover as mirror).
 - **Flex mode** (half-folded): preview on one half and controls on the other (camera, video, calls).
 - **TriFold**: smartphone mode on the cover, tablet mode on the main screen, three portrait apps, DeX.
+
+## How the template turns this into frames
+
+`assets/phone-template/web/app.js` → `DEVICES` stores, per state, `body` (the measured outline in mm) and `screen` (resolution ÷ ppi, or diagonal + aspect ratio), both converted at 152 pt per inch. The frame is whatever is left between them, so each device keeps its real bezel widths and the devices keep their real sizes relative to each other. Notes:
+- Fold8 Ultra: Samsung's inner screen is portrait (taller than wide, about 2184 × 1968 on Fold7), so the open canvas is 813 × 902 pt.
+- Not replicated: side buttons, camera bumps and the Flip's cover-screen lens cut-outs, hinge hardware, colours and materials. Screen corner radii are estimates from photos, not published values. iPhone Duo's camera position and vertical Dynamic Island are unverified, so the template uses a normal pill.
+- Real industrial design is protected (trade dress): keep generic names and don't copy logos or exact styling into a public resource.
 
 ## What this means for a FiveM phone
 

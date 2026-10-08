@@ -4,7 +4,7 @@ The fivem-phone skill's reference implementation. Copy it as the starting point 
 
 ## 有什么
 
-- **6 种机型**（`config.lua` → `Config.Device`；玩家也能在 设置 → 手机型号 换，存在自己的 KVP）。比例按真机屏幕换算（`references/real-foldables.md`），游戏里用通用名字：
+- **6 种机型**（`config.lua` → `Config.Device`；玩家也能在 设置 → 手机型号 换，存在自己的 KVP）。机身外框用真机的实测尺寸（毫米），屏幕用真机的分辨率和像素密度，所以每台的边框宽窄、彼此大小都跟真机一样（`references/real-foldables.md`）。没做的是按键、镜头凸起、铰链零件、颜色材质。游戏里用通用名字：
   | 代号 | 参考真机 | 合起来 | 打开 |
   |---|---|---|---|
   | `bar` | 一般直板手机 | 390×844 pt | — |
