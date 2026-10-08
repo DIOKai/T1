@@ -15,7 +15,7 @@
 
 `anthropics/knowledge-work-plugins` 和 `phuryn/pm-skills` 只登记了市场，没有默认启用，原因见下。要用时 `claude plugin install <插件>@<市场>`。
 
-## 直接放进仓库的技能（65 个，`.claude/skills/`）
+## 直接放进仓库的技能（69 个，`.claude/skills/`）
 
 - **FiveM**：`fivem-pro`（[leminhhuy113/fivem-pro](https://github.com/leminhhuy113/fivem-pro)，MIT）讲开发、性能优化，以及用 Sollumz + CodeWalker 做地图/MLO；`fivem-security-audit`（[matiaspalmac/fivem-audit-skill](https://github.com/matiaspalmac/fivem-audit-skill)，MIT）查后门、漏洞、性能问题
 - **FiveM ox 系列和 NUI**：oxlib、oxmysql、ox-inventory、ox-target（[germanfndez/fiveai-skills](https://github.com/germanfndez/fiveai-skills)，MIT）；fivem-react-nui（[proelias7/fivem-skill](https://github.com/proelias7/fivem-skill)，MIT），用 React + TypeScript + Vite + Tailwind 做 NUI
@@ -25,6 +25,9 @@
 - **室内和房屋**：`fivem-mlo-housing`（本仓库自己写的）——三种室内怎么选（MLO、原版 IPL、shell），用 Blender + Sollumz + CodeWalker 做 MLO（limbo、房间、portal、实体、entity set、房间 timecycle、门、碰撞、顶点色灯光、`_manifest.ymf`、ht_mlotool 声音遮挡），在脚本里切换 entity set 和 IPL，以及 qbx_properties / qb-houses / ps-housing 怎么用 shell 和公寓、家具摆放和授权。附 `check_mlo_resource.py`，检查 this_is_a_map、manifest、portal 连错房间、房间没 portal、实体没放进房间（进屋看不到）、门的 flag、ymap extents、撞名。资料来自 Sollumz wiki 和源码、FiveM 官方资产教程和源码、citizenfx/natives 以及各房屋脚本自己的代码
 - **记住纠正**：`correction-memory`（本仓库自己写的）——你说我哪里做错、或说"下次/记住…"时，先改好，再把规则写进仓库根目录的 `LESSONS.md`。CLAUDE.md 用 `@LESSONS.md` 导入它，所以以后每次对话都会自动读到。新对话从 main 开始，所以经验要合并进 main 才生效
 - **界面美化**：`impeccable`（[pbakaus/impeccable](https://github.com/pbakaus/impeccable)，Apache 2.0）——在 Anthropic 的 frontend-design 基础上加强，1 个技能 24 个指令：`/impeccable audit`（找问题）、`critique`（设计点评）、`polish`（最后润色）、`animate`（加动效）、`bolder`/`quieter`（更大胆/更低调）、`colorize`、`typeset`、`layout` 等。它的 4 个子代理放在 `.claude/agents/`。**只装了技能本体，没装它插件里的 hook**：那些 hook 会在每次开对话、每次改文件、每次回答结束时自动跑它的程序，违反"用技能前一律先问"，改 FiveM Lua 时也会跑。第一次用到它的检查程序时，会从 impeccable 的 GitHub 下载对应平台的程序并校验 sha256。搭配已装的 `frontend-design`（网页界面）和 `canvas-design`（海报、静态图），做 FiveM NUI 时最有用
+- **FiveM 菜单设计**：`fivem-menu-design`（本仓库自己写的）——设计和美化 ox_lib 菜单、qb-menu、自定义 NUI（商店、车库、老板菜单、背包、轮盘、暂停菜单、HUD）。讲 FiveM 特有的规则：NUI 焦点是每个资源投票（有一个没放开玩家就卡鼠标）、`SetNuiFocusKeepInput` 要配 `DisableControlAction`、回调一定要 `cb()`、游戏内浏览器最高 240 帧重绘所以毛玻璃和无限动画会吃帧、720p 到 4K 的缩放、ESC/Backspace、价格要伺服器判定；ox_lib 用 `setr ox:primaryColor` 一行换主题色。附 `check_nui_menu.py` 检查脚本。资料来自 FiveM 官方 NUI 文档和源码、ox_lib 与 qb-menu 源码
+- **游戏界面和手感**：`game-ui-ux`、`game-feel`（[gamedev-skills/awesome-gamedev-agent-skills](https://github.com/gamedev-skills/awesome-gamedev-agent-skills)，Apache 2.0）——菜单层级、键盘/手柄选择、分辨率缩放；按钮反馈、缓动这类"手感"
+- **设计资料库**：`ui-ux-pro-max`（[nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill)，MIT）——本机搜索 79 种风格、192 套配色、74 组字体搭配、119 条 UX 规则，不用联网。只装了核心技能，同仓库要付费生图 API 的 logo/banner 技能没装；脚本路径已改成 `${CLAUDE_SKILL_DIR}`，测试文件没放进来
 - **做视频（Remotion）**：`remotion-best-practices` 等 12 个技能（[remotion-dev/skills](https://github.com/remotion-dev/skills)），用 React 写代码做视频。那个仓库没有授权文件，所以没有复制进 T1；在自己电脑上用 `python scripts/install_local.py --remotion` 安装（会执行 Remotion 官方的 `npx skills add remotion-dev/skills`，并关掉它的追踪），云端对话里没有。Remotion 本身个人和 3 人以下公司免费，4 人以上要付费授权
 - **土木工程**：quantity-surveyor（[MuscleOtter/quantity-surveyor](https://github.com/MuscleOtter/quantity-surveyor)，MIT），算工程量、BOQ、单价分析、投标、变更、现金流
 - **室内设计（Blender）**：set-dressing、archviz、prop-artist、environment-artist（[arjun988/blender-skills](https://github.com/arjun988/blender-skills)，MIT）——室内布置、真实尺寸和灯光、家具道具、模块化房间
@@ -159,7 +162,7 @@ python scripts/install_local.py --all             # 技能 + 规则 + 插件 + M
 ```
 
 它会做这些事：
-- 把 65 个技能链接到 `~/.claude/skills/`。用的是链接不是复制，以后在 T1 里 `git pull`，技能就跟着更新；你自己建的同名技能不会被覆盖
+- 把 69 个技能链接到 `~/.claude/skills/`。用的是链接不是复制，以后在 T1 里 `git pull`，技能就跟着更新；你自己建的同名技能不会被覆盖
 - 在 `~/.claude/CLAUDE.md` 加一段，导入 T1 的 `CLAUDE.md`（它再导入 `LESSONS.md`），所以在哪个文件夹都用同一套规则，包括"用技能前一律先问"。原来的 CLAUDE.md 会先备份成 `CLAUDE.md.bak`
 - `--plugins`：用 `claude` 命令把 16 个插件装到用户范围
 - `--mcp`：把 blender、fivem、freecad、ifc 四个 MCP 加到用户范围（要先装 uv 和 Node.js）
