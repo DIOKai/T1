@@ -130,6 +130,18 @@ No third-party code is included. Facts come from reading, for reference only: pr
 
 Design numbers in `references/phone-design.md` were checked against Apple HIG data files and Material 3 token files in androidx (Apache-2.0), cited as facts. Device specs in `references/real-foldables.md` come from public press and carrier coverage.
 
+## free-3d-assets (written for this repository)
+
+No third-party code is included. Facts come from reading, for reference only: Tencent-Hunyuan/Hunyuan3D-2.1 (README, `api_server.py`, `api_models.py`, LICENSE; Tencent Hunyuan 3D 2.1 Community License), YanWenKun/Hunyuan3D-2-WinPortable (README), ahujasid/blender-mcp (MIT; asset-library and Hunyuan3D handlers) and B7Kompirine/muto-ped-rig (GPL-3.0; README). `scripts/hunyuan3d_client.py` was written from scratch against the documented request fields. Hunyuan3D itself is not bundled; users install it themselves under Tencent's licence.
+
+## pixabay-assets (written for this repository)
+
+No third-party code or Pixabay content is included. API parameters and licence points come from Pixabay's API documentation and Content License Summary (via search-engine copies; pixabay.com was not reachable when writing). `scripts/pixabay.py` was written from scratch.
+
+## fivem-animation: Mixamo reference
+
+`fivem-animation/references/mixamo-to-gta.md` cites property and operator names from B7Kompirine/muto-ped-rig v0.3.2 (GPL-3.0) as facts, and Mixamo terms from Adobe's FAQ. No muto-ped-rig code is copied.
+
 ## emilkowalski/skill
 
 - Source: https://github.com/emilkowalski/skill (commit `e8a175de22ae1e49370fc144c1f3bb9aeedf988d`)
