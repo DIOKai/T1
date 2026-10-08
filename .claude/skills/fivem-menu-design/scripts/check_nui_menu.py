@@ -81,8 +81,8 @@ def check(paths):
         manifest_path = os.path.join(res, 'fxmanifest.lua')
         manifest = strip_lua_comments(read(manifest_path) or read(os.path.join(res, '__resource.lua')))
         ui_page = re.search(r"ui_page\s*\(?\s*['\"]([^'\"]+)['\"]", manifest)
-        files_decl = ' '.join(re.findall(r'files\s*\{(.*?)\}', manifest, flags=re.S)) + ' ' + \
-            ' '.join(re.findall(r"\bfile\s*['\"]([^'\"]+)['\"]", manifest))
+        files_decl = ' '.join(re.findall(r'\bfiles\s*\(?\s*\{(.*?)\}', manifest, flags=re.S)) + ' ' + \
+            ' '.join(re.findall(r"\bfile\s*\(?\s*['\"]([^'\"]+)['\"]", manifest))
 
         lua_files = [f for f in walk(res) if f.endswith('.lua') and os.path.basename(f) not in ('fxmanifest.lua', '__resource.lua')]
         lua = '\n'.join(strip_lua_comments(read(f)) for f in lua_files)
@@ -113,7 +113,7 @@ def check(paths):
             add('error', 'FOCUS_NO_RELEASE', '有 SetNuiFocus(true, …) 但找不到 SetNuiFocus(false, false)：关菜单后玩家的鼠标/键盘会一直被卡住（只要有一个资源没放开焦点就会卡）')
         if re.search(r'SetNuiFocusKeepInput\s*\(\s*true', lua) and not re.search(r'DisableControlAction|DisableAllControlActions', lua):
             add('warn', 'KEEP_INPUT_NO_DISABLE', 'SetNuiFocusKeepInput(true) 会让游戏继续收到按键，但没看到 DisableControlAction：玩家在菜单里打字或按方向键时，角色也会跟着动/开枪')
-        if uses_focus and ui_files and not re.search(r"""['"]Escape['"]|['"]Esc['"]|keyCode\s*===?\s*27|which\s*===?\s*27|['"]Backspace['"]""", ui_text) \
+        if uses_focus and ui_files and not re.search(r"""['"]Escape['"]|['"]Esc['"]|keyCode\s*===?\s*27|which\s*===?\s*27|case\s+27\b|['"]Backspace['"]""", ui_text) \
                 and not re.search(r'lib\.(registerMenu|showMenu|registerContext|showContext)', lua):
             add('warn', 'NO_ESCAPE_CLOSE', '界面里找不到 Escape/Backspace 的处理：玩家按 ESC 关不掉菜单（GTA 的暂停菜单还会被打开）')
 

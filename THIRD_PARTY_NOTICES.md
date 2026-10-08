@@ -120,11 +120,15 @@ No third-party code is included. The workflow summarises the Sollumz wiki (GPL-3
 
 No third-party code is included. Facts come from the FiveM documentation and source (nui-resources, nui-core), ox_lib (LGPL-3.0) and qb-menu (GPL-3.0) source, read for reference only.
 
+## fivem-phone (written for this repository)
+
+No third-party code is included. Facts come from reading, for reference only: project-error/npwd (GPL-3.0) and project-error/npwd-app-template, the lb-phone-app-template (MIT), qbcore-framework/qb-phone (GPL-3.0), Z3MO/z-phone (AGPL-3.0), and Android's foldable / window size class documentation. Short API names, control IDs and animation names are cited as facts; no code was copied.
+
 ## emilkowalski/skill
 
 - Source: https://github.com/emilkowalski/skill (commit `e8a175de22ae1e49370fc144c1f3bb9aeedf988d`)
 - License: MIT (LICENSE copied into each skill folder)
-- Skills: emil-design-eng, break-ui, review-animations, find-animation-opportunities, improve-animations, animate, prototype, animation-vocabulary (unmodified). Not included: write-swift, animate-expo, mobile-native, ask-sonner, apple-design, pick-ui-library.
+- Skills: emil-design-eng, break-ui, review-animations, find-animation-opportunities, improve-animations, animate, prototype, animation-vocabulary, apple-design (unmodified). Not included: write-swift, animate-expo, mobile-native, ask-sonner, pick-ui-library.
 
 ## jakubkrehel/make-interfaces-feel-better
 
@@ -154,7 +158,7 @@ No third-party code is included. Facts come from the FiveM documentation and sou
 
 - Source: https://github.com/wshobson/agents (commit `46891e7e60da0e52baf1050b7b6391b64e84c6d9`)
 - License: MIT (LICENSE copied into the skill folder)
-- Skills: interaction-design from `plugins/ui-design/skills/` (unmodified)
+- Skills: interaction-design, mobile-ios-design, mobile-android-design from `plugins/ui-design/skills/` (unmodified)
 
 ## julianoczkowski/designer-skills
 
