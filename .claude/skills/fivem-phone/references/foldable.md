@@ -4,14 +4,16 @@ No free FiveM phone folds out of the box. A foldable is a phone frame with a **f
 
 ## Pick a form factor
 
-| | Book-style (Fold type) | Flip-style (clamshell) |
-|---|---|---|
-| closed | narrow, tall **cover screen**, a normal but slim phone | small **cover screen** (clock, notifications, quick controls) |
-| open | almost square **inner screen**, fits two panes | tall normal phone screen |
-| half-open | **book posture**: vertical fold, split left/right | **tabletop posture**: horizontal fold, split top/bottom |
-| best for | list + detail, maps + info, chat list + chat | a "retro flip" feel, quick glance at the cover |
+Copy a real device. `real-foldables.md` has the specs and the software behaviour of iPhone Duo, Galaxy Z Fold8 / Fold8 Ultra / Flip8 / TriFold and Huawei Mate XTs. `assets/phone-template/` implements all six styles (`bar`, `passport`, `wide`, `tall`, `flip`, `trifold`), so start from it.
 
-Pick one per phone. Supporting both doubles every app's layouts.
+| | Book-style (Fold, Duo) | Flip-style (clamshell) | Tri-fold |
+|---|---|---|---|
+| closed | a full phone on the cover. Fold8 Ultra is tall 21:9, Fold8 is wide 10:16, Duo is short and wide | small cover screen: clock, widgets, 5 pinned apps, notifications | a full 21:9 phone on the cover |
+| open | near-square or landscape inner screen, **2 panes** | tall normal phone with a horizontal crease | 10" 4:3, **3 panes**, two hinges at ⅓ and ⅔ |
+| half-open | **book posture** (Duo moves content off the crease) | **Flex mode**: content on top, controls below | not supported (Samsung): only fully folded or open |
+| opening ritual | swing open from the outer edge | flip up from the bottom edge | right panel first, then left; warns on a wrong order |
+
+Pick one per server, or let players choose (the template's Settings → 手机型号) if you want variety. Every app then needs 1-, 2- and 3-pane layouts.
 
 ## States
 
@@ -25,15 +27,15 @@ folded (cover) ⇄ unfolded (inner)        optional: half-open (book / tabletop)
 
 Android uses width breakpoints: **compact < 600dp** (phones in portrait), **medium 600–840dp** (tablets in portrait, most unfolded inner displays in portrait), **expanded 840–1200dp** (tablets/unfolded in landscape). Android also says size classes depend on the window, not the device type.
 
-In NUI, mirror this with **container queries on the phone screen element**, so apps react to the screen they're in, not the game window:
+Scale the inner screen with the same `--pt` unit as the rest of the phone (`phone-design.md` §1). A cover screen ≈ 390 pt wide and an inner screen ≈ 720–760 pt wide (≈, roughly a Z Fold's proportions) put it in Android's "medium" class, which is the two-pane case.
+
+Because the whole phone scales with the game resolution, a pixel breakpoint would flip at different fold states on 720p and 1440p. **Drive the layout from the fold state, not from pixels.** Set `data-fold="open" | "closed"` on the screen and let apps style against it:
 ```css
-.screen { container-type: inline-size; }
 .app { display: grid; grid-template-columns: 1fr; }
-@container (min-width: 34rem) {          /* inner screen of a book-style foldable */
-  .app { grid-template-columns: minmax(14rem, 2fr) 3fr; }   /* list | detail */
-}
+[data-fold="open"] .app { grid-template-columns: minmax(calc(260 * var(--pt)), 2fr) 3fr; }  /* list | detail */
+[data-fold="open"] .app .detail-empty { display: grid; }   /* "pick a chat" placeholder on the right */
 ```
-FiveM's CEF is a recent Chromium, so container queries should work. That is unverified: test once, and fall back to a `.is-unfolded` class on the screen if they don't.
+Container queries in container units (`cqi`) are an alternative for apps that also run in other frames. Test them in FiveM's CEF first (unverified).
 
 Canonical layouts to use when unfolded:
 - **list-detail**: messages, contacts, mail, garage, bank transactions. Folded shows list *or* detail; unfolded shows both.
@@ -61,12 +63,12 @@ Draw a subtle hinge line on the inner screen (a 1px gradient or a soft shadow co
 
 Animate **only** `transform` and `opacity`. Don't animate `width`/`height`, which relays out every app. Two approaches:
 
-**A. Crossfade + frame scale (cheapest, recommended):** the frame shell scales from the cover size to the inner size (`transform: scaleX()` on an empty shell element), while the cover screen fades out and the inner screen (already laid out at its final size, hidden) fades in. 250–350 ms, ease-out.
+**A. Crossfade + frame scale (cheapest, recommended):** the frame shell scales from the cover size to the inner size (`transform: scaleX()` on an empty shell element), while the cover screen fades out and the inner screen (already laid out at its final size, hidden) fades in. Use `--spring-soft` (404 ms, from `phone-design.md` §4). Transitions, not keyframes, so pressing fold again mid-way reverses smoothly. `assets/phone-template/` implements this one.
 
 **B. 3D hinge (nicer, a bit more GPU):**
 ```css
 .fold { perspective: 1400px; }
-.half { transform-style: preserve-3d; backface-visibility: hidden; transition: transform .38s cubic-bezier(.2,.8,.2,1); }
+.half { transform-style: preserve-3d; backface-visibility: hidden; transition: transform var(--spring-soft-dur) var(--spring-soft); }
 .half.left  { transform-origin: right center; }
 .folded .half.left { transform: rotateY(180deg); }   /* left half closes over the right */
 .cover { backface-visibility: hidden; transform: rotateY(180deg); }  /* cover screen on the back of the left half */

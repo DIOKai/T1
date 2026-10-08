@@ -34,7 +34,7 @@
 - `fivem-vehicle-mod`：做、修、上架 addon 车辆资源（meta 文件、改装套件、涂装、警笛、贴图大小、Enhanced 转换），包括模组警车和用 Sollumz 做车的流程。车辆资源上服前跑它自带的 `check_vehicle_resource.py`（本地、只读；用户同意用这个技能后就可以直接跑）；npx 工具第一次跑会下载套件，先说一声
 - `fivem-graphics-pack`：画质包、调色（暖色/电影感）、visualsettings、2K/4K 贴图、ReShade 和 LUT。它的三个脚本都是本地运行、只写到指定的输出文件夹或只读，用户同意用这个技能后就可以直接跑。ReShade 是玩家自己装的，只在 Legacy 版、伺服器允许插件时有效
 - `fivem-mlo-housing`：做或修 MLO、原版室内（IPL、entity set）、房屋系统（qbx_properties 等）、家具摆放。它的 `check_mlo_resource.py` 是本地只读检查，用户同意用这个技能后就可以直接跑；要在 Blender 里动手时照下面 3D 的规则先问
-- `fivem-phone`：做 FiveM 手机或手机 app（npwd、lb-phone、qb-phone/z-phone）、自己做手机外框、折叠手机、手机界面设计。它的 `check_phone_app.py` 是本地只读检查，用户同意用这个技能后就可以直接跑；手机界面设计可以再问要不要搭配 `mobile-ios-design`、`mobile-android-design`、`apple-design`。lb-phone 本身是付费的，只在用户已经有它时帮写 app，不推荐购买
+- `fivem-phone`：做 FiveM 手机或手机 app（npwd、lb-phone、qb-phone/z-phone）、自己做手机外框、折叠手机、手机界面设计。新手机从它的 `assets/phone-template`（沉浸式，6 种真机比例）开始。它的 `check_phone_app.py` 是本地只读检查，用户同意用这个技能后就可以直接跑；手机界面设计可以再问要不要搭配 `mobile-ios-design`、`mobile-android-design`、`apple-design`。lb-phone 本身是付费的，只在用户已经有它时帮写 app，不推荐购买
 
 改完 FiveM 的 Lua 后，如果用户电脑上有 `qbx-lint`，就对改过的文件跑一次检查（只读，直接跑）；要用 `qbx-lint --fix` 或 `qbx-lint fmt` 改文件前先问。
 
@@ -44,7 +44,11 @@
 
 Blender 技能（retopology、lod-pipeline、asset-optimization、uv-workflow、rigging、animation、export-pipeline、vehicle-artist、hard-surface、collision-proxy、texture-workflow，以及做室内用的 set-dressing、archviz、prop-artist、environment-artist）要通过 `blender` MCP 在用户自己的 Blender 里执行代码，用之前先问。做 GTA 模型时，在 Blender 里完成后提醒用户用 Sollumz 导出成 .ydr/.yft/.ycd。
 
-做 GTA/FiveM 角色动画或自定义表情时用 `fivem-animation`（流程：Blender → Sollumz → CodeWalker → rpemotes/TaskPlayAnim），它自带的 `check_anim_resource.py` 是本地只读检查，用户同意用这个技能后就可以直接跑。
+要 3D 模型（道具、家具、食物、角色）时先建议 `free-3d-assets`：常见的东西先从 Poly Haven / Poly Pizza / Sketchfab 找免费模型（`blender` MCP 的 `search_assets`），独特的东西用用户自己电脑上的 Hunyuan3D 从图片生成（不用 Tripo、Meshy、Rodin 和 Blender MCP Premium，都要付费）。它的 `hunyuan3d_client.py` 只连用户本机的 Hunyuan3D 服务器，用户同意用这个技能后就可以直接跑；帮用户装 Hunyuan3D、启动服务器、在 Blender 里执行代码前要先问。`blender` MCP 本地模式的 Inference Steps 要设 20（Hunyuan3D 2.1 最多 20）。Hunyuan3D 授权不适用于欧盟、英国、韩国，用户在那些地方要提醒。
+
+要免费图片、视频（NUI 背景、手机壁纸、商店图片、loading screen、贴图、生成 3D 用的参考图）或音乐、音效时，先建议 `pixabay-assets`。它的 `pixabay.py` 要用户自己的免费 API key（放在环境变量 `PIXABAY_API_KEY`，不要写进文件或提交），会连 pixabay.com，用户同意用这个技能后就可以直接跑。Pixabay 的音乐和音效没有 API，要手动下载。
+
+做 GTA/FiveM 角色动画或自定义表情时用 `fivem-animation`（流程：Blender → Sollumz → CodeWalker → rpemotes/TaskPlayAnim；Mixamo 动作用它的 `references/mixamo-to-gta.md`，经 muto-ped-rig 转到 GTA 骨骼，装 muto-ped-rig 前先问），它自带的 `check_anim_resource.py` 是本地只读检查，用户同意用这个技能后就可以直接跑。
 
 学或做动画时：先用 `motion-design` 讲原则（时间、间距、缓动、预备动作、跟随），再用 `blender-animation-rigging` 和 `animation` 在 Blender 里操作；用户想学的时候配合 `anthropic-skills:learn` 一步步教，每一步让用户自己动手。`blender-animation-rigging` 写的是 Blender Lab 官方 MCP，这里装的是 `blender` MCP（mcp-for-blender），用它的 `execute_blender_code` 执行同样的 bpy 代码。`motion-design` 提到的 blender-motion、aftereffects-motion 没有装（前者会接付费的 Higgsfield），不要去找。
 

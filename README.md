@@ -16,18 +16,20 @@
 
 `anthropics/knowledge-work-plugins` 和 `phuryn/pm-skills` 只登记了市场，没有默认启用，原因见下。要用时 `claude plugin install <插件>@<市场>`。
 
-## 直接放进仓库的技能（89 个，`.claude/skills/`）
+## 直接放进仓库的技能（91 个，`.claude/skills/`）
 
 - **FiveM**：`fivem-pro`（[leminhhuy113/fivem-pro](https://github.com/leminhhuy113/fivem-pro)，MIT）讲开发、性能优化，以及用 Sollumz + CodeWalker 做地图/MLO；`fivem-security-audit`（[matiaspalmac/fivem-audit-skill](https://github.com/matiaspalmac/fivem-audit-skill)，MIT）查后门、漏洞、性能问题
 - **FiveM ox 系列和 NUI**：oxlib、oxmysql、ox-inventory、ox-target（[germanfndez/fiveai-skills](https://github.com/germanfndez/fiveai-skills)，MIT）；fivem-react-nui（[proelias7/fivem-skill](https://github.com/proelias7/fivem-skill)，MIT），用 React + TypeScript + Vite + Tailwind 做 NUI
 - **车辆模组**：`fivem-vehicle-mod`（本仓库自己写的）——addon 车资源的结构、meta 文件、改装套件、涂装、警笛、贴图/大小限制、GTA V Enhanced 转换、故障排查；模组车在 Blender + Sollumz 里怎么做（用原版车当底、骨骼、车漆层、灯光 ID、车窗、LOD）；模组警车/救护车/消防车（siren 骨骼和 carcols 警灯设置、extras、涂装、qbx_police/qb-policejob 配置、Renewed-Sirensync 等警笛控制和自定义警笛声），附 `check_vehicle_resource.py` 交叉检查脚本（检查名字对不对得上、改装套件/警笛 id 撞号、无效的 data_file 类型）。资料来自 FiveM 源码和官方文档源码。配合免费工具：[fivem-vehicle-validator](https://github.com/PrestigeRoleplay/fivem-vehicle-validator)、[fivem-handling-presets](https://github.com/PrestigeRoleplay/fivem-handling-presets)、[fivem-joaat-hash](https://github.com/PrestigeRoleplay/fivem-joaat-hash)（都用 npx 跑）和游戏内调 handling 的 [vehicleDebug](https://github.com/kerminal/vehicleDebug)（放进测试服 resources）
-- **FiveM 动画**：`fivem-animation`（本仓库自己写的）——Blender → Sollumz（.ycd.xml）→ CodeWalker（.ycd）→ FiveM，用 rpemotes-reborn 自定义表情或 TaskPlayAnim 播放；GTA 骨骼 tag、30 fps、四元数、烘焙、mover、clip Hash/Duration、道具挂载、故障排查，附 `check_anim_resource.py` 检查脚本。资料来自 Sollumz、CodeWalker、FiveM 源码、citizenfx/natives 和 rpemotes 源码
+- **FiveM 动画**：`fivem-animation`（本仓库自己写的）——Blender → Sollumz（.ycd.xml）→ CodeWalker（.ycd）→ FiveM，用 rpemotes-reborn 自定义表情或 TaskPlayAnim 播放；GTA 骨骼 tag、30 fps、四元数、烘焙、mover、clip Hash/Duration、道具挂载、故障排查，附 `check_anim_resource.py` 检查脚本。资料来自 Sollumz、CodeWalker、FiveM 源码、citizenfx/natives 和 rpemotes 源码。新增 Mixamo → GTA 流程（`references/mixamo-to-gta.md`）：从 Mixamo 手动下载 FBX，用免费的 muto-ped-rig（GPL-3）转到 GTA 骨骼并导出 .ycd，附 MCP 一键代码和常见问题
 - **画质包**：`fivem-graphics-pack`（本仓库自己写的）——三种画质包：伺服器端的色调（timecycle modifier 做暖色/冷色/电影感/写实，玩家自动拿到、可用 `/graphics` 切换或关掉）、visualsettings（车灯、夜间灯光）、2K/4K 贴图替换（内存计算、16/48 MiB 限制、`+hi` 只在"非常高"贴图画质下加载、车辆贴图默认被限到 1024），以及玩家自己装的 ReShade（FiveM 的 plugins 文件夹、ReShade 5 要在 CitizenFX.ini 加确认行、LUT 调色）。附三个脚本：`make_timecycle_pack.py`（一键生成画质包资源）、`make_lut.py`（生成 ReShade LUT，预设 warm/cool/cinematic/realistic/vivid/noir）、`check_graphics_pack.py`（检查 numMods、拼错的变量、没注册的 XML、按 RSC 头算的贴图内存）。资料来自 FiveM 源码（TimecycleEditor、VisualSettingsNatives、ReShadeFixups、TextureStreamingLimits、ResourceStreamComponent）、citizenfx/natives 和 ReShade 的 LUT.fx。只推荐免费工具（NVE、QuantV、iMMERSE Pro 要付费，不用）
 - **室内和房屋**：`fivem-mlo-housing`（本仓库自己写的）——三种室内怎么选（MLO、原版 IPL、shell），用 Blender + Sollumz + CodeWalker 做 MLO（limbo、房间、portal、实体、entity set、房间 timecycle、门、碰撞、顶点色灯光、`_manifest.ymf`、ht_mlotool 声音遮挡），在脚本里切换 entity set 和 IPL，以及 qbx_properties / qb-houses / ps-housing 怎么用 shell 和公寓、家具摆放和授权。附 `check_mlo_resource.py`，检查 this_is_a_map、manifest、portal 连错房间、房间没 portal、实体没放进房间（进屋看不到）、门的 flag、ymap extents、撞名。资料来自 Sollumz wiki 和源码、FiveM 官方资产教程和源码、citizenfx/natives 以及各房屋脚本自己的代码
 - **记住纠正**：`correction-memory`（本仓库自己写的）——你说我哪里做错、或说"下次/记住…"时，先改好，再把规则写进仓库根目录的 `LESSONS.md`。CLAUDE.md 用 `@LESSONS.md` 导入它，所以以后每次对话都会自动读到。新对话从 main 开始，所以经验要合并进 main 才生效
 - **界面美化**：`impeccable`（[pbakaus/impeccable](https://github.com/pbakaus/impeccable)，Apache 2.0）——在 Anthropic 的 frontend-design 基础上加强，1 个技能 24 个指令：`/impeccable audit`（找问题）、`critique`（设计点评）、`polish`（最后润色）、`animate`（加动效）、`bolder`/`quieter`（更大胆/更低调）、`colorize`、`typeset`、`layout` 等。它的 4 个子代理放在 `.claude/agents/`。**只装了技能本体，没装它插件里的 hook**：那些 hook 会在每次开对话、每次改文件、每次回答结束时自动跑它的程序，违反"用技能前一律先问"，改 FiveM Lua 时也会跑。第一次用到它的检查程序时，会从 impeccable 的 GitHub 下载对应平台的程序并校验 sha256。搭配已装的 `frontend-design`（网页界面）和 `canvas-design`（海报、静态图），做 FiveM NUI 时最有用
 - **FiveM 菜单设计**：`fivem-menu-design`（本仓库自己写的）——设计和美化 ox_lib 菜单、qb-menu、自定义 NUI（商店、车库、老板菜单、背包、轮盘、暂停菜单、HUD）。讲 FiveM 特有的规则：NUI 焦点是每个资源投票（有一个没放开玩家就卡鼠标）、`SetNuiFocusKeepInput` 要配 `DisableControlAction`、回调一定要 `cb()`、游戏内浏览器最高 240 帧重绘所以毛玻璃和无限动画会吃帧、720p 到 4K 的缩放、ESC/Backspace、价格要伺服器判定；ox_lib 用 `setr ox:primaryColor` 一行换主题色。附 `check_nui_menu.py` 检查脚本。资料来自 FiveM 官方 NUI 文档和源码、ox_lib 与 qb-menu 源码
-- **FiveM 手机**：`fivem-phone`（本仓库自己写的）——给 npwd（免费，GPL）、lb-phone（付费，但有公开的 app 接口）、qb-phone / z-phone 写 app；从头做手机外框（开关手机、拿手机动作和道具、边走边用、暂停/死亡时关掉、720p–4K 缩放）；做折叠手机（外屏/内屏、铰链动画、打开后左右分栏、折叠时不丢进度）；做得像真手机又不掉帧。附 `check_phone_app.py` 本地只读检查（自动认出是哪种手机/app，也会跑菜单检查器的 NUI 检查）
+- **FiveM 手机**：`fivem-phone`（本仓库自己写的）——给 npwd（免费，GPL）、lb-phone（付费，但有公开的 app 接口）、qb-phone / z-phone 写 app；从头做手机外框；照真机（iPhone Duo、Galaxy Z Fold8 / Fold8 Ultra / Flip8 / TriFold、华为 Mate XTs）做折叠手机；设计数值对照苹果 HIG 和 Material 3 原文核对。附一个沉浸式手机模板 `assets/phone-template`（6 种机型、锁屏、控制中心、拖边缘展开、信息和钱包 app，所有操作都在手机里，已在浏览器截图测试）和 `check_phone_app.py` 本地只读检查
+- **免费 3D 素材**：`free-3d-assets`（本仓库自己写的）——不用付费的 Tripo/Meshy，改用在自己电脑上跑的腾讯 Hunyuan3D 2.1（图片转 3D，NVIDIA 显卡；Windows 一键包或官方安装，`blender` MCP 的 Local API 模式，步数要设 20），或从 Poly Haven（CC0）、Poly Pizza、Sketchfab 找免费模型；再按步骤做成 FiveM 道具（真实尺寸、面数预算、贴图、LOD、碰撞、Sollumz `.ydr` + `.ytyp`、生成测试）或用 muto-ped-rig 做成 add-on ped。附 `hunyuan3d_client.py`（只用 Python 标准库，连本机 Hunyuan3D API 生成 GLB）。Hunyuan3D 授权不适用于欧盟、英国、韩国
+- **免费图片和视频**：`pixabay-assets`（本仓库自己写的）——用免费 Pixabay API key 搜索、下载图片和视频（NUI 背景、手机壁纸、商店图片、loading screen、道具贴图、给 Hunyuan3D 的参考图），附 `pixabay.py`（缓存 24 小时、遵守限流、只从 pixabay.com 下载、自动写 `CREDITS-pixabay.md`）。音乐和音效没有 API，讲怎么手动下载、Content ID 和 Freesound 授权
 - **手机界面设计**：`mobile-ios-design`、`mobile-android-design`（[wshobson/agents](https://github.com/wshobson/agents)，MIT）——iOS 人机界面指南和 Material 3 的导航、列表、主题、自适应布局；`apple-design`（[emilkowalski/skill](https://github.com/emilkowalski/skill)，MIT）——苹果式的弹簧动效、可中断动画、材质和字体。做 FiveM 手机时配合 `fivem-phone` 用
 - **游戏界面和手感**：`game-ui-ux`、`game-feel`（[gamedev-skills/awesome-gamedev-agent-skills](https://github.com/gamedev-skills/awesome-gamedev-agent-skills)，Apache 2.0）——菜单层级、键盘/手柄选择、分辨率缩放；按钮反馈、缓动这类"手感"
 - **设计资料库**：`ui-ux-pro-max`（[nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill)，MIT）——本机搜索 79 种风格、192 套配色、74 组字体搭配、119 条 UX 规则，不用联网。只装了核心技能，同仓库要付费生图 API 的 logo/banner 技能没装；脚本路径已改成 `${CLAUDE_SKILL_DIR}`，测试文件没放进来
@@ -167,7 +169,7 @@ python scripts/install_local.py --all             # 技能 + 规则 + 插件 + M
 ```
 
 它会做这些事：
-- 把 89 个技能链接到 `~/.claude/skills/`。用的是链接不是复制，以后在 T1 里 `git pull`，技能就跟着更新；你自己建的同名技能不会被覆盖
+- 把 91 个技能链接到 `~/.claude/skills/`。用的是链接不是复制，以后在 T1 里 `git pull`，技能就跟着更新；你自己建的同名技能不会被覆盖
 - 在 `~/.claude/CLAUDE.md` 加一段，导入 T1 的 `CLAUDE.md`（它再导入 `LESSONS.md`），所以在哪个文件夹都用同一套规则，包括"用技能前一律先问"。原来的 CLAUDE.md 会先备份成 `CLAUDE.md.bak`
 - `--plugins`：用 `claude` 命令把 19 个插件装到用户范围
 - `--mcp`：把 blender、fivem、freecad、ifc 四个 MCP 加到用户范围（要先装 uv 和 Node.js）
@@ -181,7 +183,7 @@ python scripts/install_local.py --all             # 技能 + 规则 + 插件 + M
 Codex 不读 `CLAUDE.md` 和 `.claude/skills/`，它读 `AGENTS.md` 和 `.agents/skills/`。所以：
 
 - `AGENTS.md` 让 Codex 先读 `CLAUDE.md` 和 `LESSONS.md`，两边用同一套规则和同一份纠正记录。
-- `.agents/skills` 是指向 `.claude/skills` 的链接（symlink），89 个技能两边共用，不会有两份内容不同步。
+- `.agents/skills` 是指向 `.claude/skills` 的链接（symlink），91 个技能两边共用，不会有两份内容不同步。
 - 插件（superpowers、muto-atlas 等）和 MCP 是 Claude Code 专用的，Codex 里没有。
 - Windows 上 clone 时，git 默认可能把链接变成普通文本文件：用 `git clone -c core.symlinks=true …` 并开启 Windows 开发者模式。Codex 云端（Linux）不受影响。
 
