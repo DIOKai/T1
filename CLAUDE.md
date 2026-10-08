@@ -52,6 +52,10 @@ Blender 技能（retopology、lod-pipeline、asset-optimization、uv-workflow、
 - 碰撞用 Sollumz 的 bounds 和碰撞 flag（muto-atlas `trunk/flags.md`），不用 collision-proxy 里的 UCX/UHX 命名
 - 参考数字：车辆 LOD0 最好在 5 万个三角面以下
 
+## 界面美化和设计
+
+做网页、FiveM NUI、HUD、菜单这类界面时，可以先问要不要用：`example-skills:frontend-design`（基础）、`impeccable`（最完整：audit 找问题、critique 点评、polish 润色、animate 加动效、bolder/quieter 等）、`taste-skill:design-taste-frontend`（避免 AI 模板感，旧站改造用 `redesign`）。FiveM NUI 跑在游戏内浏览器里，动效和特效要克制，以不影响帧数为准。海报、静态图用 `canvas-design`。`brandkit`、`imagegen-frontend-*` 要配外部生图工具，Claude Code 自己不能生图；免费的选项不确定时先说明，不推荐付费生图服务。做视频用 Remotion 技能（只在本机装了 `--remotion` 才有），用户的公司超过 3 人就要付费授权，要先提醒。
+
 ## 游戏设计
 
 设计工作收入、抢劫奖励、声望/等级曲线、商店价格这类数值时，用 `game-balance-economy`（可以用它的 `expected_value.py` 算期望收益）；设计小游戏、HUD、通知这类玩家看到的反馈时，用 `game-interface-feedback`。经济相关的奖励一定要由伺服器判定（配合 `fivem-security-audit`）。

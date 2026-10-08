@@ -14,7 +14,8 @@
     "git-cleanup@trailofbits": true,
     "supply-chain-risk-auditor@trailofbits": true,
     "code-improver@trailofbits": true,
-    "muto-atlas@muto-atlas": true
+    "muto-atlas@muto-atlas": true,
+    "taste-skill@taste-skill": true
   },
   "extraKnownMarketplaces": {
     "anthropic-agent-skills": {
@@ -57,6 +58,12 @@
       "source": {
         "source": "github",
         "repo": "B7Kompirine/muto-atlas"
+      }
+    },
+    "taste-skill": {
+      "source": {
+        "source": "github",
+        "repo": "Leonxlnx/taste-skill"
       }
     }
   }
