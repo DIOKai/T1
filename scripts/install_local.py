@@ -15,6 +15,8 @@ user-level ~/.claude. This script links T1 into it:
      .claude/settings.json, installed at user scope with the `claude` CLI
   4. with --mcp: the MCP servers from .mcp.json, added at user scope
   5. with --remotion: Remotion's video skills via `npx skills add remotion-dev/skills`
+  6. with --auto-update: a user-level SessionStart hook that runs `git pull` in T1 and
+     re-links skills each time Claude Code starts (silent unless something changed)
      (not vendored in T1 because that repo has no licence file)
 Agents in .claude/agents (impeccable's reviewers) are linked into ~/.claude/agents too.
 
@@ -23,11 +25,13 @@ Usage (from the T1 folder):
     python scripts/install_local.py --plugins    # + plugins
     python scripts/install_local.py --mcp        # + blender/fivem/freecad/ifc MCP
     python scripts/install_local.py --remotion   # + Remotion video skills (needs Node.js)
+    python scripts/install_local.py --auto-update  # keep this computer in sync on every start
     python scripts/install_local.py --all        # everything
     python scripts/install_local.py --dry-run --all
     python scripts/install_local.py --uninstall  # remove links and the block
 
-Re-run after `git pull` to pick up new skills. Standard library only.
+Re-run after `git pull` to pick up new skills (or use --auto-update).
+One-line setup on a new computer: scripts/setup.ps1 (Windows) or scripts/setup.sh. Standard library only.
 """
 import argparse
 import json
@@ -44,8 +48,15 @@ BEGIN, END = '<!-- T1:begin (managed by T1/scripts/install_local.py) -->', '<!--
 WINDOWS = os.name == 'nt'
 
 
+USER_SETTINGS = os.path.join(HOME_CLAUDE, 'settings.json')
+QUIET = []  # in --update mode, messages are collected here instead of printed
+
+
 def log(msg):
-    print(msg, flush=True)
+    if QUIET:
+        QUIET.append(msg)
+    else:
+        print(msg, flush=True)
 
 
 def is_link(path):
@@ -268,6 +279,89 @@ def sync_mcp(dry):
         'fivem reads FIVEM_RCON_PASSWORD from your environment. Ask before using them (CLAUDE.md).')
 
 
+def hook_entry():
+    # Exec form (command + args, no shell): works the same under Git Bash, PowerShell and sh,
+    # and Windows paths need no escaping. On Windows `command` must be a real .exe (python.exe).
+    return {'type': 'command', 'command': sys.executable,
+            'args': [os.path.join(T1, 'scripts', 'install_local.py'), '--update'], 'timeout': 60}
+
+
+def is_t1_hook(h):
+    return 'install_local.py' in ' '.join([h.get('command', '')] + list(h.get('args', []))) and \
+        '--update' in ' '.join([h.get('command', '')] + list(h.get('args', [])))
+
+
+def sync_auto_update(dry, uninstall):
+    """Add (or remove) a user-level SessionStart hook that pulls T1 and re-links skills."""
+    settings = {}
+    if os.path.exists(USER_SETTINGS):
+        try:
+            with open(USER_SETTINGS, encoding='utf-8') as fh:
+                settings = json.load(fh)
+        except (OSError, ValueError):
+            log(f'  ! {USER_SETTINGS} is not valid JSON; auto-update not changed')
+            return
+    hooks = settings.setdefault('hooks', {})
+    groups = hooks.get('SessionStart', [])
+    kept = [g for g in groups if not any(is_t1_hook(h) for h in g.get('hooks', []))]
+    if not uninstall:
+        kept.append({'matcher': 'startup', 'hooks': [hook_entry()]})
+    if kept == groups:
+        log('auto-update: already set' if not uninstall else 'auto-update: not set')
+        return
+    if kept:
+        hooks['SessionStart'] = kept
+    else:
+        hooks.pop('SessionStart', None)
+        if not hooks:
+            settings.pop('hooks', None)
+    log(f"auto-update: {'remove' if uninstall else 'add'} SessionStart hook in {USER_SETTINGS}")
+    if not dry:
+        os.makedirs(HOME_CLAUDE, exist_ok=True)
+        if os.path.exists(USER_SETTINGS):
+            shutil.copyfile(USER_SETTINGS, USER_SETTINGS + '.bak')
+        with open(USER_SETTINGS, 'w', encoding='utf-8') as fh:
+            json.dump(settings, fh, indent=2, ensure_ascii=False)
+            fh.write('\n')
+
+
+def enabled_plugins():
+    try:
+        with open(os.path.join(T1, '.claude', 'settings.json'), encoding='utf-8') as fh:
+            return {k for k, v in json.load(fh).get('enabledPlugins', {}).items() if v}
+    except (OSError, ValueError):
+        return set()
+
+
+def update():
+    """Run by the SessionStart hook: pull T1 quietly and re-link. Never fails the session."""
+    QUIET.append('')
+    try:
+        def git(*a):
+            return subprocess.run(['git', '-C', T1] + list(a), capture_output=True, text=True, timeout=40)
+        before = git('rev-parse', 'HEAD').stdout.strip()
+        plugins_before = enabled_plugins()
+        pull = git('pull', '--ff-only', '-q')
+        after = git('rev-parse', 'HEAD').stdout.strip()
+        if pull.returncode != 0 or not after or after == before:
+            return 0  # offline, local changes, or nothing new: stay silent
+        sync_skills(False, False)
+        sync_agents(False, False)
+        sync_memory(False, False)
+        new_plugins = sorted(enabled_plugins() - plugins_before)
+        msg = f'T1 auto-updated {before[:7]}..{after[:7]}.'
+        changes = [m.strip() for m in QUIET[1:] if m.strip().startswith(('skills:', 'agents:', '+ link', '- remove'))]
+        if changes:
+            msg += ' ' + '; '.join(changes[:6])
+        if new_plugins:
+            msg += (f' New plugins enabled in T1: {", ".join(new_plugins)} - tell the user to run '
+                    f'`python "{T1}/scripts/install_local.py" --plugins` to install them.')
+        print(msg, flush=True)
+    except Exception:  # noqa: BLE001 - a hook must never break session start
+        pass
+    return 0
+
+
 def main():
     ap = argparse.ArgumentParser(description="Use T1's skills and rules in local Claude Code sessions")
     ap.add_argument('--plugins', action='store_true', help='also install the enabled plugins at user scope')
@@ -275,14 +369,21 @@ def main():
     ap.add_argument('--remotion', action='store_true', help="also install Remotion's video skills (npx skills add remotion-dev/skills)")
     ap.add_argument('--all', action='store_true', help='skills + rules + plugins + mcp + remotion')
     ap.add_argument('--dry-run', action='store_true', help='show what would change')
-    ap.add_argument('--uninstall', action='store_true', help='remove T1 skill links and the CLAUDE.md block')
+    ap.add_argument('--auto-update', action='store_true',
+                    help='add a SessionStart hook that pulls T1 and re-links skills whenever Claude Code starts')
+    ap.add_argument('--update', action='store_true', help=argparse.SUPPRESS)  # used by the hook
+    ap.add_argument('--uninstall', action='store_true', help='remove T1 skill links, the CLAUDE.md block and the hook')
     args = ap.parse_args()
+    if args.update:
+        return update()
     if args.dry_run:
         log('(dry run - nothing is changed)')
     log(f'T1: {T1}\nuser config: {HOME_CLAUDE}')
     sync_skills(args.dry_run, args.uninstall)
     sync_agents(args.dry_run, args.uninstall)
     sync_memory(args.dry_run, args.uninstall)
+    if args.auto_update or args.uninstall:
+        sync_auto_update(args.dry_run, args.uninstall)
     if args.uninstall:
         log('plugins/MCP are left installed; remove them with `claude plugin uninstall` / `claude mcp remove -s user`.')
         return

@@ -129,6 +129,26 @@ claude plugin install episodic-memory@superpowers-marketplace
 
 ## 在自己电脑上用（local 模式）
 
+### 每台电脑一行命令（推荐）
+
+**Windows**（开 PowerShell，贴这一行）：
+```
+irm https://raw.githubusercontent.com/DIOKai/T1/main/scripts/setup.ps1 | iex
+```
+**Mac / Linux**：
+```
+curl -fsSL https://raw.githubusercontent.com/DIOKai/T1/main/scripts/setup.sh | sh
+```
+
+它会把 T1 下载到 `你的用户文件夹\T1`（已经有了就更新），然后执行 `install_local.py --all --auto-update`，也就是装好下面所有东西，再加一个**自动更新**：之后每次打开 Claude Code，它会在后台 `git pull` T1 并重新链接技能。所以你在一台电脑（或云端）加的技能、记下的经验，合并进 main 以后，其他电脑下次打开 Claude Code 就会有，不用每台再装一次。
+- 没网络、或那台电脑的 T1 有没提交的改动时，它什么也不做，不会影响打开 Claude Code
+- T1 里新启用的**插件**不会自动装（要用 `claude` 命令装，比较慢）：自动更新发现有新插件时，会提醒你跑 `install_local.py --plugins`
+- 要先装 Git 和 Python 3；缺了会告诉你用 `winget install` 装哪个。Remotion 和 fivem MCP 还要 Node.js
+- 第一次在某个文件夹打开 Claude Code 时会问你要不要信任这个文件夹，选"是"，自动更新才会跑（Claude Code 的安全规则）
+- 不想自动更新：`python scripts/install_local.py --uninstall` 会连同自动更新一起移除，之后再跑一次不加 `--auto-update` 的安装即可
+
+### 手动安装
+
 在 T1 文件夹里开 local 会话，会直接读到这里的技能、规则和插件设置（第一次会问你要不要信任这个文件夹）。在**别的文件夹**开 local 会话，比如 FiveM 伺服器、Blender 项目，就只会读你电脑上的 `~/.claude`（Windows 是 `C:\Users\你的名字\.claude`）。所以要跑一次安装脚本：
 
 ```
