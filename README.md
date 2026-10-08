@@ -16,7 +16,7 @@
 
 `anthropics/knowledge-work-plugins` 和 `phuryn/pm-skills` 只登记了市场，没有默认启用，原因见下。要用时 `claude plugin install <插件>@<市场>`。
 
-## 直接放进仓库的技能（85 个，`.claude/skills/`）
+## 直接放进仓库的技能（89 个，`.claude/skills/`）
 
 - **FiveM**：`fivem-pro`（[leminhhuy113/fivem-pro](https://github.com/leminhhuy113/fivem-pro)，MIT）讲开发、性能优化，以及用 Sollumz + CodeWalker 做地图/MLO；`fivem-security-audit`（[matiaspalmac/fivem-audit-skill](https://github.com/matiaspalmac/fivem-audit-skill)，MIT）查后门、漏洞、性能问题
 - **FiveM ox 系列和 NUI**：oxlib、oxmysql、ox-inventory、ox-target（[germanfndez/fiveai-skills](https://github.com/germanfndez/fiveai-skills)，MIT）；fivem-react-nui（[proelias7/fivem-skill](https://github.com/proelias7/fivem-skill)，MIT），用 React + TypeScript + Vite + Tailwind 做 NUI
@@ -27,6 +27,8 @@
 - **记住纠正**：`correction-memory`（本仓库自己写的）——你说我哪里做错、或说"下次/记住…"时，先改好，再把规则写进仓库根目录的 `LESSONS.md`。CLAUDE.md 用 `@LESSONS.md` 导入它，所以以后每次对话都会自动读到。新对话从 main 开始，所以经验要合并进 main 才生效
 - **界面美化**：`impeccable`（[pbakaus/impeccable](https://github.com/pbakaus/impeccable)，Apache 2.0）——在 Anthropic 的 frontend-design 基础上加强，1 个技能 24 个指令：`/impeccable audit`（找问题）、`critique`（设计点评）、`polish`（最后润色）、`animate`（加动效）、`bolder`/`quieter`（更大胆/更低调）、`colorize`、`typeset`、`layout` 等。它的 4 个子代理放在 `.claude/agents/`。**只装了技能本体，没装它插件里的 hook**：那些 hook 会在每次开对话、每次改文件、每次回答结束时自动跑它的程序，违反"用技能前一律先问"，改 FiveM Lua 时也会跑。第一次用到它的检查程序时，会从 impeccable 的 GitHub 下载对应平台的程序并校验 sha256。搭配已装的 `frontend-design`（网页界面）和 `canvas-design`（海报、静态图），做 FiveM NUI 时最有用
 - **FiveM 菜单设计**：`fivem-menu-design`（本仓库自己写的）——设计和美化 ox_lib 菜单、qb-menu、自定义 NUI（商店、车库、老板菜单、背包、轮盘、暂停菜单、HUD）。讲 FiveM 特有的规则：NUI 焦点是每个资源投票（有一个没放开玩家就卡鼠标）、`SetNuiFocusKeepInput` 要配 `DisableControlAction`、回调一定要 `cb()`、游戏内浏览器最高 240 帧重绘所以毛玻璃和无限动画会吃帧、720p 到 4K 的缩放、ESC/Backspace、价格要伺服器判定；ox_lib 用 `setr ox:primaryColor` 一行换主题色。附 `check_nui_menu.py` 检查脚本。资料来自 FiveM 官方 NUI 文档和源码、ox_lib 与 qb-menu 源码
+- **FiveM 手机**：`fivem-phone`（本仓库自己写的）——给 npwd（免费，GPL）、lb-phone（付费，但有公开的 app 接口）、qb-phone / z-phone 写 app；从头做手机外框（开关手机、拿手机动作和道具、边走边用、暂停/死亡时关掉、720p–4K 缩放）；做折叠手机（外屏/内屏、铰链动画、打开后左右分栏、折叠时不丢进度）；做得像真手机又不掉帧。附 `check_phone_app.py` 本地只读检查（自动认出是哪种手机/app，也会跑菜单检查器的 NUI 检查）
+- **手机界面设计**：`mobile-ios-design`、`mobile-android-design`（[wshobson/agents](https://github.com/wshobson/agents)，MIT）——iOS 人机界面指南和 Material 3 的导航、列表、主题、自适应布局；`apple-design`（[emilkowalski/skill](https://github.com/emilkowalski/skill)，MIT）——苹果式的弹簧动效、可中断动画、材质和字体。做 FiveM 手机时配合 `fivem-phone` 用
 - **游戏界面和手感**：`game-ui-ux`、`game-feel`（[gamedev-skills/awesome-gamedev-agent-skills](https://github.com/gamedev-skills/awesome-gamedev-agent-skills)，Apache 2.0）——菜单层级、键盘/手柄选择、分辨率缩放；按钮反馈、缓动这类"手感"
 - **设计资料库**：`ui-ux-pro-max`（[nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill)，MIT）——本机搜索 79 种风格、192 套配色、74 组字体搭配、119 条 UX 规则，不用联网。只装了核心技能，同仓库要付费生图 API 的 logo/banner 技能没装；脚本路径已改成 `${CLAUDE_SKILL_DIR}`，测试文件没放进来
 - **界面细节和动效**：Emil Kowalski（Sonner、Vaul 的作者）的 8 个技能（[emilkowalski/skill](https://github.com/emilkowalski/skill)，MIT）——`emil-design-eng`（界面打磨和动效的整体原则）、`break-ui`（用超长名字、零商品、超大数字这类极端数据测试界面会不会坏）、`review-animations`（审查动效）、`find-animation-opportunities`（找哪里该加、哪里不该加动效）、`improve-animations`（动效审查和改进计划）、`animate`（从头做一个动效）、`prototype`（同一个界面做几个完全不同的版本给你挑，只在你叫它时才用）、`animation-vocabulary`（把"那个弹一下的效果"翻成正确的名称）。同仓库的 Swift、React Native/Expo、手机网页、Sonner、选库技能和 FiveM 无关，没装。另加 Jakub Krehel 的 `make-interfaces-feel-better`（[jakubkrehel/make-interfaces-feel-better](https://github.com/jakubkrehel/make-interfaces-feel-better)，MIT）——文字换行、圆角层次、视觉对齐、阴影代替边框、可中断的动画这些小细节
@@ -165,7 +167,7 @@ python scripts/install_local.py --all             # 技能 + 规则 + 插件 + M
 ```
 
 它会做这些事：
-- 把 85 个技能链接到 `~/.claude/skills/`。用的是链接不是复制，以后在 T1 里 `git pull`，技能就跟着更新；你自己建的同名技能不会被覆盖
+- 把 89 个技能链接到 `~/.claude/skills/`。用的是链接不是复制，以后在 T1 里 `git pull`，技能就跟着更新；你自己建的同名技能不会被覆盖
 - 在 `~/.claude/CLAUDE.md` 加一段，导入 T1 的 `CLAUDE.md`（它再导入 `LESSONS.md`），所以在哪个文件夹都用同一套规则，包括"用技能前一律先问"。原来的 CLAUDE.md 会先备份成 `CLAUDE.md.bak`
 - `--plugins`：用 `claude` 命令把 19 个插件装到用户范围
 - `--mcp`：把 blender、fivem、freecad、ifc 四个 MCP 加到用户范围（要先装 uv 和 Node.js）
@@ -179,7 +181,7 @@ python scripts/install_local.py --all             # 技能 + 规则 + 插件 + M
 Codex 不读 `CLAUDE.md` 和 `.claude/skills/`，它读 `AGENTS.md` 和 `.agents/skills/`。所以：
 
 - `AGENTS.md` 让 Codex 先读 `CLAUDE.md` 和 `LESSONS.md`，两边用同一套规则和同一份纠正记录。
-- `.agents/skills` 是指向 `.claude/skills` 的链接（symlink），64 个技能两边共用，不会有两份内容不同步。
+- `.agents/skills` 是指向 `.claude/skills` 的链接（symlink），89 个技能两边共用，不会有两份内容不同步。
 - 插件（superpowers、muto-atlas 等）和 MCP 是 Claude Code 专用的，Codex 里没有。
 - Windows 上 clone 时，git 默认可能把链接变成普通文本文件：用 `git clone -c core.symlinks=true …` 并开启 Windows 开发者模式。Codex 云端（Linux）不受影响。
 
