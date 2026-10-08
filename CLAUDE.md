@@ -54,7 +54,7 @@ Blender 技能（retopology、lod-pipeline、asset-optimization、uv-workflow、
 
 ## 界面美化和设计
 
-做网页、FiveM NUI、HUD、菜单这类界面时，可以先问要不要用：`example-skills:frontend-design`（基础）、`impeccable`（最完整：audit 找问题、critique 点评、polish 润色、animate 加动效、bolder/quieter 等）、`taste-skill:design-taste-frontend`（避免 AI 模板感，旧站改造用 `redesign`）。FiveM NUI 跑在游戏内浏览器里，动效和特效要克制，以不影响帧数为准。做 FiveM 菜单、NUI 时先建议 `fivem-menu-design`（它会再搭配 `game-ui-ux`、`game-feel`、`ui-ux-pro-max`、`impeccable`），它的 `check_nui_menu.py` 是本地只读检查，用户同意用这个技能后可以直接跑。海报、静态图用 `canvas-design`。`brandkit`、`imagegen-frontend-*` 要配外部生图工具，Claude Code 自己不能生图；免费的选项不确定时先说明，不推荐付费生图服务。做视频用 Remotion 技能（只在本机装了 `--remotion` 才有），用户的公司超过 3 人就要付费授权，要先提醒。
+做网页、FiveM NUI、HUD、菜单这类界面时，可以先问要不要用：`example-skills:frontend-design`（基础）、`impeccable`（最完整：audit 找问题、critique 点评、polish 润色、animate 加动效、bolder/quieter 等）、`taste-skill:design-taste-frontend`（避免 AI 模板感，旧站改造用 `redesign`）。FiveM NUI 跑在游戏内浏览器里，动效和特效要克制，以不影响帧数为准。做 FiveM 菜单、NUI 时先建议 `fivem-menu-design`（它会再搭配 `game-ui-ux`、`game-feel`、`ui-ux-pro-max`、`impeccable`），它的 `check_nui_menu.py` 是本地只读检查，用户同意用这个技能后可以直接跑。要加细节、打磨动效时可以建议 `make-interfaces-feel-better`、`emil-design-eng`、`review-animations`、`find-animation-opportunities`；界面做完用 `break-ui` 拿极端数据测一遍；风格还没定时可以建议 `prototype` 做几个版本给用户挑。这些都要先问。海报、静态图用 `canvas-design`。`brandkit`、`imagegen-frontend-*` 要配外部生图工具，Claude Code 自己不能生图；免费的选项不确定时先说明，不推荐付费生图服务。做视频用 Remotion 技能（只在本机装了 `--remotion` 才有），用户的公司超过 3 人就要付费授权，要先提醒。
 
 ## 游戏设计
 

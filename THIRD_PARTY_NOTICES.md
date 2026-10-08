@@ -119,3 +119,15 @@ No third-party code is included. The workflow summarises the Sollumz wiki (GPL-3
 ## fivem-menu-design (written for this repository)
 
 No third-party code is included. Facts come from the FiveM documentation and source (nui-resources, nui-core), ox_lib (LGPL-3.0) and qb-menu (GPL-3.0) source, read for reference only.
+
+## emilkowalski/skill
+
+- Source: https://github.com/emilkowalski/skill (commit `e8a175de22ae1e49370fc144c1f3bb9aeedf988d`)
+- License: MIT (LICENSE copied into each skill folder)
+- Skills: emil-design-eng, break-ui, review-animations, find-animation-opportunities, improve-animations, animate, prototype, animation-vocabulary (unmodified). Not included: write-swift, animate-expo, mobile-native, ask-sonner, apple-design, pick-ui-library.
+
+## jakubkrehel/make-interfaces-feel-better
+
+- Source: https://github.com/jakubkrehel/make-interfaces-feel-better (commit `35545ea1512ad59fa463e6b1f95ca9c052981fe6`)
+- License: MIT (LICENSE copied into the skill folder)
+- Skills: make-interfaces-feel-better (unmodified)
