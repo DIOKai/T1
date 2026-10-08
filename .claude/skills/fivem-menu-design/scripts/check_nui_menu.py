@@ -26,6 +26,7 @@ UI_EXT = ('.html', '.htm', '.css', '.scss', '.js', '.jsx', '.ts', '.tsx', '.vue'
 ASSET_EXT = ('.png', '.jpg', '.jpeg', '.gif', '.webp', '.mp4', '.webm', '.ogg', '.mp3', '.wav', '.ttf', '.otf', '.woff', '.woff2', '.svg')
 SKIP_DIRS = {'node_modules', '.git', '.vite', '.cache'}
 MB = 1024 * 1024
+FILE_BOUNDARY = '\n--[[@@file@@]]\n'
 
 
 def strip_lua_comments(text):
@@ -65,6 +66,10 @@ def nui_callback_blocks(lua):
     matches = list(pat.finditer(lua))
     for i, m in enumerate(matches):
         end = matches[i + 1].start() if i + 1 < len(matches) else len(lua)
+        # stop at the callback's own closing `end)` at column 0, or at the end of its file
+        close = re.search(r'^end\)|' + re.escape(FILE_BOUNDARY), lua[m.end():end], flags=re.M)
+        if close:
+            end = m.end() + close.start()
         yield m.group(1), (m.group(3) or 'cb'), m.group(2) or 'data', lua[m.end():end]
 
 
@@ -85,7 +90,7 @@ def check(paths):
             ' '.join(re.findall(r"\bfile\s*\(?\s*['\"]([^'\"]+)['\"]", manifest))
 
         lua_files = [f for f in walk(res) if f.endswith('.lua') and os.path.basename(f) not in ('fxmanifest.lua', '__resource.lua')]
-        lua = '\n'.join(strip_lua_comments(read(f)) for f in lua_files)
+        lua = FILE_BOUNDARY.join(strip_lua_comments(read(f)) for f in lua_files)
         ui_files = [f for f in walk(res) if f.lower().endswith(UI_EXT)]
         # built bundles are huge and minified; prefer source when both exist
         src_files = [f for f in ui_files if os.path.getsize(f) < 400 * 1024]

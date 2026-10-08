@@ -124,6 +124,12 @@ No third-party code is included. Facts come from the FiveM documentation and sou
 
 No third-party code is included. Facts come from reading, for reference only: project-error/npwd (GPL-3.0) and project-error/npwd-app-template, the lb-phone-app-template (MIT), qbcore-framework/qb-phone (GPL-3.0), Z3MO/z-phone (AGPL-3.0), and Android's foldable / window size class documentation. Short API names, control IDs and animation names are cited as facts; no code was copied.
 
+`fivem-phone/assets/phone-template/` bundles two third-party assets (notices in its `LICENSES.md`):
+- Inter font v4.1 (`web/fonts/InterVariable.woff2`), © The Inter Project Authors, SIL Open Font License 1.1 (full text in `web/fonts/Inter-OFL.txt`). Source: https://github.com/rsms/inter
+- Lucide icons, lucide-static 0.453.0 (SVG path data in `web/icons.js`), ISC License. Source: https://github.com/lucide-icons/lucide
+
+Design numbers in `references/phone-design.md` were checked against Apple HIG data files and Material 3 token files in androidx (Apache-2.0), cited as facts. Device specs in `references/real-foldables.md` come from public press and carrier coverage.
+
 ## emilkowalski/skill
 
 - Source: https://github.com/emilkowalski/skill (commit `e8a175de22ae1e49370fc144c1f3bb9aeedf988d`)

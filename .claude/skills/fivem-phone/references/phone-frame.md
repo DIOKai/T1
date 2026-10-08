@@ -54,7 +54,7 @@ A custom phone model (e.g. a foldable) is a new prop: model it in Blender, expor
 ## The frame on screen
 
 - Anchor bottom-right (the minimap is bottom-left), slide up with `transform: translateY()` 200–300 ms, ease-out. Remove from the page when closed (`display: none`).
-- Size from the viewport, not px: e.g. `height: min(78vh, 52rem); aspect-ratio: 9 / 19.5;` with `:root { font-size: clamp(12px, 1.6vh, 22px); }` and everything inside in `rem`. Check at 1280×720 and 2560×1440.
+- Size from the viewport, not px: one `--pt` unit derived from the frame height (`phone-design.md` §1), `aspect-ratio: 390 / 844`, everything inside in `calc(N * var(--pt))`. Check at 1280×720, 1920×1080 and 2560×1440.
 - Status bar time: send the in-game clock (`GetClockHours()`, `GetClockMinutes()`) on open and once per in-game minute, not every frame.
 - Notifications while closed: show a small "peek" banner without taking focus (no `SetNuiFocus`), then let the open key jump into that app.
 - One page, many apps: keep the phone shell (status bar, home, notifications, router) separate from apps, so apps can be added without touching the shell.

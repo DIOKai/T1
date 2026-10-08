@@ -255,7 +255,7 @@ def check_phone(res):
                 add('warn', 'QB_SLOT_NO_DIV', f"{owners} 用 slot {slot}，但 html 只有 data-appslot {min(divs)}–{max(divs)}：图标不会出现，要在 index.html 加对应的格子")
 
     # ---------- phone prop / animation (any phone frame) ----------
-    phone_prop = re.search(r'CreateObject\s*\([^)]*(phone|`prop_\w*phone\w*`|[Pp]rop)', lua) or \
+    phone_prop = re.search(r'CreateObject\s*\([^)]*(phone|prop)', lua, flags=re.I) or \
         re.search(r'CreateObject\s*\([^)]*phone', game_js, flags=re.I)
     phone_model = re.search(r'["\'`]prop_\w*phone\w*["\'`]|phoneModel|phoneProp', code)
     if phone_prop and phone_model:

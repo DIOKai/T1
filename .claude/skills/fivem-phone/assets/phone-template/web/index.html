@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <title>Phone</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="anchor">
+    <div class="phone" id="phone" data-device="iphone" data-brand="apple" data-fold="" data-state="closed" data-panes="1" data-theme="dark" hidden>
+      <button class="grip" id="grip" aria-label="展开或合上手机"></button>
+      <div class="screen" id="screen">
+        <div class="statusbar" id="statusbar"><span class="num" id="clock">12:00</span><button class="sb-icons" id="sbIcons" aria-label="控制中心"></button></div>
+        <div class="cam"></div>
+        <div class="content" id="content"></div>
+        <div id="hinges"></div>
+        <div class="cc" id="cc"></div>
+        <div class="lock wallpaper" id="lock"></div>
+        <button class="banner" id="banner" type="button"></button>
+        <button class="home-indicator" id="homeBar" aria-label="主屏幕"></button>
+      </div>
+    </div>
+  </div>
+  <div class="peek" id="peek"></div>
+
+  <script src="icons.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
