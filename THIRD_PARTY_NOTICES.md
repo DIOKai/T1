@@ -160,6 +160,24 @@ No third-party code or Pixabay content is included. API parameters and licence p
 - License: MIT (LICENSE copied into the skill folder)
 - Skills: better-icons (`skills/SKILL.md`, unmodified). The CLI itself is not bundled; users install it from npm. Icons it downloads come from Iconify collections, each under its own licence.
 
+## omer-metin/skills-for-antigravity
+
+- Source: https://github.com/omer-metin/skills-for-antigravity (commit `e8dcf4e8737921a10088bd5c9eb65e81f74c051f`)
+- License: Apache License 2.0 (LICENSE copied into each skill folder; the repository has no NOTICE file)
+- Skills: game-ui-design, color-theory, typography, vehicle-design, character-design, lighting-design, branding (unmodified)
+
+## mblode/agent-skills
+
+- Source: https://github.com/mblode/agent-skills (commit `5a781a88ed60c1033767b6b6a966887cd93dd912`)
+- License: MIT (LICENSE.md copied into the skill folder)
+- Skills: typography-audit (SKILL.md and rules/, unmodified; its evals/ folder was not copied)
+
+## LottieFiles/motion-design-skill
+
+- Source: https://github.com/lottiefiles/motion-design-skill (commit `f9a8a041b85185ee4881b3471d3415e939aac772`)
+- License: MIT (LICENSE copied into the skill folder)
+- Skills: motion-design, installed as `lottie-motion-design`. Local modification: the `name` field was changed from `motion-design` to `lottie-motion-design` to avoid clashing with the existing motion-design skill.
+
 ## emilkowalski/skill
 
 - Source: https://github.com/emilkowalski/skill (commit `e8a175de22ae1e49370fc144c1f3bb9aeedf988d`)
