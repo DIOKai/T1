@@ -142,6 +142,24 @@ No third-party code or Pixabay content is included. API parameters and licence p
 
 `fivem-animation/references/mixamo-to-gta.md` cites property and operator names from B7Kompirine/muto-ped-rig v0.3.2 (GPL-3.0) as facts, and Mixamo terms from Adobe's FAQ. No muto-ped-rig code is copied.
 
+## jezweb/claude-skills
+
+- Source: https://github.com/jezweb/claude-skills (commit `1260fa7439b36b18dbf16648ccc7fb44783f6c23`)
+- License: MIT (LICENSE copied into each skill folder)
+- Skills: icon-set-generator, favicon-gen (from `plugins/design-assets/skills/`, unmodified). Not included: ai-image-generator (needs paid Gemini/OpenAI APIs), color-palette, image-processing.
+
+## PianoNic/ClaudeSkills
+
+- Source: https://github.com/PianoNic/ClaudeSkills (commit `1998a7ce98887086c22e84eb7240558845765eab`)
+- License: MIT (LICENSE copied into the skill folder)
+- Skills: app-icon-expert (from `plugins/app-icon-expert/skills/`, unmodified)
+
+## better-auth/better-icons
+
+- Source: https://github.com/better-auth/better-icons (commit `033316ecb8f4982235af4111a2257e80231f5ab1`)
+- License: MIT (LICENSE copied into the skill folder)
+- Skills: better-icons (`skills/SKILL.md`, unmodified). The CLI itself is not bundled; users install it from npm. Icons it downloads come from Iconify collections, each under its own licence.
+
 ## emilkowalski/skill
 
 - Source: https://github.com/emilkowalski/skill (commit `e8a175de22ae1e49370fc144c1f3bb9aeedf988d`)

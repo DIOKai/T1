@@ -16,7 +16,7 @@
 
 `anthropics/knowledge-work-plugins` 和 `phuryn/pm-skills` 只登记了市场，没有默认启用，原因见下。要用时 `claude plugin install <插件>@<市场>`。
 
-## 直接放进仓库的技能（91 个，`.claude/skills/`）
+## 直接放进仓库的技能（95 个，`.claude/skills/`）
 
 - **FiveM**：`fivem-pro`（[leminhhuy113/fivem-pro](https://github.com/leminhhuy113/fivem-pro)，MIT）讲开发、性能优化，以及用 Sollumz + CodeWalker 做地图/MLO；`fivem-security-audit`（[matiaspalmac/fivem-audit-skill](https://github.com/matiaspalmac/fivem-audit-skill)，MIT）查后门、漏洞、性能问题
 - **FiveM ox 系列和 NUI**：oxlib、oxmysql、ox-inventory、ox-target（[germanfndez/fiveai-skills](https://github.com/germanfndez/fiveai-skills)，MIT）；fivem-react-nui（[proelias7/fivem-skill](https://github.com/proelias7/fivem-skill)，MIT），用 React + TypeScript + Vite + Tailwind 做 NUI
@@ -31,6 +31,7 @@
 - **免费 3D 素材**：`free-3d-assets`（本仓库自己写的）——不用付费的 Tripo/Meshy，改用在自己电脑上跑的腾讯 Hunyuan3D 2.1（图片转 3D，NVIDIA 显卡；Windows 一键包或官方安装，`blender` MCP 的 Local API 模式，步数要设 20），或从 Poly Haven（CC0）、Poly Pizza、Sketchfab 找免费模型；再按步骤做成 FiveM 道具（真实尺寸、面数预算、贴图、LOD、碰撞、Sollumz `.ydr` + `.ytyp`、生成测试）或用 muto-ped-rig 做成 add-on ped。附 `hunyuan3d_client.py`（只用 Python 标准库，连本机 Hunyuan3D API 生成 GLB）。Hunyuan3D 授权不适用于欧盟、英国、韩国
 - **免费图片和视频**：`pixabay-assets`（本仓库自己写的）——用免费 Pixabay API key 搜索、下载图片和视频（NUI 背景、手机壁纸、商店图片、loading screen、道具贴图、给 Hunyuan3D 的参考图），附 `pixabay.py`（缓存 24 小时、遵守限流、只从 pixabay.com 下载、自动写 `CREDITS-pixabay.md`）。音乐和音效没有 API，讲怎么手动下载、Content ID 和 Freesound 授权
 - **手机界面设计**：`mobile-ios-design`、`mobile-android-design`（[wshobson/agents](https://github.com/wshobson/agents)，MIT）——iOS 人机界面指南和 Material 3 的导航、列表、主题、自适应布局；`apple-design`（[emilkowalski/skill](https://github.com/emilkowalski/skill)，MIT）——苹果式的弹簧动效、可中断动画、材质和字体。做 FiveM 手机时配合 `fivem-phone` 用
+- **Icon 和 logo 设计**：`icon-set-generator`、`favicon-gen`（[jezweb/claude-skills](https://github.com/jezweb/claude-skills)，MIT）——按一份风格规格（网格、线条粗细、端点、圆角、留白）画整套风格统一的 SVG icon，5 种预设（Clean/Sharp/Soft/Minimal/Bold）、光学校正、预览页；favicon-gen 做网站 favicon 和 manifest（转 PNG/ICO 要 ImageMagick 或免费网站 favicon.io）。同包的 `ai-image-generator` 要付费的 Gemini/GPT API，没装。`app-icon-expert`（[PianoNic/ClaudeSkills](https://github.com/PianoNic/ClaudeSkills)，MIT）——app icon 和 logo：先问清品牌、纯黑测试、避开"渐变 + 闪光"的 AI 俗套、深色模式、各尺寸和 maskable 安全区。`better-icons`（[better-auth/better-icons](https://github.com/better-auth/better-icons)，MIT）——从 Iconify 的 200 多个免费 icon 库（Lucide、Material、Heroicons、Tabler…）搜索和下载现成 SVG；要在电脑上 `npm install -g better-icons`（或用 npx），会连 api.iconify.design。每个 icon 库授权不同（MIT、Apache、CC BY 等），用之前看清楚
 - **游戏界面和手感**：`game-ui-ux`、`game-feel`（[gamedev-skills/awesome-gamedev-agent-skills](https://github.com/gamedev-skills/awesome-gamedev-agent-skills)，Apache 2.0）——菜单层级、键盘/手柄选择、分辨率缩放；按钮反馈、缓动这类"手感"
 - **设计资料库**：`ui-ux-pro-max`（[nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill)，MIT）——本机搜索 79 种风格、192 套配色、74 组字体搭配、119 条 UX 规则，不用联网。只装了核心技能，同仓库要付费生图 API 的 logo/banner 技能没装；脚本路径已改成 `${CLAUDE_SKILL_DIR}`，测试文件没放进来
 - **界面细节和动效**：Emil Kowalski（Sonner、Vaul 的作者）的 8 个技能（[emilkowalski/skill](https://github.com/emilkowalski/skill)，MIT）——`emil-design-eng`（界面打磨和动效的整体原则）、`break-ui`（用超长名字、零商品、超大数字这类极端数据测试界面会不会坏）、`review-animations`（审查动效）、`find-animation-opportunities`（找哪里该加、哪里不该加动效）、`improve-animations`（动效审查和改进计划）、`animate`（从头做一个动效）、`prototype`（同一个界面做几个完全不同的版本给你挑，只在你叫它时才用）、`animation-vocabulary`（把"那个弹一下的效果"翻成正确的名称）。同仓库的 Swift、React Native/Expo、手机网页、Sonner、选库技能和 FiveM 无关，没装。另加 Jakub Krehel 的 `make-interfaces-feel-better`（[jakubkrehel/make-interfaces-feel-better](https://github.com/jakubkrehel/make-interfaces-feel-better)，MIT）——文字换行、圆角层次、视觉对齐、阴影代替边框、可中断的动画这些小细节
@@ -169,7 +170,7 @@ python scripts/install_local.py --all             # 技能 + 规则 + 插件 + M
 ```
 
 它会做这些事：
-- 把 91 个技能链接到 `~/.claude/skills/`。用的是链接不是复制，以后在 T1 里 `git pull`，技能就跟着更新；你自己建的同名技能不会被覆盖
+- 把 95 个技能链接到 `~/.claude/skills/`。用的是链接不是复制，以后在 T1 里 `git pull`，技能就跟着更新；你自己建的同名技能不会被覆盖
 - 在 `~/.claude/CLAUDE.md` 加一段，导入 T1 的 `CLAUDE.md`（它再导入 `LESSONS.md`），所以在哪个文件夹都用同一套规则，包括"用技能前一律先问"。原来的 CLAUDE.md 会先备份成 `CLAUDE.md.bak`
 - `--plugins`：用 `claude` 命令把 19 个插件装到用户范围
 - `--mcp`：把 blender、fivem、freecad、ifc 四个 MCP 加到用户范围（要先装 uv 和 Node.js）
@@ -183,7 +184,7 @@ python scripts/install_local.py --all             # 技能 + 规则 + 插件 + M
 Codex 不读 `CLAUDE.md` 和 `.claude/skills/`，它读 `AGENTS.md` 和 `.agents/skills/`。所以：
 
 - `AGENTS.md` 让 Codex 先读 `CLAUDE.md` 和 `LESSONS.md`，两边用同一套规则和同一份纠正记录。
-- `.agents/skills` 是指向 `.claude/skills` 的链接（symlink），91 个技能两边共用，不会有两份内容不同步。
+- `.agents/skills` 是指向 `.claude/skills` 的链接（symlink），95 个技能两边共用，不会有两份内容不同步。
 - 插件（superpowers、muto-atlas 等）和 MCP 是 Claude Code 专用的，Codex 里没有。
 - Windows 上 clone 时，git 默认可能把链接变成普通文本文件：用 `git clone -c core.symlinks=true …` 并开启 Windows 开发者模式。Codex 云端（Linux）不受影响。
 
