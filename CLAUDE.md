@@ -36,6 +36,10 @@
 - `fivem-mlo-housing`：做或修 MLO、原版室内（IPL、entity set）、房屋系统（qbx_properties 等）、家具摆放。它的 `check_mlo_resource.py` 是本地只读检查，用户同意用这个技能后就可以直接跑；要在 Blender 里动手时照下面 3D 的规则先问
 - `fivem-phone`：做 FiveM 手机或手机 app（npwd、lb-phone、qb-phone/z-phone）、自己做手机外框、折叠手机、手机界面设计。新手机从它的 `assets/phone-template`（沉浸式，6 种真机比例）开始。它的 `check_phone_app.py` 是本地只读检查，用户同意用这个技能后就可以直接跑；手机界面设计可以再问要不要搭配 `mobile-ios-design`、`mobile-android-design`、`apple-design`。lb-phone 本身是付费的，只在用户已经有它时帮写 app，不推荐购买
 
+- `qbcore-framework`、`qbox-framework`：QBCore / Qbox 的 API。先看用户用的是哪个框架（`qb-core` 还是 `qbx_core`），不要混用；Qbox 以 docs.qbox.re 为准
+- `fivem-security`：写伺服器代码时就防漏洞（事件验证、权限、限频）；写完再用 `fivem-security-audit` 审查
+- `fivem-basics`、`lua-basics`、`fivem-deployment`：FiveM 资源结构、Lua 基础、FXServer 版本和 server.cfg
+
 改完 FiveM 的 Lua 后，如果用户电脑上有 `qbx-lint`，就对改过的文件跑一次检查（只读，直接跑）；要用 `qbx-lint --fix` 或 `qbx-lint fmt` 改文件前先问。
 
 `fivem` MCP 能在用户的伺服器上下指令、调用 native，权限很大：用之前先问，只连本机测试服，不要连正式服。
@@ -63,7 +67,7 @@ Blender 技能（retopology、lod-pipeline、asset-optimization、uv-workflow、
 
 ## 游戏设计
 
-设计工作收入、抢劫奖励、声望/等级曲线、商店价格这类数值时，用 `game-balance-economy`（可以用它的 `expected_value.py` 算期望收益）；设计小游戏、HUD、通知这类玩家看到的反馈时，用 `game-interface-feedback`。经济相关的奖励一定要由伺服器判定（配合 `fivem-security-audit`）。
+设计工作收入、抢劫奖励、声望/等级曲线、商店价格这类数值时，用 `game-balance-economy`（可以用它的 `expected_value.py` 算期望收益）；设计小游戏、HUD、通知这类玩家看到的反馈时，用 `game-interface-feedback`。经济相关的奖励一定要由伺服器判定（配合 `fivem-security-audit`）。设计任务、抢劫、小游戏时可以问要不要用 `puzzle-design`、`level-design`；写剧情、城市背景、帮派设定用 `narrative-design`、`worldbuilding`、`lore-building`；想让主播容易出精彩片段用 `streamer-bait-design`，彩蛋用 `easter-egg-design`；核心玩法、打斗、社群用 `game-design-core`、`combat-design`、`community-building`。系统方面：NPC 对话和行为用 `dialogue-systems`、`game-ai`，音效用 `audio-design`，制作和等级系统用 `survival-crafting`、`rpg`，镜头用 `camera-systems`，玩家数据存储用 `save-systems`。这些都是通用游戏设计，例子多是 Godot/Unity，用在 FiveM 时换成 Lua、oxmysql、ox_lib 的做法；FiveM 的存档就是数据库，玩家进度和奖励一样要伺服器判定。
 
 ## muto-atlas
 

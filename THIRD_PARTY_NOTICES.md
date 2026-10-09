@@ -45,13 +45,13 @@ Skills in `.claude/skills/` were copied from the repositories below. Local chang
 
 - Source: https://github.com/germanfndez/fiveai-skills (commit `c9d13e0cf5b327790fceb7aaeaba02e1276e14f4`)
 - License: MIT
-- Skills: oxlib, oxmysql, ox-inventory, ox-target
+- Skills: oxlib, oxmysql, ox-inventory, ox-target, qbcore-framework, fivem-security, fivem-basics, lua-basics, fivem-deployment (unmodified; LICENSE copied into the five newer skill folders). Not included: fivemanage (a hosted service), esx-framework, fivem-nui.
 
 ## proelias7/fivem-skill
 
 - Source: https://github.com/proelias7/fivem-skill (commit `5b4504a7ceacee0e0d83a0d0d40be92deac4a8f0`)
 - License: MIT (stated in the upstream README; the repository has no LICENSE file)
-- Skills: fivem-react-nui
+- Skills: fivem-react-nui; qbox-framework (added from commit `ce4c98116f62b422a10ec38ed963930483ebd929`, unmodified)
 
 ## MuscleOtter/quantity-surveyor
 
@@ -107,7 +107,7 @@ No third-party code is included. The workflow summarises the Sollumz wiki (GPL-3
 
 - Source: https://github.com/gamedev-skills/awesome-gamedev-agent-skills (commit `d4b0e35550c55ae70bdfcab4ef5a0e94610438a9`)
 - License: Apache 2.0 (LICENSE and NOTICE copied into each skill folder)
-- Skills: game-ui-ux, game-feel (unmodified)
+- Skills: game-ui-ux, game-feel (unmodified); dialogue-systems, game-ai, audio-design, camera-systems, save-systems, survival-crafting, rpg (added from commit `0a70cfc64672d512c5b5b6006b5dcb5cf90dbdbd`, unmodified, LICENSE and NOTICE copied into each folder)
 
 ## nextlevelbuilder/ui-ux-pro-max-skill
 
@@ -164,7 +164,7 @@ No third-party code or Pixabay content is included. API parameters and licence p
 
 - Source: https://github.com/omer-metin/skills-for-antigravity (commit `e8dcf4e8737921a10088bd5c9eb65e81f74c051f`)
 - License: Apache License 2.0 (LICENSE copied into each skill folder; the repository has no NOTICE file)
-- Skills: game-ui-design, color-theory, typography, vehicle-design, character-design, lighting-design, branding (unmodified)
+- Skills: game-ui-design, color-theory, typography, vehicle-design, character-design, lighting-design, branding, puzzle-design, level-design, narrative-design, worldbuilding, lore-building, streamer-bait-design, easter-egg-design, game-design-core, combat-design, community-building (unmodified)
 
 ## mblode/agent-skills
 
