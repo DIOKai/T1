@@ -16,7 +16,7 @@
 
 `anthropics/knowledge-work-plugins` 和 `phuryn/pm-skills` 只登记了市场，没有默认启用，原因见下。要用时 `claude plugin install <插件>@<市场>`。
 
-## 直接放进仓库的技能（104 个，`.claude/skills/`）
+## 直接放进仓库的技能（127 个，`.claude/skills/`）
 
 - **FiveM**：`fivem-pro`（[leminhhuy113/fivem-pro](https://github.com/leminhhuy113/fivem-pro)，MIT）讲开发、性能优化，以及用 Sollumz + CodeWalker 做地图/MLO；`fivem-security-audit`（[matiaspalmac/fivem-audit-skill](https://github.com/matiaspalmac/fivem-audit-skill)，MIT）查后门、漏洞、性能问题
 - **FiveM ox 系列和 NUI**：oxlib、oxmysql、ox-inventory、ox-target（[germanfndez/fiveai-skills](https://github.com/germanfndez/fiveai-skills)，MIT）；fivem-react-nui（[proelias7/fivem-skill](https://github.com/proelias7/fivem-skill)，MIT），用 React + TypeScript + Vite + Tailwind 做 NUI
@@ -33,6 +33,9 @@
 - **手机界面设计**：`mobile-ios-design`、`mobile-android-design`（[wshobson/agents](https://github.com/wshobson/agents)，MIT）——iOS 人机界面指南和 Material 3 的导航、列表、主题、自适应布局；`apple-design`（[emilkowalski/skill](https://github.com/emilkowalski/skill)，MIT）——苹果式的弹簧动效、可中断动画、材质和字体。做 FiveM 手机时配合 `fivem-phone` 用
 - **Icon 和 logo 设计**：`icon-set-generator`、`favicon-gen`（[jezweb/claude-skills](https://github.com/jezweb/claude-skills)，MIT）——按一份风格规格（网格、线条粗细、端点、圆角、留白）画整套风格统一的 SVG icon，5 种预设（Clean/Sharp/Soft/Minimal/Bold）、光学校正、预览页；favicon-gen 做网站 favicon 和 manifest（转 PNG/ICO 要 ImageMagick 或免费网站 favicon.io）。同包的 `ai-image-generator` 要付费的 Gemini/GPT API，没装。`app-icon-expert`（[PianoNic/ClaudeSkills](https://github.com/PianoNic/ClaudeSkills)，MIT）——app icon 和 logo：先问清品牌、纯黑测试、避开"渐变 + 闪光"的 AI 俗套、深色模式、各尺寸和 maskable 安全区。`better-icons`（[better-auth/better-icons](https://github.com/better-auth/better-icons)，MIT）——从 Iconify 的 200 多个免费 icon 库（Lucide、Material、Heroicons、Tabler…）搜索和下载现成 SVG；要在电脑上 `npm install -g better-icons`（或用 npx），会连 api.iconify.design。每个 icon 库授权不同（MIT、Apache、CC BY 等），用之前看清楚
 - **游戏美术和设计原理**：从 [omer-metin/skills-for-antigravity](https://github.com/omer-metin/skills-for-antigravity)（Apache 2.0）挑了 7 个，每个带"做法 / 常见坑 / 检查清单"三份参考：`game-ui-design`（HUD、菜单、安全区、手柄导航、无障碍）、`color-theory`（配色、对比度、色弱、深色模式）、`typography`（字体选择、搭配、字号层级、行距、网页字体加载）、`vehicle-design`（车辆外形语言和比例）、`character-design`（角色剪影、形状语言、表情）、`lighting-design`（游戏灯光、时间变化、体积光）、`branding`（logo、配色、字体、品牌手册）。用于 GTA 时以 GTA 的规则为准。`typography-audit`（[mblode/agent-skills](https://github.com/mblode/agent-skills)，MIT）——用 78 条规则检查网页字体（加载、字号、行宽、标点、OpenType）。`lottie-motion-design`（[LottieFiles/motion-design-skill](https://github.com/lottiefiles/motion-design-skill)，MIT，原名 motion-design，跟已装的同名所以改了名）——动画的情绪目标、动效性格、时长和缓动表、多元素编排、迪士尼原则。[bergside/awesome-design-skills](https://github.com/bergside/awesome-design-skills) 的 67 种风格预设看过但没装：内容是批量生成的模板，太空，还有矛盾
+- **FiveM 框架和基础**：从 [germanfndez/fiveai-skills](https://github.com/germanfndez/fiveai-skills)（MIT）再加 5 个：`qbcore-framework`（QBCore 玩家对象、钱、工作、帮派、回调，会提醒 Qbox 的 API 不同）、`fivem-security`（写代码时就防漏洞：事件验证、权限、限频、server.cfg 安全设定）、`fivem-basics`（资源结构、fxmanifest、事件、exports）、`lua-basics`（Lua 语法和性能）、`fivem-deployment`（选和固定 FXServer 版本、txAdmin、server.cfg）；从 [proelias7/fivem-skill](https://github.com/proelias7/fivem-skill)（MIT）加 `qbox-framework`（qbx_core 的 exports 用法，内容偏少，以 docs.qbox.re 为准）
+- **玩法和内容设计**：从 [omer-metin/skills-for-antigravity](https://github.com/omer-metin/skills-for-antigravity)（Apache 2.0）再加 10 个：`puzzle-design`（解谜和小游戏，适合抢劫、开锁）、`level-design`（动线和引导，适合任务地点、MLO 布局）、`narrative-design`、`worldbuilding`、`lore-building`（剧情、城市背景、帮派历史）、`streamer-bait-design`（让主播容易剪出精彩片段）、`easter-egg-design`（彩蛋）、`game-design-core`（核心循环、玩家动机）、`combat-design`（打斗手感）、`community-building`（经营玩家社群）
+- **游戏系统设计**：从 [gamedev-skills/awesome-gamedev-agent-skills](https://github.com/gamedev-skills/awesome-gamedev-agent-skills)（Apache 2.0）再加 7 个：`dialogue-systems`（NPC 对话树）、`game-ai`（NPC 状态机、行为树、寻路）、`audio-design`（音效分层、闪避、动态音乐）、`camera-systems`（镜头跟随、过场）、`save-systems`（玩家数据存储和版本升级）、`survival-crafting`（采集、制作、生存数值）、`rpg`（等级、装备、任务）。这些技能不绑定引擎，例子多是 Godot/Unity，用在 FiveM 时换成 Lua 和 FiveM 的做法
 - **游戏界面和手感**：`game-ui-ux`、`game-feel`（[gamedev-skills/awesome-gamedev-agent-skills](https://github.com/gamedev-skills/awesome-gamedev-agent-skills)，Apache 2.0）——菜单层级、键盘/手柄选择、分辨率缩放；按钮反馈、缓动这类"手感"
 - **设计资料库**：`ui-ux-pro-max`（[nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill)，MIT）——本机搜索 79 种风格、192 套配色、74 组字体搭配、119 条 UX 规则，不用联网。只装了核心技能，同仓库要付费生图 API 的 logo/banner 技能没装；脚本路径已改成 `${CLAUDE_SKILL_DIR}`，测试文件没放进来
 - **界面细节和动效**：Emil Kowalski（Sonner、Vaul 的作者）的 8 个技能（[emilkowalski/skill](https://github.com/emilkowalski/skill)，MIT）——`emil-design-eng`（界面打磨和动效的整体原则）、`break-ui`（用超长名字、零商品、超大数字这类极端数据测试界面会不会坏）、`review-animations`（审查动效）、`find-animation-opportunities`（找哪里该加、哪里不该加动效）、`improve-animations`（动效审查和改进计划）、`animate`（从头做一个动效）、`prototype`（同一个界面做几个完全不同的版本给你挑，只在你叫它时才用）、`animation-vocabulary`（把"那个弹一下的效果"翻成正确的名称）。同仓库的 Swift、React Native/Expo、手机网页、Sonner、选库技能和 FiveM 无关，没装。另加 Jakub Krehel 的 `make-interfaces-feel-better`（[jakubkrehel/make-interfaces-feel-better](https://github.com/jakubkrehel/make-interfaces-feel-better)，MIT）——文字换行、圆角层次、视觉对齐、阴影代替边框、可中断的动画这些小细节
@@ -171,7 +174,7 @@ python scripts/install_local.py --all             # 技能 + 规则 + 插件 + M
 ```
 
 它会做这些事：
-- 把 104 个技能链接到 `~/.claude/skills/`。用的是链接不是复制，以后在 T1 里 `git pull`，技能就跟着更新；你自己建的同名技能不会被覆盖
+- 把 127 个技能链接到 `~/.claude/skills/`。用的是链接不是复制，以后在 T1 里 `git pull`，技能就跟着更新；你自己建的同名技能不会被覆盖
 - 在 `~/.claude/CLAUDE.md` 加一段，导入 T1 的 `CLAUDE.md`（它再导入 `LESSONS.md`），所以在哪个文件夹都用同一套规则，包括"用技能前一律先问"。原来的 CLAUDE.md 会先备份成 `CLAUDE.md.bak`
 - `--plugins`：用 `claude` 命令把 21 个插件装到用户范围
 - `--mcp`：把 blender、fivem、freecad、ifc 四个 MCP 加到用户范围（要先装 uv 和 Node.js）
@@ -185,7 +188,7 @@ python scripts/install_local.py --all             # 技能 + 规则 + 插件 + M
 Codex 不读 `CLAUDE.md` 和 `.claude/skills/`，它读 `AGENTS.md` 和 `.agents/skills/`。所以：
 
 - `AGENTS.md` 让 Codex 先读 `CLAUDE.md` 和 `LESSONS.md`，两边用同一套规则和同一份纠正记录。
-- `.agents/skills` 是指向 `.claude/skills` 的链接（symlink），104 个技能两边共用，不会有两份内容不同步。
+- `.agents/skills` 是指向 `.claude/skills` 的链接（symlink），127 个技能两边共用，不会有两份内容不同步。
 - 插件（superpowers、muto-atlas 等）和 MCP 是 Claude Code 专用的，Codex 里没有。
 - Windows 上 clone 时，git 默认可能把链接变成普通文本文件：用 `git clone -c core.symlinks=true …` 并开启 Windows 开发者模式。Codex 云端（Linux）不受影响。
 
