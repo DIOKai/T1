@@ -17,6 +17,8 @@ For a custom add-on/protagonist ped, also read [references/video-verified-ped-wo
 
 ## Build the character
 
+For hair, beards, brows, hair cards, tint/alpha, headgear or wind issues, read [references/hair-workflow.md](references/hair-workflow.md). It adds target-specific production decisions and a pass/fail/not-run acceptance matrix without replacing the character guidance below.
+
 1. Assemble the correct base components and the matching external YFT skeleton. Freemode bodies are split across component YDDs rather than being one ordinary mesh.
 2. Establish silhouette and proportions before detail. For focused work, combine the installed `character-artist`, `sculpting`, `hair-groom`, `retopology`, `rigging`, `uv-workflow`, and `texture-workflow` skills only after the user approves their use.
 3. Keep the target GTA bone names, hierarchy, vertex groups, bind pose, scale, and component boundaries unless the chosen ped pipeline explicitly supports a change. Do not invent a new player skeleton.

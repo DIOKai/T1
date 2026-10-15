@@ -1,0 +1,4 @@
+interface:
+  display_name: "FiveM Map World Editor"
+  short_description: "Create and diagnose outdoor GTA/FiveM maps"
+  default_prompt: "Use $fivem-map-world-editor to inspect and implement this outdoor map change."

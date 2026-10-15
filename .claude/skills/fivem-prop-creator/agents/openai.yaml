@@ -1,0 +1,4 @@
+interface:
+  display_name: "FiveM Prop Creator"
+  short_description: "Build and validate GTA props and resources"
+  default_prompt: "Use $fivem-prop-creator to build and validate this GTA/FiveM prop."
