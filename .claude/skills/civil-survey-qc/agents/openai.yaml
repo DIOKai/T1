@@ -1,0 +1,4 @@
+interface:
+  display_name: "Civil Survey QC"
+  short_description: "Audit survey points and terrain readiness"
+  default_prompt: "Use $civil-survey-qc to inspect this survey dataset before modeling."

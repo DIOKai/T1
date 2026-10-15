@@ -26,6 +26,8 @@ Use the IfcOpenShell `ifcmcp` server for local IFC work. Preserve the source mod
 
 ## Engineering and quantity limits
 
+For model quality audits, IDS requirements, geometry/clash interpretation or post-edit regression, read [references/model-quality.md](references/model-quality.md). Keep parse, schema, project-information, geometry and quantity results separate; unavailable checks are not passes.
+
 - Report quantities, costs, schedules, and clashes as model-derived results with assumptions and filters stated.
 - Do not treat schema validation as proof of design-code compliance, constructability, or professional approval.
 - Do not invent classification rules, measurement rules, rates, code requirements, or national annex values.

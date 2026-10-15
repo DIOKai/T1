@@ -1,0 +1,4 @@
+interface:
+  display_name: "IFC MCP"
+  short_description: "Review and edit IFC with scoped quality checks"
+  default_prompt: "Use $ifc-mcp to review this IFC model and distinguish schema, IDS, and geometry results."
