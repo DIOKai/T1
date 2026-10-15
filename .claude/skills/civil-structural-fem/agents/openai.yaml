@@ -1,0 +1,4 @@
+interface:
+  display_name: "Civil Structural FEM"
+  short_description: "Run and review FreeCAD CalculiX FEM studies"
+  default_prompt: "Use $civil-structural-fem to set up and review this structural analysis."

@@ -19,6 +19,7 @@ Housing scripts mostly use shells and IPLs; custom MLOs are for places that need
 - `references/interiors-in-scripts.md` — natives for interiors and entity sets, IPLs and bob74_ipl, doors, routing buckets.
 - `references/housing-systems.md` — qbx_properties, qb-houses/qb-apartments/qb-interior, ps-housing; shells vs IPL vs MLO in each; furniture and decorating; licences.
 - `references/troubleshooting.md` — symptom → cause → fix.
+- `references/video-study.md` — chapter-indexed MLO video study and the limits of what was verifiable without captions; use it to navigate demonstrations, not as a substitute for current Sollumz/Cfx documentation.
 
 Related skills: `fivem-pro` (Sollumz + CodeWalker basics, resmon), `fivem-script` (housing logic in Lua), `oxlib` / `ox-target` / `ox-inventory` (zones, interactions, stashes), Blender skills `set-dressing`, `archviz`, `prop-artist`, `environment-artist`, `uv-workflow`, `texture-workflow`, `lod-pipeline` (via the `blender` MCP — ask first), `muto-atlas` (vanilla archetype names, ask before `/asset-setup`), `fivem-graphics-pack` (room timecycle looks).
 

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Civil Road and Drainage"
+  short_description: "Develop traceable road and drainage layouts"
+  default_prompt: "Use $civil-road-drainage to plan and review this road and drainage design."

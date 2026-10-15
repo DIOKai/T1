@@ -1,0 +1,4 @@
+interface:
+  display_name: "Civil Site Earthworks"
+  short_description: "Model and check terrain, grading, and cut-fill"
+  default_prompt: "Use $civil-site-earthworks to plan and audit this earthworks workflow."

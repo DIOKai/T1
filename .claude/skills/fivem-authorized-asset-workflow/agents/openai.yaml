@@ -1,0 +1,4 @@
+interface:
+  display_name: "FiveM Authorized Assets"
+  short_description: "Handle purchased FiveM assets within their license"
+  default_prompt: "Use $fivem-authorized-asset-workflow to assess and safely modify this licensed asset."

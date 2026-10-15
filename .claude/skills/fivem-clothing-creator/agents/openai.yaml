@@ -1,0 +1,4 @@
+interface:
+  display_name: "FiveM Clothing Creator"
+  short_description: "Create and test FiveM freemode clothing assets"
+  default_prompt: "Use $fivem-clothing-creator to build and validate this FiveM clothing item."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "FiveM Ped Character"
+  short_description: "Build and validate GTA V/FiveM character assets"
+  default_prompt: "Use $fivem-ped-character to plan and validate this FiveM character asset."
