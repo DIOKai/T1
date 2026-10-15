@@ -64,3 +64,7 @@ Return runnable server-side Lua (or JS) using `MySQL.<fn>.await` with positional
 - rules/rawExecute.md — MySQL.rawExecute: raw result.
 
 Upstream docs: https://overextended.dev/oxmysql
+
+## Focused workflow
+
+For schema upgrades, backfills, backups or rollback planning, read [references/schema-migrations.md](references/schema-migrations.md). Its DDL/implicit-commit guidance applies to schema changes rather than assuming ordinary transaction rollback.

@@ -1,0 +1,4 @@
+interface:
+  display_name: "FiveM Asset Catalog"
+  short_description: "Index GTA assets with paths, hashes and provenance"
+  default_prompt: "Use $fivem-asset-catalog to inventory this asset library."

@@ -40,3 +40,7 @@ Read [references/video-study.md](references/video-study.md) when using the FreeC
 - A qualified civil engineer reviews safety, standards compliance, hydrology/hydraulics, geotechnical inputs, and issued drawings.
 
 Ask before using live FreeCAD or IFC MCP. Never represent preliminary model output as construction approval.
+
+## Focused workflow
+
+For station/offset/design-level schedules and coordinate export, read [references/setting-out.md](references/setting-out.md).

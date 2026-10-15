@@ -1,0 +1,4 @@
+interface:
+  display_name: "Civil Construction 4D"
+  short_description: "Link schedules and review construction phase states"
+  default_prompt: "Use $civil-construction-4d to review these construction phases."

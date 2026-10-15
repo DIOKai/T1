@@ -37,3 +37,7 @@ For model quality audits, IDS requirements, geometry/clash interpretation or pos
 State the schema, model scope, queries or edits performed, validation/clash outcome, and output path. Mark unavailable or incomplete checks clearly.
 
 Sources: https://docs.ifcopenshell.org/ifcmcp.html and https://github.com/IfcOpenShell/IfcOpenShell
+
+## Focused workflow
+
+For underground utility intersections, cover or clearance coordination, read [references/underground-utilities.md](references/underground-utilities.md).

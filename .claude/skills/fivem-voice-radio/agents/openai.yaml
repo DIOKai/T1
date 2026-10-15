@@ -1,0 +1,4 @@
+interface:
+  display_name: "FiveM Voice and Radio"
+  short_description: "Diagnose voice, calls and radio channel behavior"
+  default_prompt: "Use $fivem-voice-radio to diagnose this voice or radio issue."
