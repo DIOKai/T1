@@ -1,0 +1,1 @@
+project_id,location,lot_id,batch_id,sample_id,specimen_id,test_type,method,sampled_at,test_due_at,tested_at,result_value,result_unit,report_id,report_revision,report_path,criterion_ref,review_status,reviewer

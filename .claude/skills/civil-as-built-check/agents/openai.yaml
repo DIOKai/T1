@@ -1,0 +1,4 @@
+interface:
+  display_name: "Civil As-Built Check"
+  short_description: "Compare survey observations with design evidence"
+  default_prompt: "Use $civil-as-built-check to compare these observations with the design."

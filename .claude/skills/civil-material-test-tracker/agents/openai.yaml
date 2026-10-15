@@ -1,0 +1,4 @@
+interface:
+  display_name: "Civil Material Test Tracker"
+  short_description: "Track samples, lab reports and project test criteria"
+  default_prompt: "Use $civil-material-test-tracker to review this material test register."

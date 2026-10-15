@@ -1,6 +1,6 @@
 ---
 name: fivem-pro
-description: All-in-one FiveM development skill: Lua resource conventions (client/server/NUI), QBCore/ESX/QBox framework patterns, ox ecosystem (ox_lib/oxmysql/ox_inventory/ox_target), NUI with React, FXServer deployment, live resource workflow, performance optimization, testing + CI/CD, troubleshooting, anticheat hardening + security auditing, and GTA V map/MLO creation with Sollumz + CodeWalker. Use when writing, reviewing, debugging, testing, deploying, or securing FiveM resources, or when building custom maps.
+description: "All-in-one FiveM development skill: Lua resource conventions (client/server/NUI), QBCore/ESX/QBox framework patterns, ox ecosystem (ox_lib/oxmysql/ox_inventory/ox_target), NUI with React, FXServer deployment, live resource workflow, performance optimization, testing + CI/CD, troubleshooting, anticheat hardening + security auditing, and GTA V map/MLO creation with Sollumz + CodeWalker. Use when writing, reviewing, debugging, testing, deploying, or securing FiveM resources, or when building custom maps."
 license: MIT
 metadata:
   author: 1MS Studio
@@ -87,3 +87,7 @@ in that domain:
   never hardcoded in logic.
 - **Config over code:** prices, durations, coordinates, toggles live in
   `config.lua`, not buried in handlers.
+
+## Focused workflow
+
+For two-client disagreement, ownership migration, scope/bucket changes or stale replicated state, read [references/multiplayer-sync.md](references/multiplayer-sync.md).
