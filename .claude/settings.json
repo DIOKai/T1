@@ -14,7 +14,13 @@
     "git-cleanup@trailofbits": true,
     "supply-chain-risk-auditor@trailofbits": true,
     "code-improver@trailofbits": true,
-    "muto-atlas@muto-atlas": true
+    "muto-atlas@muto-atlas": true,
+    "taste-skill@taste-skill": true,
+    "visual-critique@designer-skills": true,
+    "ui-design@designer-skills": true,
+    "interaction-design@designer-skills": true,
+    "design-systems@designer-skills": true,
+    "prototyping-testing@designer-skills": true
   },
   "extraKnownMarketplaces": {
     "anthropic-agent-skills": {
@@ -57,6 +63,18 @@
       "source": {
         "source": "github",
         "repo": "B7Kompirine/muto-atlas"
+      }
+    },
+    "taste-skill": {
+      "source": {
+        "source": "github",
+        "repo": "Leonxlnx/taste-skill"
+      }
+    },
+    "designer-skills": {
+      "source": {
+        "source": "github",
+        "repo": "Owl-Listener/designer-skills"
       }
     }
   }

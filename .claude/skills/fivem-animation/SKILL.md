@@ -11,6 +11,7 @@ Read the reference you need:
 - `references/skeleton-and-authoring.md` — ped skeleton, bone tags, 30 fps, quaternions, baking, mover/root motion, looping, retargeting tools and licences.
 - `references/sollumz-export.md` — clip dictionary objects, every field that matters, compiling with CodeWalker.
 - `references/playing-and-rpemotes.md` — streaming, natives and flags, ox_lib, rpemotes custom emotes, props, shared emotes, walk styles.
+- `references/mixamo-to-gta.md` — Mixamo clips → muto-ped-rig retarget → .ycd, step by step (also scripted through the `blender` MCP), Mixamo terms.
 - `references/troubleshooting.md` — symptom → cause → fix.
 
 Related skills: `motion-design` (timing, spacing, easing, the 12 principles), `blender-animation-rigging` and `animation` (Blender keyframing, Graph Editor, NLA), `anthropic-skills:learn` (teaching), muto-atlas `/anim` (vanilla dictionary/clip names, real durations, skeleton bones — needs its data layers built first; ask before `/asset-setup`).
@@ -38,7 +39,7 @@ Driving Blender through the `blender` MCP (`execute_blender_code`) is allowed on
 - Hips: animate `SKEL_ROOT`. Travel across the ground goes on the **mover** — the armature object's Delta Transform — or keep the clip in place (emotes usually are).
 - Loops: first and last pose identical.
 - If you used IK, constraints or drivers: **bake** them (Pose ▸ Animation ▸ Bake Action, Visual Keying, Clear Constraints, quaternion rotation). The exporter only reads keyframed F-curves.
-- Retargeting a Mixamo/mocap clip: see `references/skeleton-and-authoring.md` (free options, licences).
+- Retargeting a Mixamo/mocap clip: follow `references/mixamo-to-gta.md` (muto-ped-rig, free and local); other free tools and licences in `references/skeleton-and-authoring.md`.
 
 ### 4. Export with Sollumz
 Clip Dictionary ▸ Animation (Hash, Action, **Target = the armature data**) ▸ Clip (**Hash = the clip name you'll play**, Duration = (end − start) / 30, linked animation range). Export `.ycd.xml`. Details and pitfalls: `references/sollumz-export.md`.

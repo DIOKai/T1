@@ -45,13 +45,13 @@ Skills in `.claude/skills/` were copied from the repositories below. Local chang
 
 - Source: https://github.com/germanfndez/fiveai-skills (commit `c9d13e0cf5b327790fceb7aaeaba02e1276e14f4`)
 - License: MIT
-- Skills: oxlib, oxmysql, ox-inventory, ox-target
+- Skills: oxlib, oxmysql, ox-inventory, ox-target, qbcore-framework, fivem-security, fivem-basics, lua-basics, fivem-deployment (unmodified; LICENSE copied into the five newer skill folders). Not included: fivemanage (a hosted service), esx-framework, fivem-nui.
 
 ## proelias7/fivem-skill
 
 - Source: https://github.com/proelias7/fivem-skill (commit `5b4504a7ceacee0e0d83a0d0d40be92deac4a8f0`)
 - License: MIT (stated in the upstream README; the repository has no LICENSE file)
-- Skills: fivem-react-nui
+- Skills: fivem-react-nui; qbox-framework (added from commit `ce4c98116f62b422a10ec38ed963930483ebd929`, unmodified)
 
 ## MuscleOtter/quantity-surveyor
 
@@ -84,3 +84,139 @@ No third-party code is included. `assets/timecycle_vars.txt` is a list of the ti
 ## fivem-mlo-housing (written for this repository)
 
 No third-party code is included. The workflow summarises the Sollumz wiki (GPL-3 project), the FiveM documentation, and the public READMEs and configs of qbx_properties, qb-interior, qb-houses, ps-housing, bob74_ipl, object_gizmo and ht_mlotool; flag names and values were read from the Sollumz source (`ytyp/properties/flags.py`) and XML element names from Sollumz szio (MIT).
+
+## pbakaus/impeccable
+
+- Source: https://github.com/pbakaus/impeccable (commit `778c8a7b71ccd5bfe3ca6ac68c15d9d872d0f87d`, plugin version 4.5.0)
+- License: Apache 2.0 (LICENSE and NOTICE.md copied into the skill folder)
+- Included: `plugin/skills/impeccable` → `.claude/skills/impeccable`, and `plugin/agents/*.md` → `.claude/agents/`
+- Local modification: the plugin's hooks (`plugin/hooks/hooks.json`, which run the impeccable engine on SessionStart, after every Edit/Write and on Stop) were deliberately not included.
+
+## Leonxlnx/taste-skill
+
+- Source: https://github.com/Leonxlnx/taste-skill (reviewed at commit `b482f7a970abb98c4108d4a9f761e458c64cefc8`)
+- License: MIT
+- Not vendored: enabled as the `taste-skill@taste-skill` plugin from its own marketplace in `.claude/settings.json`.
+
+## remotion-dev/skills
+
+- Source: https://github.com/remotion-dev/skills (reviewed at commit `32b241b97f4e0e4ab61fe9a41b05e6e64503f8c5`)
+- No licence file in the repository, so nothing is vendored. `scripts/install_local.py --remotion` installs it on the user's own machine with Remotion's documented command (`npx skills add remotion-dev/skills`). Remotion itself is free for individuals and companies of up to 3 people; larger companies need a Remotion licence.
+
+## gamedev-skills/awesome-gamedev-agent-skills
+
+- Source: https://github.com/gamedev-skills/awesome-gamedev-agent-skills (commit `d4b0e35550c55ae70bdfcab4ef5a0e94610438a9`)
+- License: Apache 2.0 (LICENSE and NOTICE copied into each skill folder)
+- Skills: game-ui-ux, game-feel (unmodified); dialogue-systems, game-ai, audio-design, camera-systems, save-systems, survival-crafting, rpg (added from commit `0a70cfc64672d512c5b5b6006b5dcb5cf90dbdbd`, unmodified, LICENSE and NOTICE copied into each folder)
+
+## nextlevelbuilder/ui-ux-pro-max-skill
+
+- Source: https://github.com/nextlevelbuilder/ui-ux-pro-max-skill (commit `477bcb28c9812b385cb51a4605ddf30d7b2266e2`)
+- License: MIT (LICENSE copied into the skill folder)
+- Skills: ui-ux-pro-max only (the repo's banner/brand/design/logo skills use paid image APIs and were not included)
+- Local modifications: script paths changed from `${CLAUDE_PLUGIN_ROOT}/.claude/skills/ui-ux-pro-max/` to `${CLAUDE_SKILL_DIR}/`; `scripts/tests` removed.
+
+## fivem-menu-design (written for this repository)
+
+No third-party code is included. Facts come from the FiveM documentation and source (nui-resources, nui-core), ox_lib (LGPL-3.0) and qb-menu (GPL-3.0) source, read for reference only.
+
+## fivem-phone (written for this repository)
+
+No third-party code is included. Facts come from reading, for reference only: project-error/npwd (GPL-3.0) and project-error/npwd-app-template, the lb-phone-app-template (MIT), qbcore-framework/qb-phone (GPL-3.0), Z3MO/z-phone (AGPL-3.0), and Android's foldable / window size class documentation. Short API names, control IDs and animation names are cited as facts; no code was copied.
+
+`fivem-phone/assets/phone-template/` bundles two third-party assets (notices in its `LICENSES.md`):
+- Inter font v4.1 (`web/fonts/InterVariable.woff2`), © The Inter Project Authors, SIL Open Font License 1.1 (full text in `web/fonts/Inter-OFL.txt`). Source: https://github.com/rsms/inter
+- Lucide icons, lucide-static 0.453.0 (SVG path data in `web/icons.js`), ISC License. Source: https://github.com/lucide-icons/lucide
+
+Design numbers in `references/phone-design.md` were checked against Apple HIG data files and Material 3 token files in androidx (Apache-2.0), cited as facts. Device specs in `references/real-foldables.md` come from public press and carrier coverage.
+
+## free-3d-assets (written for this repository)
+
+No third-party code is included. Facts come from reading, for reference only: Tencent-Hunyuan/Hunyuan3D-2.1 (README, `api_server.py`, `api_models.py`, LICENSE; Tencent Hunyuan 3D 2.1 Community License), YanWenKun/Hunyuan3D-2-WinPortable (README), ahujasid/blender-mcp (MIT; asset-library and Hunyuan3D handlers) and B7Kompirine/muto-ped-rig (GPL-3.0; README). `scripts/hunyuan3d_client.py` was written from scratch against the documented request fields. Hunyuan3D itself is not bundled; users install it themselves under Tencent's licence.
+
+## pixabay-assets (written for this repository)
+
+No third-party code or Pixabay content is included. API parameters and licence points come from Pixabay's API documentation and Content License Summary (via search-engine copies; pixabay.com was not reachable when writing). `scripts/pixabay.py` was written from scratch.
+
+## fivem-animation: Mixamo reference
+
+`fivem-animation/references/mixamo-to-gta.md` cites property and operator names from B7Kompirine/muto-ped-rig v0.3.2 (GPL-3.0) as facts, and Mixamo terms from Adobe's FAQ. No muto-ped-rig code is copied.
+
+## jezweb/claude-skills
+
+- Source: https://github.com/jezweb/claude-skills (commit `1260fa7439b36b18dbf16648ccc7fb44783f6c23`)
+- License: MIT (LICENSE copied into each skill folder)
+- Skills: icon-set-generator, favicon-gen (from `plugins/design-assets/skills/`, unmodified). Not included: ai-image-generator (needs paid Gemini/OpenAI APIs), color-palette, image-processing.
+
+## PianoNic/ClaudeSkills
+
+- Source: https://github.com/PianoNic/ClaudeSkills (commit `1998a7ce98887086c22e84eb7240558845765eab`)
+- License: MIT (LICENSE copied into the skill folder)
+- Skills: app-icon-expert (from `plugins/app-icon-expert/skills/`, unmodified)
+
+## better-auth/better-icons
+
+- Source: https://github.com/better-auth/better-icons (commit `033316ecb8f4982235af4111a2257e80231f5ab1`)
+- License: MIT (LICENSE copied into the skill folder)
+- Skills: better-icons (`skills/SKILL.md`, unmodified). The CLI itself is not bundled; users install it from npm. Icons it downloads come from Iconify collections, each under its own licence.
+
+## omer-metin/skills-for-antigravity
+
+- Source: https://github.com/omer-metin/skills-for-antigravity (commit `e8dcf4e8737921a10088bd5c9eb65e81f74c051f`)
+- License: Apache License 2.0 (LICENSE copied into each skill folder; the repository has no NOTICE file)
+- Skills: game-ui-design, color-theory, typography, vehicle-design, character-design, lighting-design, branding, puzzle-design, level-design, narrative-design, worldbuilding, lore-building, streamer-bait-design, easter-egg-design, game-design-core, combat-design, community-building (unmodified)
+
+## mblode/agent-skills
+
+- Source: https://github.com/mblode/agent-skills (commit `5a781a88ed60c1033767b6b6a966887cd93dd912`)
+- License: MIT (LICENSE.md copied into the skill folder)
+- Skills: typography-audit (SKILL.md and rules/, unmodified; its evals/ folder was not copied)
+
+## LottieFiles/motion-design-skill
+
+- Source: https://github.com/lottiefiles/motion-design-skill (commit `f9a8a041b85185ee4881b3471d3415e939aac772`)
+- License: MIT (LICENSE copied into the skill folder)
+- Skills: motion-design, installed as `lottie-motion-design`. Local modification: the `name` field was changed from `motion-design` to `lottie-motion-design` to avoid clashing with the existing motion-design skill.
+
+## emilkowalski/skill
+
+- Source: https://github.com/emilkowalski/skill (commit `e8a175de22ae1e49370fc144c1f3bb9aeedf988d`)
+- License: MIT (LICENSE copied into each skill folder)
+- Skills: emil-design-eng, break-ui, review-animations, find-animation-opportunities, improve-animations, animate, prototype, animation-vocabulary, apple-design (unmodified). Not included: write-swift, animate-expo, mobile-native, ask-sonner, pick-ui-library.
+
+## jakubkrehel/make-interfaces-feel-better
+
+- Source: https://github.com/jakubkrehel/make-interfaces-feel-better (commit `35545ea1512ad59fa463e6b1f95ca9c052981fe6`)
+- License: MIT (LICENSE copied into the skill folder)
+- Skills: make-interfaces-feel-better (unmodified)
+
+## Owl-Listener/designer-skills
+
+- Source: https://github.com/Owl-Listener/designer-skills (reviewed at commit `9a6930cf84a822eb458624bd11c61aac5bbdf224`)
+- License: MIT
+- Not vendored: the `visual-critique`, `ui-design` and `interaction-design` plugins are enabled from the repo's own marketplace (`designer-skills`) in `.claude/settings.json`.
+
+## mastepanoski/claude-skills
+
+- Source: https://github.com/mastepanoski/claude-skills (commit `fbdde8adb5645dd3ab8531200a651c9112472b2b`)
+- License: MIT (LICENSE copied into the skill folder)
+- Skills: ui-design-review (unmodified)
+
+## vercel-labs/agent-skills
+
+- Source: https://github.com/vercel-labs/agent-skills (commit `063bee94c3f4df8453406c830b0a7df0f2860278`)
+- License: MIT (stated in the repository README; there is no separate LICENSE file)
+- Skills: web-design-guidelines (unmodified; it fetches its rules from vercel-labs/web-interface-guidelines at run time)
+
+## wshobson/agents
+
+- Source: https://github.com/wshobson/agents (commit `46891e7e60da0e52baf1050b7b6391b64e84c6d9`)
+- License: MIT (LICENSE copied into the skill folder)
+- Skills: interaction-design, mobile-ios-design, mobile-android-design from `plugins/ui-design/skills/` (unmodified)
+
+## julianoczkowski/designer-skills
+
+- Source: https://github.com/julianoczkowski/designer-skills (commit `c259656c76d9758d7ead46b0d2f125cbe84f8665`)
+- License: Apache 2.0 (LICENSE copied into each skill folder)
+- Skills: design-brief, design-tokens, design-review, and frontend-design renamed to `designer-frontend-design`
+- Local modification: `frontend-design` was renamed to `designer-frontend-design` (it clashed with Anthropic's frontend-design skill), and the references to it in design-brief, design-tokens and design-review were updated.

@@ -1,8 +1,8 @@
 # T1 — Claude Code / Cowork Skills 合集
 
-用 Claude Code 打开这个仓库时，`.claude/settings.json` 会自动登记 6 个插件市场，并提示你安装下面已启用的插件；`.claude/skills/` 里的技能直接可用，不用安装。
+用 Claude Code 打开这个仓库时，`.claude/settings.json` 会自动登记 9 个插件市场，并提示你安装下面已启用的插件；`.claude/skills/` 里的技能直接可用，不用安装。
 
-## 已启用的插件（15 个，`.claude/settings.json`）
+## 已启用的插件（21 个，`.claude/settings.json`）
 
 | 来源 | 插件 |
 |---|---|
@@ -10,19 +10,37 @@
 | [obra/superpowers-marketplace](https://github.com/obra/superpowers-marketplace) | `superpowers` |
 | [lackeyjb/playwright-skill](https://github.com/lackeyjb/playwright-skill) | `playwright-skill`（首次使用需在插件目录跑 `npm run setup`） |
 | [trailofbits/skills](https://github.com/trailofbits/skills) | 8 个和 FiveM（Lua/JS/Python）、GitHub 有关的：`sharp-edges`、`insecure-defaults`、`differential-review`、`static-analysis`、`supply-chain-risk-auditor`、`variant-analysis`、`git-cleanup`、`code-improver` |
+| [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill) | `taste-skill`（MIT）：让网页、界面不像 AI 套模板。主技能 `design-taste-frontend`，另有 redesign（旧站改造）、minimalist、soft、brutalist 等风格，以及 `brandkit`、`imagegen-frontend-*` 这类出参考图的技能（要配 ChatGPT Images 之类的生图工具，Claude Code 自己不能生图） |
+| [Owl-Listener/designer-skills](https://github.com/Owl-Listener/designer-skills) | 3 个设计插件（MIT）：`visual-critique`（7 个挑毛病技能：配色、字体、构图、信息密度、视觉层次、可点感、品牌一致性，加 `/critique-screen` 整个画面点评）、`ui-design`（19 个：间距系统、字体比例、配色系统、深色模式、网格、各种设计定律）、`interaction-design`（22 个：加载状态、错误处理、反馈模式、微交互规格等）、`design-systems`（组件规格、设计变量、命名、icon 系统、动效系统、主题）、`prototyping-testing`（线框图规格、启发式评估、可用性测试、A/B 测试、几个方案并行比较）。同一个市场里其他的研究、管理类插件没启用 |
 | [B7Kompirine/muto-atlas](https://github.com/B7Kompirine/muto-atlas) | `muto-atlas`：GTA V / FiveM 资料库（车辆骨骼名、碰撞 flag、Sollumz/CodeWalker 常见坑、原版车规格），19 个指令，要先建资料库（见下） |
 
 `anthropics/knowledge-work-plugins` 和 `phuryn/pm-skills` 只登记了市场，没有默认启用，原因见下。要用时 `claude plugin install <插件>@<市场>`。
 
-## 直接放进仓库的技能（64 个，`.claude/skills/`）
+## 直接放进仓库的技能（127 个，`.claude/skills/`）
 
 - **FiveM**：`fivem-pro`（[leminhhuy113/fivem-pro](https://github.com/leminhhuy113/fivem-pro)，MIT）讲开发、性能优化，以及用 Sollumz + CodeWalker 做地图/MLO；`fivem-security-audit`（[matiaspalmac/fivem-audit-skill](https://github.com/matiaspalmac/fivem-audit-skill)，MIT）查后门、漏洞、性能问题
 - **FiveM ox 系列和 NUI**：oxlib、oxmysql、ox-inventory、ox-target（[germanfndez/fiveai-skills](https://github.com/germanfndez/fiveai-skills)，MIT）；fivem-react-nui（[proelias7/fivem-skill](https://github.com/proelias7/fivem-skill)，MIT），用 React + TypeScript + Vite + Tailwind 做 NUI
 - **车辆模组**：`fivem-vehicle-mod`（本仓库自己写的）——addon 车资源的结构、meta 文件、改装套件、涂装、警笛、贴图/大小限制、GTA V Enhanced 转换、故障排查；模组车在 Blender + Sollumz 里怎么做（用原版车当底、骨骼、车漆层、灯光 ID、车窗、LOD）；模组警车/救护车/消防车（siren 骨骼和 carcols 警灯设置、extras、涂装、qbx_police/qb-policejob 配置、Renewed-Sirensync 等警笛控制和自定义警笛声），附 `check_vehicle_resource.py` 交叉检查脚本（检查名字对不对得上、改装套件/警笛 id 撞号、无效的 data_file 类型）。资料来自 FiveM 源码和官方文档源码。配合免费工具：[fivem-vehicle-validator](https://github.com/PrestigeRoleplay/fivem-vehicle-validator)、[fivem-handling-presets](https://github.com/PrestigeRoleplay/fivem-handling-presets)、[fivem-joaat-hash](https://github.com/PrestigeRoleplay/fivem-joaat-hash)（都用 npx 跑）和游戏内调 handling 的 [vehicleDebug](https://github.com/kerminal/vehicleDebug)（放进测试服 resources）
-- **FiveM 动画**：`fivem-animation`（本仓库自己写的）——Blender → Sollumz（.ycd.xml）→ CodeWalker（.ycd）→ FiveM，用 rpemotes-reborn 自定义表情或 TaskPlayAnim 播放；GTA 骨骼 tag、30 fps、四元数、烘焙、mover、clip Hash/Duration、道具挂载、故障排查，附 `check_anim_resource.py` 检查脚本。资料来自 Sollumz、CodeWalker、FiveM 源码、citizenfx/natives 和 rpemotes 源码
+- **FiveM 动画**：`fivem-animation`（本仓库自己写的）——Blender → Sollumz（.ycd.xml）→ CodeWalker（.ycd）→ FiveM，用 rpemotes-reborn 自定义表情或 TaskPlayAnim 播放；GTA 骨骼 tag、30 fps、四元数、烘焙、mover、clip Hash/Duration、道具挂载、故障排查，附 `check_anim_resource.py` 检查脚本。资料来自 Sollumz、CodeWalker、FiveM 源码、citizenfx/natives 和 rpemotes 源码。新增 Mixamo → GTA 流程（`references/mixamo-to-gta.md`）：从 Mixamo 手动下载 FBX，用免费的 muto-ped-rig（GPL-3）转到 GTA 骨骼并导出 .ycd，附 MCP 一键代码和常见问题
 - **画质包**：`fivem-graphics-pack`（本仓库自己写的）——三种画质包：伺服器端的色调（timecycle modifier 做暖色/冷色/电影感/写实，玩家自动拿到、可用 `/graphics` 切换或关掉）、visualsettings（车灯、夜间灯光）、2K/4K 贴图替换（内存计算、16/48 MiB 限制、`+hi` 只在"非常高"贴图画质下加载、车辆贴图默认被限到 1024），以及玩家自己装的 ReShade（FiveM 的 plugins 文件夹、ReShade 5 要在 CitizenFX.ini 加确认行、LUT 调色）。附三个脚本：`make_timecycle_pack.py`（一键生成画质包资源）、`make_lut.py`（生成 ReShade LUT，预设 warm/cool/cinematic/realistic/vivid/noir）、`check_graphics_pack.py`（检查 numMods、拼错的变量、没注册的 XML、按 RSC 头算的贴图内存）。资料来自 FiveM 源码（TimecycleEditor、VisualSettingsNatives、ReShadeFixups、TextureStreamingLimits、ResourceStreamComponent）、citizenfx/natives 和 ReShade 的 LUT.fx。只推荐免费工具（NVE、QuantV、iMMERSE Pro 要付费，不用）
 - **室内和房屋**：`fivem-mlo-housing`（本仓库自己写的）——三种室内怎么选（MLO、原版 IPL、shell），用 Blender + Sollumz + CodeWalker 做 MLO（limbo、房间、portal、实体、entity set、房间 timecycle、门、碰撞、顶点色灯光、`_manifest.ymf`、ht_mlotool 声音遮挡），在脚本里切换 entity set 和 IPL，以及 qbx_properties / qb-houses / ps-housing 怎么用 shell 和公寓、家具摆放和授权。附 `check_mlo_resource.py`，检查 this_is_a_map、manifest、portal 连错房间、房间没 portal、实体没放进房间（进屋看不到）、门的 flag、ymap extents、撞名。资料来自 Sollumz wiki 和源码、FiveM 官方资产教程和源码、citizenfx/natives 以及各房屋脚本自己的代码
 - **记住纠正**：`correction-memory`（本仓库自己写的）——你说我哪里做错、或说"下次/记住…"时，先改好，再把规则写进仓库根目录的 `LESSONS.md`。CLAUDE.md 用 `@LESSONS.md` 导入它，所以以后每次对话都会自动读到。新对话从 main 开始，所以经验要合并进 main 才生效
+- **界面美化**：`impeccable`（[pbakaus/impeccable](https://github.com/pbakaus/impeccable)，Apache 2.0）——在 Anthropic 的 frontend-design 基础上加强，1 个技能 24 个指令：`/impeccable audit`（找问题）、`critique`（设计点评）、`polish`（最后润色）、`animate`（加动效）、`bolder`/`quieter`（更大胆/更低调）、`colorize`、`typeset`、`layout` 等。它的 4 个子代理放在 `.claude/agents/`。**只装了技能本体，没装它插件里的 hook**：那些 hook 会在每次开对话、每次改文件、每次回答结束时自动跑它的程序，违反"用技能前一律先问"，改 FiveM Lua 时也会跑。第一次用到它的检查程序时，会从 impeccable 的 GitHub 下载对应平台的程序并校验 sha256。搭配已装的 `frontend-design`（网页界面）和 `canvas-design`（海报、静态图），做 FiveM NUI 时最有用
+- **FiveM 菜单设计**：`fivem-menu-design`（本仓库自己写的）——设计和美化 ox_lib 菜单、qb-menu、自定义 NUI（商店、车库、老板菜单、背包、轮盘、暂停菜单、HUD）。讲 FiveM 特有的规则：NUI 焦点是每个资源投票（有一个没放开玩家就卡鼠标）、`SetNuiFocusKeepInput` 要配 `DisableControlAction`、回调一定要 `cb()`、游戏内浏览器最高 240 帧重绘所以毛玻璃和无限动画会吃帧、720p 到 4K 的缩放、ESC/Backspace、价格要伺服器判定；ox_lib 用 `setr ox:primaryColor` 一行换主题色。附 `check_nui_menu.py` 检查脚本。资料来自 FiveM 官方 NUI 文档和源码、ox_lib 与 qb-menu 源码
+- **FiveM 手机**：`fivem-phone`（本仓库自己写的）——给 npwd（免费，GPL）、lb-phone（付费，但有公开的 app 接口）、qb-phone / z-phone 写 app；从头做手机外框；照真机（iPhone Duo、Galaxy Z Fold8 / Fold8 Ultra / Flip8 / TriFold、华为 Mate XTs）做折叠手机；设计数值对照苹果 HIG 和 Material 3 原文核对。附一个沉浸式手机模板 `assets/phone-template`（6 种机型、锁屏、控制中心、拖边缘展开、信息和钱包 app，所有操作都在手机里，已在浏览器截图测试）和 `check_phone_app.py` 本地只读检查
+- **免费 3D 素材**：`free-3d-assets`（本仓库自己写的）——不用付费的 Tripo/Meshy，改用在自己电脑上跑的腾讯 Hunyuan3D 2.1（图片转 3D，NVIDIA 显卡；Windows 一键包或官方安装，`blender` MCP 的 Local API 模式，步数要设 20），或从 Poly Haven（CC0）、Poly Pizza、Sketchfab 找免费模型；再按步骤做成 FiveM 道具（真实尺寸、面数预算、贴图、LOD、碰撞、Sollumz `.ydr` + `.ytyp`、生成测试）或用 muto-ped-rig 做成 add-on ped。附 `hunyuan3d_client.py`（只用 Python 标准库，连本机 Hunyuan3D API 生成 GLB）。Hunyuan3D 授权不适用于欧盟、英国、韩国
+- **免费图片和视频**：`pixabay-assets`（本仓库自己写的）——用免费 Pixabay API key 搜索、下载图片和视频（NUI 背景、手机壁纸、商店图片、loading screen、道具贴图、给 Hunyuan3D 的参考图），附 `pixabay.py`（缓存 24 小时、遵守限流、只从 pixabay.com 下载、自动写 `CREDITS-pixabay.md`）。音乐和音效没有 API，讲怎么手动下载、Content ID 和 Freesound 授权
+- **手机界面设计**：`mobile-ios-design`、`mobile-android-design`（[wshobson/agents](https://github.com/wshobson/agents)，MIT）——iOS 人机界面指南和 Material 3 的导航、列表、主题、自适应布局；`apple-design`（[emilkowalski/skill](https://github.com/emilkowalski/skill)，MIT）——苹果式的弹簧动效、可中断动画、材质和字体。做 FiveM 手机时配合 `fivem-phone` 用
+- **Icon 和 logo 设计**：`icon-set-generator`、`favicon-gen`（[jezweb/claude-skills](https://github.com/jezweb/claude-skills)，MIT）——按一份风格规格（网格、线条粗细、端点、圆角、留白）画整套风格统一的 SVG icon，5 种预设（Clean/Sharp/Soft/Minimal/Bold）、光学校正、预览页；favicon-gen 做网站 favicon 和 manifest（转 PNG/ICO 要 ImageMagick 或免费网站 favicon.io）。同包的 `ai-image-generator` 要付费的 Gemini/GPT API，没装。`app-icon-expert`（[PianoNic/ClaudeSkills](https://github.com/PianoNic/ClaudeSkills)，MIT）——app icon 和 logo：先问清品牌、纯黑测试、避开"渐变 + 闪光"的 AI 俗套、深色模式、各尺寸和 maskable 安全区。`better-icons`（[better-auth/better-icons](https://github.com/better-auth/better-icons)，MIT）——从 Iconify 的 200 多个免费 icon 库（Lucide、Material、Heroicons、Tabler…）搜索和下载现成 SVG；要在电脑上 `npm install -g better-icons`（或用 npx），会连 api.iconify.design。每个 icon 库授权不同（MIT、Apache、CC BY 等），用之前看清楚
+- **游戏美术和设计原理**：从 [omer-metin/skills-for-antigravity](https://github.com/omer-metin/skills-for-antigravity)（Apache 2.0）挑了 7 个，每个带"做法 / 常见坑 / 检查清单"三份参考：`game-ui-design`（HUD、菜单、安全区、手柄导航、无障碍）、`color-theory`（配色、对比度、色弱、深色模式）、`typography`（字体选择、搭配、字号层级、行距、网页字体加载）、`vehicle-design`（车辆外形语言和比例）、`character-design`（角色剪影、形状语言、表情）、`lighting-design`（游戏灯光、时间变化、体积光）、`branding`（logo、配色、字体、品牌手册）。用于 GTA 时以 GTA 的规则为准。`typography-audit`（[mblode/agent-skills](https://github.com/mblode/agent-skills)，MIT）——用 78 条规则检查网页字体（加载、字号、行宽、标点、OpenType）。`lottie-motion-design`（[LottieFiles/motion-design-skill](https://github.com/lottiefiles/motion-design-skill)，MIT，原名 motion-design，跟已装的同名所以改了名）——动画的情绪目标、动效性格、时长和缓动表、多元素编排、迪士尼原则。[bergside/awesome-design-skills](https://github.com/bergside/awesome-design-skills) 的 67 种风格预设看过但没装：内容是批量生成的模板，太空，还有矛盾
+- **FiveM 框架和基础**：从 [germanfndez/fiveai-skills](https://github.com/germanfndez/fiveai-skills)（MIT）再加 5 个：`qbcore-framework`（QBCore 玩家对象、钱、工作、帮派、回调，会提醒 Qbox 的 API 不同）、`fivem-security`（写代码时就防漏洞：事件验证、权限、限频、server.cfg 安全设定）、`fivem-basics`（资源结构、fxmanifest、事件、exports）、`lua-basics`（Lua 语法和性能）、`fivem-deployment`（选和固定 FXServer 版本、txAdmin、server.cfg）；从 [proelias7/fivem-skill](https://github.com/proelias7/fivem-skill)（MIT）加 `qbox-framework`（qbx_core 的 exports 用法，内容偏少，以 docs.qbox.re 为准）
+- **玩法和内容设计**：从 [omer-metin/skills-for-antigravity](https://github.com/omer-metin/skills-for-antigravity)（Apache 2.0）再加 10 个：`puzzle-design`（解谜和小游戏，适合抢劫、开锁）、`level-design`（动线和引导，适合任务地点、MLO 布局）、`narrative-design`、`worldbuilding`、`lore-building`（剧情、城市背景、帮派历史）、`streamer-bait-design`（让主播容易剪出精彩片段）、`easter-egg-design`（彩蛋）、`game-design-core`（核心循环、玩家动机）、`combat-design`（打斗手感）、`community-building`（经营玩家社群）
+- **游戏系统设计**：从 [gamedev-skills/awesome-gamedev-agent-skills](https://github.com/gamedev-skills/awesome-gamedev-agent-skills)（Apache 2.0）再加 7 个：`dialogue-systems`（NPC 对话树）、`game-ai`（NPC 状态机、行为树、寻路）、`audio-design`（音效分层、闪避、动态音乐）、`camera-systems`（镜头跟随、过场）、`save-systems`（玩家数据存储和版本升级）、`survival-crafting`（采集、制作、生存数值）、`rpg`（等级、装备、任务）。这些技能不绑定引擎，例子多是 Godot/Unity，用在 FiveM 时换成 Lua 和 FiveM 的做法
+- **游戏界面和手感**：`game-ui-ux`、`game-feel`（[gamedev-skills/awesome-gamedev-agent-skills](https://github.com/gamedev-skills/awesome-gamedev-agent-skills)，Apache 2.0）——菜单层级、键盘/手柄选择、分辨率缩放；按钮反馈、缓动这类"手感"
+- **设计资料库**：`ui-ux-pro-max`（[nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill)，MIT）——本机搜索 79 种风格、192 套配色、74 组字体搭配、119 条 UX 规则，不用联网。只装了核心技能，同仓库要付费生图 API 的 logo/banner 技能没装；脚本路径已改成 `${CLAUDE_SKILL_DIR}`，测试文件没放进来
+- **界面细节和动效**：Emil Kowalski（Sonner、Vaul 的作者）的 8 个技能（[emilkowalski/skill](https://github.com/emilkowalski/skill)，MIT）——`emil-design-eng`（界面打磨和动效的整体原则）、`break-ui`（用超长名字、零商品、超大数字这类极端数据测试界面会不会坏）、`review-animations`（审查动效）、`find-animation-opportunities`（找哪里该加、哪里不该加动效）、`improve-animations`（动效审查和改进计划）、`animate`（从头做一个动效）、`prototype`（同一个界面做几个完全不同的版本给你挑，只在你叫它时才用）、`animation-vocabulary`（把"那个弹一下的效果"翻成正确的名称）。同仓库的 Swift、React Native/Expo、手机网页、Sonner、选库技能和 FiveM 无关，没装。另加 Jakub Krehel 的 `make-interfaces-feel-better`（[jakubkrehel/make-interfaces-feel-better](https://github.com/jakubkrehel/make-interfaces-feel-better)，MIT）——文字换行、圆角层次、视觉对齐、阴影代替边框、可中断的动画这些小细节
+- **设计审查和设计系统**：`ui-design-review`（[mastepanoski/claude-skills](https://github.com/mastepanoski/claude-skills)，MIT，从 10 个方面审查视觉）、`web-design-guidelines`（[Vercel](https://github.com/vercel-labs/agent-skills)，MIT，100 多条界面规范逐行检查；每次用时会从 GitHub 下载最新规则）、`interaction-design`（[wshobson/agents](https://github.com/wshobson/agents)，MIT，微交互和反馈，附代码）、`design-brief` → `design-tokens` → `design-review`（[julianoczkowski/designer-skills](https://github.com/julianoczkowski/designer-skills)，Apache 2.0：先访谈定方向、再生成颜色/间距/字体变量、最后对照方向审查），以及它们参考的风格清单 `designer-frontend-design`（原名 frontend-design，跟 Anthropic 的同名技能撞名所以改了名）
+- **做视频（Remotion）**：`remotion-best-practices` 等 12 个技能（[remotion-dev/skills](https://github.com/remotion-dev/skills)），用 React 写代码做视频。那个仓库没有授权文件，所以没有复制进 T1；在自己电脑上用 `python scripts/install_local.py --remotion` 安装（会执行 Remotion 官方的 `npx skills add remotion-dev/skills`，并关掉它的追踪），云端对话里没有。Remotion 本身个人和 3 人以下公司免费，4 人以上要付费授权
 - **土木工程**：quantity-surveyor（[MuscleOtter/quantity-surveyor](https://github.com/MuscleOtter/quantity-surveyor)，MIT），算工程量、BOQ、单价分析、投标、变更、现金流
 - **室内设计（Blender）**：set-dressing、archviz、prop-artist、environment-artist（[arjun988/blender-skills](https://github.com/arjun988/blender-skills)，MIT）——室内布置、真实尺寸和灯光、家具道具、模块化房间
 - **动画**：motion-design（[LobzyJay/motion-design-with-claude](https://github.com/LobzyJay/motion-design-with-claude)，MIT）——12 条动画原则、时间和间距、缓动；blender-animation-rigging（[ra100/blender-claude-plugin](https://github.com/ra100/blender-claude-plugin)，MIT）——Blender 5.x 关键帧、曲线编辑器、NLA、驱动器、约束、IK/FK、形态键
@@ -126,20 +144,42 @@ claude plugin install episodic-memory@superpowers-marketplace
 
 ## 在自己电脑上用（local 模式）
 
+### 每台电脑一行命令（推荐）
+
+**Windows**（开 PowerShell，贴这一行）：
+```
+irm https://raw.githubusercontent.com/DIOKai/T1/main/scripts/setup.ps1 | iex
+```
+**Mac / Linux**：
+```
+curl -fsSL https://raw.githubusercontent.com/DIOKai/T1/main/scripts/setup.sh | sh
+```
+
+它会把 T1 下载到 `你的用户文件夹\T1`（已经有了就更新），然后执行 `install_local.py --all --auto-update`，也就是装好下面所有东西，再加一个**自动更新**：之后每次打开 Claude Code，它会在后台 `git pull` T1 并重新链接技能。所以你在一台电脑（或云端）加的技能、记下的经验，合并进 main 以后，其他电脑下次打开 Claude Code 就会有，不用每台再装一次。
+- 没网络、或那台电脑的 T1 有没提交的改动时，它什么也不做，不会影响打开 Claude Code
+- T1 里新启用的**插件**不会自动装（要用 `claude` 命令装，比较慢）：自动更新发现有新插件时，会提醒你跑 `install_local.py --plugins`
+- 要先装 Git 和 Python 3；缺了会告诉你用 `winget install` 装哪个。Remotion 和 fivem MCP 还要 Node.js
+- 第一次在某个文件夹打开 Claude Code 时会问你要不要信任这个文件夹，选"是"，自动更新才会跑（Claude Code 的安全规则）
+- 不想自动更新：`python scripts/install_local.py --uninstall` 会连同自动更新一起移除，之后再跑一次不加 `--auto-update` 的安装即可
+
+### 手动安装
+
 在 T1 文件夹里开 local 会话，会直接读到这里的技能、规则和插件设置（第一次会问你要不要信任这个文件夹）。在**别的文件夹**开 local 会话，比如 FiveM 伺服器、Blender 项目，就只会读你电脑上的 `~/.claude`（Windows 是 `C:\Users\你的名字\.claude`）。所以要跑一次安装脚本：
 
 ```
 git clone https://github.com/DIOKai/T1
 cd T1
 python scripts/install_local.py --dry-run --all   # 先看会做什么
-python scripts/install_local.py --all             # 技能 + 规则 + 插件 + MCP
+python scripts/install_local.py --all             # 技能 + 规则 + 插件 + MCP + Remotion
 ```
 
 它会做这些事：
-- 把 64 个技能链接到 `~/.claude/skills/`。用的是链接不是复制，以后在 T1 里 `git pull`，技能就跟着更新；你自己建的同名技能不会被覆盖
+- 把 127 个技能链接到 `~/.claude/skills/`。用的是链接不是复制，以后在 T1 里 `git pull`，技能就跟着更新；你自己建的同名技能不会被覆盖
 - 在 `~/.claude/CLAUDE.md` 加一段，导入 T1 的 `CLAUDE.md`（它再导入 `LESSONS.md`），所以在哪个文件夹都用同一套规则，包括"用技能前一律先问"。原来的 CLAUDE.md 会先备份成 `CLAUDE.md.bak`
-- `--plugins`：用 `claude` 命令把 15 个插件装到用户范围
+- `--plugins`：用 `claude` 命令把 21 个插件装到用户范围
 - `--mcp`：把 blender、fivem、freecad、ifc 四个 MCP 加到用户范围（要先装 uv 和 Node.js）
+- `--remotion`：装 Remotion 的 12 个做视频技能（要先装 Node.js）
+- `.claude/agents/` 里的子代理（impeccable 的 4 个）也会一起链接到 `~/.claude/agents/`
 
 只加 `--plugins` 或 `--mcp` 就只装那一部分，不加就只装技能和规则。`git pull` 之后再跑一次就会加上新技能、移除已删掉的技能。`--uninstall` 会移除链接和那段规则。Windows 不用管理员权限，链接做不了时会自动改用 junction。需要 Python 3（技能自带的检查脚本本来也要用）。
 
@@ -148,7 +188,7 @@ python scripts/install_local.py --all             # 技能 + 规则 + 插件 + M
 Codex 不读 `CLAUDE.md` 和 `.claude/skills/`，它读 `AGENTS.md` 和 `.agents/skills/`。所以：
 
 - `AGENTS.md` 让 Codex 先读 `CLAUDE.md` 和 `LESSONS.md`，两边用同一套规则和同一份纠正记录。
-- `.agents/skills` 是指向 `.claude/skills` 的链接（symlink），64 个技能两边共用，不会有两份内容不同步。
+- `.agents/skills` 是指向 `.claude/skills` 的链接（symlink），127 个技能两边共用，不会有两份内容不同步。
 - 插件（superpowers、muto-atlas 等）和 MCP 是 Claude Code 专用的，Codex 里没有。
 - Windows 上 clone 时，git 默认可能把链接变成普通文本文件：用 `git clone -c core.symlinks=true …` 并开启 Windows 开发者模式。Codex 云端（Linux）不受影响。
 
