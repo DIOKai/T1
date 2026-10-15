@@ -12,6 +12,7 @@ Create a traceable existing-ground to proposed-ground workflow without inventing
 Before modeling, confirm coordinate reference system, horizontal and vertical datums, units, survey date, point/breakline source, site boundary, exclusions, design surfaces, required output, and governing standard. Never assume that local coordinates are georeferenced.
 
 Read [references/open-earthworks-stack.md](references/open-earthworks-stack.md) when choosing tools or exchange formats.
+Read [references/video-study.md](references/video-study.md) for the verified FreeCAD Road Workbench survey-point-to-terrain demonstration scope and its acceptance checks.
 
 ## Workflow
 

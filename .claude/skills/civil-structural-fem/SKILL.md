@@ -12,6 +12,7 @@ Use FreeCAD FEM and CalculiX for transparent preliminary analysis and investigat
 Confirm the engineering question, governing code, material model, geometry idealization, units, supports, releases, contacts, load cases/combinations, serviceability/ultimate criteria, required outputs, and validation benchmark. Request missing national-annex or project values instead of guessing.
 
 Read [references/freecad-calculix.md](references/freecad-calculix.md) before creating solver objects or interpreting units and results.
+Read [references/video-study.md](references/video-study.md) for the FreeCAD 1.1.3 seven-stage tutorial sequence and the additional evidence required before accepting a structural result.
 
 ## Analysis workflow
 

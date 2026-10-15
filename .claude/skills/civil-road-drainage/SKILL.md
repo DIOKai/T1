@@ -14,6 +14,7 @@ Confirm project coordinates and datum, terrain source, design standard and juris
 For Malaysian work, request the applicable JKR/MSMA project criteria and edition. Do not invent coefficients, recurrence intervals, minimum radii, pipe sizes, or national-annex values.
 
 Read [references/free-road-stack.md](references/free-road-stack.md) before selecting software or IFC entities.
+Read [references/video-study.md](references/video-study.md) when using the FreeCAD Trails/Road Workbench demonstrations for alignment or simple BIM drainage geometry; it states what those videos do not establish hydraulically.
 
 ## Road workflow
 

@@ -13,6 +13,8 @@ Confirm male/female target, component slot, add-on versus replacement, Legacy/Ge
 
 Read [references/sollumz-clothing.md](references/sollumz-clothing.md) before importing, naming textures, or diagnosing missing/invisible garments.
 
+Read [references/video-study.md](references/video-study.md) when the task involves weight transfer, vertex wind/sweat behavior, YMT/meta setup, cloth physics, or diagnosing a workflow copied from a video.
+
 ## Production workflow
 
 1. Import the matching freemode YFT skeleton and a known-good component YDD with the external-skeleton option.

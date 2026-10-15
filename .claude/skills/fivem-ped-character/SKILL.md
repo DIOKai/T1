@@ -13,14 +13,19 @@ Confirm the target ped, streamed freemode versus custom ped, male/female base wh
 
 Read [references/official-pipeline.md](references/official-pipeline.md) before choosing the import/export route or asserting a file-format limitation.
 
+For a custom add-on/protagonist ped, also read [references/video-verified-ped-workflow.md](references/video-verified-ped-workflow.md). It records an end-to-end Blender/Sollumz tutorial study, separates durable GTA constraints from obsolete Sollumz 1.3 interface details, and provides focused acceptance tests.
+
 ## Build the character
 
 1. Assemble the correct base components and the matching external YFT skeleton. Freemode bodies are split across component YDDs rather than being one ordinary mesh.
 2. Establish silhouette and proportions before detail. For focused work, combine the installed `character-artist`, `sculpting`, `hair-groom`, `retopology`, `rigging`, `uv-workflow`, and `texture-workflow` skills only after the user approves their use.
 3. Keep the target GTA bone names, hierarchy, vertex groups, bind pose, scale, and component boundaries unless the chosen ped pipeline explicitly supports a change. Do not invent a new player skeleton.
+   - Decide whether to fit the mesh to the stock skeleton or reshape the skeleton before weighting. Reshaping can improve the custom silhouette but can misalign hands with weapons, steering wheels, and handlebars; fitting the mesh to the stock skeleton better preserves stock animation contact points.
 4. Treat game hair as a real-time asset: build readable masses, scalp coverage, alpha-tested cards or suitable mesh hair, compatible materials, and descending LODs. Do not export Blender strand curves as if GTA will render them directly.
 5. Preserve freemode skin UV regions when tint or shared skin textures depend on them. Check head/body seams, normals, tangents, diffuse, normal, specular/roughness behavior, and alpha usage under representative lighting.
 6. Transfer and normalize weights deliberately. Test jaw/neck, shoulders, elbows, hips, knees, hands, and extreme poses before export.
+   - Use a known-good Rockstar component as the transfer source, then inspect and correct vertex groups manually. Keep no more than four effective bone influences per vertex unless current toolchain documentation proves a different target limit.
+7. Treat seams and facial animation as separate validation tasks. Match split normals across head/neck and other component borders. For facial animation, preserve `SKEL_Head`/`IK_Head`, verify the facial-root parenting and expression metadata against a known-good compatible ped, and test speech and expressions in game.
 
 ## Validate before delivery
 
