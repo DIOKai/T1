@@ -19,4 +19,3 @@ Practical decision rule:
 - **Readable but license unclear:** inventory only; obtain permission before editing or redistributing.
 - **Protected by escrow/encryption/DRM:** do not attempt access. Ask the vendor for source or an authorized unlocked build.
 - **Broken download or entitlement:** use the official portal/vendor support path; do not patch around it.
-

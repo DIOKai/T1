@@ -14,4 +14,3 @@ Key constraints:
 - CorridorRoad documents geometry, earthwork, structures, and drainage workflows, but advanced hydraulic analysis and automatic pipe sizing are not a substitute for a verified hydraulic model.
 
 Never silently downgrade IFC4X3 linear infrastructure to IFC4/IFC2X3. Document what alignment semantics or geometry may be lost.
-

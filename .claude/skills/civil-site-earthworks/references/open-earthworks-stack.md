@@ -21,4 +21,3 @@ Minimum provenance record:
 - raw cut/fill volumes;
 - adjustment factors and their source;
 - reviewer and review date.
-

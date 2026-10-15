@@ -15,4 +15,3 @@ Important verified points:
 - Clothing/ped assets normally require high, medium, and low LOD attention.
 - Normal/specular texture requirements, skin UV behavior, vertex colors, and shader details are component/material specific. Verify them against the current Sollumz documentation and a known-good base asset.
 - Sollumz support changes by version. Never infer binary import/export support from an old tutorial; inspect the installed version and current feature page.
-

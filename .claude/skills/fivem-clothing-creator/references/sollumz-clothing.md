@@ -23,4 +23,3 @@ Diagnostic order:
 4. Confirm material/shader, diffuse/normal/specular/alpha, dimensions, and mipmaps.
 5. Confirm LODs, geometry normals, back-face visibility, UVs, and vertex colors.
 6. Compare against a known-good, legally obtained base component.
-
