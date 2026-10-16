@@ -1,0 +1,637 @@
+{
+  "date": "2026-10-16",
+  "batch": 2,
+  "skills": [
+    {
+      "name": "prd",
+      "path": ".claude/skills/prd/SKILL.md",
+      "repository": "github/awesome-copilot",
+      "source_path": "skills/prd/SKILL.md",
+      "commit": "bebb02d4c3c845b9c4cef398568a1084e4129e57"
+    },
+    {
+      "name": "create-implementation-plan",
+      "path": ".claude/skills/create-implementation-plan/SKILL.md",
+      "repository": "github/awesome-copilot",
+      "source_path": "skills/create-implementation-plan/SKILL.md",
+      "commit": "bebb02d4c3c845b9c4cef398568a1084e4129e57"
+    },
+    {
+      "name": "maestro",
+      "path": ".claude/skills/maestro/SKILL.md",
+      "repository": "terminalskills/skills",
+      "source_path": "skills/maestro/SKILL.md",
+      "commit": "6edcf94159d9f46b0759d2e1b59dd545cfaca254"
+    },
+    {
+      "name": "testing-setup",
+      "path": ".claude/skills/testing-setup/SKILL.md",
+      "repository": "android/skills",
+      "source_path": "testing/testing-setup/SKILL.md",
+      "commit": "5bda39f154fb859a08d45e2392f3568e049f83fb"
+    },
+    {
+      "name": "adaptive",
+      "path": ".claude/skills/adaptive/SKILL.md",
+      "repository": "android/skills",
+      "source_path": "jetpack-compose/adaptive/SKILL.md",
+      "commit": "5bda39f154fb859a08d45e2392f3568e049f83fb"
+    },
+    {
+      "name": "jetpack-compose-performance",
+      "path": ".claude/skills/jetpack-compose-performance/SKILL.md",
+      "repository": "android/skills",
+      "source_path": "jetpack-compose/jetpack-compose-performance/SKILL.md",
+      "commit": "5bda39f154fb859a08d45e2392f3568e049f83fb"
+    },
+    {
+      "name": "android-intent-security",
+      "path": ".claude/skills/android-intent-security/SKILL.md",
+      "repository": "android/skills",
+      "source_path": "security/android-intent-security/SKILL.md",
+      "commit": "5bda39f154fb859a08d45e2392f3568e049f83fb"
+    },
+    {
+      "name": "android-permissions-security",
+      "path": ".claude/skills/android-permissions-security/SKILL.md",
+      "repository": "android/skills",
+      "source_path": "security/android-permissions-security/SKILL.md",
+      "commit": "5bda39f154fb859a08d45e2392f3568e049f83fb"
+    },
+    {
+      "name": "android-profiler",
+      "path": ".claude/skills/android-profiler/SKILL.md",
+      "repository": "android/skills",
+      "source_path": "profilers/android-profiler/SKILL.md",
+      "commit": "5bda39f154fb859a08d45e2392f3568e049f83fb"
+    }
+  ],
+  "files": [
+    {
+      "repository": "github/awesome-copilot",
+      "commit": "bebb02d4c3c845b9c4cef398568a1084e4129e57",
+      "source_path": "skills/prd/SKILL.md",
+      "path": ".claude/skills/prd/SKILL.md",
+      "blob": "b19e77a252c14eed2b8fd1b506aa100fa2010fb3",
+      "mode": "100644"
+    },
+    {
+      "repository": "github/awesome-copilot",
+      "commit": "bebb02d4c3c845b9c4cef398568a1084e4129e57",
+      "source_path": "LICENSE",
+      "path": ".claude/skills/prd/LICENSE",
+      "blob": "89bc5e962c9944cdb050887062afdaaf89be504a",
+      "mode": "100644"
+    },
+    {
+      "repository": "github/awesome-copilot",
+      "commit": "bebb02d4c3c845b9c4cef398568a1084e4129e57",
+      "source_path": "skills/create-implementation-plan/SKILL.md",
+      "path": ".claude/skills/create-implementation-plan/SKILL.md",
+      "blob": "4540a479c34d298d5f7e78f24d0806652411fcf8",
+      "mode": "100644"
+    },
+    {
+      "repository": "github/awesome-copilot",
+      "commit": "bebb02d4c3c845b9c4cef398568a1084e4129e57",
+      "source_path": "LICENSE",
+      "path": ".claude/skills/create-implementation-plan/LICENSE",
+      "blob": "89bc5e962c9944cdb050887062afdaaf89be504a",
+      "mode": "100644"
+    },
+    {
+      "repository": "terminalskills/skills",
+      "commit": "6edcf94159d9f46b0759d2e1b59dd545cfaca254",
+      "source_path": "skills/maestro/SKILL.md",
+      "path": ".claude/skills/maestro/SKILL.md",
+      "blob": "18c06ad0f1644d0f197bf35d0de47ba09122dec2",
+      "mode": "100644"
+    },
+    {
+      "repository": "terminalskills/skills",
+      "commit": "6edcf94159d9f46b0759d2e1b59dd545cfaca254",
+      "source_path": "LICENSE",
+      "path": ".claude/skills/maestro/LICENSE",
+      "blob": "b785cf08b4c694cccf7994445328cf6b4bc16dad",
+      "mode": "100644"
+    },
+    {
+      "repository": "android/skills",
+      "commit": "5bda39f154fb859a08d45e2392f3568e049f83fb",
+      "source_path": "testing/testing-setup/SKILL.md",
+      "path": ".claude/skills/testing-setup/SKILL.md",
+      "blob": "128f4128aa7ffcb57ba3939799fdc3b7fec2b426",
+      "mode": "100644"
+    },
+    {
+      "repository": "android/skills",
+      "commit": "5bda39f154fb859a08d45e2392f3568e049f83fb",
+      "source_path": "testing/testing-setup/references/android/develop/ui/compose/testing/common-patterns.md",
+      "path": ".claude/skills/testing-setup/references/android/develop/ui/compose/testing/common-patterns.md",
+      "blob": "bc11653681805bd5460fc48974ac80d18e81eec1",
+      "mode": "100644"
+    },
+    {
+      "repository": "android/skills",
+      "commit": "5bda39f154fb859a08d45e2392f3568e049f83fb",
+      "source_path": "testing/testing-setup/references/android/studio/preview/compose-screenshot-testing-with-testsuites.md",
+      "path": ".claude/skills/testing-setup/references/android/studio/preview/compose-screenshot-testing-with-testsuites.md",
+      "blob": "1691d1d72113937d03b11c4cf3616d31b1cf9964",
+      "mode": "100644"
+    },
+    {
+      "repository": "android/skills",
+      "commit": "5bda39f154fb859a08d45e2392f3568e049f83fb",
+      "source_path": "testing/testing-setup/references/android/studio/preview/compose-screenshot-testing.md",
+      "path": ".claude/skills/testing-setup/references/android/studio/preview/compose-screenshot-testing.md",
+      "blob": "2cdcc802bf59d666b543205fb9d3357e06232df7",
+      "mode": "100644"
+    },
+    {
+      "repository": "android/skills",
+      "commit": "5bda39f154fb859a08d45e2392f3568e049f83fb",
+      "source_path": "testing/testing-setup/references/android/training/dependency-injection/hilt-testing.md",
+      "path": ".claude/skills/testing-setup/references/android/training/dependency-injection/hilt-testing.md",
+      "blob": "022bf0724de7c3db013d4cb092152a577b5865b8",
+      "mode": "100644"
+    },
+    {
+      "repository": "android/skills",
+      "commit": "5bda39f154fb859a08d45e2392f3568e049f83fb",
+      "source_path": "LICENSE.txt",
+      "path": ".claude/skills/testing-setup/LICENSE.txt",
+      "blob": "7a4a3ea2424c09fbe48d455aed1eaa94d9124835",
+      "mode": "100644"
+    },
+    {
+      "repository": "android/skills",
+      "commit": "5bda39f154fb859a08d45e2392f3568e049f83fb",
+      "source_path": "jetpack-compose/adaptive/SKILL.md",
+      "path": ".claude/skills/adaptive/SKILL.md",
+      "blob": "64d8059d3e9b2f7460971bc42bc5b04e9df2a868",
+      "mode": "100644"
+    },
+    {
+      "repository": "android/skills",
+      "commit": "5bda39f154fb859a08d45e2392f3568e049f83fb",
+      "source_path": "jetpack-compose/adaptive/references/android/develop/ui/compose/layouts/adaptive/flexbox/container-behavior.md",
+      "path": ".claude/skills/adaptive/references/android/develop/ui/compose/layouts/adaptive/flexbox/container-behavior.md",
+      "blob": "41112fce68c1c06cba08239e405541dae74851de",
+      "mode": "100644"
+    },
+    {
+      "repository": "android/skills",
+      "commit": "5bda39f154fb859a08d45e2392f3568e049f83fb",
+      "source_path": "jetpack-compose/adaptive/references/android/develop/ui/compose/layouts/adaptive/flexbox/get-started.md",
+      "path": ".claude/skills/adaptive/references/android/develop/ui/compose/layouts/adaptive/flexbox/get-started.md",
+      "blob": "44d6d13b23122caa6f8c67de001a8f8234c64fc6",
+      "mode": "100644"
+    },
+    {
+      "repository": "android/skills",
+      "commit": "5bda39f154fb859a08d45e2392f3568e049f83fb",
+      "source_path": "jetpack-compose/adaptive/references/android/develop/ui/compose/layouts/adaptive/flexbox/index.md",
+      "path": ".claude/skills/adaptive/references/android/develop/ui/compose/layouts/adaptive/flexbox/index.md",
+      "blob": "64bd05fc889982195cb5ac0493b4da0022fa8524",
+      "mode": "100644"
+    },
+    {
+      "repository": "android/skills",
+      "commit": "5bda39f154fb859a08d45e2392f3568e049f83fb",
+      "source_path": "jetpack-compose/adaptive/references/android/develop/ui/compose/layouts/adaptive/flexbox/item-behavior.md",
+      "path": ".claude/skills/adaptive/references/android/develop/ui/compose/layouts/adaptive/flexbox/item-behavior.md",
+      "blob": "e4a5c0f5783bceb2453428341afca62bb704a75c",
+      "mode": "100644"
+    },
+    {
+      "repository": "android/skills",
+      "commit": "5bda39f154fb859a08d45e2392f3568e049f83fb",
+      "source_path": "jetpack-compose/adaptive/references/android/develop/ui/compose/layouts/adaptive/grid/container-properties.md",
+      "path": ".claude/skills/adaptive/references/android/develop/ui/compose/layouts/adaptive/grid/container-properties.md",
+      "blob": "fc4e3a53a90b909d5e393ac2212610ec447ac37c",
+      "mode": "100644"
+    },
+    {
+      "repository": "android/skills",
+      "commit": "5bda39f154fb859a08d45e2392f3568e049f83fb",
+      "source_path": "jetpack-compose/adaptive/references/android/develop/ui/compose/layouts/adaptive/grid/get-started.md",
+      "path": ".claude/skills/adaptive/references/android/develop/ui/compose/layouts/adaptive/grid/get-started.md",
+      "blob": "d3e010d246ae28de6f96e7e2f92b627dc2c28f03",
+      "mode": "100644"
+    },
+    {
+      "repository": "android/skills",
+      "commit": "5bda39f154fb859a08d45e2392f3568e049f83fb",
+      "source_path": "jetpack-compose/adaptive/references/android/develop/ui/compose/layouts/adaptive/grid/index.md",
+      "path": ".claude/skills/adaptive/references/android/develop/ui/compose/layouts/adaptive/grid/index.md",
+      "blob": "0789e468943591636e5bf303c3549cd5bc98c133",
+      "mode": "100644"
+    },
+    {
+      "repository": "android/skills",
+      "commit": "5bda39f154fb859a08d45e2392f3568e049f83fb",
+      "source_path": "jetpack-compose/adaptive/references/android/develop/ui/compose/layouts/adaptive/grid/item-properties.md",
+      "path": ".claude/skills/adaptive/references/android/develop/ui/compose/layouts/adaptive/grid/item-properties.md",
+      "blob": "bf4205dc07dc644f27697ea63e7417b9222f6dea",
+      "mode": "100644"
+    },
+    {
+      "repository": "android/skills",
+      "commit": "5bda39f154fb859a08d45e2392f3568e049f83fb",
+      "source_path": "jetpack-compose/adaptive/references/android/develop/ui/compose/layouts/adaptive/mediaquery/index.md",
+      "path": ".claude/skills/adaptive/references/android/develop/ui/compose/layouts/adaptive/mediaquery/index.md",
+      "blob": "37128b74c642787b0bc92b71922dbe781b70c26b",
+      "mode": "100644"
+    },
+    {
+      "repository": "android/skills",
+      "commit": "5bda39f154fb859a08d45e2392f3568e049f83fb",
+      "source_path": "jetpack-compose/adaptive/references/android/guide/navigation/navigation-3/recipes/material-listdetail.md",
+      "path": ".claude/skills/adaptive/references/android/guide/navigation/navigation-3/recipes/material-listdetail.md",
+      "blob": "fbaae791e78899deb7e28c506043dbcca6aa8df8",
+      "mode": "100644"
+    },
+    {
+      "repository": "android/skills",
+      "commit": "5bda39f154fb859a08d45e2392f3568e049f83fb",
+      "source_path": "jetpack-compose/adaptive/references/android/studio/preview/compose-screenshot-testing-with-testsuites.md",
+      "path": ".claude/skills/adaptive/references/android/studio/preview/compose-screenshot-testing-with-testsuites.md",
+      "blob": "1691d1d72113937d03b11c4cf3616d31b1cf9964",
+      "mode": "100644"
+    },
+    {
+      "repository": "android/skills",
+      "commit": "5bda39f154fb859a08d45e2392f3568e049f83fb",
+      "source_path": "LICENSE.txt",
+      "path": ".claude/skills/adaptive/LICENSE.txt",
+      "blob": "7a4a3ea2424c09fbe48d455aed1eaa94d9124835",
+      "mode": "100644"
+    },
+    {
+      "repository": "android/skills",
+      "commit": "5bda39f154fb859a08d45e2392f3568e049f83fb",
+      "source_path": "jetpack-compose/jetpack-compose-performance/SKILL.md",
+      "path": ".claude/skills/jetpack-compose-performance/SKILL.md",
+      "blob": "3a07a5b5389886fb8ac6c6f34722787aaf89f59e",
+      "mode": "100644"
+    },
+    {
+      "repository": "android/skills",
+      "commit": "5bda39f154fb859a08d45e2392f3568e049f83fb",
+      "source_path": "jetpack-compose/jetpack-compose-performance/references/android/develop/ui/compose/custom-modifiers.md",
+      "path": ".claude/skills/jetpack-compose-performance/references/android/develop/ui/compose/custom-modifiers.md",
+      "blob": "a48df35fd74db29815e382ba5e697ef46b9b9941",
+      "mode": "100644"
+    },
+    {
+      "repository": "android/skills",
+      "commit": "5bda39f154fb859a08d45e2392f3568e049f83fb",
+      "source_path": "jetpack-compose/jetpack-compose-performance/references/android/develop/ui/compose/performance/backwards-write.md",
+      "path": ".claude/skills/jetpack-compose-performance/references/android/develop/ui/compose/performance/backwards-write.md",
+      "blob": "7ee2939e91edfa785e901171740b5c456f2bfb5d",
+      "mode": "100644"
+    },
+    {
+      "repository": "android/skills",
+      "commit": "5bda39f154fb859a08d45e2392f3568e049f83fb",
+      "source_path": "jetpack-compose/jetpack-compose-performance/references/android/develop/ui/compose/performance/stability/strongskipping.md",
+      "path": ".claude/skills/jetpack-compose-performance/references/android/develop/ui/compose/performance/stability/strongskipping.md",
+      "blob": "8dbe2a3325ac30f6e923e85fb648022872cee67b",
+      "mode": "100644"
+    },
+    {
+      "repository": "android/skills",
+      "commit": "5bda39f154fb859a08d45e2392f3568e049f83fb",
+      "source_path": "jetpack-compose/jetpack-compose-performance/references/animation.md",
+      "path": ".claude/skills/jetpack-compose-performance/references/animation.md",
+      "blob": "6fdce35470d2fc7385e883b04142ff6dd754ebe7",
+      "mode": "100644"
+    },
+    {
+      "repository": "android/skills",
+      "commit": "5bda39f154fb859a08d45e2392f3568e049f83fb",
+      "source_path": "jetpack-compose/jetpack-compose-performance/references/effects-and-threading.md",
+      "path": ".claude/skills/jetpack-compose-performance/references/effects-and-threading.md",
+      "blob": "46ad67bbb679b8550d2a18be6debb208e01d0e16",
+      "mode": "100644"
+    },
+    {
+      "repository": "android/skills",
+      "commit": "5bda39f154fb859a08d45e2392f3568e049f83fb",
+      "source_path": "jetpack-compose/jetpack-compose-performance/references/graphics-performance.md",
+      "path": ".claude/skills/jetpack-compose-performance/references/graphics-performance.md",
+      "blob": "04bac6fb70bbec01273ed30a92d06b783efa00e4",
+      "mode": "100644"
+    },
+    {
+      "repository": "android/skills",
+      "commit": "5bda39f154fb859a08d45e2392f3568e049f83fb",
+      "source_path": "jetpack-compose/jetpack-compose-performance/references/layouts.md",
+      "path": ".claude/skills/jetpack-compose-performance/references/layouts.md",
+      "blob": "72a42725ae4917b3e9278a2ecea82d6686adb9a8",
+      "mode": "100644"
+    },
+    {
+      "repository": "android/skills",
+      "commit": "5bda39f154fb859a08d45e2392f3568e049f83fb",
+      "source_path": "jetpack-compose/jetpack-compose-performance/references/lazy-layouts.md",
+      "path": ".claude/skills/jetpack-compose-performance/references/lazy-layouts.md",
+      "blob": "50e84625facdfb9a0fd722833cd070b9b662777d",
+      "mode": "100644"
+    },
+    {
+      "repository": "android/skills",
+      "commit": "5bda39f154fb859a08d45e2392f3568e049f83fb",
+      "source_path": "jetpack-compose/jetpack-compose-performance/references/state-and-stability.md",
+      "path": ".claude/skills/jetpack-compose-performance/references/state-and-stability.md",
+      "blob": "bc63fdb316d8db269798938a673402dc54da5916",
+      "mode": "100644"
+    },
+    {
+      "repository": "android/skills",
+      "commit": "5bda39f154fb859a08d45e2392f3568e049f83fb",
+      "source_path": "LICENSE.txt",
+      "path": ".claude/skills/jetpack-compose-performance/LICENSE.txt",
+      "blob": "7a4a3ea2424c09fbe48d455aed1eaa94d9124835",
+      "mode": "100644"
+    },
+    {
+      "repository": "android/skills",
+      "commit": "5bda39f154fb859a08d45e2392f3568e049f83fb",
+      "source_path": "security/android-intent-security/SKILL.md",
+      "path": ".claude/skills/android-intent-security/SKILL.md",
+      "blob": "e0283098560a06c3a0724b4434dfab13edc6167c",
+      "mode": "100644"
+    },
+    {
+      "repository": "android/skills",
+      "commit": "5bda39f154fb859a08d45e2392f3568e049f83fb",
+      "source_path": "LICENSE.txt",
+      "path": ".claude/skills/android-intent-security/LICENSE.txt",
+      "blob": "7a4a3ea2424c09fbe48d455aed1eaa94d9124835",
+      "mode": "100644"
+    },
+    {
+      "repository": "android/skills",
+      "commit": "5bda39f154fb859a08d45e2392f3568e049f83fb",
+      "source_path": "security/android-permissions-security/SKILL.md",
+      "path": ".claude/skills/android-permissions-security/SKILL.md",
+      "blob": "4a84a3c17391ae8b0dc1c1acdaf48726802cbd12",
+      "mode": "100644"
+    },
+    {
+      "repository": "android/skills",
+      "commit": "5bda39f154fb859a08d45e2392f3568e049f83fb",
+      "source_path": "security/android-permissions-security/references/android/guide/topics/manifest/permission-element.md",
+      "path": ".claude/skills/android-permissions-security/references/android/guide/topics/manifest/permission-element.md",
+      "blob": "061f023997da42f068505a89111444d5ae431222",
+      "mode": "100644"
+    },
+    {
+      "repository": "android/skills",
+      "commit": "5bda39f154fb859a08d45e2392f3568e049f83fb",
+      "source_path": "security/android-permissions-security/references/android/guide/topics/permissions/overview.md",
+      "path": ".claude/skills/android-permissions-security/references/android/guide/topics/permissions/overview.md",
+      "blob": "1f875cdbc4ca59d7116654ea968093087ca3a7d3",
+      "mode": "100644"
+    },
+    {
+      "repository": "android/skills",
+      "commit": "5bda39f154fb859a08d45e2392f3568e049f83fb",
+      "source_path": "security/android-permissions-security/references/android/training/permissions/requesting.md",
+      "path": ".claude/skills/android-permissions-security/references/android/training/permissions/requesting.md",
+      "blob": "9e7b927c543d14712c6fd9f7515bc8af1667e34f",
+      "mode": "100644"
+    },
+    {
+      "repository": "android/skills",
+      "commit": "5bda39f154fb859a08d45e2392f3568e049f83fb",
+      "source_path": "LICENSE.txt",
+      "path": ".claude/skills/android-permissions-security/LICENSE.txt",
+      "blob": "7a4a3ea2424c09fbe48d455aed1eaa94d9124835",
+      "mode": "100644"
+    },
+    {
+      "repository": "android/skills",
+      "commit": "5bda39f154fb859a08d45e2392f3568e049f83fb",
+      "source_path": "profilers/android-profiler/SKILL.md",
+      "path": ".claude/skills/android-profiler/SKILL.md",
+      "blob": "e5791fa13d673e343fb25d8ca3786d2f34bf96a5",
+      "mode": "100644"
+    },
+    {
+      "repository": "android/skills",
+      "commit": "5bda39f154fb859a08d45e2392f3568e049f83fb",
+      "source_path": "profilers/android-profiler/analysis/analysis_orchestrator.md",
+      "path": ".claude/skills/android-profiler/analysis/analysis_orchestrator.md",
+      "blob": "940aff4171d1f728b746bd6c3baac9e9da9aa8af",
+      "mode": "100644"
+    },
+    {
+      "repository": "android/skills",
+      "commit": "5bda39f154fb859a08d45e2392f3568e049f83fb",
+      "source_path": "profilers/android-profiler/analysis/workflows/perfetto-sql/perfetto_sql.md",
+      "path": ".claude/skills/android-profiler/analysis/workflows/perfetto-sql/perfetto_sql.md",
+      "blob": "56977b2b2d4c4cddf035c4d9f354dc3dacdceb2d",
+      "mode": "100644"
+    },
+    {
+      "repository": "android/skills",
+      "commit": "5bda39f154fb859a08d45e2392f3568e049f83fb",
+      "source_path": "profilers/android-profiler/analysis/workflows/perfetto-trace-analysis/perfetto_trace_analysis.md",
+      "path": ".claude/skills/android-profiler/analysis/workflows/perfetto-trace-analysis/perfetto_trace_analysis.md",
+      "blob": "6bfb21218a970c96a41827b64f0049df62641ad4",
+      "mode": "100644"
+    },
+    {
+      "repository": "android/skills",
+      "commit": "5bda39f154fb859a08d45e2392f3568e049f83fb",
+      "source_path": "profilers/android-profiler/analysis/workflows/perfetto-trace-analysis/references/hints/hints_cpu.md",
+      "path": ".claude/skills/android-profiler/analysis/workflows/perfetto-trace-analysis/references/hints/hints_cpu.md",
+      "blob": "45103487240bce8a772cf37c8c353ea7e536dff7",
+      "mode": "100644"
+    },
+    {
+      "repository": "android/skills",
+      "commit": "5bda39f154fb859a08d45e2392f3568e049f83fb",
+      "source_path": "profilers/android-profiler/analysis/workflows/perfetto-trace-analysis/references/hints/hints_graphics.md",
+      "path": ".claude/skills/android-profiler/analysis/workflows/perfetto-trace-analysis/references/hints/hints_graphics.md",
+      "blob": "ce7b26de4939ce6a085128fe4e20c5bc9b403ded",
+      "mode": "100644"
+    },
+    {
+      "repository": "android/skills",
+      "commit": "5bda39f154fb859a08d45e2392f3568e049f83fb",
+      "source_path": "profilers/android-profiler/analysis/workflows/perfetto-trace-analysis/references/hints/hints_io.md",
+      "path": ".claude/skills/android-profiler/analysis/workflows/perfetto-trace-analysis/references/hints/hints_io.md",
+      "blob": "39f8b871fca1ca09790711fbc16be1652182e703",
+      "mode": "100644"
+    },
+    {
+      "repository": "android/skills",
+      "commit": "5bda39f154fb859a08d45e2392f3568e049f83fb",
+      "source_path": "profilers/android-profiler/analysis/workflows/perfetto-trace-analysis/references/hints/hints_ipc.md",
+      "path": ".claude/skills/android-profiler/analysis/workflows/perfetto-trace-analysis/references/hints/hints_ipc.md",
+      "blob": "34481bf4977ee5f64b4bd8df50db12a3a26c9f4b",
+      "mode": "100644"
+    },
+    {
+      "repository": "android/skills",
+      "commit": "5bda39f154fb859a08d45e2392f3568e049f83fb",
+      "source_path": "profilers/android-profiler/analysis/workflows/perfetto-trace-analysis/references/hints/hints_memory.md",
+      "path": ".claude/skills/android-profiler/analysis/workflows/perfetto-trace-analysis/references/hints/hints_memory.md",
+      "blob": "b6f0be6d3940c1756424e9bd679788f0603f5ce1",
+      "mode": "100644"
+    },
+    {
+      "repository": "android/skills",
+      "commit": "5bda39f154fb859a08d45e2392f3568e049f83fb",
+      "source_path": "profilers/android-profiler/analysis/workflows/perfetto-trace-analysis/references/hints/hints_power.md",
+      "path": ".claude/skills/android-profiler/analysis/workflows/perfetto-trace-analysis/references/hints/hints_power.md",
+      "blob": "1ede7ebd3971256ee0cd55f697333351f07ea60c",
+      "mode": "100644"
+    },
+    {
+      "repository": "android/skills",
+      "commit": "5bda39f154fb859a08d45e2392f3568e049f83fb",
+      "source_path": "profilers/android-profiler/analysis/workflows/perfetto-trace-analysis/references/per_candidate_analysis.md",
+      "path": ".claude/skills/android-profiler/analysis/workflows/perfetto-trace-analysis/references/per_candidate_analysis.md",
+      "blob": "a93dae8cc3554f27a36b07a92b8c93894b931805",
+      "mode": "100644"
+    },
+    {
+      "repository": "android/skills",
+      "commit": "5bda39f154fb859a08d45e2392f3568e049f83fb",
+      "source_path": "profilers/android-profiler/analysis/workflows/perfetto-trace-analysis/references/triage.md",
+      "path": ".claude/skills/android-profiler/analysis/workflows/perfetto-trace-analysis/references/triage.md",
+      "blob": "621e9a2dadea440ea538e75184d07d9b595e1ec7",
+      "mode": "100644"
+    },
+    {
+      "repository": "android/skills",
+      "commit": "5bda39f154fb859a08d45e2392f3568e049f83fb",
+      "source_path": "profilers/android-profiler/recording/recording_orchestrator.md",
+      "path": ".claude/skills/android-profiler/recording/recording_orchestrator.md",
+      "blob": "1c595737f45acc62f1dcdd7b2502fbb58b19b605",
+      "mode": "100644"
+    },
+    {
+      "repository": "android/skills",
+      "commit": "5bda39f154fb859a08d45e2392f3568e049f83fb",
+      "source_path": "profilers/android-profiler/recording/workflows/perfetto-trace-recording/perfetto_trace_recording.md",
+      "path": ".claude/skills/android-profiler/recording/workflows/perfetto-trace-recording/perfetto_trace_recording.md",
+      "blob": "584928d89aec0a5ae085c0e3eebe70e71a60fa9a",
+      "mode": "100644"
+    },
+    {
+      "repository": "android/skills",
+      "commit": "5bda39f154fb859a08d45e2392f3568e049f83fb",
+      "source_path": "profilers/android-profiler/recording/workflows/perfetto-trace-recording/references/example-configs/app_jank.pftxt",
+      "path": ".claude/skills/android-profiler/recording/workflows/perfetto-trace-recording/references/example-configs/app_jank.pftxt",
+      "blob": "531a9920b904e23a3b605c9e1642e8d5f21abf9f",
+      "mode": "100644"
+    },
+    {
+      "repository": "android/skills",
+      "commit": "5bda39f154fb859a08d45e2392f3568e049f83fb",
+      "source_path": "profilers/android-profiler/recording/workflows/perfetto-trace-recording/references/example-configs/cpu_profile.pftxt",
+      "path": ".claude/skills/android-profiler/recording/workflows/perfetto-trace-recording/references/example-configs/cpu_profile.pftxt",
+      "blob": "9d0a424bf79027dcc2864bd8b3b8fddc890ea8ae",
+      "mode": "100644"
+    },
+    {
+      "repository": "android/skills",
+      "commit": "5bda39f154fb859a08d45e2392f3568e049f83fb",
+      "source_path": "profilers/android-profiler/recording/workflows/perfetto-trace-recording/references/example-configs/java_heap_dump.pftxt",
+      "path": ".claude/skills/android-profiler/recording/workflows/perfetto-trace-recording/references/example-configs/java_heap_dump.pftxt",
+      "blob": "ffb38ff570e8bcd6a124490e455eb705638c94e1",
+      "mode": "100644"
+    },
+    {
+      "repository": "android/skills",
+      "commit": "5bda39f154fb859a08d45e2392f3568e049f83fb",
+      "source_path": "profilers/android-profiler/recording/workflows/perfetto-trace-recording/references/example-configs/long_background.pftxt",
+      "path": ".claude/skills/android-profiler/recording/workflows/perfetto-trace-recording/references/example-configs/long_background.pftxt",
+      "blob": "e662dd9adf378f94ed491797d0d09d580c4d28fc",
+      "mode": "100644"
+    },
+    {
+      "repository": "android/skills",
+      "commit": "5bda39f154fb859a08d45e2392f3568e049f83fb",
+      "source_path": "profilers/android-profiler/recording/workflows/perfetto-trace-recording/references/example-configs/memory_counters.pftxt",
+      "path": ".claude/skills/android-profiler/recording/workflows/perfetto-trace-recording/references/example-configs/memory_counters.pftxt",
+      "blob": "2daa7970a53a46db6d90261455fdfaa89dbaa344",
+      "mode": "100644"
+    },
+    {
+      "repository": "android/skills",
+      "commit": "5bda39f154fb859a08d45e2392f3568e049f83fb",
+      "source_path": "profilers/android-profiler/recording/workflows/perfetto-trace-recording/references/example-configs/native_heap.pftxt",
+      "path": ".claude/skills/android-profiler/recording/workflows/perfetto-trace-recording/references/example-configs/native_heap.pftxt",
+      "blob": "af084c0d9d3ddbb392d87a3563d7213cbcde5562",
+      "mode": "100644"
+    },
+    {
+      "repository": "android/skills",
+      "commit": "5bda39f154fb859a08d45e2392f3568e049f83fb",
+      "source_path": "profilers/android-profiler/recording/workflows/perfetto-trace-recording/references/example-configs/sched_cpu.pftxt",
+      "path": ".claude/skills/android-profiler/recording/workflows/perfetto-trace-recording/references/example-configs/sched_cpu.pftxt",
+      "blob": "a327d6bffb268074cf15a3a46ba22382f81ec139",
+      "mode": "100644"
+    },
+    {
+      "repository": "android/skills",
+      "commit": "5bda39f154fb859a08d45e2392f3568e049f83fb",
+      "source_path": "profilers/android-profiler/recording/workflows/perfetto-trace-recording/references/trace_config_reference.md",
+      "path": ".claude/skills/android-profiler/recording/workflows/perfetto-trace-recording/references/trace_config_reference.md",
+      "blob": "9052f0f2f1870a2a473314849d8ee268a841f728",
+      "mode": "100644"
+    },
+    {
+      "repository": "android/skills",
+      "commit": "5bda39f154fb859a08d45e2392f3568e049f83fb",
+      "source_path": "profilers/android-profiler/references/env_setup.md",
+      "path": ".claude/skills/android-profiler/references/env_setup.md",
+      "blob": "bba8e3d3ac4aac8f864ac2fef32f536be24507b4",
+      "mode": "100644"
+    },
+    {
+      "repository": "android/skills",
+      "commit": "5bda39f154fb859a08d45e2392f3568e049f83fb",
+      "source_path": "profilers/android-profiler/references/perfetto/bin/trace_processor",
+      "path": ".claude/skills/android-profiler/references/perfetto/bin/trace_processor",
+      "blob": "949ed0732892dfc722e5e5b0301f6790b04dc773",
+      "mode": "100644"
+    },
+    {
+      "repository": "android/skills",
+      "commit": "5bda39f154fb859a08d45e2392f3568e049f83fb",
+      "source_path": "profilers/android-profiler/references/perfetto/setup.md",
+      "path": ".claude/skills/android-profiler/references/perfetto/setup.md",
+      "blob": "a04ae926bea054dc52cd1a6c02c1eee8323c2dca",
+      "mode": "100644"
+    },
+    {
+      "repository": "android/skills",
+      "commit": "5bda39f154fb859a08d45e2392f3568e049f83fb",
+      "source_path": "profilers/android-profiler/references/perfetto/sql.md",
+      "path": ".claude/skills/android-profiler/references/perfetto/sql.md",
+      "blob": "ac78e44f3c294555556b12a4770eeac03abd030e",
+      "mode": "100644"
+    },
+    {
+      "repository": "android/skills",
+      "commit": "5bda39f154fb859a08d45e2392f3568e049f83fb",
+      "source_path": "LICENSE.txt",
+      "path": ".claude/skills/android-profiler/LICENSE.txt",
+      "blob": "7a4a3ea2424c09fbe48d455aed1eaa94d9124835",
+      "mode": "100644"
+    }
+  ],
+  "validation": "Static source identity and additive-tree verification only. No device/emulator test, dependency install, upstream scripts or service activation.",
+  "excluded": [
+    "DeepSeek: official documentation only; no verified dedicated skill imported",
+    "Offline sync, push/background tasks, localization: research references only, no standalone verified imports",
+    "Paid cloud services"
+  ]
+}
