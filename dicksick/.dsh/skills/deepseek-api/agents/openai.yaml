@@ -1,0 +1,4 @@
+interface:
+  display_name: "DeepSeek API"
+  short_description: "Integrate and debug DeepSeek APIs and agent runtimes"
+  default_prompt: "Use $deepseek-api to review my DeepSeek integration and verify thinking, tool calls, caching, and error handling."

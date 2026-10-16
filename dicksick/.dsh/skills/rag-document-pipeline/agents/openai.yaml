@@ -1,0 +1,4 @@
+interface:
+  display_name: "Document RAG Pipeline"
+  short_description: "Build grounded document retrieval with traceable citations"
+  default_prompt: "Use $rag-document-pipeline to inspect the existing setup, address missing requirements, and report verified results."

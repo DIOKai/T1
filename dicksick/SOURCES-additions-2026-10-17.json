@@ -1,0 +1,278 @@
+{
+  "date": "2026-10-17",
+  "repository": "DIOKai/T1",
+  "base_commit": "74580cbc6535c22589b832a424090ef49bd185c2",
+  "scope": "New files only under dicksick; no existing file replacements",
+  "new_skills": [
+    "deepseek-api",
+    "promptfoo-evals",
+    "promptfoo-provider-setup",
+    "webapp-testing",
+    "rag-document-pipeline",
+    "harness-skill-compatibility"
+  ],
+  "dependency_note": "promptfoo-provider-setup accompanies the requested evals skill",
+  "source_commits": {
+    "promptfoo/promptfoo": "71ef93f62a06de29d0928bc9b49c68f9e5ed712a",
+    "anthropics/skills": "dbd4588f9e1033efb41dad4bef2f7947c8993d44"
+  },
+  "imports": [
+    {
+      "repository": "promptfoo/promptfoo",
+      "path": "plugins/promptfoo/skills/promptfoo-evals",
+      "destination": "dicksick/.dsh/skills/promptfoo-evals",
+      "license": "MIT"
+    },
+    {
+      "repository": "promptfoo/promptfoo",
+      "path": "plugins/promptfoo/skills/promptfoo-provider-setup",
+      "destination": "dicksick/.dsh/skills/promptfoo-provider-setup",
+      "license": "MIT; bundled js-yaml MIT notice retained"
+    },
+    {
+      "repository": "anthropics/skills",
+      "path": "skills/webapp-testing",
+      "destination": "dicksick/.dsh/skills/webapp-testing",
+      "license": "Apache-2.0; LICENSE.txt retained"
+    }
+  ],
+  "upstream_adaptations": [
+    "Three imported SKILL.md files add a routing section for host-integration.md",
+    "Upstream scripts, examples, references and vendor files remain byte-identical",
+    "Promptfoo MIT LICENSE copied into each imported skill",
+    "Host notes cover free-only policy, remote validation, optional missing redteam skills, paths and Windows lifecycle limits"
+  ],
+  "authored_content": "deepseek-api prepared in this task; RAG and compatibility workflows independently authored",
+  "model_records": {
+    "original_records_unchanged": 20,
+    "additional_weight_candidates": 3,
+    "additional_api_backends": 2,
+    "weights_downloaded": false,
+    "api_backends_enabled": false
+  },
+  "validation": {
+    "skills_format": [
+      "deepseek-api",
+      "harness-skill-compatibility",
+      "promptfoo-evals",
+      "promptfoo-provider-setup",
+      "rag-document-pipeline",
+      "webapp-testing"
+    ],
+    "references_and_ui": "passed",
+    "upstream_files_verified": 17,
+    "preservation": "Only imported entrypoints add a host note; all other imported files match upstream",
+    "local_helper_tests": 10,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "live_api": "not run",
+    "browser_e2e": "not run",
+    "dsh_runtime": "not run",
+    "independent_agent_behavior": "not run",
+    "limitations": [
+      "with_server.py server lifecycle not exercised; Windows child cleanup unverified",
+      "Promptfoo CLI not installed; helper checks do not establish model quality"
+    ]
+  },
+  "files": [
+    {
+      "path": "dicksick/.dsh/skills/deepseek-api/agents/openai.yaml",
+      "sha256": "0f79839a3b0f270e2d81044c553f59c3cce428a0f2edb6f1ba6d2637b9d0ee73"
+    },
+    {
+      "path": "dicksick/.dsh/skills/deepseek-api/references/architecture-learning.md",
+      "sha256": "786b6ca78adaf93bfee6cd2fa3116ae67d9ed885264829d19dc257f63d225848"
+    },
+    {
+      "path": "dicksick/.dsh/skills/deepseek-api/references/cache-cost.md",
+      "sha256": "70af2b6dae6cd9874d009cdddac034eef810cea58b1e950504b66c273d2ffbf4"
+    },
+    {
+      "path": "dicksick/.dsh/skills/deepseek-api/references/ecosystem.md",
+      "sha256": "4dc5aebb48051f4733246a17b027257caae282313cd5df7093b16c577dda43d8"
+    },
+    {
+      "path": "dicksick/.dsh/skills/deepseek-api/references/integration.md",
+      "sha256": "b91a5b2196b6739c285ecc6a09a980e56b23c99adc36a6b9c4fe75e7343b6549"
+    },
+    {
+      "path": "dicksick/.dsh/skills/deepseek-api/references/runtime.md",
+      "sha256": "4dee87a5adeadf52f00a20f7400b5c9edfb1702683e8e0292f4ebae587108695"
+    },
+    {
+      "path": "dicksick/.dsh/skills/deepseek-api/references/source-review.md",
+      "sha256": "6b5ec5f8a8d86bda54c041fdaf8b4e53217ffdf303dce833da635b37db0d25f7"
+    },
+    {
+      "path": "dicksick/.dsh/skills/deepseek-api/SKILL.md",
+      "sha256": "a774c681383ca79f9e019ed47a0169eb9321b23039922756bdb6094c45ebbc35"
+    },
+    {
+      "path": "dicksick/.dsh/skills/harness-skill-compatibility/agents/openai.yaml",
+      "sha256": "e4a20c841fe95845533e4afa88c151ad0cb63ef8c0ea101e14822d71e41d98f5"
+    },
+    {
+      "path": "dicksick/.dsh/skills/harness-skill-compatibility/references/dsh-discovery.md",
+      "sha256": "262db2a2bbc6ac21c303955fc6fe6209cbf312f67092b17e9d80ed252e23026e"
+    },
+    {
+      "path": "dicksick/.dsh/skills/harness-skill-compatibility/references/migration-checks.md",
+      "sha256": "859b291baf0eeea9d02b7bb75926070d250340363802d58016cbf690fa2b460f"
+    },
+    {
+      "path": "dicksick/.dsh/skills/harness-skill-compatibility/SKILL.md",
+      "sha256": "5d1f44ee7e1675bbecc9bed477a0c4c0954cbdf543ac7f6e06ce6057aea8c5f9"
+    },
+    {
+      "path": "dicksick/.dsh/skills/promptfoo-evals/agents/openai.yaml",
+      "sha256": "9632b009a937b9ed6d4c9319e6b0c2a2cc20f3b4d0dac78cc90cbeef1f6f7b83",
+      "upstream_blob": "86eeda21785661f021bb15bd7b30211cebcabf0a",
+      "modified": false
+    },
+    {
+      "path": "dicksick/.dsh/skills/promptfoo-evals/LICENSE",
+      "sha256": "bf813686553f451e1b833fbd827488aee49b60b189626915bf3108d10b754e44"
+    },
+    {
+      "path": "dicksick/.dsh/skills/promptfoo-evals/references/eval-patterns.md",
+      "sha256": "6a546f974d815ad4420ab40884284bf7853b5cdfcdad7c398280be61db7e0f26",
+      "upstream_blob": "c63390955638117a2918a4a018846e53461c98fc",
+      "modified": false
+    },
+    {
+      "path": "dicksick/.dsh/skills/promptfoo-evals/references/host-integration.md",
+      "sha256": "9f9d4fcde070c4cbcf79fdb3704392aba773356746e1820df03f83460ab5d5bc"
+    },
+    {
+      "path": "dicksick/.dsh/skills/promptfoo-evals/SKILL.md",
+      "sha256": "98ce14cb4051d10b9aca343a53e5230120894c98b6fa3ee330627fefafa7ea6d",
+      "upstream_blob": "c0ebfb4f13f19648e9b5215c49e2bad3efbf1c02",
+      "modified": true
+    },
+    {
+      "path": "dicksick/.dsh/skills/promptfoo-provider-setup/agents/openai.yaml",
+      "sha256": "0f0fbe09c9ee060fa1e1ab03bc284fc6ae00286bf77e17ac151ce0ceb807b3da",
+      "upstream_blob": "d74cfbf03ff1b7345e6135ad088576d0b005366e",
+      "modified": false
+    },
+    {
+      "path": "dicksick/.dsh/skills/promptfoo-provider-setup/LICENSE",
+      "sha256": "bf813686553f451e1b833fbd827488aee49b60b189626915bf3108d10b754e44"
+    },
+    {
+      "path": "dicksick/.dsh/skills/promptfoo-provider-setup/references/host-integration.md",
+      "sha256": "3758bac73c08a4801d65ad3fd08a52ef4810fb0c60633ebfabab1d1be24d5c35"
+    },
+    {
+      "path": "dicksick/.dsh/skills/promptfoo-provider-setup/references/provider-patterns.md",
+      "sha256": "bc22c2bd3f97dbdaab067241d5f147983132ef24401874588ccbf9829b6cef60",
+      "upstream_blob": "d18468fd2ef957e8585cdcdba68c8b94349d356a",
+      "modified": false
+    },
+    {
+      "path": "dicksick/.dsh/skills/promptfoo-provider-setup/scripts/openapi-helpers.mjs",
+      "sha256": "19af1a9216174e14a9f53978ea226a3f40e92cdd1750e1a4f6105259ef0ff79e",
+      "upstream_blob": "bca3759256bc99bb406849be0654131fbe273fc0",
+      "modified": false
+    },
+    {
+      "path": "dicksick/.dsh/skills/promptfoo-provider-setup/scripts/openapi-operation-to-config.mjs",
+      "sha256": "edf684937469be6361b8e775e40042a595e17176cee4d3ebbf67e7feb96c5b80",
+      "upstream_blob": "c1f408c07b6e6ad0eb31bd1903382a7657af257e",
+      "modified": false
+    },
+    {
+      "path": "dicksick/.dsh/skills/promptfoo-provider-setup/scripts/response-contract.mjs",
+      "sha256": "999d97a338e41e74784dbb0a7a57884ee0899219f2877c6c9b25c5e3dc222267",
+      "upstream_blob": "42c3495ea6b8f92b12d7c19f6b76e5907d217c6e",
+      "modified": false
+    },
+    {
+      "path": "dicksick/.dsh/skills/promptfoo-provider-setup/scripts/vendor/js-yaml.mjs",
+      "sha256": "6cd26e4f20dbf81ede5cc19ef86e6a03fe95e22f34d358e0f20a83357d93b1d1",
+      "upstream_blob": "cb88ff539bc1af407a55ab2bb945689ec82dc6e1",
+      "modified": false
+    },
+    {
+      "path": "dicksick/.dsh/skills/promptfoo-provider-setup/scripts/vendor/LICENSE",
+      "sha256": "a07bc24468b9654ce76a547d47a2db282d07733b715db4c73a98bd63961f9550",
+      "upstream_blob": "09d3a29e93d1239edf737a58fb1cd893808abc82",
+      "modified": false
+    },
+    {
+      "path": "dicksick/.dsh/skills/promptfoo-provider-setup/SKILL.md",
+      "sha256": "a20bf8c2bcc27d189a184f1e6ad02482d331bf9996ca5e29ab3f4cdbe595b46c",
+      "upstream_blob": "edbdf59f457200d7df34ed964a8a7288f5dd1311",
+      "modified": true
+    },
+    {
+      "path": "dicksick/.dsh/skills/rag-document-pipeline/agents/openai.yaml",
+      "sha256": "4b0789b4d067f11271bd70cef1272d8a246579d54397322c9082ec244eb2df27"
+    },
+    {
+      "path": "dicksick/.dsh/skills/rag-document-pipeline/references/ingestion.md",
+      "sha256": "49dbeb8a4f943b404eade1e9920fe317285801deba2cfc8bee353d3e82b2db3e"
+    },
+    {
+      "path": "dicksick/.dsh/skills/rag-document-pipeline/references/retrieval-evaluation.md",
+      "sha256": "2c99b436f81b2ec1cbc7f07ba2f4f9144046016db8c3d17aaae43f99ded9c5f2"
+    },
+    {
+      "path": "dicksick/.dsh/skills/rag-document-pipeline/SKILL.md",
+      "sha256": "1734bb1d8401586cb121ac16fbdf04d2510be61a17c9772925d0716266dcf673"
+    },
+    {
+      "path": "dicksick/.dsh/skills/webapp-testing/examples/console_logging.py",
+      "sha256": "ea46877289acb82da7e7ce59d0bc37c8977cd57e2a006d0c88d7a1c625bf95da",
+      "upstream_blob": "9329b5e232ed53d944bfe95e750070117d31b9ab",
+      "modified": false
+    },
+    {
+      "path": "dicksick/.dsh/skills/webapp-testing/examples/element_discovery.py",
+      "sha256": "d63c89604a22f8845d724e95dda45db49b1bf57c25ce0a83afbb7b8da3d402f0",
+      "upstream_blob": "917ba72f52421a1b324f93ae8e38af72010a87b9",
+      "modified": false
+    },
+    {
+      "path": "dicksick/.dsh/skills/webapp-testing/examples/static_html_automation.py",
+      "sha256": "9d533aafb875ee3ab8b8ebf8f5b9003ac8d999da3d09b285cce252e623140064",
+      "upstream_blob": "90bbedcc08cdb345c74fb938ebad02c0baf56603",
+      "modified": false
+    },
+    {
+      "path": "dicksick/.dsh/skills/webapp-testing/LICENSE.txt",
+      "sha256": "bc6b3af2f331cbc7fb0da1344efb2cbe5877a31498b4d70dbc7000f3405a1362",
+      "upstream_blob": "4f881c52d1f72f4cfb720e339e2d35c3058d01a9",
+      "modified": false
+    },
+    {
+      "path": "dicksick/.dsh/skills/webapp-testing/references/host-integration.md",
+      "sha256": "861eb88c941d6eb9f0792093fd1759db72e8a37db3dd827c3a0ffa7e921d6924"
+    },
+    {
+      "path": "dicksick/.dsh/skills/webapp-testing/scripts/with_server.py",
+      "sha256": "b0dcf4918935b795f4eda9821579b9902119235ff4447f687a30286e7d0925fd",
+      "upstream_blob": "431f2eba16b268b7f3e2ae4daae9db41c0289b6d",
+      "modified": false
+    },
+    {
+      "path": "dicksick/.dsh/skills/webapp-testing/SKILL.md",
+      "sha256": "9034378d2c39d36fe03bf1ecdaf0a4f6f20cd08d7780b4d332bc4cfcc16a655c",
+      "upstream_blob": "4726215301db64a0cc4d41fc3219c61f37a30f4a",
+      "modified": true
+    },
+    {
+      "path": "dicksick/ADDITIONS-2026-10-17.md",
+      "sha256": "d53744b61f54220caf3d7c3f65bdd0be4fb072baa13f5e3e3939627e1621f8de"
+    },
+    {
+      "path": "dicksick/models/ADDITIONS-2026-10-17.md",
+      "sha256": "f4e8108fd8eaefe161aa7c4fa62eecda31c7e8a729f8cfb2c25804765a4f6e22"
+    },
+    {
+      "path": "dicksick/models/catalog-additions-2026-10-17.json",
+      "sha256": "fa452b6856bb3e350c89d57c86154c8e1591ed7d0a52299461b0e8b0e9e8a98f"
+    }
+  ]
+}

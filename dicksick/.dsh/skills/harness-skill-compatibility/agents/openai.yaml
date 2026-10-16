@@ -1,0 +1,4 @@
+interface:
+  display_name: "Harness Skill Compatibility"
+  short_description: "Check skill discovery, resources, and host tool compatibility"
+  default_prompt: "Use $harness-skill-compatibility to inspect the existing setup, address missing requirements, and report verified results."

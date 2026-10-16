@@ -1,0 +1,67 @@
+{
+  "date": "2026-10-17",
+  "scope": "Additive candidate records only; the original catalog.json is unchanged.",
+  "api_backends": [
+    {
+      "id": "deepseek-flash",
+      "provider": "DeepSeek official API",
+      "model_version_snapshot": "DeepSeek-V4.1-Flash",
+      "purpose": "Default-task evaluation candidate; includes documented vision support.",
+      "source_url": "https://api-docs.deepseek.com/quick_start/pricing/",
+      "entry_type": "api_backend",
+      "status": "not_configured",
+      "runtime_tested": false,
+      "free": false,
+      "cost_note": "Paid provider reference only; no key, balance, account or request is configured by this catalog."
+    },
+    {
+      "id": "deepseek-v4-pro",
+      "provider": "DeepSeek official API",
+      "model_version_snapshot": "DeepSeek-V4-Pro-0813",
+      "purpose": "Complex-task comparison candidate; model quality must be evaluated on the task.",
+      "source_url": "https://api-docs.deepseek.com/quick_start/pricing/",
+      "entry_type": "api_backend",
+      "status": "not_configured",
+      "runtime_tested": false,
+      "free": false,
+      "cost_note": "Paid provider reference only; not enabled; no automatic fallback or evaluation calls."
+    }
+  ],
+  "weight_candidates": [
+    {
+      "id": "deepseek-ai/DeepSeek-OCR-2",
+      "entry_type": "ocr",
+      "purpose": "Scanned-page/document OCR and Markdown extraction; preserve page-level provenance.",
+      "source_url": "https://huggingface.co/deepseek-ai/DeepSeek-OCR-2",
+      "license_snapshot": "Apache-2.0",
+      "status": "not_downloaded",
+      "runtime_tested": false,
+      "limitations": "Publisher instructions use NVIDIA/CUDA and custom code; review exact revision/runtime before loading. This is not available by changing a DeepSeek chat API model name."
+    },
+    {
+      "id": "Qwen/Qwen3-Embedding-0.6B",
+      "entry_type": "embedding",
+      "purpose": "Document/code retrieval comparison against the existing BGE baseline.",
+      "source_url": "https://huggingface.co/Qwen/Qwen3-Embedding-0.6B",
+      "license_snapshot": "Apache-2.0",
+      "status": "not_downloaded",
+      "runtime_tested": false,
+      "limitations": "Choose dimensions, normalization and model revision; rebuild a separate compatible index instead of mixing with BGE vectors."
+    },
+    {
+      "id": "Qwen/Qwen3-Reranker-0.6B",
+      "entry_type": "reranker",
+      "purpose": "Query-document candidate reranking after retrieval.",
+      "source_url": "https://huggingface.co/Qwen/Qwen3-Reranker-0.6B",
+      "license_snapshot": "Apache-2.0",
+      "status": "not_downloaded",
+      "runtime_tested": false,
+      "limitations": "Use publisher pair-scoring interface; not a chat model or embedding replacement. No hardware fit or quality advantage has been tested."
+    }
+  ],
+  "notes": [
+    "Model cards and licenses must be rechecked at the selected revision before deployment.",
+    "Free downloadable weights do not make hosting or inference services free.",
+    "Original 20 records are retained; this file adds 3 weight candidates and 2 API backend references, not 5 downloaded models."
+  ]
+}
