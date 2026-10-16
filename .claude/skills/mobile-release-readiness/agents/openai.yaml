@@ -1,0 +1,4 @@
+interface:
+  display_name: "Mobile Release Readiness"
+  short_description: "Implement and verify reliable mobile app workflows"
+  default_prompt: "Use $mobile-release-readiness to inspect my app and implement the requested feature with relevant verification."
