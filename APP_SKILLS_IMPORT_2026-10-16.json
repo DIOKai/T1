@@ -1,0 +1,1627 @@
+{
+  "date": "2026-10-16",
+  "scope": "Additive upstream skill import. Existing files and .agents/skills symlink unchanged.",
+  "sources": [
+    {
+      "repository": "expo/skills",
+      "commit": "d4f484024fec15196bfd3c272e953e3f983972cf",
+      "skills": [
+        "expo-overview",
+        "expo-project-structure",
+        "expo-router",
+        "expo-animation",
+        "expo-native-ui",
+        "expo-data-fetching",
+        "expo-design-system",
+        "expo-upgrade",
+        "expo-ui",
+        "expo-skill-feedback"
+      ]
+    },
+    {
+      "repository": "supabase/agent-skills",
+      "commit": "c9be0e931b7930f7d02126d04774d904c381e7d7",
+      "skills": [
+        "supabase",
+        "supabase-postgres-best-practices"
+      ]
+    },
+    {
+      "repository": "vercel-labs/agent-skills",
+      "commit": "063bee94c3f4df8453406c830b0a7df0f2860278",
+      "skills": [
+        "react-native-skills"
+      ]
+    },
+    {
+      "repository": "anthropics/skills",
+      "commit": "dbd4588f9e1033efb41dad4bef2f7947c8993d44",
+      "skills": [
+        "webapp-testing"
+      ]
+    },
+    {
+      "repository": "github/awesome-copilot",
+      "commit": "bebb02d4c3c845b9c4cef398568a1084e4129e57",
+      "skills": [
+        "security-review"
+      ]
+    },
+    {
+      "repository": "AvdLee/SwiftUI-Agent-Skill",
+      "commit": "204dba7c67256a8b707ee3fbc5759a824191974f",
+      "skills": [
+        "swiftui-expert-skill"
+      ]
+    },
+    {
+      "repository": "AvdLee/Swift-Testing-Agent-Skill",
+      "commit": "798e9b1a2bcac164d4f0c781908199e754f0bab6",
+      "skills": [
+        "swift-testing-expert"
+      ]
+    }
+  ],
+  "files": [
+    {
+      "path": ".claude/skills/expo-overview/SKILL.md",
+      "repository": "expo/skills",
+      "source_path": "plugins/expo/skills/expo-overview/SKILL.md",
+      "source_commit": "d4f484024fec15196bfd3c272e953e3f983972cf",
+      "source_blob": "5971f90966ce7f819f404c6d8872b6a953835198"
+    },
+    {
+      "path": ".claude/skills/expo-overview/agents/openai.yaml",
+      "repository": "expo/skills",
+      "source_path": "plugins/expo/skills/expo-overview/agents/openai.yaml",
+      "source_commit": "d4f484024fec15196bfd3c272e953e3f983972cf",
+      "source_blob": "f64422bcca68c00f1d6f1154fd5d44cdc8e1dfd0"
+    },
+    {
+      "path": ".claude/skills/expo-overview/LICENSE",
+      "repository": "expo/skills",
+      "source_path": "LICENSE",
+      "source_commit": "d4f484024fec15196bfd3c272e953e3f983972cf",
+      "source_blob": null
+    },
+    {
+      "path": ".claude/skills/expo-project-structure/SKILL.md",
+      "repository": "expo/skills",
+      "source_path": "plugins/expo/skills/expo-project-structure/SKILL.md",
+      "source_commit": "d4f484024fec15196bfd3c272e953e3f983972cf",
+      "source_blob": "68f6c29731968df0d0fae789f094cd55f5d78fa0"
+    },
+    {
+      "path": ".claude/skills/expo-project-structure/agents/openai.yaml",
+      "repository": "expo/skills",
+      "source_path": "plugins/expo/skills/expo-project-structure/agents/openai.yaml",
+      "source_commit": "d4f484024fec15196bfd3c272e953e3f983972cf",
+      "source_blob": "a4b9ce543aba78fbd7734d4d26be403482c9a8bc"
+    },
+    {
+      "path": ".claude/skills/expo-project-structure/LICENSE",
+      "repository": "expo/skills",
+      "source_path": "LICENSE",
+      "source_commit": "d4f484024fec15196bfd3c272e953e3f983972cf",
+      "source_blob": null
+    },
+    {
+      "path": ".claude/skills/expo-router/SKILL.md",
+      "repository": "expo/skills",
+      "source_path": "plugins/expo/skills/expo-router/SKILL.md",
+      "source_commit": "d4f484024fec15196bfd3c272e953e3f983972cf",
+      "source_blob": "21c5c245db867c9b842f4d65fd8f1a2e9114a58e"
+    },
+    {
+      "path": ".claude/skills/expo-router/agents/openai.yaml",
+      "repository": "expo/skills",
+      "source_path": "plugins/expo/skills/expo-router/agents/openai.yaml",
+      "source_commit": "d4f484024fec15196bfd3c272e953e3f983972cf",
+      "source_blob": "a314bc85a701a0464b6408fa3a0dbd4624984901"
+    },
+    {
+      "path": ".claude/skills/expo-router/references/form-sheet.md",
+      "repository": "expo/skills",
+      "source_path": "plugins/expo/skills/expo-router/references/form-sheet.md",
+      "source_commit": "d4f484024fec15196bfd3c272e953e3f983972cf",
+      "source_blob": "1ed80fb6f4e0c01104768079156381865a9dddd8"
+    },
+    {
+      "path": ".claude/skills/expo-router/references/route-structure.md",
+      "repository": "expo/skills",
+      "source_path": "plugins/expo/skills/expo-router/references/route-structure.md",
+      "source_commit": "d4f484024fec15196bfd3c272e953e3f983972cf",
+      "source_blob": "b552729a4d9b845b482f69d002433e146c1b41ab"
+    },
+    {
+      "path": ".claude/skills/expo-router/references/search.md",
+      "repository": "expo/skills",
+      "source_path": "plugins/expo/skills/expo-router/references/search.md",
+      "source_commit": "d4f484024fec15196bfd3c272e953e3f983972cf",
+      "source_blob": "9ca13bd58396a4aa9c4eb8e5a5fc21de552e8f86"
+    },
+    {
+      "path": ".claude/skills/expo-router/references/tabs.md",
+      "repository": "expo/skills",
+      "source_path": "plugins/expo/skills/expo-router/references/tabs.md",
+      "source_commit": "d4f484024fec15196bfd3c272e953e3f983972cf",
+      "source_blob": "f689f74c506c04bc28a01ba6106ed2d77810e564"
+    },
+    {
+      "path": ".claude/skills/expo-router/references/toolbar-and-headers.md",
+      "repository": "expo/skills",
+      "source_path": "plugins/expo/skills/expo-router/references/toolbar-and-headers.md",
+      "source_commit": "d4f484024fec15196bfd3c272e953e3f983972cf",
+      "source_blob": "9706b8d3f09abd5bae0d56b6179664e99b7bf940"
+    },
+    {
+      "path": ".claude/skills/expo-router/references/zoom-transitions.md",
+      "repository": "expo/skills",
+      "source_path": "plugins/expo/skills/expo-router/references/zoom-transitions.md",
+      "source_commit": "d4f484024fec15196bfd3c272e953e3f983972cf",
+      "source_blob": "27e00a888aa2ba998443ea9e3006b11321d14849"
+    },
+    {
+      "path": ".claude/skills/expo-router/LICENSE",
+      "repository": "expo/skills",
+      "source_path": "LICENSE",
+      "source_commit": "d4f484024fec15196bfd3c272e953e3f983972cf",
+      "source_blob": null
+    },
+    {
+      "path": ".claude/skills/expo-animation/LICENSE",
+      "repository": "expo/skills",
+      "source_path": "plugins/expo/skills/expo-animation/LICENSE",
+      "source_commit": "d4f484024fec15196bfd3c272e953e3f983972cf",
+      "source_blob": "57b46f1fd11dc62351ea548104a88aa3f659c11b"
+    },
+    {
+      "path": ".claude/skills/expo-animation/RECIPES.md",
+      "repository": "expo/skills",
+      "source_path": "plugins/expo/skills/expo-animation/RECIPES.md",
+      "source_commit": "d4f484024fec15196bfd3c272e953e3f983972cf",
+      "source_blob": "92c64f12cd118df764499466eb0315b233a52c76"
+    },
+    {
+      "path": ".claude/skills/expo-animation/SKILL.md",
+      "repository": "expo/skills",
+      "source_path": "plugins/expo/skills/expo-animation/SKILL.md",
+      "source_commit": "d4f484024fec15196bfd3c272e953e3f983972cf",
+      "source_blob": "aa7a5d395f8326040adcbe69211307c6700fe28f"
+    },
+    {
+      "path": ".claude/skills/expo-animation/agents/openai.yaml",
+      "repository": "expo/skills",
+      "source_path": "plugins/expo/skills/expo-animation/agents/openai.yaml",
+      "source_commit": "d4f484024fec15196bfd3c272e953e3f983972cf",
+      "source_blob": "312c925934e07a3781d1d0c9e196efe2f96f0603"
+    },
+    {
+      "path": ".claude/skills/expo-native-ui/SKILL.md",
+      "repository": "expo/skills",
+      "source_path": "plugins/expo/skills/expo-native-ui/SKILL.md",
+      "source_commit": "d4f484024fec15196bfd3c272e953e3f983972cf",
+      "source_blob": "6e79ecc3481f0396155dba52db642452612054bb"
+    },
+    {
+      "path": ".claude/skills/expo-native-ui/agents/openai.yaml",
+      "repository": "expo/skills",
+      "source_path": "plugins/expo/skills/expo-native-ui/agents/openai.yaml",
+      "source_commit": "d4f484024fec15196bfd3c272e953e3f983972cf",
+      "source_blob": "b41117eac0d64ecd7da917e692d62eb127b18ebc"
+    },
+    {
+      "path": ".claude/skills/expo-native-ui/references/controls.md",
+      "repository": "expo/skills",
+      "source_path": "plugins/expo/skills/expo-native-ui/references/controls.md",
+      "source_commit": "d4f484024fec15196bfd3c272e953e3f983972cf",
+      "source_blob": "05865bde831d647faae39fb3a8960bdc119f1b4f"
+    },
+    {
+      "path": ".claude/skills/expo-native-ui/references/gradients.md",
+      "repository": "expo/skills",
+      "source_path": "plugins/expo/skills/expo-native-ui/references/gradients.md",
+      "source_commit": "d4f484024fec15196bfd3c272e953e3f983972cf",
+      "source_blob": "329600dc1d3c683dcc15b29ee7bc61e112acb6a6"
+    },
+    {
+      "path": ".claude/skills/expo-native-ui/references/icons.md",
+      "repository": "expo/skills",
+      "source_path": "plugins/expo/skills/expo-native-ui/references/icons.md",
+      "source_commit": "d4f484024fec15196bfd3c272e953e3f983972cf",
+      "source_blob": "d23ac8f14586a2539993b645561e37e39393de3e"
+    },
+    {
+      "path": ".claude/skills/expo-native-ui/references/media.md",
+      "repository": "expo/skills",
+      "source_path": "plugins/expo/skills/expo-native-ui/references/media.md",
+      "source_commit": "d4f484024fec15196bfd3c272e953e3f983972cf",
+      "source_blob": "65813b4e20c6f532cd55c93a411471b887d7be24"
+    },
+    {
+      "path": ".claude/skills/expo-native-ui/references/storage.md",
+      "repository": "expo/skills",
+      "source_path": "plugins/expo/skills/expo-native-ui/references/storage.md",
+      "source_commit": "d4f484024fec15196bfd3c272e953e3f983972cf",
+      "source_blob": "c084f121367b6e9a6393af7f8c10b9247ccde108"
+    },
+    {
+      "path": ".claude/skills/expo-native-ui/references/visual-effects.md",
+      "repository": "expo/skills",
+      "source_path": "plugins/expo/skills/expo-native-ui/references/visual-effects.md",
+      "source_commit": "d4f484024fec15196bfd3c272e953e3f983972cf",
+      "source_blob": "fdf312a6c81979df0e9cd14df88c3f22d2e4e3c7"
+    },
+    {
+      "path": ".claude/skills/expo-native-ui/references/webgpu-three.md",
+      "repository": "expo/skills",
+      "source_path": "plugins/expo/skills/expo-native-ui/references/webgpu-three.md",
+      "source_commit": "d4f484024fec15196bfd3c272e953e3f983972cf",
+      "source_blob": "58b5ce8046255f2c729b338da837a7e18804c356"
+    },
+    {
+      "path": ".claude/skills/expo-native-ui/LICENSE",
+      "repository": "expo/skills",
+      "source_path": "LICENSE",
+      "source_commit": "d4f484024fec15196bfd3c272e953e3f983972cf",
+      "source_blob": null
+    },
+    {
+      "path": ".claude/skills/expo-data-fetching/SKILL.md",
+      "repository": "expo/skills",
+      "source_path": "plugins/expo/skills/expo-data-fetching/SKILL.md",
+      "source_commit": "d4f484024fec15196bfd3c272e953e3f983972cf",
+      "source_blob": "f677911a7edf2cb6f4e2a0bc373842b5760092dd"
+    },
+    {
+      "path": ".claude/skills/expo-data-fetching/agents/openai.yaml",
+      "repository": "expo/skills",
+      "source_path": "plugins/expo/skills/expo-data-fetching/agents/openai.yaml",
+      "source_commit": "d4f484024fec15196bfd3c272e953e3f983972cf",
+      "source_blob": "8e942bcb6aeb4bf8f65ec3cee999409e51396a62"
+    },
+    {
+      "path": ".claude/skills/expo-data-fetching/references/expo-router-loaders.md",
+      "repository": "expo/skills",
+      "source_path": "plugins/expo/skills/expo-data-fetching/references/expo-router-loaders.md",
+      "source_commit": "d4f484024fec15196bfd3c272e953e3f983972cf",
+      "source_blob": "ca3942c4e1291f1cf9c65dc1a1762fef71280056"
+    },
+    {
+      "path": ".claude/skills/expo-data-fetching/references/offline-and-cancellation.md",
+      "repository": "expo/skills",
+      "source_path": "plugins/expo/skills/expo-data-fetching/references/offline-and-cancellation.md",
+      "source_commit": "d4f484024fec15196bfd3c272e953e3f983972cf",
+      "source_blob": "596bbed6853e31fa0fbb777542bbd3463a45a9c8"
+    },
+    {
+      "path": ".claude/skills/expo-data-fetching/LICENSE",
+      "repository": "expo/skills",
+      "source_path": "LICENSE",
+      "source_commit": "d4f484024fec15196bfd3c272e953e3f983972cf",
+      "source_blob": null
+    },
+    {
+      "path": ".claude/skills/expo-design-system/SKILL.md",
+      "repository": "expo/skills",
+      "source_path": "plugins/expo/skills/expo-design-system/SKILL.md",
+      "source_commit": "d4f484024fec15196bfd3c272e953e3f983972cf",
+      "source_blob": "6a884f76885ef25ea17042a6ed2e14a1c29140a5"
+    },
+    {
+      "path": ".claude/skills/expo-design-system/agents/openai.yaml",
+      "repository": "expo/skills",
+      "source_path": "plugins/expo/skills/expo-design-system/agents/openai.yaml",
+      "source_commit": "d4f484024fec15196bfd3c272e953e3f983972cf",
+      "source_blob": "2322f6ef8e7cfe1716bfc0254adb03a2faefe604"
+    },
+    {
+      "path": ".claude/skills/expo-design-system/references/audit.md",
+      "repository": "expo/skills",
+      "source_path": "plugins/expo/skills/expo-design-system/references/audit.md",
+      "source_commit": "d4f484024fec15196bfd3c272e953e3f983972cf",
+      "source_blob": "0a6e276fb410982ca3f5167f69fbe925286e0a14"
+    },
+    {
+      "path": ".claude/skills/expo-design-system/references/native-slop.md",
+      "repository": "expo/skills",
+      "source_path": "plugins/expo/skills/expo-design-system/references/native-slop.md",
+      "source_commit": "d4f484024fec15196bfd3c272e953e3f983972cf",
+      "source_blob": "b313f4c7f1f361b567b051682500a78245946bf6"
+    },
+    {
+      "path": ".claude/skills/expo-design-system/LICENSE",
+      "repository": "expo/skills",
+      "source_path": "LICENSE",
+      "source_commit": "d4f484024fec15196bfd3c272e953e3f983972cf",
+      "source_blob": null
+    },
+    {
+      "path": ".claude/skills/expo-upgrade/SKILL.md",
+      "repository": "expo/skills",
+      "source_path": "plugins/expo/skills/expo-upgrade/SKILL.md",
+      "source_commit": "d4f484024fec15196bfd3c272e953e3f983972cf",
+      "source_blob": "651e9258a035ce5dc2b7009a6d62ce352146375a"
+    },
+    {
+      "path": ".claude/skills/expo-upgrade/agents/openai.yaml",
+      "repository": "expo/skills",
+      "source_path": "plugins/expo/skills/expo-upgrade/agents/openai.yaml",
+      "source_commit": "d4f484024fec15196bfd3c272e953e3f983972cf",
+      "source_blob": "39d580e6760dfbebf481eff03dab9c0a178ea49d"
+    },
+    {
+      "path": ".claude/skills/expo-upgrade/references/expo-av-to-audio.md",
+      "repository": "expo/skills",
+      "source_path": "plugins/expo/skills/expo-upgrade/references/expo-av-to-audio.md",
+      "source_commit": "d4f484024fec15196bfd3c272e953e3f983972cf",
+      "source_blob": "afacde7fe90a0b2ec173992327f469db97d39965"
+    },
+    {
+      "path": ".claude/skills/expo-upgrade/references/expo-av-to-video.md",
+      "repository": "expo/skills",
+      "source_path": "plugins/expo/skills/expo-upgrade/references/expo-av-to-video.md",
+      "source_commit": "d4f484024fec15196bfd3c272e953e3f983972cf",
+      "source_blob": "5c9bec1919b3598697857b24b87139047dbf8e73"
+    },
+    {
+      "path": ".claude/skills/expo-upgrade/references/native-tabs.md",
+      "repository": "expo/skills",
+      "source_path": "plugins/expo/skills/expo-upgrade/references/native-tabs.md",
+      "source_commit": "d4f484024fec15196bfd3c272e953e3f983972cf",
+      "source_blob": "95214c2e49c593ecf9745d52e3164a326ecd9e30"
+    },
+    {
+      "path": ".claude/skills/expo-upgrade/references/new-architecture.md",
+      "repository": "expo/skills",
+      "source_path": "plugins/expo/skills/expo-upgrade/references/new-architecture.md",
+      "source_commit": "d4f484024fec15196bfd3c272e953e3f983972cf",
+      "source_blob": "b4b27ba7b5229942a5583e6e0827a294d92a6c0f"
+    },
+    {
+      "path": ".claude/skills/expo-upgrade/references/react-19.md",
+      "repository": "expo/skills",
+      "source_path": "plugins/expo/skills/expo-upgrade/references/react-19.md",
+      "source_commit": "d4f484024fec15196bfd3c272e953e3f983972cf",
+      "source_blob": "74035b2b1353902018ab92a005e97098e62c6812"
+    },
+    {
+      "path": ".claude/skills/expo-upgrade/references/react-compiler.md",
+      "repository": "expo/skills",
+      "source_path": "plugins/expo/skills/expo-upgrade/references/react-compiler.md",
+      "source_commit": "d4f484024fec15196bfd3c272e953e3f983972cf",
+      "source_blob": "4d58e281093552d7f5628d24ad5b4db74f2e94f9"
+    },
+    {
+      "path": ".claude/skills/expo-upgrade/references/react-navigation-to-expo-router.md",
+      "repository": "expo/skills",
+      "source_path": "plugins/expo/skills/expo-upgrade/references/react-navigation-to-expo-router.md",
+      "source_commit": "d4f484024fec15196bfd3c272e953e3f983972cf",
+      "source_blob": "c0155f46256ccbba7302e406e95406b1e45eab2a"
+    },
+    {
+      "path": ".claude/skills/expo-upgrade/LICENSE",
+      "repository": "expo/skills",
+      "source_path": "LICENSE",
+      "source_commit": "d4f484024fec15196bfd3c272e953e3f983972cf",
+      "source_blob": null
+    },
+    {
+      "path": ".claude/skills/supabase/CHANGELOG.md",
+      "repository": "supabase/agent-skills",
+      "source_path": "skills/supabase/CHANGELOG.md",
+      "source_commit": "c9be0e931b7930f7d02126d04774d904c381e7d7",
+      "source_blob": "16c4657c58336adeb579418cc0088c46cb83ee7b"
+    },
+    {
+      "path": ".claude/skills/supabase/SKILL.md",
+      "repository": "supabase/agent-skills",
+      "source_path": "skills/supabase/SKILL.md",
+      "source_commit": "c9be0e931b7930f7d02126d04774d904c381e7d7",
+      "source_blob": "66093e0a0f8d9268094c1a4b38c04419b787ca89"
+    },
+    {
+      "path": ".claude/skills/supabase/assets/feedback-issue-template.md",
+      "repository": "supabase/agent-skills",
+      "source_path": "skills/supabase/assets/feedback-issue-template.md",
+      "source_commit": "c9be0e931b7930f7d02126d04774d904c381e7d7",
+      "source_blob": "e81082532d36309e11f2721e8380636329221525"
+    },
+    {
+      "path": ".claude/skills/supabase/references/skill-feedback.md",
+      "repository": "supabase/agent-skills",
+      "source_path": "skills/supabase/references/skill-feedback.md",
+      "source_commit": "c9be0e931b7930f7d02126d04774d904c381e7d7",
+      "source_blob": "9c047d5a1775c0cf4b35d3687753d84b77b1cf0a"
+    },
+    {
+      "path": ".claude/skills/supabase/LICENSE",
+      "repository": "supabase/agent-skills",
+      "source_path": "LICENSE",
+      "source_commit": "c9be0e931b7930f7d02126d04774d904c381e7d7",
+      "source_blob": null
+    },
+    {
+      "path": ".claude/skills/supabase-postgres-best-practices/CHANGELOG.md",
+      "repository": "supabase/agent-skills",
+      "source_path": "skills/supabase-postgres-best-practices/CHANGELOG.md",
+      "source_commit": "c9be0e931b7930f7d02126d04774d904c381e7d7",
+      "source_blob": "6d7d0d2acd380d09be9a4431037858149ce3496f"
+    },
+    {
+      "path": ".claude/skills/supabase-postgres-best-practices/SKILL.md",
+      "repository": "supabase/agent-skills",
+      "source_path": "skills/supabase-postgres-best-practices/SKILL.md",
+      "source_commit": "c9be0e931b7930f7d02126d04774d904c381e7d7",
+      "source_blob": "6400792389dfcc82c81953054e546bd72ebcd259"
+    },
+    {
+      "path": ".claude/skills/supabase-postgres-best-practices/references/_contributing.md",
+      "repository": "supabase/agent-skills",
+      "source_path": "skills/supabase-postgres-best-practices/references/_contributing.md",
+      "source_commit": "c9be0e931b7930f7d02126d04774d904c381e7d7",
+      "source_blob": "1c055aff9ad2bf12cfe7edc0002f2f77fe6980d2"
+    },
+    {
+      "path": ".claude/skills/supabase-postgres-best-practices/references/_sections.md",
+      "repository": "supabase/agent-skills",
+      "source_path": "skills/supabase-postgres-best-practices/references/_sections.md",
+      "source_commit": "c9be0e931b7930f7d02126d04774d904c381e7d7",
+      "source_blob": "8ba57c23e8119e411fcc8a230cda08e695792cac"
+    },
+    {
+      "path": ".claude/skills/supabase-postgres-best-practices/references/_template.md",
+      "repository": "supabase/agent-skills",
+      "source_path": "skills/supabase-postgres-best-practices/references/_template.md",
+      "source_commit": "c9be0e931b7930f7d02126d04774d904c381e7d7",
+      "source_blob": "91ace90e10a4d8ef354a82bb1994842e6979ebed"
+    },
+    {
+      "path": ".claude/skills/supabase-postgres-best-practices/references/advanced-full-text-search.md",
+      "repository": "supabase/agent-skills",
+      "source_path": "skills/supabase-postgres-best-practices/references/advanced-full-text-search.md",
+      "source_commit": "c9be0e931b7930f7d02126d04774d904c381e7d7",
+      "source_blob": "582cbeaada9378a280ad61f57e06c10d258e3c43"
+    },
+    {
+      "path": ".claude/skills/supabase-postgres-best-practices/references/advanced-jsonb-indexing.md",
+      "repository": "supabase/agent-skills",
+      "source_path": "skills/supabase-postgres-best-practices/references/advanced-jsonb-indexing.md",
+      "source_commit": "c9be0e931b7930f7d02126d04774d904c381e7d7",
+      "source_blob": "e3d261ea117fd7b1ad9c4f0d45308407b898ed5a"
+    },
+    {
+      "path": ".claude/skills/supabase-postgres-best-practices/references/conn-idle-timeout.md",
+      "repository": "supabase/agent-skills",
+      "source_path": "skills/supabase-postgres-best-practices/references/conn-idle-timeout.md",
+      "source_commit": "c9be0e931b7930f7d02126d04774d904c381e7d7",
+      "source_blob": "40b9cc50dd12cf347ed189fac965673b533f3f99"
+    },
+    {
+      "path": ".claude/skills/supabase-postgres-best-practices/references/conn-limits.md",
+      "repository": "supabase/agent-skills",
+      "source_path": "skills/supabase-postgres-best-practices/references/conn-limits.md",
+      "source_commit": "c9be0e931b7930f7d02126d04774d904c381e7d7",
+      "source_blob": "cb3e400c0234e7e9196c1650423faad66375b70b"
+    },
+    {
+      "path": ".claude/skills/supabase-postgres-best-practices/references/conn-pooling.md",
+      "repository": "supabase/agent-skills",
+      "source_path": "skills/supabase-postgres-best-practices/references/conn-pooling.md",
+      "source_commit": "c9be0e931b7930f7d02126d04774d904c381e7d7",
+      "source_blob": "e2ebd581d3c85bff0a077e8d9a2cb562d2513d03"
+    },
+    {
+      "path": ".claude/skills/supabase-postgres-best-practices/references/conn-prepared-statements.md",
+      "repository": "supabase/agent-skills",
+      "source_path": "skills/supabase-postgres-best-practices/references/conn-prepared-statements.md",
+      "source_commit": "c9be0e931b7930f7d02126d04774d904c381e7d7",
+      "source_blob": "555547d834e35b5059152dfb2288eca5e9838ea0"
+    },
+    {
+      "path": ".claude/skills/supabase-postgres-best-practices/references/data-batch-inserts.md",
+      "repository": "supabase/agent-skills",
+      "source_path": "skills/supabase-postgres-best-practices/references/data-batch-inserts.md",
+      "source_commit": "c9be0e931b7930f7d02126d04774d904c381e7d7",
+      "source_blob": "997947cb17bfed67f29eaa8da2a58de2306cc2c1"
+    },
+    {
+      "path": ".claude/skills/supabase-postgres-best-practices/references/data-n-plus-one.md",
+      "repository": "supabase/agent-skills",
+      "source_path": "skills/supabase-postgres-best-practices/references/data-n-plus-one.md",
+      "source_commit": "c9be0e931b7930f7d02126d04774d904c381e7d7",
+      "source_blob": "2109186ff88b3ba1cc32789f81e2a00d345c6e3f"
+    },
+    {
+      "path": ".claude/skills/supabase-postgres-best-practices/references/data-pagination.md",
+      "repository": "supabase/agent-skills",
+      "source_path": "skills/supabase-postgres-best-practices/references/data-pagination.md",
+      "source_commit": "c9be0e931b7930f7d02126d04774d904c381e7d7",
+      "source_blob": "633d839323612e212a833dd96828cb31fdfb39f8"
+    },
+    {
+      "path": ".claude/skills/supabase-postgres-best-practices/references/data-upsert.md",
+      "repository": "supabase/agent-skills",
+      "source_path": "skills/supabase-postgres-best-practices/references/data-upsert.md",
+      "source_commit": "c9be0e931b7930f7d02126d04774d904c381e7d7",
+      "source_blob": "bc95e2305d955679446c70854cb2b56b183aa56d"
+    },
+    {
+      "path": ".claude/skills/supabase-postgres-best-practices/references/lock-advisory.md",
+      "repository": "supabase/agent-skills",
+      "source_path": "skills/supabase-postgres-best-practices/references/lock-advisory.md",
+      "source_commit": "c9be0e931b7930f7d02126d04774d904c381e7d7",
+      "source_blob": "572eaf0dcf518ac925c4cde41beb60b62852b79c"
+    },
+    {
+      "path": ".claude/skills/supabase-postgres-best-practices/references/lock-deadlock-prevention.md",
+      "repository": "supabase/agent-skills",
+      "source_path": "skills/supabase-postgres-best-practices/references/lock-deadlock-prevention.md",
+      "source_commit": "c9be0e931b7930f7d02126d04774d904c381e7d7",
+      "source_blob": "974da5edec32f79de0fcdc771d4ef759dc3e049d"
+    },
+    {
+      "path": ".claude/skills/supabase-postgres-best-practices/references/lock-short-transactions.md",
+      "repository": "supabase/agent-skills",
+      "source_path": "skills/supabase-postgres-best-practices/references/lock-short-transactions.md",
+      "source_commit": "c9be0e931b7930f7d02126d04774d904c381e7d7",
+      "source_blob": "e6b8ef2633248a4aa4394628e48d8cb693e7e6ab"
+    },
+    {
+      "path": ".claude/skills/supabase-postgres-best-practices/references/lock-skip-locked.md",
+      "repository": "supabase/agent-skills",
+      "source_path": "skills/supabase-postgres-best-practices/references/lock-skip-locked.md",
+      "source_commit": "c9be0e931b7930f7d02126d04774d904c381e7d7",
+      "source_blob": "77bdbb97045010ce2fdbd90733e8f764be82881a"
+    },
+    {
+      "path": ".claude/skills/supabase-postgres-best-practices/references/monitor-explain-analyze.md",
+      "repository": "supabase/agent-skills",
+      "source_path": "skills/supabase-postgres-best-practices/references/monitor-explain-analyze.md",
+      "source_commit": "c9be0e931b7930f7d02126d04774d904c381e7d7",
+      "source_blob": "542978c3bafc510fa8d7a8864cff994ad40be4d7"
+    },
+    {
+      "path": ".claude/skills/supabase-postgres-best-practices/references/monitor-pg-stat-statements.md",
+      "repository": "supabase/agent-skills",
+      "source_path": "skills/supabase-postgres-best-practices/references/monitor-pg-stat-statements.md",
+      "source_commit": "c9be0e931b7930f7d02126d04774d904c381e7d7",
+      "source_blob": "d7e82f1aacd105d53789eb6188d11e8ea39e7310"
+    },
+    {
+      "path": ".claude/skills/supabase-postgres-best-practices/references/monitor-vacuum-analyze.md",
+      "repository": "supabase/agent-skills",
+      "source_path": "skills/supabase-postgres-best-practices/references/monitor-vacuum-analyze.md",
+      "source_commit": "c9be0e931b7930f7d02126d04774d904c381e7d7",
+      "source_blob": "e0e8ea0b7db8c1513a0d1605be477192bc21d91d"
+    },
+    {
+      "path": ".claude/skills/supabase-postgres-best-practices/references/query-composite-indexes.md",
+      "repository": "supabase/agent-skills",
+      "source_path": "skills/supabase-postgres-best-practices/references/query-composite-indexes.md",
+      "source_commit": "c9be0e931b7930f7d02126d04774d904c381e7d7",
+      "source_blob": "fea64523fd5bb3696f943d486ccaf2aea75d27b8"
+    },
+    {
+      "path": ".claude/skills/supabase-postgres-best-practices/references/query-covering-indexes.md",
+      "repository": "supabase/agent-skills",
+      "source_path": "skills/supabase-postgres-best-practices/references/query-covering-indexes.md",
+      "source_commit": "c9be0e931b7930f7d02126d04774d904c381e7d7",
+      "source_blob": "9d2a4947b94516dd975e1044d132bb007280f478"
+    },
+    {
+      "path": ".claude/skills/supabase-postgres-best-practices/references/query-index-types.md",
+      "repository": "supabase/agent-skills",
+      "source_path": "skills/supabase-postgres-best-practices/references/query-index-types.md",
+      "source_commit": "c9be0e931b7930f7d02126d04774d904c381e7d7",
+      "source_blob": "93b32590f4bfe377869274f45414ae6e43d168fa"
+    },
+    {
+      "path": ".claude/skills/supabase-postgres-best-practices/references/query-missing-indexes.md",
+      "repository": "supabase/agent-skills",
+      "source_path": "skills/supabase-postgres-best-practices/references/query-missing-indexes.md",
+      "source_commit": "c9be0e931b7930f7d02126d04774d904c381e7d7",
+      "source_blob": "e6daace7dd368c75cdf87dc61be4afd6ff66cbbe"
+    },
+    {
+      "path": ".claude/skills/supabase-postgres-best-practices/references/query-partial-indexes.md",
+      "repository": "supabase/agent-skills",
+      "source_path": "skills/supabase-postgres-best-practices/references/query-partial-indexes.md",
+      "source_commit": "c9be0e931b7930f7d02126d04774d904c381e7d7",
+      "source_blob": "3e61a3417b9cce3c8cee99b39b78b7ebf495dd1f"
+    },
+    {
+      "path": ".claude/skills/supabase-postgres-best-practices/references/schema-constraints.md",
+      "repository": "supabase/agent-skills",
+      "source_path": "skills/supabase-postgres-best-practices/references/schema-constraints.md",
+      "source_commit": "c9be0e931b7930f7d02126d04774d904c381e7d7",
+      "source_blob": "1d2ef8f9a968cd6fa882c7299134c30ace06373c"
+    },
+    {
+      "path": ".claude/skills/supabase-postgres-best-practices/references/schema-data-types.md",
+      "repository": "supabase/agent-skills",
+      "source_path": "skills/supabase-postgres-best-practices/references/schema-data-types.md",
+      "source_commit": "c9be0e931b7930f7d02126d04774d904c381e7d7",
+      "source_blob": "f253a5819d05531371e04485ab84f552fbb32fbe"
+    },
+    {
+      "path": ".claude/skills/supabase-postgres-best-practices/references/schema-foreign-key-indexes.md",
+      "repository": "supabase/agent-skills",
+      "source_path": "skills/supabase-postgres-best-practices/references/schema-foreign-key-indexes.md",
+      "source_commit": "c9be0e931b7930f7d02126d04774d904c381e7d7",
+      "source_blob": "6c3d6ff622b8a9df358f6673f323292e682ce87c"
+    },
+    {
+      "path": ".claude/skills/supabase-postgres-best-practices/references/schema-lowercase-identifiers.md",
+      "repository": "supabase/agent-skills",
+      "source_path": "skills/supabase-postgres-best-practices/references/schema-lowercase-identifiers.md",
+      "source_commit": "c9be0e931b7930f7d02126d04774d904c381e7d7",
+      "source_blob": "f0072940b159ff64e0c2d4fbb499133cb8f49a66"
+    },
+    {
+      "path": ".claude/skills/supabase-postgres-best-practices/references/schema-partitioning.md",
+      "repository": "supabase/agent-skills",
+      "source_path": "skills/supabase-postgres-best-practices/references/schema-partitioning.md",
+      "source_commit": "c9be0e931b7930f7d02126d04774d904c381e7d7",
+      "source_blob": "13137a03275fa45001c870a40b0069204d44e005"
+    },
+    {
+      "path": ".claude/skills/supabase-postgres-best-practices/references/schema-primary-keys.md",
+      "repository": "supabase/agent-skills",
+      "source_path": "skills/supabase-postgres-best-practices/references/schema-primary-keys.md",
+      "source_commit": "c9be0e931b7930f7d02126d04774d904c381e7d7",
+      "source_blob": "fb0fbb166fac9ea38c127d807a263282acc2dc93"
+    },
+    {
+      "path": ".claude/skills/supabase-postgres-best-practices/references/security-privileges.md",
+      "repository": "supabase/agent-skills",
+      "source_path": "skills/supabase-postgres-best-practices/references/security-privileges.md",
+      "source_commit": "c9be0e931b7930f7d02126d04774d904c381e7d7",
+      "source_blob": "448ec345fab6c5a0116c584d65638b86d758c558"
+    },
+    {
+      "path": ".claude/skills/supabase-postgres-best-practices/references/security-rls-basics.md",
+      "repository": "supabase/agent-skills",
+      "source_path": "skills/supabase-postgres-best-practices/references/security-rls-basics.md",
+      "source_commit": "c9be0e931b7930f7d02126d04774d904c381e7d7",
+      "source_blob": "c61e1a8503de113be0981759b82f5e37090f344c"
+    },
+    {
+      "path": ".claude/skills/supabase-postgres-best-practices/references/security-rls-performance.md",
+      "repository": "supabase/agent-skills",
+      "source_path": "skills/supabase-postgres-best-practices/references/security-rls-performance.md",
+      "source_commit": "c9be0e931b7930f7d02126d04774d904c381e7d7",
+      "source_blob": "c3c7c416d57d9a46a9993f4e0c20f772fb64483d"
+    },
+    {
+      "path": ".claude/skills/supabase-postgres-best-practices/LICENSE",
+      "repository": "supabase/agent-skills",
+      "source_path": "LICENSE",
+      "source_commit": "c9be0e931b7930f7d02126d04774d904c381e7d7",
+      "source_blob": null
+    },
+    {
+      "path": ".claude/skills/vercel-react-native-skills/AGENTS.md",
+      "repository": "vercel-labs/agent-skills",
+      "source_path": "skills/react-native-skills/AGENTS.md",
+      "source_commit": "063bee94c3f4df8453406c830b0a7df0f2860278",
+      "source_blob": "d263eb9c111002248ec8b1539dbcd7ba7b6fddde"
+    },
+    {
+      "path": ".claude/skills/vercel-react-native-skills/README.md",
+      "repository": "vercel-labs/agent-skills",
+      "source_path": "skills/react-native-skills/README.md",
+      "source_commit": "063bee94c3f4df8453406c830b0a7df0f2860278",
+      "source_blob": "854db9f525c3427060b4ecefd266f00beca94eac"
+    },
+    {
+      "path": ".claude/skills/vercel-react-native-skills/SKILL.md",
+      "repository": "vercel-labs/agent-skills",
+      "source_path": "skills/react-native-skills/SKILL.md",
+      "source_commit": "063bee94c3f4df8453406c830b0a7df0f2860278",
+      "source_blob": "73401865dd7440a43c5243b107a3763e0d2f4aae"
+    },
+    {
+      "path": ".claude/skills/vercel-react-native-skills/metadata.json",
+      "repository": "vercel-labs/agent-skills",
+      "source_path": "skills/react-native-skills/metadata.json",
+      "source_commit": "063bee94c3f4df8453406c830b0a7df0f2860278",
+      "source_blob": "600eb5bc73d42a337a1d7aa3a59c654fee7b3278"
+    },
+    {
+      "path": ".claude/skills/vercel-react-native-skills/rules/_sections.md",
+      "repository": "vercel-labs/agent-skills",
+      "source_path": "skills/react-native-skills/rules/_sections.md",
+      "source_commit": "063bee94c3f4df8453406c830b0a7df0f2860278",
+      "source_blob": "0519cf2325eec35f2f56611204d9ee35aa2a9782"
+    },
+    {
+      "path": ".claude/skills/vercel-react-native-skills/rules/_template.md",
+      "repository": "vercel-labs/agent-skills",
+      "source_path": "skills/react-native-skills/rules/_template.md",
+      "source_commit": "063bee94c3f4df8453406c830b0a7df0f2860278",
+      "source_blob": "1e9e70703485021e0b969f5731f38c8b9f8694db"
+    },
+    {
+      "path": ".claude/skills/vercel-react-native-skills/rules/animation-derived-value.md",
+      "repository": "vercel-labs/agent-skills",
+      "source_path": "skills/react-native-skills/rules/animation-derived-value.md",
+      "source_commit": "063bee94c3f4df8453406c830b0a7df0f2860278",
+      "source_blob": "310928a957b841fc5af335e984a4df6c1a6b3f3a"
+    },
+    {
+      "path": ".claude/skills/vercel-react-native-skills/rules/animation-gesture-detector-press.md",
+      "repository": "vercel-labs/agent-skills",
+      "source_path": "skills/react-native-skills/rules/animation-gesture-detector-press.md",
+      "source_commit": "063bee94c3f4df8453406c830b0a7df0f2860278",
+      "source_blob": "87c67827054bbb0a41d7e4ad78adf3612accb6bf"
+    },
+    {
+      "path": ".claude/skills/vercel-react-native-skills/rules/animation-gpu-properties.md",
+      "repository": "vercel-labs/agent-skills",
+      "source_path": "skills/react-native-skills/rules/animation-gpu-properties.md",
+      "source_commit": "063bee94c3f4df8453406c830b0a7df0f2860278",
+      "source_blob": "5fda09558e89b2d6021bbbe5a2731fd26d16b1f3"
+    },
+    {
+      "path": ".claude/skills/vercel-react-native-skills/rules/design-system-compound-components.md",
+      "repository": "vercel-labs/agent-skills",
+      "source_path": "skills/react-native-skills/rules/design-system-compound-components.md",
+      "source_commit": "063bee94c3f4df8453406c830b0a7df0f2860278",
+      "source_blob": "d8239ee1fbb95d52b5b57a1d699199b1f4758e8c"
+    },
+    {
+      "path": ".claude/skills/vercel-react-native-skills/rules/fonts-config-plugin.md",
+      "repository": "vercel-labs/agent-skills",
+      "source_path": "skills/react-native-skills/rules/fonts-config-plugin.md",
+      "source_commit": "063bee94c3f4df8453406c830b0a7df0f2860278",
+      "source_blob": "39aa01477af69b372e7e6251831430da1c3203f9"
+    },
+    {
+      "path": ".claude/skills/vercel-react-native-skills/rules/imports-design-system-folder.md",
+      "repository": "vercel-labs/agent-skills",
+      "source_path": "skills/react-native-skills/rules/imports-design-system-folder.md",
+      "source_commit": "063bee94c3f4df8453406c830b0a7df0f2860278",
+      "source_blob": "8466dcb2544dad65639d29e5921a6be00ea1ac2c"
+    },
+    {
+      "path": ".claude/skills/vercel-react-native-skills/rules/js-hoist-intl.md",
+      "repository": "vercel-labs/agent-skills",
+      "source_path": "skills/react-native-skills/rules/js-hoist-intl.md",
+      "source_commit": "063bee94c3f4df8453406c830b0a7df0f2860278",
+      "source_blob": "9af1c354c3e5e8836883c1a79a533fa5e72d4958"
+    },
+    {
+      "path": ".claude/skills/vercel-react-native-skills/rules/list-performance-callbacks.md",
+      "repository": "vercel-labs/agent-skills",
+      "source_path": "skills/react-native-skills/rules/list-performance-callbacks.md",
+      "source_commit": "063bee94c3f4df8453406c830b0a7df0f2860278",
+      "source_blob": "a0b3913ff3b88e92bd0a91b555f8c96732b2b953"
+    },
+    {
+      "path": ".claude/skills/vercel-react-native-skills/rules/list-performance-function-references.md",
+      "repository": "vercel-labs/agent-skills",
+      "source_path": "skills/react-native-skills/rules/list-performance-function-references.md",
+      "source_commit": "063bee94c3f4df8453406c830b0a7df0f2860278",
+      "source_blob": "9721929b28b8115e8fa24ff8a6f82a6b1ec94d6e"
+    },
+    {
+      "path": ".claude/skills/vercel-react-native-skills/rules/list-performance-images.md",
+      "repository": "vercel-labs/agent-skills",
+      "source_path": "skills/react-native-skills/rules/list-performance-images.md",
+      "source_commit": "063bee94c3f4df8453406c830b0a7df0f2860278",
+      "source_blob": "75a3bafc83f65e0e14af3b7cc5786ea40b0d34b4"
+    },
+    {
+      "path": ".claude/skills/vercel-react-native-skills/rules/list-performance-inline-objects.md",
+      "repository": "vercel-labs/agent-skills",
+      "source_path": "skills/react-native-skills/rules/list-performance-inline-objects.md",
+      "source_commit": "063bee94c3f4df8453406c830b0a7df0f2860278",
+      "source_blob": "d5b6514a6658917468399803b16cb61b17459af7"
+    },
+    {
+      "path": ".claude/skills/vercel-react-native-skills/rules/list-performance-item-expensive.md",
+      "repository": "vercel-labs/agent-skills",
+      "source_path": "skills/react-native-skills/rules/list-performance-item-expensive.md",
+      "source_commit": "063bee94c3f4df8453406c830b0a7df0f2860278",
+      "source_blob": "f617a76d4e525cde99b937a8e0e163dfe0ef52b0"
+    },
+    {
+      "path": ".claude/skills/vercel-react-native-skills/rules/list-performance-item-memo.md",
+      "repository": "vercel-labs/agent-skills",
+      "source_path": "skills/react-native-skills/rules/list-performance-item-memo.md",
+      "source_commit": "063bee94c3f4df8453406c830b0a7df0f2860278",
+      "source_blob": "634935e8ed0e6bd10014450c91b8a97187cbeda1"
+    },
+    {
+      "path": ".claude/skills/vercel-react-native-skills/rules/list-performance-item-types.md",
+      "repository": "vercel-labs/agent-skills",
+      "source_path": "skills/react-native-skills/rules/list-performance-item-types.md",
+      "source_commit": "063bee94c3f4df8453406c830b0a7df0f2860278",
+      "source_blob": "1027e4e6cd982476271d12507c329653ec793484"
+    },
+    {
+      "path": ".claude/skills/vercel-react-native-skills/rules/list-performance-virtualize.md",
+      "repository": "vercel-labs/agent-skills",
+      "source_path": "skills/react-native-skills/rules/list-performance-virtualize.md",
+      "source_commit": "063bee94c3f4df8453406c830b0a7df0f2860278",
+      "source_blob": "8a393ba1eef972f72a00a67c6b0a23c09c688639"
+    },
+    {
+      "path": ".claude/skills/vercel-react-native-skills/rules/monorepo-native-deps-in-app.md",
+      "repository": "vercel-labs/agent-skills",
+      "source_path": "skills/react-native-skills/rules/monorepo-native-deps-in-app.md",
+      "source_commit": "063bee94c3f4df8453406c830b0a7df0f2860278",
+      "source_blob": "ff85d76735d89e4cdfa89afd75759020780c5d5f"
+    },
+    {
+      "path": ".claude/skills/vercel-react-native-skills/rules/monorepo-single-dependency-versions.md",
+      "repository": "vercel-labs/agent-skills",
+      "source_path": "skills/react-native-skills/rules/monorepo-single-dependency-versions.md",
+      "source_commit": "063bee94c3f4df8453406c830b0a7df0f2860278",
+      "source_blob": "1087dfa511e9837f14b71f49d1c3d2018d6cfdc1"
+    },
+    {
+      "path": ".claude/skills/vercel-react-native-skills/rules/navigation-native-navigators.md",
+      "repository": "vercel-labs/agent-skills",
+      "source_path": "skills/react-native-skills/rules/navigation-native-navigators.md",
+      "source_commit": "063bee94c3f4df8453406c830b0a7df0f2860278",
+      "source_blob": "035c5fd37ce16afc0613405bd1f0b8ad0cc8b1ce"
+    },
+    {
+      "path": ".claude/skills/vercel-react-native-skills/rules/react-compiler-destructure-functions.md",
+      "repository": "vercel-labs/agent-skills",
+      "source_path": "skills/react-native-skills/rules/react-compiler-destructure-functions.md",
+      "source_commit": "063bee94c3f4df8453406c830b0a7df0f2860278",
+      "source_blob": "f76c25ac6f8c48c8436f0ccee1359a649a33b48f"
+    },
+    {
+      "path": ".claude/skills/vercel-react-native-skills/rules/react-compiler-reanimated-shared-values.md",
+      "repository": "vercel-labs/agent-skills",
+      "source_path": "skills/react-native-skills/rules/react-compiler-reanimated-shared-values.md",
+      "source_commit": "063bee94c3f4df8453406c830b0a7df0f2860278",
+      "source_blob": "0dcbaf47a6abeb72da8673f99b45d2e8b609412b"
+    },
+    {
+      "path": ".claude/skills/vercel-react-native-skills/rules/react-state-dispatcher.md",
+      "repository": "vercel-labs/agent-skills",
+      "source_path": "skills/react-native-skills/rules/react-state-dispatcher.md",
+      "source_commit": "063bee94c3f4df8453406c830b0a7df0f2860278",
+      "source_blob": "93e8b6db6112936ad57e6506f56eeef0725336c1"
+    },
+    {
+      "path": ".claude/skills/vercel-react-native-skills/rules/react-state-fallback.md",
+      "repository": "vercel-labs/agent-skills",
+      "source_path": "skills/react-native-skills/rules/react-state-fallback.md",
+      "source_commit": "063bee94c3f4df8453406c830b0a7df0f2860278",
+      "source_blob": "204f34665f206a734cb2d0de17a7179f3793dc89"
+    },
+    {
+      "path": ".claude/skills/vercel-react-native-skills/rules/react-state-minimize.md",
+      "repository": "vercel-labs/agent-skills",
+      "source_path": "skills/react-native-skills/rules/react-state-minimize.md",
+      "source_commit": "063bee94c3f4df8453406c830b0a7df0f2860278",
+      "source_blob": "64605b6c382e407f244d2db8b72bb3105ebae87b"
+    },
+    {
+      "path": ".claude/skills/vercel-react-native-skills/rules/rendering-no-falsy-and.md",
+      "repository": "vercel-labs/agent-skills",
+      "source_path": "skills/react-native-skills/rules/rendering-no-falsy-and.md",
+      "source_commit": "063bee94c3f4df8453406c830b0a7df0f2860278",
+      "source_blob": "30f05d3f8bea95379273799a21f0a1990a6e6511"
+    },
+    {
+      "path": ".claude/skills/vercel-react-native-skills/rules/rendering-text-in-text-component.md",
+      "repository": "vercel-labs/agent-skills",
+      "source_path": "skills/react-native-skills/rules/rendering-text-in-text-component.md",
+      "source_commit": "063bee94c3f4df8453406c830b0a7df0f2860278",
+      "source_blob": "fd1b9f407014c783f3e59a5f3e5bf72979d62547"
+    },
+    {
+      "path": ".claude/skills/vercel-react-native-skills/rules/scroll-position-no-state.md",
+      "repository": "vercel-labs/agent-skills",
+      "source_path": "skills/react-native-skills/rules/scroll-position-no-state.md",
+      "source_commit": "063bee94c3f4df8453406c830b0a7df0f2860278",
+      "source_blob": "a5760cd2892a9985aeeed93abf719be5dc4efa88"
+    },
+    {
+      "path": ".claude/skills/vercel-react-native-skills/rules/state-ground-truth.md",
+      "repository": "vercel-labs/agent-skills",
+      "source_path": "skills/react-native-skills/rules/state-ground-truth.md",
+      "source_commit": "063bee94c3f4df8453406c830b0a7df0f2860278",
+      "source_blob": "c3c4bd9e497bcec63c303ec1cf2d0ff34e5a39cb"
+    },
+    {
+      "path": ".claude/skills/vercel-react-native-skills/rules/ui-expo-image.md",
+      "repository": "vercel-labs/agent-skills",
+      "source_path": "skills/react-native-skills/rules/ui-expo-image.md",
+      "source_commit": "063bee94c3f4df8453406c830b0a7df0f2860278",
+      "source_blob": "72d768f1bf89d998e93611724e3608f48eb6b3a1"
+    },
+    {
+      "path": ".claude/skills/vercel-react-native-skills/rules/ui-image-gallery.md",
+      "repository": "vercel-labs/agent-skills",
+      "source_path": "skills/react-native-skills/rules/ui-image-gallery.md",
+      "source_commit": "063bee94c3f4df8453406c830b0a7df0f2860278",
+      "source_blob": "ef26d962f376c8c3fe052d578e143932fdd96a58"
+    },
+    {
+      "path": ".claude/skills/vercel-react-native-skills/rules/ui-measure-views.md",
+      "repository": "vercel-labs/agent-skills",
+      "source_path": "skills/react-native-skills/rules/ui-measure-views.md",
+      "source_commit": "063bee94c3f4df8453406c830b0a7df0f2860278",
+      "source_blob": "8b783fee314ec7a4152cf49e0febcbdd78411e2c"
+    },
+    {
+      "path": ".claude/skills/vercel-react-native-skills/rules/ui-menus.md",
+      "repository": "vercel-labs/agent-skills",
+      "source_path": "skills/react-native-skills/rules/ui-menus.md",
+      "source_commit": "063bee94c3f4df8453406c830b0a7df0f2860278",
+      "source_blob": "5168bc2037ca1fd1e1312abd4a2b77fec8eb5264"
+    },
+    {
+      "path": ".claude/skills/vercel-react-native-skills/rules/ui-native-modals.md",
+      "repository": "vercel-labs/agent-skills",
+      "source_path": "skills/react-native-skills/rules/ui-native-modals.md",
+      "source_commit": "063bee94c3f4df8453406c830b0a7df0f2860278",
+      "source_blob": "f560e11e12e703a46517ff87d371a43e56230a81"
+    },
+    {
+      "path": ".claude/skills/vercel-react-native-skills/rules/ui-pressable.md",
+      "repository": "vercel-labs/agent-skills",
+      "source_path": "skills/react-native-skills/rules/ui-pressable.md",
+      "source_commit": "063bee94c3f4df8453406c830b0a7df0f2860278",
+      "source_blob": "31c3d204274292e244466bae9f425064263ae80a"
+    },
+    {
+      "path": ".claude/skills/vercel-react-native-skills/rules/ui-safe-area-scroll.md",
+      "repository": "vercel-labs/agent-skills",
+      "source_path": "skills/react-native-skills/rules/ui-safe-area-scroll.md",
+      "source_commit": "063bee94c3f4df8453406c830b0a7df0f2860278",
+      "source_blob": "79812bc9ce35eaad4c965103d0d87b7230084ca8"
+    },
+    {
+      "path": ".claude/skills/vercel-react-native-skills/rules/ui-scrollview-content-inset.md",
+      "repository": "vercel-labs/agent-skills",
+      "source_path": "skills/react-native-skills/rules/ui-scrollview-content-inset.md",
+      "source_commit": "063bee94c3f4df8453406c830b0a7df0f2860278",
+      "source_blob": "bbebc3b81c22ded13447efe5876c8c3408b4eb02"
+    },
+    {
+      "path": ".claude/skills/vercel-react-native-skills/rules/ui-styling.md",
+      "repository": "vercel-labs/agent-skills",
+      "source_path": "skills/react-native-skills/rules/ui-styling.md",
+      "source_commit": "063bee94c3f4df8453406c830b0a7df0f2860278",
+      "source_blob": "3908de3c4bbd03ce2f024917a2d82f9c03517100"
+    },
+    {
+      "path": ".claude/skills/webapp-testing/LICENSE.txt",
+      "repository": "anthropics/skills",
+      "source_path": "skills/webapp-testing/LICENSE.txt",
+      "source_commit": "dbd4588f9e1033efb41dad4bef2f7947c8993d44",
+      "source_blob": "4f881c52d1f72f4cfb720e339e2d35c3058d01a9"
+    },
+    {
+      "path": ".claude/skills/webapp-testing/SKILL.md",
+      "repository": "anthropics/skills",
+      "source_path": "skills/webapp-testing/SKILL.md",
+      "source_commit": "dbd4588f9e1033efb41dad4bef2f7947c8993d44",
+      "source_blob": "4726215301db64a0cc4d41fc3219c61f37a30f4a"
+    },
+    {
+      "path": ".claude/skills/webapp-testing/examples/console_logging.py",
+      "repository": "anthropics/skills",
+      "source_path": "skills/webapp-testing/examples/console_logging.py",
+      "source_commit": "dbd4588f9e1033efb41dad4bef2f7947c8993d44",
+      "source_blob": "9329b5e232ed53d944bfe95e750070117d31b9ab"
+    },
+    {
+      "path": ".claude/skills/webapp-testing/examples/element_discovery.py",
+      "repository": "anthropics/skills",
+      "source_path": "skills/webapp-testing/examples/element_discovery.py",
+      "source_commit": "dbd4588f9e1033efb41dad4bef2f7947c8993d44",
+      "source_blob": "917ba72f52421a1b324f93ae8e38af72010a87b9"
+    },
+    {
+      "path": ".claude/skills/webapp-testing/examples/static_html_automation.py",
+      "repository": "anthropics/skills",
+      "source_path": "skills/webapp-testing/examples/static_html_automation.py",
+      "source_commit": "dbd4588f9e1033efb41dad4bef2f7947c8993d44",
+      "source_blob": "90bbedcc08cdb345c74fb938ebad02c0baf56603"
+    },
+    {
+      "path": ".claude/skills/webapp-testing/scripts/with_server.py",
+      "repository": "anthropics/skills",
+      "source_path": "skills/webapp-testing/scripts/with_server.py",
+      "source_commit": "dbd4588f9e1033efb41dad4bef2f7947c8993d44",
+      "source_blob": "431f2eba16b268b7f3e2ae4daae9db41c0289b6d"
+    },
+    {
+      "path": ".claude/skills/security-review/SKILL.md",
+      "repository": "github/awesome-copilot",
+      "source_path": "skills/security-review/SKILL.md",
+      "source_commit": "bebb02d4c3c845b9c4cef398568a1084e4129e57",
+      "source_blob": "5281fa2f537eadca9e078a770ae129e81b759179"
+    },
+    {
+      "path": ".claude/skills/security-review/references/language-patterns.md",
+      "repository": "github/awesome-copilot",
+      "source_path": "skills/security-review/references/language-patterns.md",
+      "source_commit": "bebb02d4c3c845b9c4cef398568a1084e4129e57",
+      "source_blob": "d6af534a2cb44ce6cd206b81f9b4a6a9e8f2b0c3"
+    },
+    {
+      "path": ".claude/skills/security-review/references/report-format.md",
+      "repository": "github/awesome-copilot",
+      "source_path": "skills/security-review/references/report-format.md",
+      "source_commit": "bebb02d4c3c845b9c4cef398568a1084e4129e57",
+      "source_blob": "55fe571706acb2a92fb7bb974a9ccf45b84ec491"
+    },
+    {
+      "path": ".claude/skills/security-review/references/secret-patterns.md",
+      "repository": "github/awesome-copilot",
+      "source_path": "skills/security-review/references/secret-patterns.md",
+      "source_commit": "bebb02d4c3c845b9c4cef398568a1084e4129e57",
+      "source_blob": "06d2423facda1e31fb5bacf9e4eeb3e4a63fc520"
+    },
+    {
+      "path": ".claude/skills/security-review/references/vuln-categories.md",
+      "repository": "github/awesome-copilot",
+      "source_path": "skills/security-review/references/vuln-categories.md",
+      "source_commit": "bebb02d4c3c845b9c4cef398568a1084e4129e57",
+      "source_blob": "9ae764bc84c9eea0e00ea60b6e9f9aa43ebe0b9c"
+    },
+    {
+      "path": ".claude/skills/security-review/references/vulnerable-packages.md",
+      "repository": "github/awesome-copilot",
+      "source_path": "skills/security-review/references/vulnerable-packages.md",
+      "source_commit": "bebb02d4c3c845b9c4cef398568a1084e4129e57",
+      "source_blob": "f49fe3fb107a464cac04c0d154fab5023ab148af"
+    },
+    {
+      "path": ".claude/skills/security-review/LICENSE",
+      "repository": "github/awesome-copilot",
+      "source_path": "LICENSE",
+      "source_commit": "bebb02d4c3c845b9c4cef398568a1084e4129e57",
+      "source_blob": null
+    },
+    {
+      "path": ".claude/skills/swiftui-expert-skill/SKILL.md",
+      "repository": "AvdLee/SwiftUI-Agent-Skill",
+      "source_path": "skills/swiftui-expert-skill/SKILL.md",
+      "source_commit": "204dba7c67256a8b707ee3fbc5759a824191974f",
+      "source_blob": "534cf9adbd98a421ed85ea081373a370699bc2da"
+    },
+    {
+      "path": ".claude/skills/swiftui-expert-skill/agents/openai.yaml",
+      "repository": "AvdLee/SwiftUI-Agent-Skill",
+      "source_path": "skills/swiftui-expert-skill/agents/openai.yaml",
+      "source_commit": "204dba7c67256a8b707ee3fbc5759a824191974f",
+      "source_blob": "dc0a5c53ce2718b681456d4499e46b27b9c24c60"
+    },
+    {
+      "path": ".claude/skills/swiftui-expert-skill/assets/logo.svg",
+      "repository": "AvdLee/SwiftUI-Agent-Skill",
+      "source_path": "skills/swiftui-expert-skill/assets/logo.svg",
+      "source_commit": "204dba7c67256a8b707ee3fbc5759a824191974f",
+      "source_blob": "34126506623cf59f7ed92d44d42408f12b7c9ce5"
+    },
+    {
+      "path": ".claude/skills/swiftui-expert-skill/references/accessibility-patterns.md",
+      "repository": "AvdLee/SwiftUI-Agent-Skill",
+      "source_path": "skills/swiftui-expert-skill/references/accessibility-patterns.md",
+      "source_commit": "204dba7c67256a8b707ee3fbc5759a824191974f",
+      "source_blob": "6f0ea0c1275696c5fbddccbf1d7a07b13ee03dbf"
+    },
+    {
+      "path": ".claude/skills/swiftui-expert-skill/references/animation-advanced.md",
+      "repository": "AvdLee/SwiftUI-Agent-Skill",
+      "source_path": "skills/swiftui-expert-skill/references/animation-advanced.md",
+      "source_commit": "204dba7c67256a8b707ee3fbc5759a824191974f",
+      "source_blob": "94256396380d90a6f6eb821bef6faca6d5130a19"
+    },
+    {
+      "path": ".claude/skills/swiftui-expert-skill/references/animation-basics.md",
+      "repository": "AvdLee/SwiftUI-Agent-Skill",
+      "source_path": "skills/swiftui-expert-skill/references/animation-basics.md",
+      "source_commit": "204dba7c67256a8b707ee3fbc5759a824191974f",
+      "source_blob": "859682a9106895d725c065c6cd8454418694813e"
+    },
+    {
+      "path": ".claude/skills/swiftui-expert-skill/references/animation-transitions.md",
+      "repository": "AvdLee/SwiftUI-Agent-Skill",
+      "source_path": "skills/swiftui-expert-skill/references/animation-transitions.md",
+      "source_commit": "204dba7c67256a8b707ee3fbc5759a824191974f",
+      "source_blob": "e522466199b6f9cf8921fa46ca535579635bdd33"
+    },
+    {
+      "path": ".claude/skills/swiftui-expert-skill/references/charts-accessibility.md",
+      "repository": "AvdLee/SwiftUI-Agent-Skill",
+      "source_path": "skills/swiftui-expert-skill/references/charts-accessibility.md",
+      "source_commit": "204dba7c67256a8b707ee3fbc5759a824191974f",
+      "source_blob": "a0f4cd6547a071a12b5590f9039e9705fbf44144"
+    },
+    {
+      "path": ".claude/skills/swiftui-expert-skill/references/charts.md",
+      "repository": "AvdLee/SwiftUI-Agent-Skill",
+      "source_path": "skills/swiftui-expert-skill/references/charts.md",
+      "source_commit": "204dba7c67256a8b707ee3fbc5759a824191974f",
+      "source_blob": "014adcf19b9cb8e22a3d655f77d486aca1512a9a"
+    },
+    {
+      "path": ".claude/skills/swiftui-expert-skill/references/document-apps.md",
+      "repository": "AvdLee/SwiftUI-Agent-Skill",
+      "source_path": "skills/swiftui-expert-skill/references/document-apps.md",
+      "source_commit": "204dba7c67256a8b707ee3fbc5759a824191974f",
+      "source_blob": "5e7bd695652f90a7e1fa5db015803aba5edba56a"
+    },
+    {
+      "path": ".claude/skills/swiftui-expert-skill/references/environment-patterns.md",
+      "repository": "AvdLee/SwiftUI-Agent-Skill",
+      "source_path": "skills/swiftui-expert-skill/references/environment-patterns.md",
+      "source_commit": "204dba7c67256a8b707ee3fbc5759a824191974f",
+      "source_blob": "85e2e2b4e2dd4412ad4eea45dacbd69c8516eb2d"
+    },
+    {
+      "path": ".claude/skills/swiftui-expert-skill/references/focus-patterns.md",
+      "repository": "AvdLee/SwiftUI-Agent-Skill",
+      "source_path": "skills/swiftui-expert-skill/references/focus-patterns.md",
+      "source_commit": "204dba7c67256a8b707ee3fbc5759a824191974f",
+      "source_blob": "74b3d010e0b879c4c9d8aada4ea0c60cc6335824"
+    },
+    {
+      "path": ".claude/skills/swiftui-expert-skill/references/image-optimization.md",
+      "repository": "AvdLee/SwiftUI-Agent-Skill",
+      "source_path": "skills/swiftui-expert-skill/references/image-optimization.md",
+      "source_commit": "204dba7c67256a8b707ee3fbc5759a824191974f",
+      "source_blob": "73d6c14e7f2795a7dd5706519318a6ac159a5f28"
+    },
+    {
+      "path": ".claude/skills/swiftui-expert-skill/references/iphone-duo.md",
+      "repository": "AvdLee/SwiftUI-Agent-Skill",
+      "source_path": "skills/swiftui-expert-skill/references/iphone-duo.md",
+      "source_commit": "204dba7c67256a8b707ee3fbc5759a824191974f",
+      "source_blob": "6b4187145f91b24ee2e11c4e432c8ebefd9fc53d"
+    },
+    {
+      "path": ".claude/skills/swiftui-expert-skill/references/latest-apis.md",
+      "repository": "AvdLee/SwiftUI-Agent-Skill",
+      "source_path": "skills/swiftui-expert-skill/references/latest-apis.md",
+      "source_commit": "204dba7c67256a8b707ee3fbc5759a824191974f",
+      "source_blob": "1f5b1d5594d3e5a51af2b38121fdb794fa25d08f"
+    },
+    {
+      "path": ".claude/skills/swiftui-expert-skill/references/layout-best-practices.md",
+      "repository": "AvdLee/SwiftUI-Agent-Skill",
+      "source_path": "skills/swiftui-expert-skill/references/layout-best-practices.md",
+      "source_commit": "204dba7c67256a8b707ee3fbc5759a824191974f",
+      "source_blob": "7045f41e8c3ea4878f3b6f5d38f23315c0fab27a"
+    },
+    {
+      "path": ".claude/skills/swiftui-expert-skill/references/liquid-glass.md",
+      "repository": "AvdLee/SwiftUI-Agent-Skill",
+      "source_path": "skills/swiftui-expert-skill/references/liquid-glass.md",
+      "source_commit": "204dba7c67256a8b707ee3fbc5759a824191974f",
+      "source_blob": "f570bc4ab89f089ffe0a0efe6fd90876f5383aee"
+    },
+    {
+      "path": ".claude/skills/swiftui-expert-skill/references/list-patterns.md",
+      "repository": "AvdLee/SwiftUI-Agent-Skill",
+      "source_path": "skills/swiftui-expert-skill/references/list-patterns.md",
+      "source_commit": "204dba7c67256a8b707ee3fbc5759a824191974f",
+      "source_blob": "e0fd28983c5f45f30f9d9319e189fc5b11441c3d"
+    },
+    {
+      "path": ".claude/skills/swiftui-expert-skill/references/localization.md",
+      "repository": "AvdLee/SwiftUI-Agent-Skill",
+      "source_path": "skills/swiftui-expert-skill/references/localization.md",
+      "source_commit": "204dba7c67256a8b707ee3fbc5759a824191974f",
+      "source_blob": "c2f7750d1576d54c834c2eb61a402d7cc2abba4d"
+    },
+    {
+      "path": ".claude/skills/swiftui-expert-skill/references/macos-scenes.md",
+      "repository": "AvdLee/SwiftUI-Agent-Skill",
+      "source_path": "skills/swiftui-expert-skill/references/macos-scenes.md",
+      "source_commit": "204dba7c67256a8b707ee3fbc5759a824191974f",
+      "source_blob": "f6cef4802c03cb10fa6562c6274aa70fbd14e5f3"
+    },
+    {
+      "path": ".claude/skills/swiftui-expert-skill/references/macos-views.md",
+      "repository": "AvdLee/SwiftUI-Agent-Skill",
+      "source_path": "skills/swiftui-expert-skill/references/macos-views.md",
+      "source_commit": "204dba7c67256a8b707ee3fbc5759a824191974f",
+      "source_blob": "ff5335d7b1cfcced0e1621fd272b74df65c2c29e"
+    },
+    {
+      "path": ".claude/skills/swiftui-expert-skill/references/macos-window-styling.md",
+      "repository": "AvdLee/SwiftUI-Agent-Skill",
+      "source_path": "skills/swiftui-expert-skill/references/macos-window-styling.md",
+      "source_commit": "204dba7c67256a8b707ee3fbc5759a824191974f",
+      "source_blob": "40825d9b57c36054be44d39b5306ba4acf5fbd13"
+    },
+    {
+      "path": ".claude/skills/swiftui-expert-skill/references/modifier-patterns.md",
+      "repository": "AvdLee/SwiftUI-Agent-Skill",
+      "source_path": "skills/swiftui-expert-skill/references/modifier-patterns.md",
+      "source_commit": "204dba7c67256a8b707ee3fbc5759a824191974f",
+      "source_blob": "03a8d24cac64640855a8a8d8c93ca3f46230640d"
+    },
+    {
+      "path": ".claude/skills/swiftui-expert-skill/references/performance-patterns.md",
+      "repository": "AvdLee/SwiftUI-Agent-Skill",
+      "source_path": "skills/swiftui-expert-skill/references/performance-patterns.md",
+      "source_commit": "204dba7c67256a8b707ee3fbc5759a824191974f",
+      "source_blob": "b62c68c2f758e83b5f14074f203d99bf8f073702"
+    },
+    {
+      "path": ".claude/skills/swiftui-expert-skill/references/previews.md",
+      "repository": "AvdLee/SwiftUI-Agent-Skill",
+      "source_path": "skills/swiftui-expert-skill/references/previews.md",
+      "source_commit": "204dba7c67256a8b707ee3fbc5759a824191974f",
+      "source_blob": "6e19d2bf2fb3272669f4992680a88b18dff2178a"
+    },
+    {
+      "path": ".claude/skills/swiftui-expert-skill/references/scroll-patterns.md",
+      "repository": "AvdLee/SwiftUI-Agent-Skill",
+      "source_path": "skills/swiftui-expert-skill/references/scroll-patterns.md",
+      "source_commit": "204dba7c67256a8b707ee3fbc5759a824191974f",
+      "source_blob": "6827d55684a7063c634e1fd701216f813277a933"
+    },
+    {
+      "path": ".claude/skills/swiftui-expert-skill/references/sheet-navigation-patterns.md",
+      "repository": "AvdLee/SwiftUI-Agent-Skill",
+      "source_path": "skills/swiftui-expert-skill/references/sheet-navigation-patterns.md",
+      "source_commit": "204dba7c67256a8b707ee3fbc5759a824191974f",
+      "source_blob": "d09845a0228f61728436a7bb1ba80ceaa5fd0e7e"
+    },
+    {
+      "path": ".claude/skills/swiftui-expert-skill/references/soft-deprecation.md",
+      "repository": "AvdLee/SwiftUI-Agent-Skill",
+      "source_path": "skills/swiftui-expert-skill/references/soft-deprecation.md",
+      "source_commit": "204dba7c67256a8b707ee3fbc5759a824191974f",
+      "source_blob": "355f1ce6d721b0dac17fb20f11aaeeced319cc8e"
+    },
+    {
+      "path": ".claude/skills/swiftui-expert-skill/references/state-management.md",
+      "repository": "AvdLee/SwiftUI-Agent-Skill",
+      "source_path": "skills/swiftui-expert-skill/references/state-management.md",
+      "source_commit": "204dba7c67256a8b707ee3fbc5759a824191974f",
+      "source_blob": "7a8b35722ffa57192bdd9ef0ccd4f841854ef896"
+    },
+    {
+      "path": ".claude/skills/swiftui-expert-skill/references/styled-text-editing.md",
+      "repository": "AvdLee/SwiftUI-Agent-Skill",
+      "source_path": "skills/swiftui-expert-skill/references/styled-text-editing.md",
+      "source_commit": "204dba7c67256a8b707ee3fbc5759a824191974f",
+      "source_blob": "09f083d28b5631f08270f3f5b57d04eb21d1746b"
+    },
+    {
+      "path": ".claude/skills/swiftui-expert-skill/references/text-patterns.md",
+      "repository": "AvdLee/SwiftUI-Agent-Skill",
+      "source_path": "skills/swiftui-expert-skill/references/text-patterns.md",
+      "source_commit": "204dba7c67256a8b707ee3fbc5759a824191974f",
+      "source_blob": "351097f950f4de968e4ce7bd7472dbe15da0d20a"
+    },
+    {
+      "path": ".claude/skills/swiftui-expert-skill/references/toolbar-patterns.md",
+      "repository": "AvdLee/SwiftUI-Agent-Skill",
+      "source_path": "skills/swiftui-expert-skill/references/toolbar-patterns.md",
+      "source_commit": "204dba7c67256a8b707ee3fbc5759a824191974f",
+      "source_blob": "c7586aee7c5d936170c9571149598e1266a23973"
+    },
+    {
+      "path": ".claude/skills/swiftui-expert-skill/references/trace-analysis.md",
+      "repository": "AvdLee/SwiftUI-Agent-Skill",
+      "source_path": "skills/swiftui-expert-skill/references/trace-analysis.md",
+      "source_commit": "204dba7c67256a8b707ee3fbc5759a824191974f",
+      "source_blob": "98f279f6fb14d619637e8aa396ad5f0d2a8e21fd"
+    },
+    {
+      "path": ".claude/skills/swiftui-expert-skill/references/trace-recording.md",
+      "repository": "AvdLee/SwiftUI-Agent-Skill",
+      "source_path": "skills/swiftui-expert-skill/references/trace-recording.md",
+      "source_commit": "204dba7c67256a8b707ee3fbc5759a824191974f",
+      "source_blob": "fcfdd1d9b9fa8013a08127ec1642a2c758510cfe"
+    },
+    {
+      "path": ".claude/skills/swiftui-expert-skill/references/view-structure.md",
+      "repository": "AvdLee/SwiftUI-Agent-Skill",
+      "source_path": "skills/swiftui-expert-skill/references/view-structure.md",
+      "source_commit": "204dba7c67256a8b707ee3fbc5759a824191974f",
+      "source_blob": "6b60fc53aa65a1d68af0012c9883bfe3538a8614"
+    },
+    {
+      "path": ".claude/skills/swiftui-expert-skill/references/webkit-integration.md",
+      "repository": "AvdLee/SwiftUI-Agent-Skill",
+      "source_path": "skills/swiftui-expert-skill/references/webkit-integration.md",
+      "source_commit": "204dba7c67256a8b707ee3fbc5759a824191974f",
+      "source_blob": "c2a79841047d37f1ac1a55d57db6e4170be5eadb"
+    },
+    {
+      "path": ".claude/skills/swiftui-expert-skill/scripts/analyze_trace.py",
+      "repository": "AvdLee/SwiftUI-Agent-Skill",
+      "source_path": "skills/swiftui-expert-skill/scripts/analyze_trace.py",
+      "source_commit": "204dba7c67256a8b707ee3fbc5759a824191974f",
+      "source_blob": "250dbfdfb262f09301d097b597be3c92c5b6dc6e"
+    },
+    {
+      "path": ".claude/skills/swiftui-expert-skill/scripts/instruments_parser/__init__.py",
+      "repository": "AvdLee/SwiftUI-Agent-Skill",
+      "source_path": "skills/swiftui-expert-skill/scripts/instruments_parser/__init__.py",
+      "source_commit": "204dba7c67256a8b707ee3fbc5759a824191974f",
+      "source_blob": "e15975bd89069b689ec4a85a647824463e9b4c83"
+    },
+    {
+      "path": ".claude/skills/swiftui-expert-skill/scripts/instruments_parser/causes.py",
+      "repository": "AvdLee/SwiftUI-Agent-Skill",
+      "source_path": "skills/swiftui-expert-skill/scripts/instruments_parser/causes.py",
+      "source_commit": "204dba7c67256a8b707ee3fbc5759a824191974f",
+      "source_blob": "1148b42ec6d669851e7c77f036840b7ea69f0d64"
+    },
+    {
+      "path": ".claude/skills/swiftui-expert-skill/scripts/instruments_parser/correlate.py",
+      "repository": "AvdLee/SwiftUI-Agent-Skill",
+      "source_path": "skills/swiftui-expert-skill/scripts/instruments_parser/correlate.py",
+      "source_commit": "204dba7c67256a8b707ee3fbc5759a824191974f",
+      "source_blob": "e29b8dea4d68d380a04a6fa1db5dbba8f430e623"
+    },
+    {
+      "path": ".claude/skills/swiftui-expert-skill/scripts/instruments_parser/events.py",
+      "repository": "AvdLee/SwiftUI-Agent-Skill",
+      "source_path": "skills/swiftui-expert-skill/scripts/instruments_parser/events.py",
+      "source_commit": "204dba7c67256a8b707ee3fbc5759a824191974f",
+      "source_blob": "6ea8028ef5be48a478d1dff7b3b308ee27b89b5a"
+    },
+    {
+      "path": ".claude/skills/swiftui-expert-skill/scripts/instruments_parser/hangs.py",
+      "repository": "AvdLee/SwiftUI-Agent-Skill",
+      "source_path": "skills/swiftui-expert-skill/scripts/instruments_parser/hangs.py",
+      "source_commit": "204dba7c67256a8b707ee3fbc5759a824191974f",
+      "source_blob": "8cfc75c3c7f962fbe29c77794151e512154942b3"
+    },
+    {
+      "path": ".claude/skills/swiftui-expert-skill/scripts/instruments_parser/hitches.py",
+      "repository": "AvdLee/SwiftUI-Agent-Skill",
+      "source_path": "skills/swiftui-expert-skill/scripts/instruments_parser/hitches.py",
+      "source_commit": "204dba7c67256a8b707ee3fbc5759a824191974f",
+      "source_blob": "a1e769d2a6abc12cc17319288c5b3af28a0f7f3f"
+    },
+    {
+      "path": ".claude/skills/swiftui-expert-skill/scripts/instruments_parser/summary.py",
+      "repository": "AvdLee/SwiftUI-Agent-Skill",
+      "source_path": "skills/swiftui-expert-skill/scripts/instruments_parser/summary.py",
+      "source_commit": "204dba7c67256a8b707ee3fbc5759a824191974f",
+      "source_blob": "5927db72f0710e1b86d8160fde47bcb3ba0c7f88"
+    },
+    {
+      "path": ".claude/skills/swiftui-expert-skill/scripts/instruments_parser/swiftui.py",
+      "repository": "AvdLee/SwiftUI-Agent-Skill",
+      "source_path": "skills/swiftui-expert-skill/scripts/instruments_parser/swiftui.py",
+      "source_commit": "204dba7c67256a8b707ee3fbc5759a824191974f",
+      "source_blob": "9c359dde0ec5f3f55c5f7c8405c7fe4cede74dff"
+    },
+    {
+      "path": ".claude/skills/swiftui-expert-skill/scripts/instruments_parser/time_profiler.py",
+      "repository": "AvdLee/SwiftUI-Agent-Skill",
+      "source_path": "skills/swiftui-expert-skill/scripts/instruments_parser/time_profiler.py",
+      "source_commit": "204dba7c67256a8b707ee3fbc5759a824191974f",
+      "source_blob": "720590670c18321dd1e4e3c71d470e411fe3bc93"
+    },
+    {
+      "path": ".claude/skills/swiftui-expert-skill/scripts/instruments_parser/xctrace.py",
+      "repository": "AvdLee/SwiftUI-Agent-Skill",
+      "source_path": "skills/swiftui-expert-skill/scripts/instruments_parser/xctrace.py",
+      "source_commit": "204dba7c67256a8b707ee3fbc5759a824191974f",
+      "source_blob": "768839b46ddf26d10a1ceadb509319f5cadac151"
+    },
+    {
+      "path": ".claude/skills/swiftui-expert-skill/scripts/instruments_parser/xml_utils.py",
+      "repository": "AvdLee/SwiftUI-Agent-Skill",
+      "source_path": "skills/swiftui-expert-skill/scripts/instruments_parser/xml_utils.py",
+      "source_commit": "204dba7c67256a8b707ee3fbc5759a824191974f",
+      "source_blob": "e18acf0b2416183cdac55edad3f2ad27e1083932"
+    },
+    {
+      "path": ".claude/skills/swiftui-expert-skill/scripts/record_trace.py",
+      "repository": "AvdLee/SwiftUI-Agent-Skill",
+      "source_path": "skills/swiftui-expert-skill/scripts/record_trace.py",
+      "source_commit": "204dba7c67256a8b707ee3fbc5759a824191974f",
+      "source_blob": "16cd69d75c07bde86d16dfc321c723038bcb43ce"
+    },
+    {
+      "path": ".claude/skills/swiftui-expert-skill/LICENSE",
+      "repository": "AvdLee/SwiftUI-Agent-Skill",
+      "source_path": "LICENSE",
+      "source_commit": "204dba7c67256a8b707ee3fbc5759a824191974f",
+      "source_blob": null
+    },
+    {
+      "path": ".claude/skills/swift-testing-expert/SKILL.md",
+      "repository": "AvdLee/Swift-Testing-Agent-Skill",
+      "source_path": "swift-testing-expert/SKILL.md",
+      "source_commit": "798e9b1a2bcac164d4f0c781908199e754f0bab6",
+      "source_blob": "a5c7d8cf59ee6ba5f13ffaef951127a94cb17bd1"
+    },
+    {
+      "path": ".claude/skills/swift-testing-expert/references/_index.md",
+      "repository": "AvdLee/Swift-Testing-Agent-Skill",
+      "source_path": "swift-testing-expert/references/_index.md",
+      "source_commit": "798e9b1a2bcac164d4f0c781908199e754f0bab6",
+      "source_blob": "8ef1d7fc0f5e4f2aabaafcffa6e1e4cf918733ae"
+    },
+    {
+      "path": ".claude/skills/swift-testing-expert/references/async-testing-and-waiting.md",
+      "repository": "AvdLee/Swift-Testing-Agent-Skill",
+      "source_path": "swift-testing-expert/references/async-testing-and-waiting.md",
+      "source_commit": "798e9b1a2bcac164d4f0c781908199e754f0bab6",
+      "source_blob": "077399a0b5461ef08c678957eb075ac7982a678c"
+    },
+    {
+      "path": ".claude/skills/swift-testing-expert/references/expectations.md",
+      "repository": "AvdLee/Swift-Testing-Agent-Skill",
+      "source_path": "swift-testing-expert/references/expectations.md",
+      "source_commit": "798e9b1a2bcac164d4f0c781908199e754f0bab6",
+      "source_blob": "5227706f8edecc19406edb98bdf4cc1a1eedb8f5"
+    },
+    {
+      "path": ".claude/skills/swift-testing-expert/references/fundamentals.md",
+      "repository": "AvdLee/Swift-Testing-Agent-Skill",
+      "source_path": "swift-testing-expert/references/fundamentals.md",
+      "source_commit": "798e9b1a2bcac164d4f0c781908199e754f0bab6",
+      "source_blob": "f8fc55895ddbe7adb11424355b95a3a6a93e7ee4"
+    },
+    {
+      "path": ".claude/skills/swift-testing-expert/references/migration-from-xctest.md",
+      "repository": "AvdLee/Swift-Testing-Agent-Skill",
+      "source_path": "swift-testing-expert/references/migration-from-xctest.md",
+      "source_commit": "798e9b1a2bcac164d4f0c781908199e754f0bab6",
+      "source_blob": "d831f4eb2092965c89482a9149d1f8347f42d940"
+    },
+    {
+      "path": ".claude/skills/swift-testing-expert/references/parallelization-and-isolation.md",
+      "repository": "AvdLee/Swift-Testing-Agent-Skill",
+      "source_path": "swift-testing-expert/references/parallelization-and-isolation.md",
+      "source_commit": "798e9b1a2bcac164d4f0c781908199e754f0bab6",
+      "source_blob": "d25a39e149530b87709724c578467b2047d77969"
+    },
+    {
+      "path": ".claude/skills/swift-testing-expert/references/parameterized-testing.md",
+      "repository": "AvdLee/Swift-Testing-Agent-Skill",
+      "source_path": "swift-testing-expert/references/parameterized-testing.md",
+      "source_commit": "798e9b1a2bcac164d4f0c781908199e754f0bab6",
+      "source_blob": "4ac34fea171a8485af4d3604b49b8921a4f1ec3c"
+    },
+    {
+      "path": ".claude/skills/swift-testing-expert/references/performance-and-best-practices.md",
+      "repository": "AvdLee/Swift-Testing-Agent-Skill",
+      "source_path": "swift-testing-expert/references/performance-and-best-practices.md",
+      "source_commit": "798e9b1a2bcac164d4f0c781908199e754f0bab6",
+      "source_blob": "13c7fddb8e5a8fb4a6dd07c0f9c0d5bbaef3a658"
+    },
+    {
+      "path": ".claude/skills/swift-testing-expert/references/traits-and-tags.md",
+      "repository": "AvdLee/Swift-Testing-Agent-Skill",
+      "source_path": "swift-testing-expert/references/traits-and-tags.md",
+      "source_commit": "798e9b1a2bcac164d4f0c781908199e754f0bab6",
+      "source_blob": "5ab1eb8b7281ff4b802a286df49b51fc992c915a"
+    },
+    {
+      "path": ".claude/skills/swift-testing-expert/references/xcode-workflows.md",
+      "repository": "AvdLee/Swift-Testing-Agent-Skill",
+      "source_path": "swift-testing-expert/references/xcode-workflows.md",
+      "source_commit": "798e9b1a2bcac164d4f0c781908199e754f0bab6",
+      "source_blob": "fb5fe2018d616a29125dde2830a0ce8174a0474c"
+    },
+    {
+      "path": ".claude/skills/swift-testing-expert/LICENSE",
+      "repository": "AvdLee/Swift-Testing-Agent-Skill",
+      "source_path": "LICENSE",
+      "source_commit": "798e9b1a2bcac164d4f0c781908199e754f0bab6",
+      "source_blob": null
+    },
+    {
+      "path": ".claude/skills/expo-ui/SKILL.md",
+      "repository": "expo/skills",
+      "source_path": "plugins/expo/skills/expo-ui/SKILL.md",
+      "source_commit": "d4f484024fec15196bfd3c272e953e3f983972cf",
+      "source_blob": "7f92493ffa960aed6d8ff98d2d5930e95f3d5478"
+    },
+    {
+      "path": ".claude/skills/expo-ui/agents/openai.yaml",
+      "repository": "expo/skills",
+      "source_path": "plugins/expo/skills/expo-ui/agents/openai.yaml",
+      "source_commit": "d4f484024fec15196bfd3c272e953e3f983972cf",
+      "source_blob": "585e24d3764bef685a79b011499f79b5915f7fc3"
+    },
+    {
+      "path": ".claude/skills/expo-ui/references/drop-in-replacements.md",
+      "repository": "expo/skills",
+      "source_path": "plugins/expo/skills/expo-ui/references/drop-in-replacements.md",
+      "source_commit": "d4f484024fec15196bfd3c272e953e3f983972cf",
+      "source_blob": "d462ada88e38d8f1d54279dc2961e60e861ba90d"
+    },
+    {
+      "path": ".claude/skills/expo-ui/references/jetpack-compose.md",
+      "repository": "expo/skills",
+      "source_path": "plugins/expo/skills/expo-ui/references/jetpack-compose.md",
+      "source_commit": "d4f484024fec15196bfd3c272e953e3f983972cf",
+      "source_blob": "1096a57c3e9a394ae2aa93d4fb556f5663e07ee1"
+    },
+    {
+      "path": ".claude/skills/expo-ui/references/swift-ui.md",
+      "repository": "expo/skills",
+      "source_path": "plugins/expo/skills/expo-ui/references/swift-ui.md",
+      "source_commit": "d4f484024fec15196bfd3c272e953e3f983972cf",
+      "source_blob": "480ec90f671c4f1ab8f04996cfc94a10d7b1ac5e"
+    },
+    {
+      "path": ".claude/skills/expo-ui/references/universal.md",
+      "repository": "expo/skills",
+      "source_path": "plugins/expo/skills/expo-ui/references/universal.md",
+      "source_commit": "d4f484024fec15196bfd3c272e953e3f983972cf",
+      "source_blob": "3271d5451b66bb6ada37acb777b4a9d3721969f2"
+    },
+    {
+      "path": ".claude/skills/expo-ui/scripts/list-components.js",
+      "repository": "expo/skills",
+      "source_path": "plugins/expo/skills/expo-ui/scripts/list-components.js",
+      "source_commit": "d4f484024fec15196bfd3c272e953e3f983972cf",
+      "source_blob": "3a64f7d1dd6d42abff320f65ab81cf7680d71e78"
+    },
+    {
+      "path": ".claude/skills/expo-ui/LICENSE",
+      "repository": "expo/skills",
+      "source_path": "LICENSE",
+      "source_commit": "d4f484024fec15196bfd3c272e953e3f983972cf",
+      "source_blob": null
+    },
+    {
+      "path": ".claude/skills/expo-skill-feedback/SKILL.md",
+      "repository": "expo/skills",
+      "source_path": "plugins/expo/skills/expo-skill-feedback/SKILL.md",
+      "source_commit": "d4f484024fec15196bfd3c272e953e3f983972cf",
+      "source_blob": "20760963a68037bf4dcc31bb106012008b344c57"
+    },
+    {
+      "path": ".claude/skills/expo-skill-feedback/agents/openai.yaml",
+      "repository": "expo/skills",
+      "source_path": "plugins/expo/skills/expo-skill-feedback/agents/openai.yaml",
+      "source_commit": "d4f484024fec15196bfd3c272e953e3f983972cf",
+      "source_blob": "2beddad7140df4221714f96340436e215da0ae26"
+    },
+    {
+      "path": ".claude/skills/expo-skill-feedback/scripts/skill-event.cjs",
+      "repository": "expo/skills",
+      "source_path": "plugins/expo/skills/expo-skill-feedback/scripts/skill-event.cjs",
+      "source_commit": "d4f484024fec15196bfd3c272e953e3f983972cf",
+      "source_blob": "1ef47a83fa131e0fa0691dc94c3cf5707147fa89"
+    },
+    {
+      "path": ".claude/skills/expo-skill-feedback/scripts/telemetry.cjs",
+      "repository": "expo/skills",
+      "source_path": "plugins/expo/skills/expo-skill-feedback/scripts/telemetry.cjs",
+      "source_commit": "d4f484024fec15196bfd3c272e953e3f983972cf",
+      "source_blob": "718e4fe61b6c342a90f3479ad2a732de2f7780ff"
+    },
+    {
+      "path": ".claude/skills/expo-skill-feedback/scripts/telemetry_common.cjs",
+      "repository": "expo/skills",
+      "source_path": "plugins/expo/skills/expo-skill-feedback/scripts/telemetry_common.cjs",
+      "source_commit": "d4f484024fec15196bfd3c272e953e3f983972cf",
+      "source_blob": "41fc52ebb91aafd49a9ee0d5c740b46b93f4620b"
+    },
+    {
+      "path": ".claude/skills/expo-skill-feedback/LICENSE",
+      "repository": "expo/skills",
+      "source_path": "LICENSE",
+      "source_commit": "d4f484024fec15196bfd3c272e953e3f983972cf",
+      "source_blob": null
+    }
+  ],
+  "excluded": [
+    "Paid EAS service skills",
+    "Sentry plugin requiring external setup",
+    "Better Auth skills pending license verification"
+  ],
+  "validation": "Static import verification only; not app runtime validation. No hooks, MCP registration, telemetry or service accounts enabled."
+}
