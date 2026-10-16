@@ -1,0 +1,207 @@
+{
+  "date": "2026-10-16",
+  "count": 20,
+  "scope": "Publisher model links and intended uses, not model weights, not an installed provider list, not a latest-model ranking.",
+  "models": [
+    {
+      "number": 1,
+      "id": "Qwen/Qwen3-4B",
+      "url": "https://huggingface.co/Qwen/Qwen3-4B",
+      "purpose": "輕量通用文字",
+      "type": "text-generation",
+      "installation_status": "not_downloaded",
+      "runtime_tested": false,
+      "license_note": "Review publisher model card, LICENSE and upstream base-model terms before deployment."
+    },
+    {
+      "number": 2,
+      "id": "Qwen/Qwen3-8B",
+      "url": "https://huggingface.co/Qwen/Qwen3-8B",
+      "purpose": "通用中文助手",
+      "type": "text-generation",
+      "installation_status": "not_downloaded",
+      "runtime_tested": false,
+      "license_note": "Review publisher model card, LICENSE and upstream base-model terms before deployment."
+    },
+    {
+      "number": 3,
+      "id": "Qwen/Qwen3-14B",
+      "url": "https://huggingface.co/Qwen/Qwen3-14B",
+      "purpose": "通用分析與文字",
+      "type": "text-generation",
+      "installation_status": "not_downloaded",
+      "runtime_tested": false,
+      "license_note": "Review publisher model card, LICENSE and upstream base-model terms before deployment."
+    },
+    {
+      "number": 4,
+      "id": "Qwen/Qwen3-32B",
+      "url": "https://huggingface.co/Qwen/Qwen3-32B",
+      "purpose": "大型通用推理",
+      "type": "text-generation",
+      "installation_status": "not_downloaded",
+      "runtime_tested": false,
+      "license_note": "Review publisher model card, LICENSE and upstream base-model terms before deployment."
+    },
+    {
+      "number": 5,
+      "id": "Qwen/Qwen3-30B-A3B",
+      "url": "https://huggingface.co/Qwen/Qwen3-30B-A3B",
+      "purpose": "MoE 通用模型",
+      "type": "text-generation",
+      "installation_status": "not_downloaded",
+      "runtime_tested": false,
+      "license_note": "Review publisher model card, LICENSE and upstream base-model terms before deployment."
+    },
+    {
+      "number": 6,
+      "id": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+      "url": "https://huggingface.co/Qwen/Qwen3-Coder-30B-A3B-Instruct",
+      "purpose": "程式開發與 Agent 任務",
+      "type": "text-generation",
+      "installation_status": "not_downloaded",
+      "runtime_tested": false,
+      "license_note": "Review publisher model card, LICENSE and upstream base-model terms before deployment."
+    },
+    {
+      "number": 7,
+      "id": "Qwen/Qwen2.5-Coder-7B-Instruct",
+      "url": "https://huggingface.co/Qwen/Qwen2.5-Coder-7B-Instruct",
+      "purpose": "輕量程式開發",
+      "type": "text-generation",
+      "installation_status": "not_downloaded",
+      "runtime_tested": false,
+      "license_note": "Review publisher model card, LICENSE and upstream base-model terms before deployment."
+    },
+    {
+      "number": 8,
+      "id": "Qwen/Qwen2.5-Coder-14B-Instruct",
+      "url": "https://huggingface.co/Qwen/Qwen2.5-Coder-14B-Instruct",
+      "purpose": "程式開發與除錯",
+      "type": "text-generation",
+      "installation_status": "not_downloaded",
+      "runtime_tested": false,
+      "license_note": "Review publisher model card, LICENSE and upstream base-model terms before deployment."
+    },
+    {
+      "number": 9,
+      "id": "Qwen/Qwen2.5-Coder-32B-Instruct",
+      "url": "https://huggingface.co/Qwen/Qwen2.5-Coder-32B-Instruct",
+      "purpose": "大型程式任務",
+      "type": "text-generation",
+      "installation_status": "not_downloaded",
+      "runtime_tested": false,
+      "license_note": "Review publisher model card, LICENSE and upstream base-model terms before deployment."
+    },
+    {
+      "number": 10,
+      "id": "Qwen/Qwen3-VL-8B-Instruct",
+      "url": "https://huggingface.co/Qwen/Qwen3-VL-8B-Instruct",
+      "purpose": "圖片與文件理解",
+      "type": "vision-language",
+      "installation_status": "not_downloaded",
+      "runtime_tested": false,
+      "license_note": "Review publisher model card, LICENSE and upstream base-model terms before deployment."
+    },
+    {
+      "number": 11,
+      "id": "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B",
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B",
+      "purpose": "輕量推理實驗",
+      "type": "text-generation",
+      "installation_status": "not_downloaded",
+      "runtime_tested": false,
+      "license_note": "Review publisher model card, LICENSE and upstream base-model terms before deployment."
+    },
+    {
+      "number": 12,
+      "id": "deepseek-ai/DeepSeek-R1-Distill-Qwen-7B",
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-7B",
+      "purpose": "數學與推理",
+      "type": "text-generation",
+      "installation_status": "not_downloaded",
+      "runtime_tested": false,
+      "license_note": "Review publisher model card, LICENSE and upstream base-model terms before deployment."
+    },
+    {
+      "number": 13,
+      "id": "deepseek-ai/DeepSeek-R1-Distill-Qwen-14B",
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-14B",
+      "purpose": "較大型推理",
+      "type": "text-generation",
+      "installation_status": "not_downloaded",
+      "runtime_tested": false,
+      "license_note": "Review publisher model card, LICENSE and upstream base-model terms before deployment."
+    },
+    {
+      "number": 14,
+      "id": "deepseek-ai/DeepSeek-R1-Distill-Qwen-32B",
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-32B",
+      "purpose": "大型推理",
+      "type": "text-generation",
+      "installation_status": "not_downloaded",
+      "runtime_tested": false,
+      "license_note": "Review publisher model card, LICENSE and upstream base-model terms before deployment."
+    },
+    {
+      "number": 15,
+      "id": "microsoft/Phi-4-mini-instruct",
+      "url": "https://huggingface.co/microsoft/Phi-4-mini-instruct",
+      "purpose": "輕量指令與推理",
+      "type": "text-generation",
+      "installation_status": "not_downloaded",
+      "runtime_tested": false,
+      "license_note": "Review publisher model card, LICENSE and upstream base-model terms before deployment."
+    },
+    {
+      "number": 16,
+      "id": "microsoft/phi-4",
+      "url": "https://huggingface.co/microsoft/phi-4",
+      "purpose": "文字、數學與邏輯",
+      "type": "text-generation",
+      "installation_status": "not_downloaded",
+      "runtime_tested": false,
+      "license_note": "Review publisher model card, LICENSE and upstream base-model terms before deployment."
+    },
+    {
+      "number": 17,
+      "id": "mistralai/Mistral-Small-3.1-24B-Instruct-2503",
+      "url": "https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503",
+      "purpose": "文字與圖片理解",
+      "type": "vision-language",
+      "installation_status": "not_downloaded",
+      "runtime_tested": false,
+      "license_note": "Review publisher model card, LICENSE and upstream base-model terms before deployment."
+    },
+    {
+      "number": 18,
+      "id": "mistralai/Mistral-7B-Instruct-v0.3",
+      "url": "https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.3",
+      "purpose": "通用文字",
+      "type": "text-generation",
+      "installation_status": "not_downloaded",
+      "runtime_tested": false,
+      "license_note": "Review publisher model card, LICENSE and upstream base-model terms before deployment."
+    },
+    {
+      "number": 19,
+      "id": "BAAI/bge-m3",
+      "url": "https://huggingface.co/BAAI/bge-m3",
+      "purpose": "文件向量化與檢索",
+      "type": "embedding",
+      "installation_status": "not_downloaded",
+      "runtime_tested": false,
+      "license_note": "Review publisher model card, LICENSE and upstream base-model terms before deployment."
+    },
+    {
+      "number": 20,
+      "id": "BAAI/bge-reranker-v2-m3",
+      "url": "https://huggingface.co/BAAI/bge-reranker-v2-m3",
+      "purpose": "搜尋結果重排",
+      "type": "reranker",
+      "installation_status": "not_downloaded",
+      "runtime_tested": false,
+      "license_note": "Review publisher model card, LICENSE and upstream base-model terms before deployment."
+    }
+  ]
+}
