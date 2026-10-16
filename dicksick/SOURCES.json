@@ -1,0 +1,109 @@
+{
+  "repository": "DIOKai/T1",
+  "source_commit": "7f975f4e20f9ba7c8e2cb9a70a7184c5b95ddf60",
+  "skills": [
+    {
+      "name": "prd",
+      "source_path": ".claude/skills/prd",
+      "target_path": "dicksick/.dsh/skills/prd",
+      "tree_sha": "ad07b87c9cfed008d83a905d11d2a9c60178e50b"
+    },
+    {
+      "name": "create-implementation-plan",
+      "source_path": ".claude/skills/create-implementation-plan",
+      "target_path": "dicksick/.dsh/skills/create-implementation-plan",
+      "tree_sha": "d90b8d82893462c38f57a32de5e4df5d7f87b2e6"
+    },
+    {
+      "name": "ui-ux-pro-max",
+      "source_path": ".claude/skills/ui-ux-pro-max",
+      "target_path": "dicksick/.dsh/skills/ui-ux-pro-max",
+      "tree_sha": "c798b8c6745532d6c166208c3edc68ccbee62fe8"
+    },
+    {
+      "name": "impeccable",
+      "source_path": ".claude/skills/impeccable",
+      "target_path": "dicksick/.dsh/skills/impeccable",
+      "tree_sha": "fad037bac65a7799502046bee4b6c00fa4038588"
+    },
+    {
+      "name": "expo-overview",
+      "source_path": ".claude/skills/expo-overview",
+      "target_path": "dicksick/.dsh/skills/expo-overview",
+      "tree_sha": "4821e3a5d7d0fe68f7ea1b6c2d08a68f6d63ef03"
+    },
+    {
+      "name": "expo-project-structure",
+      "source_path": ".claude/skills/expo-project-structure",
+      "target_path": "dicksick/.dsh/skills/expo-project-structure",
+      "tree_sha": "04a67ee7833712d4c58c4ef52650d30806fbb372"
+    },
+    {
+      "name": "expo-router",
+      "source_path": ".claude/skills/expo-router",
+      "target_path": "dicksick/.dsh/skills/expo-router",
+      "tree_sha": "cebaeac2dca37f2a29a8018a8d7a7d155e67d52f"
+    },
+    {
+      "name": "expo-animation",
+      "source_path": ".claude/skills/expo-animation",
+      "target_path": "dicksick/.dsh/skills/expo-animation",
+      "tree_sha": "f1265237078c7d76c0a80b455a7063d3fd2e2598"
+    },
+    {
+      "name": "expo-native-ui",
+      "source_path": ".claude/skills/expo-native-ui",
+      "target_path": "dicksick/.dsh/skills/expo-native-ui",
+      "tree_sha": "2ea6fb0a4a6bbc3eb75a8199eb78bcdea8c7acfa"
+    },
+    {
+      "name": "expo-ui",
+      "source_path": ".claude/skills/expo-ui",
+      "target_path": "dicksick/.dsh/skills/expo-ui",
+      "tree_sha": "52df9e79c94450f46468edfcf4642606ae65499d"
+    },
+    {
+      "name": "expo-design-system",
+      "source_path": ".claude/skills/expo-design-system",
+      "target_path": "dicksick/.dsh/skills/expo-design-system",
+      "tree_sha": "cc6a7ba2047a46c4a2f2b1ab041f7fd261297960"
+    },
+    {
+      "name": "expo-data-fetching",
+      "source_path": ".claude/skills/expo-data-fetching",
+      "target_path": "dicksick/.dsh/skills/expo-data-fetching",
+      "tree_sha": "31070ece82e1eb5467cd2e2e837eff2c0cf59c77"
+    },
+    {
+      "name": "expo-upgrade",
+      "source_path": ".claude/skills/expo-upgrade",
+      "target_path": "dicksick/.dsh/skills/expo-upgrade",
+      "tree_sha": "95bceb53f988f1cdaf82c070da3ea5a06b869cab"
+    },
+    {
+      "name": "expo-skill-feedback",
+      "source_path": ".claude/skills/expo-skill-feedback",
+      "target_path": "dicksick/.dsh/skills/expo-skill-feedback",
+      "tree_sha": "68ebdc664de8fe9db8603579145fb8e76bff1052"
+    },
+    {
+      "name": "deepseek-app-integration",
+      "source_path": ".claude/skills/deepseek-app-integration",
+      "target_path": "dicksick/.dsh/skills/deepseek-app-integration",
+      "tree_sha": "5e938fcf95fb06c02dd482d0e7fe128f3d6ad925"
+    },
+    {
+      "name": "maestro",
+      "source_path": ".claude/skills/maestro",
+      "target_path": "dicksick/.dsh/skills/maestro",
+      "tree_sha": "838ac2e25dbf27c6f77f84ab7f00743cb7acd1b2"
+    },
+    {
+      "name": "security-review",
+      "source_path": ".claude/skills/security-review",
+      "target_path": "dicksick/.dsh/skills/security-review",
+      "tree_sha": "a981b0a75dfb6cb0f8cba722a70bb8e4b98b64ea"
+    }
+  ],
+  "validation": "Exact subtree copies; no existing files modified; runtime not tested."
+}
