@@ -1,0 +1,183 @@
+{
+  "date": "2026-10-17",
+  "base_commit": "2db3246fb62259e7270122787aab8e56404d7bf3",
+  "scope": "Add files only under dicksick; preserve all existing blobs and modes.",
+  "authored_skills": [
+    "accessibility-check",
+    "document-ocr",
+    "local-speech-workflow",
+    "offline-sync",
+    "release-package-check"
+  ],
+  "import": {
+    "repository": "https://github.com/o11y-dev/opentelemetry-skill",
+    "commit": "6d46bedb3df706f26321fbd53fe73e0204611482",
+    "license": "Apache-2.0; retained LICENSE",
+    "files": [
+      {
+        "path": "LICENSE",
+        "upstream_blob": "c7c4784bf35eb62025aa867e95c6a87d0ec6965a"
+      },
+      {
+        "path": "SKILL.md",
+        "upstream_blob": "b07c654d580301c8f5abd5f23d9c0b00e6b2001f"
+      },
+      {
+        "path": "examples/python_telemetry.py",
+        "upstream_blob": "a074d9d2a0dac208a83921afb1a9d27b45abfb2a"
+      },
+      {
+        "path": "references/ai-agents.md",
+        "upstream_blob": "636d395138d3fb7a535758fb4dce19921f4a13e8"
+      },
+      {
+        "path": "references/anti-patterns.md",
+        "upstream_blob": "0781a13399fad86b4986be1a54ab0fa9cb7b3e66"
+      },
+      {
+        "path": "references/architecture.md",
+        "upstream_blob": "52c3a0c2176c8ef8e170573ad869dcfeddea0d22"
+      },
+      {
+        "path": "references/collector.md",
+        "upstream_blob": "89bee85459eddf52c091add0a08717bc643c4177"
+      },
+      {
+        "path": "references/compatibility.md",
+        "upstream_blob": "67ea19c74737403b39f5a1d6ae1530007bc0e667"
+      },
+      {
+        "path": "references/connectors.md",
+        "upstream_blob": "e857ecadab583ee079f0650b7e92d37212164828"
+      },
+      {
+        "path": "references/instrumentation.md",
+        "upstream_blob": "0280986f97352bd00ea7aa1d6fca4f01db037fa6"
+      },
+      {
+        "path": "references/javascript-otel3-readiness.md",
+        "upstream_blob": "5b5e643a1ff8fd4582d17f76f639bf1fe1d61b19"
+      },
+      {
+        "path": "references/monitoring.md",
+        "upstream_blob": "b567c634c7f405ff5aef1eba9a95b7fef6e72137"
+      },
+      {
+        "path": "references/ottl.md",
+        "upstream_blob": "9cbf7356c5a80df36dea0b4e5dbd4b2de91fb3c9"
+      },
+      {
+        "path": "references/platforms.md",
+        "upstream_blob": "76b9fad57415105f2a50d3be59922a80470a449b"
+      },
+      {
+        "path": "references/playbooks.md",
+        "upstream_blob": "e436ab350425969e789c1c2b1081afe327f81628"
+      },
+      {
+        "path": "references/production-baseline.md",
+        "upstream_blob": "5558d0abb40fb90ebd042634a9e79a4ae8c42cdd"
+      },
+      {
+        "path": "references/python-instrumentation.md",
+        "upstream_blob": "d5c6ebdd569987cb45a3a4045cd001d4fd079b14"
+      },
+      {
+        "path": "references/sampling.md",
+        "upstream_blob": "64efd1da6e5ee6d530959bcf139ae79cb930baa7"
+      },
+      {
+        "path": "references/security.md",
+        "upstream_blob": "5fa8a303ca30c22bd2f0348ad71a81281680a22a"
+      },
+      {
+        "path": "references/setup-docker.md",
+        "upstream_blob": "d20c1476a23fe48415610d955d346cbf89932d82"
+      },
+      {
+        "path": "references/setup-ecs.md",
+        "upstream_blob": "b07945465e9c82ca19f775e66e4d1d2558f4da17"
+      },
+      {
+        "path": "references/setup-index.md",
+        "upstream_blob": "072e4676ddd5147316eba644a7f85276fa21aee6"
+      },
+      {
+        "path": "references/setup-kubernetes.md",
+        "upstream_blob": "979ee3e92e04affe1d867a80ee229f88bcc56a67"
+      },
+      {
+        "path": "references/setup-vm.md",
+        "upstream_blob": "ac78001697547e62ca6744905633efe1fac332cf"
+      },
+      {
+        "path": "references/validation.md",
+        "upstream_blob": "7822f36240b6f85a1a707993cc89201de49c7576"
+      }
+    ],
+    "entrypoint_change": "\n\n## T1 host integration\n\nRead [host-integration.md](references/host-integration.md) before applying the upstream workflow; it limits activation, export, costs and host assumptions.\n",
+    "local_additions": [
+      "references/host-integration.md",
+      "agents/openai.yaml"
+    ],
+    "excluded": "Repository README, documentation indexes, CI, plugin metadata and evaluation harnesses; no referenced resource omitted."
+  },
+  "helper_tests": {
+    "test_methods": 22,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "scope": "Offline package-manifest behavior using synthetic directories; link/reparse/race cases simulated",
+    "live_ocr": "not run",
+    "live_speech": "not run",
+    "live_otel": "not run",
+    "browser_accessibility": "not run",
+    "mobile_sync": "not run",
+    "dsh_runtime": "not run",
+    "independent_agent_behavior": "not run"
+  },
+  "static_validation": {
+    "skills": {
+      "accessibility-check": {
+        "quick_validate": "Skill is valid!",
+        "ui": "passed"
+      },
+      "document-ocr": {
+        "quick_validate": "Skill is valid!",
+        "ui": "passed"
+      },
+      "local-speech-workflow": {
+        "quick_validate": "Skill is valid!",
+        "ui": "passed"
+      },
+      "offline-sync": {
+        "quick_validate": "Skill is valid!",
+        "ui": "passed"
+      },
+      "opentelemetry-skill": {
+        "quick_validate": "Skill is valid!",
+        "ui": "passed"
+      },
+      "release-package-check": {
+        "quick_validate": "Skill is valid!",
+        "ui": "passed"
+      }
+    },
+    "local_links": 150,
+    "upstream_files_verified": 25,
+    "python_syntax": [
+      "dicksick/.dsh/skills/opentelemetry-skill/examples/python_telemetry.py",
+      "dicksick/.dsh/skills/release-package-check/scripts/package_manifest.py"
+    ]
+  },
+  "models": {
+    "file": "models/voice-candidates-2026-10-17.json",
+    "count": 2,
+    "downloaded": false
+  },
+  "global_install_or_activation": false,
+  "limitations": [
+    "No live OCR, ASR/TTS, telemetry, browser, mobile sync or DSH runtime test.",
+    "No independent-agent behavior test."
+  ]
+}

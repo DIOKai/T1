@@ -1,0 +1,4 @@
+interface:
+  display_name: "Release Package Check"
+  short_description: "Inspect package contents, required files, and checksums"
+  default_prompt: "Use $release-package-check to review my current setup, complete the scoped task, and report verified results."

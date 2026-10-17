@@ -1,0 +1,4 @@
+interface:
+  display_name: "Document OCR"
+  short_description: "Extract and verify page-linked document text and tables"
+  default_prompt: "Use $document-ocr to review my current setup, complete the scoped task, and report verified results."

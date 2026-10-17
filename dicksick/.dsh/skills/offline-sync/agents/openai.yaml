@@ -1,0 +1,4 @@
+interface:
+  display_name: "Offline Data and Sync"
+  short_description: "Design durable queues, recovery, and synchronization rules"
+  default_prompt: "Use $offline-sync to review my current setup, complete the scoped task, and report verified results."
