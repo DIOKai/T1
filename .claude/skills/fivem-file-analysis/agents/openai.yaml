@@ -1,0 +1,4 @@
+interface:
+  display_name: "FiveM File Analysis"
+  short_description: "Inspect FiveM files, Lua bytecode and access evidence"
+  default_prompt: "Use $fivem-file-analysis to identify why a FiveM file cannot be read and assess the next steps without changing originals."
