@@ -1,0 +1,126 @@
+{
+  "date": "2026-10-17",
+  "base_commit": "0c63ef93ce1e4ff04e0437b7c7114b8ac66d87fc",
+  "authorship": "Four independently authored workflow skills; no copied upstream skill implementation.",
+  "scope": "Add .claude/skills directories; preserve existing .agents/skills symlink to ../.claude/skills and all old files.",
+  "qbx_lua_reference_commit": "c33a513550d6f908d68c0ab1d3441c93b767406f",
+  "sources": [
+    {
+      "url": "https://docs.fivem.net/docs/developers/server-security/",
+      "review": "Primary documentation or publisher source inspected; execution must match installed version"
+    },
+    {
+      "url": "https://docs.fivem.net/docs/scripting-manual/debugging/using-profiler/",
+      "review": "Primary documentation or publisher source inspected; execution must match installed version"
+    },
+    {
+      "url": "https://docs.fivem.net/docs/scripting-reference/resource-manifest/",
+      "review": "Primary documentation or publisher source inspected; execution must match installed version"
+    },
+    {
+      "url": "https://docs.qbox.re/developers",
+      "review": "Primary documentation or publisher source inspected; execution must match installed version"
+    },
+    {
+      "url": "https://docs.qbox.re/resources/qbx_core/exports/server",
+      "review": "Primary documentation or publisher source inspected; execution must match installed version"
+    },
+    {
+      "url": "https://docs.sollumz.org/",
+      "review": "Primary documentation or publisher source inspected; execution must match installed version"
+    },
+    {
+      "url": "https://docs.sollumz.org/documentation/drawables.ydr/level-of-detail-lods-editing.md",
+      "review": "Primary documentation or publisher source inspected; execution must match installed version"
+    },
+    {
+      "url": "https://docs.sollumz.org/tutorials/asset-conversion-for-gtav-enhanced.md",
+      "review": "Primary documentation or publisher source inspected; execution must match installed version"
+    },
+    {
+      "url": "https://docs.sollumz.org/tutorials/creating-static-collisions.md",
+      "review": "Primary documentation or publisher source inspected; execution must match installed version"
+    },
+    {
+      "url": "https://github.com/Qbox-project/qbx-lua#use",
+      "review": "Primary documentation or publisher source inspected; execution must match installed version"
+    },
+    {
+      "url": "https://github.com/Qbox-project/qbx-lua/blob/main/docs/reference.md",
+      "review": "Primary documentation or publisher source inspected; execution must match installed version"
+    },
+    {
+      "url": "https://github.com/dexyfex/CodeWalker",
+      "review": "Primary documentation or publisher source inspected; execution must match installed version"
+    },
+    {
+      "url": "https://overextended.dev/docs/ox_inventory/Functions/Server",
+      "review": "Primary documentation or publisher source inspected; execution must match installed version"
+    },
+    {
+      "url": "https://overextended.dev/docs/oxmysql/Functions/transaction",
+      "review": "Primary documentation or publisher source inspected; execution must match installed version"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=-24PBSYT74w",
+      "review": "metadata and description only; no full viewing or reproduction"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=FVfOMuFjoe4",
+      "review": "metadata and description only; no full viewing or reproduction"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=GAQ6GW1Wl8s",
+      "review": "metadata and description only; no full viewing or reproduction"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=IMv9UIHpLsM",
+      "review": "metadata and description only; no full viewing or reproduction"
+    }
+  ],
+  "validation": {
+    "skills": {
+      "fivem-asset-acceptance": {
+        "quick_validate": "Skill is valid!",
+        "ui_metadata": "passed"
+      },
+      "fivem-performance-profile": {
+        "quick_validate": "Skill is valid!",
+        "ui_metadata": "passed"
+      },
+      "qbox-economy-integrity": {
+        "quick_validate": "Skill is valid!",
+        "ui_metadata": "passed"
+      },
+      "qbox-lua-check": {
+        "quick_validate": "Skill is valid!",
+        "ui_metadata": "passed"
+      }
+    },
+    "local_links": 13,
+    "code_changes": 0,
+    "runtime_tests": "not run",
+    "qbx_lint": "not installed; not run",
+    "independent_evaluation": {
+      "scenarios": 4,
+      "accepted": true,
+      "method": "Independent agent used each skill on one synthetic request; primary author read and assessed the report.",
+      "results": {
+        "economy": "Identified input authority, failure handling, yield/session and repeat-delivery gaps without claiming live API results.",
+        "lua": "Reported missing PATH tool and unperformed lint; did not misclassify CfxLua syntax or absent lua54 switch.",
+        "performance": "Rejected incomparable captures and unsupported server capacity claim; requested controlled evidence.",
+        "assets": "Separated filename claims from actual files and gameplay evidence; preserved original assets."
+      },
+      "live_runtime_testing": false,
+      "baseline_vs_skill_experiment": false,
+      "evaluation_report": "Local outputs/qbox-four/independent-evaluation.md (not part of the repository payload)",
+      "post_evaluation_change": "Clarified the single-player OpenRPF section is not a FiveM deployment instruction; no workflow or executable code changed."
+    }
+  },
+  "models_or_runtime_downloaded": false,
+  "global_installation_or_config_changes": false,
+  "limitations": [
+    "No real FXServer, SQL, inventory/bank integration, profiler capture, Blender, CodeWalker, exported binary or gameplay test.",
+    "No baseline-versus-skill A/B experiment; independent evaluation used the skills on four synthetic cases."
+  ]
+}

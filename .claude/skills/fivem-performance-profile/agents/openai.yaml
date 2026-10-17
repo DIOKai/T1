@@ -1,0 +1,4 @@
+interface:
+  display_name: "FiveM Performance Profile"
+  short_description: "Locate FiveM bottlenecks using comparable profile evidence"
+  default_prompt: "Use $fivem-performance-profile to locate a FiveM performance problem from reproducible captures."
