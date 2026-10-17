@@ -1,0 +1,4 @@
+interface:
+  display_name: "Local Speech Workflow"
+  short_description: "Integrate local transcription, alignment, and read-aloud"
+  default_prompt: "Use $local-speech-workflow to review my current setup, complete the scoped task, and report verified results."

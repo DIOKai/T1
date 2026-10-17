@@ -1,0 +1,4 @@
+interface:
+  display_name: "OpenTelemetry Skill"
+  short_description: "Review observability pipelines and scoped instrumentation"
+  default_prompt: "Use $opentelemetry-skill to inspect my scoped observability configuration and verify relevant signals."

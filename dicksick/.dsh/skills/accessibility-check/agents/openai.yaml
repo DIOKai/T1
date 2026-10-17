@@ -1,0 +1,4 @@
+interface:
+  display_name: "Accessibility Check"
+  short_description: "Review web accessibility with state and behavior evidence"
+  default_prompt: "Use $accessibility-check to review my current setup, complete the scoped task, and report verified results."
