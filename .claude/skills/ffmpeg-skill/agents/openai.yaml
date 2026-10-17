@@ -1,0 +1,4 @@
+interface:
+  display_name: "FFmpeg Local Media"
+  short_description: "Process local media with measured FFmpeg workflows"
+  default_prompt: "Use $ffmpeg-skill to inspect and process my local media into a new output file."

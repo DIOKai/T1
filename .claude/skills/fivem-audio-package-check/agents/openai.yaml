@@ -1,0 +1,4 @@
+interface:
+  display_name: "FiveM Audio Package Check"
+  short_description: "Review FiveM audio banks, references and playback evidence"
+  default_prompt: "Use $fivem-audio-package-check to inspect a staged audio resource and list remaining in-game checks."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Audio Quality Check"
+  short_description: "Measure audio format, levels and delivery quality evidence"
+  default_prompt: "Use $audio-quality-check to measure my local audio files and report defects without changing originals."

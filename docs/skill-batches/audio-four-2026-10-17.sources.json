@@ -1,0 +1,385 @@
+{
+  "date": "2026-10-17",
+  "base_commit": "fca8c76897a5d3f0d8d42db9e66773abb45e6e22",
+  "preservation": "Only add new paths. Preserve all old blobs, types, modes and shared skill symlink.",
+  "import": {
+    "repo": "kajisho5/ffmpeg-skill",
+    "commit": "11a70aa680c0916581164dc49957a1b64ec57a79",
+    "license": "MIT; original LICENSE retained",
+    "copied_files": [
+      {
+        "path": "LICENSE",
+        "upstream_blob": "6d76d5f6cce41e74b6cebdbf013faddf3abb1afe"
+      },
+      {
+        "path": "SKILL.md",
+        "upstream_blob": "a884650986c6e73d21dc73e7d485e36d4ed6da3d"
+      },
+      {
+        "path": "mcp/server.py",
+        "upstream_blob": "032062586e36058d14ed247d61cb1c947d9a016c"
+      },
+      {
+        "path": "references/devices.md",
+        "upstream_blob": "6cb15bbfb6280e28d6d3e58382696dd28a6b1ba9"
+      },
+      {
+        "path": "references/gotchas.md",
+        "upstream_blob": "f6ff667adbea03fbc7714250e790058234ae84f5"
+      },
+      {
+        "path": "references/scripts.md",
+        "upstream_blob": "eaa7b558ea2cd8d2257fda2116825c989b6f8d2b"
+      },
+      {
+        "path": "scripts/_ass_overlay.py",
+        "upstream_blob": "5f934d370f4bd0ce0686123635b34b216ac2d99f"
+      },
+      {
+        "path": "scripts/_common/__init__.py",
+        "upstream_blob": "759d85269a59e0f6d8efeb1e41552f07d17ba4fe"
+      },
+      {
+        "path": "scripts/_common/asr.py",
+        "upstream_blob": "067c5920d260a3327c876fdafb5cdcf72b2c29c4"
+      },
+      {
+        "path": "scripts/_common/color.py",
+        "upstream_blob": "15bb844fa29176b59a962f999fccd558144a230d"
+      },
+      {
+        "path": "scripts/_common/decision.py",
+        "upstream_blob": "1d68f886d15b8bf94dd5b7cc4e25769ef307abd3"
+      },
+      {
+        "path": "scripts/_common/drawtext.py",
+        "upstream_blob": "c130d42d69f87f7c2db981c1bd3be1b93d2f91a6"
+      },
+      {
+        "path": "scripts/_common/emit.py",
+        "upstream_blob": "e67abe7e782e85f334a27ad302dc8b0e9c06734f"
+      },
+      {
+        "path": "scripts/_common/emoji.py",
+        "upstream_blob": "aef9d7e3091d3f33c1ae45f93f6c4eb70cceae18"
+      },
+      {
+        "path": "scripts/_common/fonts.py",
+        "upstream_blob": "5420a81a84947b6234c5607e5ea925a3ca13537c"
+      },
+      {
+        "path": "scripts/_common/probe.py",
+        "upstream_blob": "68707a4573aab15fab49af94330ac22ba353279f"
+      },
+      {
+        "path": "scripts/_common/runner.py",
+        "upstream_blob": "bc346b1f09896b3bb08ad4dde0121fa4da46ab6b"
+      },
+      {
+        "path": "scripts/_common/text.py",
+        "upstream_blob": "25018504910bf78af3d968eed33a2864e1d9bc1c"
+      },
+      {
+        "path": "scripts/_common/timeline.py",
+        "upstream_blob": "219fe9f07fa8b3079aa1c7ebcb22ac54c9c56283"
+      },
+      {
+        "path": "scripts/_common/wrap.py",
+        "upstream_blob": "2db6bfc160b4112772d4a53be5850f2da698f44b"
+      },
+      {
+        "path": "scripts/_contract.py",
+        "upstream_blob": "25180c741f7d6955241858363bb6b7e265897e40"
+      },
+      {
+        "path": "scripts/_platforms.py",
+        "upstream_blob": "dc15c9d546f0be5ea9f44ec156a9dbe32d2a31ce"
+      },
+      {
+        "path": "scripts/audio.py",
+        "upstream_blob": "1aac190d97adf649ded199ac0289daaf7bbd73a1"
+      },
+      {
+        "path": "scripts/background.py",
+        "upstream_blob": "8312ad9213b6f795c45274ed6cd233c85467126e"
+      },
+      {
+        "path": "scripts/batch.py",
+        "upstream_blob": "81117e2009a32f8f47b079d7a3af171466d08d9d"
+      },
+      {
+        "path": "scripts/broll.py",
+        "upstream_blob": "a7966babac412e66e0da2b053469994c1fd8f0c7"
+      },
+      {
+        "path": "scripts/caption.py",
+        "upstream_blob": "f6207064a3b71855101b7f02d6743fbb4770e8d2"
+      },
+      {
+        "path": "scripts/check.py",
+        "upstream_blob": "7bb2ce448a9d83a6bed96c1f618ac06f711035cd"
+      },
+      {
+        "path": "scripts/color.py",
+        "upstream_blob": "feb64b2e4a93b7990418021b6e30e06b034e47e6"
+      },
+      {
+        "path": "scripts/crop.py",
+        "upstream_blob": "e5152881940357e200c7aa69c1b6d6b7a9421e65"
+      },
+      {
+        "path": "scripts/cropdetect.py",
+        "upstream_blob": "bd5ea26e4de1028acde4e5c8fe0737f3f15f41e0"
+      },
+      {
+        "path": "scripts/cut.py",
+        "upstream_blob": "9017ee3a35ef71e4d2bcf7e9c703be696da122a7"
+      },
+      {
+        "path": "scripts/deinterlace.py",
+        "upstream_blob": "63ff60dadf729efa5b33d25940f449509192ef68"
+      },
+      {
+        "path": "scripts/denoise.py",
+        "upstream_blob": "81a5b7db767b7139710b30774ff443cedf1d500e"
+      },
+      {
+        "path": "scripts/export.py",
+        "upstream_blob": "3d16f8829439f3113d8fdfa8e9a4cceec93ecec5"
+      },
+      {
+        "path": "scripts/fit.py",
+        "upstream_blob": "f8e9bffd0e88c60945ca706a43f64cd265e7b676"
+      },
+      {
+        "path": "scripts/freeze.py",
+        "upstream_blob": "f72e821782060f05fa5b7fdebc8fda1daa657fa3"
+      },
+      {
+        "path": "scripts/graphics.py",
+        "upstream_blob": "6cf2c194b309bf64d3cd0ad53c216fba093ed853"
+      },
+      {
+        "path": "scripts/grid.py",
+        "upstream_blob": "d314192cf0912f4a40bacdd1fce1d79ff94100bf"
+      },
+      {
+        "path": "scripts/insert.py",
+        "upstream_blob": "ef783712b7dff4506bbb944dd628e2cb8b225ab4"
+      },
+      {
+        "path": "scripts/join.py",
+        "upstream_blob": "1547a9d568a902300802b5d0e047d6c54b97d819"
+      },
+      {
+        "path": "scripts/look.py",
+        "upstream_blob": "bf9fcd1aa6cca70523dbef7cee2d9c0c8a8c7133"
+      },
+      {
+        "path": "scripts/loop.py",
+        "upstream_blob": "d491c653403443e2cd6c903547f25cde1e86bf10"
+      },
+      {
+        "path": "scripts/loudness.py",
+        "upstream_blob": "109a945d37ac66bd333ea43730891bf24ef523c9"
+      },
+      {
+        "path": "scripts/metadata.py",
+        "upstream_blob": "8df78d7c0ae0418c5c377b97a87333f19a22a419"
+      },
+      {
+        "path": "scripts/multicam.py",
+        "upstream_blob": "1b04a3281fe90eccca4e47bd400cdaeb0ea23f46"
+      },
+      {
+        "path": "scripts/overlay.py",
+        "upstream_blob": "591e025d1ed0c0246ff1ee394a019432f42efc52"
+      },
+      {
+        "path": "scripts/pad.py",
+        "upstream_blob": "5fd2dda2f7410064caed8ece7926da85f2587532"
+      },
+      {
+        "path": "scripts/probe.py",
+        "upstream_blob": "c5937eaac631c30f89d7510f79ee350c66b3bb90"
+      },
+      {
+        "path": "scripts/proxy.py",
+        "upstream_blob": "f50e7299be95d5ade52e5ac60ecf775195df8d50"
+      },
+      {
+        "path": "scripts/redact.py",
+        "upstream_blob": "40955560f91f5bef3f68f023890ad21a62b93541"
+      },
+      {
+        "path": "scripts/render.py",
+        "upstream_blob": "169e4e89d197e1b07325f135ece6b1d65bbf6338"
+      },
+      {
+        "path": "scripts/report.py",
+        "upstream_blob": "0b554497f8b256e476c48b298ec74330f96b30ae"
+      },
+      {
+        "path": "scripts/reverse.py",
+        "upstream_blob": "480177c91cb841e1df27bd4ae67cc7485647e606"
+      },
+      {
+        "path": "scripts/scenes.py",
+        "upstream_blob": "088664b871f822ae4ef53e7e155baa734c84bc2b"
+      },
+      {
+        "path": "scripts/sequence.py",
+        "upstream_blob": "0c109525a5d319f346ffa42602bf8713b5f781c8"
+      },
+      {
+        "path": "scripts/silence.py",
+        "upstream_blob": "8f934d02f6da29852246c465e8c2d3499a48ebfe"
+      },
+      {
+        "path": "scripts/speedramp.py",
+        "upstream_blob": "a05898f861768c6b62d0bd84fb3b9fa91c551a8b"
+      },
+      {
+        "path": "scripts/sphere.py",
+        "upstream_blob": "5a187e920ea8ed54f67f6ce1aebfbd81d213e4f5"
+      },
+      {
+        "path": "scripts/stabilize.py",
+        "upstream_blob": "61ca7816aed64a9b25c789fbefdce02fe32bd3bd"
+      },
+      {
+        "path": "scripts/straighten.py",
+        "upstream_blob": "851cb16a21cd34d451c903cf9c9ab0af00051f35"
+      },
+      {
+        "path": "scripts/sync.py",
+        "upstream_blob": "484793db02e58bd73ec947de3b1f16b45d2630d8"
+      },
+      {
+        "path": "scripts/verify.py",
+        "upstream_blob": "e811083efaf6ba1b92ed1cc920dec131eb35dccc"
+      },
+      {
+        "path": "scripts/waveform.py",
+        "upstream_blob": "5628c709ed5ff4173d5d054a9b449187bcbd8160"
+      },
+      {
+        "path": "templates/audiogram.json",
+        "upstream_blob": "1970d2a7dca90990de0be894d8867915a6b5105d"
+      },
+      {
+        "path": "templates/facebook.json",
+        "upstream_blob": "557322ff345131636ec49d62d985f014c578f33d"
+      },
+      {
+        "path": "templates/linkedin.json",
+        "upstream_blob": "73486e3281790f9190f5d87b6ea017cc30502518"
+      },
+      {
+        "path": "templates/podcast.json",
+        "upstream_blob": "e0ed100870b1ce614767cbabcfe6bf04ed3aa9a7"
+      },
+      {
+        "path": "templates/reels.json",
+        "upstream_blob": "01d03d45ecb0b669af858890dd1e15f2b4498bf2"
+      },
+      {
+        "path": "templates/shorts.json",
+        "upstream_blob": "65fba1b088ea2b06d178ad2acfeb0a7e55dcfc7d"
+      },
+      {
+        "path": "templates/tiktok.json",
+        "upstream_blob": "845973fa07d8dcd2e4f1fe69b48580f5e736446e"
+      },
+      {
+        "path": "templates/x.json",
+        "upstream_blob": "62276b4b69cb676cc7fac795ba48c98aff6204d8"
+      },
+      {
+        "path": "templates/youtube-shorts.json",
+        "upstream_blob": "a6740fcd1954d25b3b213aa135cf771bbc6f3bb0"
+      },
+      {
+        "path": "templates/youtube.json",
+        "upstream_blob": "90d6f6d7d65e97e2c98bea5d4ec8142052366aaf"
+      }
+    ],
+    "entrypoint_changes": {
+      "description": "Process local audio and video with bundled FFmpeg scripts for probing, editing, conversion and measured loudness. Use for explicit media-file tasks with preserved originals; audio loop seam design and FiveM packaging use their focused skills.",
+      "inserted_note": "\n\n## T1 audio integration\n\nRead [t1-audio-integration.md](references/t1-audio-integration.md) before using the upstream commands in this host.\n"
+    },
+    "new_files": [
+      "references/t1-audio-integration.md",
+      "agents/openai.yaml"
+    ]
+  },
+  "authored_skills": [
+    "audio-loop-editing",
+    "audio-quality-check",
+    "fivem-audio-package-check"
+  ],
+  "primary_sources_reviewed": [
+    "https://ffmpeg.org/ffmpeg-filters.html",
+    "https://ffmpeg.org/ffprobe.html",
+    "https://docs.fivem.net/docs/game-references/data-files/",
+    "https://docs.fivem.net/docs/scripting-reference/resource-manifest/",
+    "https://github.com/citizenfx/natives/blob/master/AUDIO/RequestScriptAudioBank.md",
+    "https://github.com/citizenfx/natives/blob/master/AUDIO/StopSound.md",
+    "https://github.com/citizenfx/natives/blob/master/AUDIO/ReleaseSoundId.md",
+    "https://github.com/dexyfex/CodeWalker/blob/master/CodeWalker.Core/GameFiles/FileTypes/AwcFile.cs"
+  ],
+  "resource_links": [
+    "https://docs.fivem.net/docs/developers/server-security/",
+    "https://docs.fivem.net/docs/game-references/data-files/",
+    "https://docs.fivem.net/docs/scripting-reference/resource-manifest/",
+    "https://docs.fivem.net/natives/",
+    "https://ffmpeg.org/ffmpeg-filters.html#acrossfade",
+    "https://ffmpeg.org/ffmpeg-filters.html#aresample",
+    "https://ffmpeg.org/ffmpeg-filters.html#astats-1",
+    "https://ffmpeg.org/ffmpeg-filters.html#atrim",
+    "https://ffmpeg.org/ffmpeg-filters.html#loudnorm",
+    "https://ffmpeg.org/ffmpeg-filters.html#silencedetect",
+    "https://ffmpeg.org/ffprobe.html",
+    "https://github.com/citizenfx/natives/blob/master/AUDIO/ReleaseSoundId.md",
+    "https://github.com/citizenfx/natives/blob/master/AUDIO/RequestScriptAudioBank.md",
+    "https://github.com/citizenfx/natives/blob/master/AUDIO/StopSound.md",
+    "https://github.com/dexyfex/CodeWalker",
+    "https://github.com/dexyfex/CodeWalker/blob/master/CodeWalker.Core/GameFiles/FileTypes/AwcFile.cs",
+    "https://github.com/kajisho5/color-grading-skill",
+    "https://github.com/kajisho5/ffmpeg-skill",
+    "https://www.audacityteam.org/"
+  ],
+  "validation": {
+    "skill_formats": {
+      "ffmpeg-skill": "Skill is valid!",
+      "audio-loop-editing": "Skill is valid!",
+      "audio-quality-check": "Skill is valid!",
+      "fivem-audio-package-check": "Skill is valid!"
+    },
+    "ui_metadata": "passed",
+    "python_syntax_files": 59,
+    "local_links": 25,
+    "copied_upstream_files": 74,
+    "upstream_byte_identity": "73 unchanged; SKILL.md exactly matches recorded description and insertion changes",
+    "tests": {
+      "test_methods": 14,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "ffmpeg_version": "ffmpeg version 8.1.1-full_build-www.gyan.dev Copyright (c) 2000-2026 the FFmpeg developers",
+      "ffprobe_version": "ffprobe version 8.1.1-full_build-www.gyan.dev Copyright (c) 2007-2026 the FFmpeg developers",
+      "scope": "Real local FFmpeg and imported audio-script paths on synthetic WAV files. Source hashes/mtime checked after every scenario.",
+      "listening": "not performed",
+      "fiveM_runtime": "not run",
+      "video_mcp_asr": "not tested"
+    },
+    "independent_evaluation": "One offline request using the new skill instructions; see local evaluation artifact. No control trial."
+  },
+  "global_installation": false,
+  "media_downloaded": false,
+  "limitations": [
+    "Synthetic WAV CLI tests only; no listening or FiveM runtime.",
+    "Not every upstream command or optional dependency was tested.",
+    "The new FiveM skill guides packaging review; it does not itself compile banks or generate engine audio."
+  ]
+}
