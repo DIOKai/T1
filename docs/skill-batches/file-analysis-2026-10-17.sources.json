@@ -1,0 +1,95 @@
+{
+  "date": "2026-10-17",
+  "base_commit": "641a81905771ae1168cf091e34a8f88d60bc199a",
+  "authorship": "Independently authored skill and helper; not a copied decryption tool or vendor-endorsed skill.",
+  "preservation": "Add files only; preserve all existing blobs, modes, .agents/skills link and ori paths.",
+  "sources": [
+    {
+      "url": "https://docs.fivem.net/docs/assets-manual/beginner-series/part-2/",
+      "review": "Primary publisher documentation/source inspected; check target versions before use"
+    },
+    {
+      "url": "https://docs.fivem.net/docs/server-manual/asset-escrow/",
+      "review": "Primary publisher documentation/source inspected; check target versions before use"
+    },
+    {
+      "url": "https://docs.sollumz.org/",
+      "review": "Primary publisher documentation/source inspected; check target versions before use"
+    },
+    {
+      "url": "https://docs.sollumz.org/getting-started/creating-your-first-asset.md",
+      "review": "Primary publisher documentation/source inspected; check target versions before use"
+    },
+    {
+      "url": "https://sourceforge.net/projects/unluac/",
+      "review": "Primary publisher documentation/source inspected; check target versions before use"
+    },
+    {
+      "url": "https://www.lua.org/manual/5.4/manual.html#pdf-load",
+      "review": "Primary publisher documentation/source inspected; check target versions before use"
+    },
+    {
+      "url": "https://www.lua.org/source/5.0/lundump.c.html",
+      "review": "Primary publisher documentation/source inspected; check target versions before use"
+    },
+    {
+      "url": "https://www.lua.org/source/5.4/lua.h.html",
+      "review": "Primary publisher documentation/source inspected; check target versions before use"
+    },
+    {
+      "url": "https://www.lua.org/source/5.4/lundump.h.html",
+      "review": "Primary publisher documentation/source inspected; check target versions before use"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=NzP12hWKgok",
+      "review": "title/author/date/description only; complete transcript, full viewing and reproduction unavailable"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=Xc5m9_sGrOY",
+      "review": "title/author/date/description only; complete transcript, full viewing and reproduction unavailable"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=mSjdd_nI3Q0",
+      "review": "title/author/date/description only; complete transcript, full viewing and reproduction unavailable"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=ul1BLoJ5N-E",
+      "review": "title/author/date/description only; complete transcript, full viewing and reproduction unavailable"
+    }
+  ],
+  "video_full_learning_complete": false,
+  "subtitle_search": "Four title/ID transcript searches yielded metadata, unrelated mirrors or no result, not complete captions.",
+  "validation": {
+    "quick_validate": "Skill is valid!",
+    "ui_metadata": "passed",
+    "python_syntax": "passed",
+    "local_links": 12,
+    "helper_tests": {
+      "test_methods": 18,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "scope": "Synthetic local files; permission/reparse/race cases simulated. No real Lua compilation, decompilation, game assets, Escrow or game runtime tested."
+    },
+    "independent_evaluation": {
+      "accepted": true,
+      "scenarios": 1,
+      "inputs": 2,
+      "method": "Independent agent used the skill and ran the read-only helper on two synthetic files; primary author reviewed the report.",
+      "result": "Correctly separated plain text, a forged Lua signature prefix, unknown encryption state, Escrow configuration claims and unavailable complete video content.",
+      "original_preservation": "Agent independently compared file SHA-256, size, mtime and attributes before/after; unchanged.",
+      "revision_after_evaluation": "Renamed header_truncated to six_byte_prefix_truncated and documented the limited prefix meaning; no decoding or file-I/O behavior changed. Final 18 helper tests rerun.",
+      "runtime_limits": "No real compiled Lua, unluac, Escrow, model imports or game tested; no full videos viewed.",
+      "baseline_comparison": false,
+      "report": "Local outputs/fivem-file-analysis/independent-evaluation.md; not included in repository payload."
+    },
+    "live_runtime": "not run"
+  },
+  "external_tools_downloaded": false,
+  "global_installation": false,
+  "limitations": [
+    "No real Lua compilation/decompilation, protected-resource unlock, imported asset or FXServer test.",
+    "Header and UTF-8 prefix evidence do not validate complete format or establish encryption.",
+    "Independent evaluation is a single synthetic request, not a quantitative benchmark."
+  ]
+}
