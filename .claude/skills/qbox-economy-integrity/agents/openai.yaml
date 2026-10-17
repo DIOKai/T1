@@ -1,0 +1,4 @@
+interface:
+  display_name: "Qbox Economy Integrity"
+  short_description: "Review Qbox purchases, rewards and duplicate delivery"
+  default_prompt: "Use $qbox-economy-integrity to review a Qbox purchase or reward flow for failures and duplicate delivery."

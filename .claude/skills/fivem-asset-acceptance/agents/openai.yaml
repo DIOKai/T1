@@ -1,0 +1,4 @@
+interface:
+  display_name: "FiveM Asset Acceptance"
+  short_description: "Verify streamed assets, collision, LODs and release evidence"
+  default_prompt: "Use $fivem-asset-acceptance to check a staged FiveM asset without changing the originals."

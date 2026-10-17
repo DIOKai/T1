@@ -1,0 +1,4 @@
+interface:
+  display_name: "Qbox Lua Check"
+  short_description: "Check CfxLua and manifests with installed Qbox tools"
+  default_prompt: "Use $qbox-lua-check to inspect my changed resource files and run available read-only Lua checks."
