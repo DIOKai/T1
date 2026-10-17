@@ -1,0 +1,4 @@
+interface:
+  display_name: "Audio Loop Editing"
+  short_description: "Prepare and verify cyclic audio without source changes"
+  default_prompt: "Use $audio-loop-editing to prepare a local engine or ambience loop and verify its repeated boundary."
