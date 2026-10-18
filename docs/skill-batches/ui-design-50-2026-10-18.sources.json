@@ -1,0 +1,4193 @@
+{
+  "date": "2026-10-18",
+  "base_commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+  "scope": "50 selected design skills. Add 15 missing skills to T1; add missing local host directories only.",
+  "preservation": "All old GitHub paths remain unchanged; local old hashes/mtime/attributes/links verified.",
+  "upstreams": [
+    {
+      "repository": "TobiasKulvik/web-design-skills",
+      "commit": "c6eddde74e98c48d37e5e01a3e0e7cc9275bdffc",
+      "tree": "593ca0a6e43efd8733ab4b18725f11dceebd1762"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "tree": "8964ff4c8ed3193360cbe5345d82439d09bc9260"
+    },
+    {
+      "repository": "mblode/agent-skills",
+      "commit": "81d0af2f6d4b32d791fb26caa82b17603ef4d807",
+      "tree": "7ce7824468517053840979ad5e53ff90ab8311af"
+    },
+    {
+      "repository": "supermemoryai/skills",
+      "commit": "64e285d5a4a56c773e86c088af54524328b71c42",
+      "tree": "9f40bd57cb88bd3bf16480f025506a250bbd65d3"
+    },
+    {
+      "repository": "molauu/svg-character-animator",
+      "commit": "5ee1e7845caefe2c9ab51c64a2aa6f386e72ef5b",
+      "tree": "02e0844136680df26e847b9375e0111411899ec9"
+    },
+    {
+      "repository": "upbrew-tech/svg-creator-skill",
+      "commit": "1eb83d602a992b69a1771c4e0116a9f7de6ffaa2",
+      "tree": "ccf2594bfc03bb1a023275ac829c5ddc3c544ff3"
+    },
+    {
+      "repository": "nolangz/pixel2motion",
+      "commit": "e9faedb28930df0da2acf17da00c80730a78cfe8",
+      "tree": "97e82bb3e8b58ae0a1360ae843451befa27f0948"
+    },
+    {
+      "repository": "microsoft/skills",
+      "commit": "8850874f66fb4d905bfcfcb923a18883bb70d1cd",
+      "tree": "41f959362a29dd04848ac07143d3a4b3d1d0fbbc"
+    }
+  ],
+  "selection": [
+    {
+      "number": 1,
+      "category": "布局与排版",
+      "name": "layout-and-spacing",
+      "purpose": "网格、间距与留白",
+      "repository": "TobiasKulvik/web-design-skills",
+      "path": "skills/layout-and-spacing/SKILL.md",
+      "status": "新候选",
+      "declared_name": "layout-and-spacing",
+      "blob_sha": "199912024f852434996898d6c8adcd665dfb13bd",
+      "source_url": "https://github.com/TobiasKulvik/web-design-skills/blob/main/skills/layout-and-spacing/SKILL.md"
+    },
+    {
+      "number": 2,
+      "category": "布局与排版",
+      "name": "visual-hierarchy",
+      "purpose": "信息层级与视觉焦点",
+      "repository": "TobiasKulvik/web-design-skills",
+      "path": "skills/visual-hierarchy/SKILL.md",
+      "status": "新候选",
+      "declared_name": "visual-hierarchy",
+      "blob_sha": "cbec778374b80ae5ab509933f765ebcccd46e373",
+      "source_url": "https://github.com/TobiasKulvik/web-design-skills/blob/main/skills/visual-hierarchy/SKILL.md"
+    },
+    {
+      "number": 3,
+      "category": "布局与排版",
+      "name": "typography",
+      "purpose": "字体搭配与文字节奏",
+      "repository": "DIOKai/T1",
+      "path": ".claude/skills/typography/SKILL.md",
+      "status": "T1已有",
+      "declared_name": "typography",
+      "blob_sha": "e73e265734616d4a6dad75ac4c95f8f30ab7af8f",
+      "source_url": "https://github.com/DIOKai/T1/blob/main/.claude/skills/typography/SKILL.md"
+    },
+    {
+      "number": 4,
+      "category": "布局与排版",
+      "name": "typography-audit",
+      "purpose": "检查字体和排版问题",
+      "repository": "DIOKai/T1",
+      "path": ".claude/skills/typography-audit/SKILL.md",
+      "status": "T1已有",
+      "declared_name": "typography-audit",
+      "blob_sha": "7f58bae454f7c6fbc3a85205fdcabf8771c3cf0e",
+      "source_url": "https://github.com/DIOKai/T1/blob/main/.claude/skills/typography-audit/SKILL.md"
+    },
+    {
+      "number": 5,
+      "category": "布局与排版",
+      "name": "responsive-design",
+      "purpose": "不同屏幕的布局适配",
+      "repository": "TobiasKulvik/web-design-skills",
+      "path": "skills/responsive-design/SKILL.md",
+      "status": "新候选",
+      "declared_name": "responsive-design",
+      "blob_sha": "9dc84755d9a1ca9d5828a82272dc04538dc522b9",
+      "source_url": "https://github.com/TobiasKulvik/web-design-skills/blob/main/skills/responsive-design/SKILL.md"
+    },
+    {
+      "number": 6,
+      "category": "布局与排版",
+      "name": "content-structure",
+      "purpose": "内容分组与页面结构",
+      "repository": "TobiasKulvik/web-design-skills",
+      "path": "skills/content-structure/SKILL.md",
+      "status": "新候选",
+      "declared_name": "content-structure",
+      "blob_sha": "143be4e97b86978b6bcb4eaa538d30b14ab67c11",
+      "source_url": "https://github.com/TobiasKulvik/web-design-skills/blob/main/skills/content-structure/SKILL.md"
+    },
+    {
+      "number": 7,
+      "category": "布局与排版",
+      "name": "color-theory",
+      "purpose": "配色与对比度",
+      "repository": "DIOKai/T1",
+      "path": ".claude/skills/color-theory/SKILL.md",
+      "status": "T1已有",
+      "declared_name": "color-theory",
+      "blob_sha": "2acbe7483560628c385a83cec7d82e0e4383c3cf",
+      "source_url": "https://github.com/DIOKai/T1/blob/main/.claude/skills/color-theory/SKILL.md"
+    },
+    {
+      "number": 8,
+      "category": "布局与排版",
+      "name": "design-tokens",
+      "purpose": "统一字体、颜色和间距",
+      "repository": "DIOKai/T1",
+      "path": ".claude/skills/design-tokens/SKILL.md",
+      "status": "T1已有",
+      "declared_name": "design-tokens",
+      "blob_sha": "47bf6dea3f03ec3a462edef8947d2a04018474c1",
+      "source_url": "https://github.com/DIOKai/T1/blob/main/.claude/skills/design-tokens/SKILL.md"
+    },
+    {
+      "number": 9,
+      "category": "布局与排版",
+      "name": "designer-frontend-design",
+      "purpose": "把设计方向做成界面",
+      "repository": "DIOKai/T1",
+      "path": ".claude/skills/designer-frontend-design/SKILL.md",
+      "status": "T1已有",
+      "declared_name": "designer-frontend-design",
+      "blob_sha": "c5526f5d773ca81e498baa6a633604b3fa661444",
+      "source_url": "https://github.com/DIOKai/T1/blob/main/.claude/skills/designer-frontend-design/SKILL.md"
+    },
+    {
+      "number": 10,
+      "category": "布局与排版",
+      "name": "impeccable",
+      "purpose": "布局、排版与整体打磨",
+      "repository": "DIOKai/T1",
+      "path": ".claude/skills/impeccable/SKILL.md",
+      "status": "T1已有",
+      "declared_name": "impeccable",
+      "blob_sha": "a5e66fb2bb1588746ce309e6b41be5a099d3db2c",
+      "source_url": "https://github.com/DIOKai/T1/blob/main/.claude/skills/impeccable/SKILL.md"
+    },
+    {
+      "number": 11,
+      "category": "交互与UI动效",
+      "name": "interaction-design",
+      "purpose": "按钮、弹窗与状态反馈",
+      "repository": "DIOKai/T1",
+      "path": ".claude/skills/interaction-design/SKILL.md",
+      "status": "T1已有",
+      "declared_name": "interaction-design",
+      "blob_sha": "47338f040fe3dbe06be12bc7477331328d8db7a7",
+      "source_url": "https://github.com/DIOKai/T1/blob/main/.claude/skills/interaction-design/SKILL.md"
+    },
+    {
+      "number": 12,
+      "category": "交互与UI动效",
+      "name": "motion-design",
+      "purpose": "时间、节奏与缓动原则",
+      "repository": "DIOKai/T1",
+      "path": ".claude/skills/motion-design/SKILL.md",
+      "status": "T1已有",
+      "declared_name": "motion-design",
+      "blob_sha": "22ba21b1d9455337e1067f2fa24e0a82f6775d0e",
+      "source_url": "https://github.com/DIOKai/T1/blob/main/.claude/skills/motion-design/SKILL.md"
+    },
+    {
+      "number": 13,
+      "category": "交互与UI动效",
+      "name": "animation-vocabulary",
+      "purpose": "识别和描述动效",
+      "repository": "DIOKai/T1",
+      "path": ".claude/skills/animation-vocabulary/SKILL.md",
+      "status": "T1已有",
+      "declared_name": "animation-vocabulary",
+      "blob_sha": "5ab2976514c74a194ebf069506d95ff3a5a0084f",
+      "source_url": "https://github.com/DIOKai/T1/blob/main/.claude/skills/animation-vocabulary/SKILL.md"
+    },
+    {
+      "number": 14,
+      "category": "交互与UI动效",
+      "name": "animate",
+      "purpose": "为界面添加目的明确的动效",
+      "repository": "DIOKai/T1",
+      "path": ".claude/skills/animate/SKILL.md",
+      "status": "T1已有",
+      "declared_name": "animate",
+      "blob_sha": "7c3b20c6ed681b2d47c9ca9e3ee0e659ed47d032",
+      "source_url": "https://github.com/DIOKai/T1/blob/main/.claude/skills/animate/SKILL.md"
+    },
+    {
+      "number": 15,
+      "category": "交互与UI动效",
+      "name": "emil-design-eng",
+      "purpose": "交互手感与细节取舍",
+      "repository": "DIOKai/T1",
+      "path": ".claude/skills/emil-design-eng/SKILL.md",
+      "status": "T1已有",
+      "declared_name": "emil-design-eng",
+      "blob_sha": "62ce902af8dd32c590ea7203e9ab2edb1d6ef81a",
+      "source_url": "https://github.com/DIOKai/T1/blob/main/.claude/skills/emil-design-eng/SKILL.md"
+    },
+    {
+      "number": 16,
+      "category": "交互与UI动效",
+      "name": "make-interfaces-feel-better",
+      "purpose": "改善组件与交互细节",
+      "repository": "DIOKai/T1",
+      "path": ".claude/skills/make-interfaces-feel-better/SKILL.md",
+      "status": "T1已有",
+      "declared_name": "make-interfaces-feel-better",
+      "blob_sha": "e47b87b369396655fa6bea7240c17f108ea494d5",
+      "source_url": "https://github.com/DIOKai/T1/blob/main/.claude/skills/make-interfaces-feel-better/SKILL.md"
+    },
+    {
+      "number": 17,
+      "category": "交互与UI动效",
+      "name": "find-animation-opportunities",
+      "purpose": "找适合添加动效的位置",
+      "repository": "DIOKai/T1",
+      "path": ".claude/skills/find-animation-opportunities/SKILL.md",
+      "status": "T1已有",
+      "declared_name": "find-animation-opportunities",
+      "blob_sha": "d3b030fbca9abad9220a032f72d425c6b7fa2de8",
+      "source_url": "https://github.com/DIOKai/T1/blob/main/.claude/skills/find-animation-opportunities/SKILL.md"
+    },
+    {
+      "number": 18,
+      "category": "交互与UI动效",
+      "name": "improve-animations",
+      "purpose": "审查现有动效并给出改进计划",
+      "repository": "DIOKai/T1",
+      "path": ".claude/skills/improve-animations/SKILL.md",
+      "status": "T1已有",
+      "declared_name": "improve-animations",
+      "blob_sha": "d6e77f37272329af0cc36f9eeedbe5226e86ce63",
+      "source_url": "https://github.com/DIOKai/T1/blob/main/.claude/skills/improve-animations/SKILL.md"
+    },
+    {
+      "number": 19,
+      "category": "交互与UI动效",
+      "name": "review-animations",
+      "purpose": "审查动画节奏与实现",
+      "repository": "DIOKai/T1",
+      "path": ".claude/skills/review-animations/SKILL.md",
+      "status": "T1已有",
+      "declared_name": "review-animations",
+      "blob_sha": "577a64397267ce20960de2202950594d5bd6f9b6",
+      "source_url": "https://github.com/DIOKai/T1/blob/main/.claude/skills/review-animations/SKILL.md"
+    },
+    {
+      "number": 20,
+      "category": "交互与UI动效",
+      "name": "ui-animation",
+      "purpose": "动效实现、分析与复现",
+      "repository": "mblode/agent-skills",
+      "path": "skills/ui-animation/SKILL.md",
+      "status": "新候选",
+      "declared_name": "ui-animation",
+      "blob_sha": "e6046bc9bad912a86a2881ffffc45a0d3d8bdf1a",
+      "source_url": "https://github.com/mblode/agent-skills/blob/main/skills/ui-animation/SKILL.md"
+    },
+    {
+      "number": 21,
+      "category": "图标与矢量动效",
+      "name": "icon-set-generator",
+      "purpose": "制作风格统一的SVG图标",
+      "repository": "DIOKai/T1",
+      "path": ".claude/skills/icon-set-generator/SKILL.md",
+      "status": "T1已有",
+      "declared_name": "icon-set-generator",
+      "blob_sha": "239a7d5d57e5aed57008a200af897796f38991b2",
+      "source_url": "https://github.com/DIOKai/T1/blob/main/.claude/skills/icon-set-generator/SKILL.md"
+    },
+    {
+      "number": 22,
+      "category": "图标与矢量动效",
+      "name": "better-icons",
+      "purpose": "查找和获取现成图标",
+      "repository": "DIOKai/T1",
+      "path": ".claude/skills/better-icons/SKILL.md",
+      "status": "T1已有",
+      "declared_name": "better-icons",
+      "blob_sha": "0e44f0c9e4f5837b80420ce90710670954e366dd",
+      "source_url": "https://github.com/DIOKai/T1/blob/main/.claude/skills/better-icons/SKILL.md"
+    },
+    {
+      "number": 23,
+      "category": "图标与矢量动效",
+      "name": "app-icon-expert",
+      "purpose": "App图标和标志设计",
+      "repository": "DIOKai/T1",
+      "path": ".claude/skills/app-icon-expert/SKILL.md",
+      "status": "T1已有",
+      "declared_name": "app-icon-expert",
+      "blob_sha": "628168f3df94c0e62264f835f7767b01f979d14c",
+      "source_url": "https://github.com/DIOKai/T1/blob/main/.claude/skills/app-icon-expert/SKILL.md"
+    },
+    {
+      "number": 24,
+      "category": "图标与矢量动效",
+      "name": "favicon-gen",
+      "purpose": "网站图标与导出规格",
+      "repository": "DIOKai/T1",
+      "path": ".claude/skills/favicon-gen/SKILL.md",
+      "status": "T1已有",
+      "declared_name": "favicon-gen",
+      "blob_sha": "83a90b392389cc3faea4303b0f9a9ee53309df6b",
+      "source_url": "https://github.com/DIOKai/T1/blob/main/.claude/skills/favicon-gen/SKILL.md"
+    },
+    {
+      "number": 25,
+      "category": "图标与矢量动效",
+      "name": "branding",
+      "purpose": "品牌视觉与一致性",
+      "repository": "DIOKai/T1",
+      "path": ".claude/skills/branding/SKILL.md",
+      "status": "T1已有",
+      "declared_name": "branding",
+      "blob_sha": "a8d307cea7633820956067002547904152600bcf",
+      "source_url": "https://github.com/DIOKai/T1/blob/main/.claude/skills/branding/SKILL.md"
+    },
+    {
+      "number": 26,
+      "category": "图标与矢量动效",
+      "name": "svg-animations",
+      "purpose": "SVG描边、路径和形变动画",
+      "repository": "supermemoryai/skills",
+      "path": "svg-animations/SKILL.md",
+      "status": "新候选",
+      "declared_name": "svg-animations",
+      "blob_sha": "ed5a4096780ca67c2e4556c4b27047acc0569c22",
+      "source_url": "https://github.com/supermemoryai/skills/blob/main/svg-animations/SKILL.md"
+    },
+    {
+      "number": 27,
+      "category": "图标与矢量动效",
+      "name": "svg-character-animator",
+      "purpose": "多状态矢量角色与图标变化",
+      "repository": "molauu/svg-character-animator",
+      "path": "SKILL.md",
+      "status": "新候选",
+      "declared_name": "svg-character-animator",
+      "blob_sha": "123e73852b9efdc7d32ac95e1627fd7562ffded8",
+      "source_url": "https://github.com/molauu/svg-character-animator/blob/main/SKILL.md"
+    },
+    {
+      "number": 28,
+      "category": "图标与矢量动效",
+      "name": "svg-creator",
+      "purpose": "SVG图标、插画和图形",
+      "repository": "upbrew-tech/svg-creator-skill",
+      "path": "SKILL.md",
+      "status": "新候选",
+      "declared_name": "svg-creator",
+      "blob_sha": "89aba03bf2f1a128f3cc35c31e8fea28efd6257a",
+      "source_url": "https://github.com/upbrew-tech/svg-creator-skill/blob/main/SKILL.md"
+    },
+    {
+      "number": 29,
+      "category": "图标与矢量动效",
+      "name": "pixel2motion",
+      "purpose": "位图Logo转矢量与动画",
+      "repository": "nolangz/pixel2motion",
+      "path": "SKILL.md",
+      "status": "新候选",
+      "declared_name": "pixel2motion",
+      "blob_sha": "ee92218e6d057f9e218fd9da78c725c58d0b3829",
+      "source_url": "https://github.com/nolangz/pixel2motion/blob/main/SKILL.md"
+    },
+    {
+      "number": 30,
+      "category": "图标与矢量动效",
+      "name": "lottie-motion-design",
+      "purpose": "UI与品牌动效编排",
+      "repository": "DIOKai/T1",
+      "path": ".claude/skills/lottie-motion-design/SKILL.md",
+      "status": "T1已有",
+      "declared_name": "lottie-motion-design",
+      "blob_sha": "3cc73344a3cf87904c6f3081669524a117aaf2a4",
+      "source_url": "https://github.com/DIOKai/T1/blob/main/.claude/skills/lottie-motion-design/SKILL.md"
+    },
+    {
+      "number": 31,
+      "category": "组件与设计流程",
+      "name": "design-brief",
+      "purpose": "明确受众、目标和风格",
+      "repository": "DIOKai/T1",
+      "path": ".claude/skills/design-brief/SKILL.md",
+      "status": "T1已有",
+      "declared_name": "design-brief",
+      "blob_sha": "9bf2ff6edffa80d7c33077fccf95f44f74d98c50",
+      "source_url": "https://github.com/DIOKai/T1/blob/main/.claude/skills/design-brief/SKILL.md"
+    },
+    {
+      "number": 32,
+      "category": "组件与设计流程",
+      "name": "design-review",
+      "purpose": "按需求审查设计",
+      "repository": "DIOKai/T1",
+      "path": ".claude/skills/design-review/SKILL.md",
+      "status": "T1已有",
+      "declared_name": "design-review",
+      "blob_sha": "de22f344801a504df3a472fcbc5a3c203f27c0b6",
+      "source_url": "https://github.com/DIOKai/T1/blob/main/.claude/skills/design-review/SKILL.md"
+    },
+    {
+      "number": 33,
+      "category": "组件与设计流程",
+      "name": "prototype",
+      "purpose": "制作交互原型",
+      "repository": "DIOKai/T1",
+      "path": ".claude/skills/prototype/SKILL.md",
+      "status": "T1已有",
+      "declared_name": "prototype",
+      "blob_sha": "dbcc1a23c66933f7372c0aacbce2b0d7cc6100b6",
+      "source_url": "https://github.com/DIOKai/T1/blob/main/.claude/skills/prototype/SKILL.md"
+    },
+    {
+      "number": 34,
+      "category": "组件与设计流程",
+      "name": "ui-ux-pro-max",
+      "purpose": "查找界面风格与UX模式",
+      "repository": "DIOKai/T1",
+      "path": ".claude/skills/ui-ux-pro-max/SKILL.md",
+      "status": "T1已有",
+      "declared_name": "ui-ux-pro-max",
+      "blob_sha": "37d5fce4a0cb0531eb1f8eb75dc0d49b07ff6970",
+      "source_url": "https://github.com/DIOKai/T1/blob/main/.claude/skills/ui-ux-pro-max/SKILL.md"
+    },
+    {
+      "number": 35,
+      "category": "组件与设计流程",
+      "name": "ui-components",
+      "purpose": "按钮、表单和通用组件",
+      "repository": "TobiasKulvik/web-design-skills",
+      "path": "skills/ui-components/SKILL.md",
+      "status": "新候选",
+      "declared_name": "ui-components",
+      "blob_sha": "088d396e0438c1752f110a085ebcd8a523bd270a",
+      "source_url": "https://github.com/TobiasKulvik/web-design-skills/blob/main/skills/ui-components/SKILL.md"
+    },
+    {
+      "number": 36,
+      "category": "组件与设计流程",
+      "name": "app-patterns",
+      "purpose": "应用外壳、侧栏和导航",
+      "repository": "TobiasKulvik/web-design-skills",
+      "path": "skills/app-patterns/SKILL.md",
+      "status": "新候选",
+      "declared_name": "app-patterns",
+      "blob_sha": "eb090f77fa58a895989ee97a0811918c729ade54",
+      "source_url": "https://github.com/TobiasKulvik/web-design-skills/blob/main/skills/app-patterns/SKILL.md"
+    },
+    {
+      "number": 37,
+      "category": "组件与设计流程",
+      "name": "ux-flows",
+      "purpose": "用户流程与引导",
+      "repository": "TobiasKulvik/web-design-skills",
+      "path": "skills/ux-flows/SKILL.md",
+      "status": "新候选",
+      "declared_name": "ux-flows",
+      "blob_sha": "f71edf959f07cb86284f309224d7b70156121c97",
+      "source_url": "https://github.com/TobiasKulvik/web-design-skills/blob/main/skills/ux-flows/SKILL.md"
+    },
+    {
+      "number": 38,
+      "category": "组件与设计流程",
+      "name": "internationalization",
+      "purpose": "多语言、RTL与文字膨胀",
+      "repository": "TobiasKulvik/web-design-skills",
+      "path": "skills/internationalization/SKILL.md",
+      "status": "新候选",
+      "declared_name": "internationalization",
+      "blob_sha": "7b8036caae2aff3e3d4dd7e98054a66eaf0f6816",
+      "source_url": "https://github.com/TobiasKulvik/web-design-skills/blob/main/skills/internationalization/SKILL.md"
+    },
+    {
+      "number": 39,
+      "category": "组件与设计流程",
+      "name": "accessibility",
+      "purpose": "键盘、焦点与可访问性",
+      "repository": "TobiasKulvik/web-design-skills",
+      "path": "skills/accessibility/SKILL.md",
+      "status": "新候选",
+      "declared_name": "accessibility",
+      "blob_sha": "0eff0d9a5cbbb876ace32b92f1436f212606a46a",
+      "source_url": "https://github.com/TobiasKulvik/web-design-skills/blob/main/skills/accessibility/SKILL.md"
+    },
+    {
+      "number": 40,
+      "category": "组件与设计流程",
+      "name": "web-design-guidelines",
+      "purpose": "网页质量与交互规范",
+      "repository": "DIOKai/T1",
+      "path": ".claude/skills/web-design-guidelines/SKILL.md",
+      "status": "T1已有",
+      "declared_name": "web-design-guidelines",
+      "blob_sha": "ceae92ab319216a68274168fba9b63b998b65997",
+      "source_url": "https://github.com/DIOKai/T1/blob/main/.claude/skills/web-design-guidelines/SKILL.md"
+    },
+    {
+      "number": 41,
+      "category": "平台与实战审查",
+      "name": "mobile-ios-design",
+      "purpose": "iOS界面与平台模式",
+      "repository": "DIOKai/T1",
+      "path": ".claude/skills/mobile-ios-design/SKILL.md",
+      "status": "T1已有",
+      "declared_name": "mobile-ios-design",
+      "blob_sha": "931c50668b5ebba95d5eced9e2d28463c94c64e5",
+      "source_url": "https://github.com/DIOKai/T1/blob/main/.claude/skills/mobile-ios-design/SKILL.md"
+    },
+    {
+      "number": 42,
+      "category": "平台与实战审查",
+      "name": "mobile-android-design",
+      "purpose": "Android界面与平台模式",
+      "repository": "DIOKai/T1",
+      "path": ".claude/skills/mobile-android-design/SKILL.md",
+      "status": "T1已有",
+      "declared_name": "mobile-android-design",
+      "blob_sha": "daf78dddb4716cecfd80b1046fe8c279c74aa298",
+      "source_url": "https://github.com/DIOKai/T1/blob/main/.claude/skills/mobile-android-design/SKILL.md"
+    },
+    {
+      "number": 43,
+      "category": "平台与实战审查",
+      "name": "apple-design",
+      "purpose": "Apple平台设计原则",
+      "repository": "DIOKai/T1",
+      "path": ".claude/skills/apple-design/SKILL.md",
+      "status": "T1已有",
+      "declared_name": "apple-design",
+      "blob_sha": "adf68c517f2d7d2781587d619de07f4de286da57",
+      "source_url": "https://github.com/DIOKai/T1/blob/main/.claude/skills/apple-design/SKILL.md"
+    },
+    {
+      "number": 44,
+      "category": "平台与实战审查",
+      "name": "game-ui-design",
+      "purpose": "游戏HUD和菜单",
+      "repository": "DIOKai/T1",
+      "path": ".claude/skills/game-ui-design/SKILL.md",
+      "status": "T1已有",
+      "declared_name": "game-ui-design",
+      "blob_sha": "89600260be95c413ee91c5cfe52d872737d33652",
+      "source_url": "https://github.com/DIOKai/T1/blob/main/.claude/skills/game-ui-design/SKILL.md"
+    },
+    {
+      "number": 45,
+      "category": "平台与实战审查",
+      "name": "game-ui-ux",
+      "purpose": "游戏交互与可读性",
+      "repository": "DIOKai/T1",
+      "path": ".claude/skills/game-ui-ux/SKILL.md",
+      "status": "T1已有",
+      "declared_name": "game-ui-ux",
+      "blob_sha": "c84646755c3d8f2b96fd955d1d2706e911b45596",
+      "source_url": "https://github.com/DIOKai/T1/blob/main/.claude/skills/game-ui-ux/SKILL.md"
+    },
+    {
+      "number": 46,
+      "category": "平台与实战审查",
+      "name": "game-interface-feedback",
+      "purpose": "游戏界面的状态反馈",
+      "repository": "DIOKai/T1",
+      "path": ".claude/skills/game-interface-feedback/SKILL.md",
+      "status": "T1已有",
+      "declared_name": "game-interface-feedback",
+      "blob_sha": "9a5ef8ec4c342d4492f9219fe2e8ffe133fad7f8",
+      "source_url": "https://github.com/DIOKai/T1/blob/main/.claude/skills/game-interface-feedback/SKILL.md"
+    },
+    {
+      "number": 47,
+      "category": "平台与实战审查",
+      "name": "ui-design-review",
+      "purpose": "检查UI视觉与体验",
+      "repository": "DIOKai/T1",
+      "path": ".claude/skills/ui-design-review/SKILL.md",
+      "status": "T1已有",
+      "declared_name": "ui-design-review",
+      "blob_sha": "2b811e51c695f63140c1a5c5ae225036204fbd18",
+      "source_url": "https://github.com/DIOKai/T1/blob/main/.claude/skills/ui-design-review/SKILL.md"
+    },
+    {
+      "number": 48,
+      "category": "平台与实战审查",
+      "name": "break-ui",
+      "purpose": "用极端内容检查界面",
+      "repository": "DIOKai/T1",
+      "path": ".claude/skills/break-ui/SKILL.md",
+      "status": "T1已有",
+      "declared_name": "break-ui",
+      "blob_sha": "091a28d488662d2451131f1aaa60a6dcd2391932",
+      "source_url": "https://github.com/DIOKai/T1/blob/main/.claude/skills/break-ui/SKILL.md"
+    },
+    {
+      "number": 49,
+      "category": "平台与实战审查",
+      "name": "webapp-testing",
+      "purpose": "实际操作与验证页面",
+      "repository": "DIOKai/T1",
+      "path": ".claude/skills/webapp-testing/SKILL.md",
+      "status": "T1已有",
+      "declared_name": "webapp-testing",
+      "blob_sha": "4726215301db64a0cc4d41fc3219c61f37a30f4a",
+      "source_url": "https://github.com/DIOKai/T1/blob/main/.claude/skills/webapp-testing/SKILL.md"
+    },
+    {
+      "number": 50,
+      "category": "平台与实战审查",
+      "name": "frontend-design-review",
+      "purpose": "界面与设计规范审查",
+      "repository": "microsoft/skills",
+      "path": ".github/skills/frontend-design-review/SKILL.md",
+      "status": "新候选",
+      "declared_name": "frontend-design-review",
+      "blob_sha": "6fd8fe378026252e3810eae36844704f3c684fe3",
+      "source_url": "https://github.com/microsoft/skills/blob/main/.github/skills/frontend-design-review/SKILL.md"
+    }
+  ],
+  "new_shared_skills": [
+    "accessibility",
+    "app-patterns",
+    "content-structure",
+    "frontend-design-review",
+    "internationalization",
+    "layout-and-spacing",
+    "pixel2motion",
+    "responsive-design",
+    "svg-animations",
+    "svg-character-animator",
+    "svg-creator",
+    "ui-animation",
+    "ui-components",
+    "ux-flows",
+    "visual-hierarchy"
+  ],
+  "source_files": [
+    {
+      "repository": "TobiasKulvik/web-design-skills",
+      "commit": "c6eddde74e98c48d37e5e01a3e0e7cc9275bdffc",
+      "upstream_path": "skills/layout-and-spacing/SKILL.md",
+      "skill_path": "layout-and-spacing/SKILL.md",
+      "sha": "199912024f852434996898d6c8adcd665dfb13bd",
+      "mode": "100644"
+    },
+    {
+      "repository": "TobiasKulvik/web-design-skills",
+      "commit": "c6eddde74e98c48d37e5e01a3e0e7cc9275bdffc",
+      "upstream_path": "skills/visual-hierarchy/SKILL.md",
+      "skill_path": "visual-hierarchy/SKILL.md",
+      "sha": "cbec778374b80ae5ab509933f765ebcccd46e373",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography/LICENSE",
+      "skill_path": "typography/LICENSE",
+      "sha": "725c844a325beca28b9321aa6bd892961804078f",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography/SKILL.md",
+      "skill_path": "typography/SKILL.md",
+      "sha": "e73e265734616d4a6dad75ac4c95f8f30ab7af8f",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography/references/patterns.md",
+      "skill_path": "typography/references/patterns.md",
+      "sha": "b9ebd8383de7b52ca0be01199c1edc3ecd6aa912",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography/references/sharp_edges.md",
+      "skill_path": "typography/references/sharp_edges.md",
+      "sha": "ca7c131ac18ab449020046b15c3d686c95bb7446",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography/references/validations.md",
+      "skill_path": "typography/references/validations.md",
+      "sha": "251f57190120f789eca29af42d775a6997196621",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography-audit/LICENSE.md",
+      "skill_path": "typography-audit/LICENSE.md",
+      "sha": "c5a1d56c6d623c72d077f8aab56b31d7dc371cbb",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography-audit/SKILL.md",
+      "skill_path": "typography-audit/SKILL.md",
+      "sha": "7f58bae454f7c6fbc3a85205fdcabf8771c3cf0e",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography-audit/rules/_sections.md",
+      "skill_path": "typography-audit/rules/_sections.md",
+      "sha": "57a6aeae464d728451d85f67edb2dd5535607e2f",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography-audit/rules/_template.md",
+      "skill_path": "typography-audit/rules/_template.md",
+      "sha": "aa28935696124e274148b3304aa7a1ba6607cf94",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography-audit/rules/brand-capitalization.md",
+      "skill_path": "typography-audit/rules/brand-capitalization.md",
+      "sha": "1902e93d5245135e36bcc8d2feb7dbe5a81bc625",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography-audit/rules/brand-color.md",
+      "skill_path": "typography-audit/rules/brand-color.md",
+      "sha": "1170798044f60de73d324116eaa37c4eca7589fe",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography-audit/rules/brand-cross-medium.md",
+      "skill_path": "typography-audit/rules/brand-cross-medium.md",
+      "sha": "94d60bbbc22f58f3c03dbe0dae55a5e374063329",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography-audit/rules/brand-dark-backgrounds.md",
+      "skill_path": "typography-audit/rules/brand-dark-backgrounds.md",
+      "sha": "529ff6c5cb53a8759439a6451c6f15c5b1d30e75",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography-audit/rules/brand-equity.md",
+      "skill_path": "typography-audit/rules/brand-equity.md",
+      "sha": "47a5cd44cf7472db6521111ed215b39ae4e4b3e4",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography-audit/rules/brand-identifiable-body.md",
+      "skill_path": "typography-audit/rules/brand-identifiable-body.md",
+      "sha": "7a13a1e9219301cebfa4d39e13d5a2f9e2888f4c",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography-audit/rules/brand-licensing.md",
+      "skill_path": "typography-audit/rules/brand-licensing.md",
+      "sha": "db8c9443abb4b50dbbd36fbeb56e3804d5c4cf55",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography-audit/rules/brand-logo-typeface.md",
+      "skill_path": "typography-audit/rules/brand-logo-typeface.md",
+      "sha": "31149ff18cc1608373f7143201a67fa9d790af1a",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography-audit/rules/display-drop-caps.md",
+      "skill_path": "typography-audit/rules/display-drop-caps.md",
+      "sha": "4e06219c19572e4f90372053701d3678a61843f4",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography-audit/rules/display-grid-breaking.md",
+      "skill_path": "typography-audit/rules/display-grid-breaking.md",
+      "sha": "c6c256a85b86cbab250780320b22c0f2425f104e",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography-audit/rules/display-headline-opentype.md",
+      "skill_path": "typography-audit/rules/display-headline-opentype.md",
+      "sha": "6024c51af0f2126f77b45768a47aa4b7132f4c37",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography-audit/rules/display-headline-spacing.md",
+      "skill_path": "typography-audit/rules/display-headline-spacing.md",
+      "sha": "83fa9bce95f3583a8d1254bb804a24339fad85ce",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography-audit/rules/display-large-type.md",
+      "skill_path": "typography-audit/rules/display-large-type.md",
+      "sha": "061749f9faebc5d597288e84c38a6bef9399fd62",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography-audit/rules/display-lead-paragraph.md",
+      "skill_path": "typography-audit/rules/display-lead-paragraph.md",
+      "sha": "1bb61e7e11d48434b1f80bae94aa873e7da0d200",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography-audit/rules/display-swashes.md",
+      "skill_path": "typography-audit/rules/display-swashes.md",
+      "sha": "22e5c945047bcd80d124c2b4484c71b33b421147",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography-audit/rules/font-body-selection.md",
+      "skill_path": "typography-audit/rules/font-body-selection.md",
+      "sha": "b3cf164fb1b34560467b44b039e6522b34832aeb",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography-audit/rules/font-condensed-extended.md",
+      "skill_path": "typography-audit/rules/font-condensed-extended.md",
+      "sha": "12ba883452c1ba9fb0fd694122e4ff3873e55634",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography-audit/rules/font-face-setup.md",
+      "skill_path": "typography-audit/rules/font-face-setup.md",
+      "sha": "4dd045cb42b062b2ffa11f80b2e72557af038624",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography-audit/rules/font-fallbacks.md",
+      "skill_path": "typography-audit/rules/font-fallbacks.md",
+      "sha": "5dbd8f8e04c453f0bdbd739378d42d3306bcf27a",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography-audit/rules/font-monospaced.md",
+      "skill_path": "typography-audit/rules/font-monospaced.md",
+      "sha": "b1877fd81555e53970e14af45f95d5c104a70674",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography-audit/rules/font-optical-sizes.md",
+      "skill_path": "typography-audit/rules/font-optical-sizes.md",
+      "sha": "188512a4095ba3ce3e4e21a198d1013802a0d479",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography-audit/rules/font-quality.md",
+      "skill_path": "typography-audit/rules/font-quality.md",
+      "sha": "663ae0fc2ed4002bec2751b3ba942bdf2f12136d",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography-audit/rules/font-rendering.md",
+      "skill_path": "typography-audit/rules/font-rendering.md",
+      "sha": "a5745f53d0369c77104d5b22785588b487da2b20",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography-audit/rules/font-true-styles.md",
+      "skill_path": "typography-audit/rules/font-true-styles.md",
+      "sha": "e493d8a47332a44062d7e22e092e9667effe86a2",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography-audit/rules/font-variable-fonts.md",
+      "skill_path": "typography-audit/rules/font-variable-fonts.md",
+      "sha": "4d764c39d3c34fd92823c3bfa9eb60dfcfeaa097",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography-audit/rules/font-weight-body.md",
+      "skill_path": "typography-audit/rules/font-weight-body.md",
+      "sha": "4f57f686fe637f0786437474a4fd5371242a5bea",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography-audit/rules/hierarchy-body-first.md",
+      "skill_path": "typography-audit/rules/hierarchy-body-first.md",
+      "sha": "97cc7a385d1794de0b90a2d966e1614a03b7e333",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography-audit/rules/hierarchy-caps-subheads.md",
+      "skill_path": "typography-audit/rules/hierarchy-caps-subheads.md",
+      "sha": "706c3f0ca68aa03d5da2afa0dc43c434a1e34ab5",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography-audit/rules/hierarchy-consistent-system.md",
+      "skill_path": "typography-audit/rules/hierarchy-consistent-system.md",
+      "sha": "6b136e8a06b267c1ba6bb8a5a2e3a05e4af1f686",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography-audit/rules/hierarchy-heading-color.md",
+      "skill_path": "typography-audit/rules/hierarchy-heading-color.md",
+      "sha": "d841d85678660f2a5e39f59907d98a2aa69e2d26",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography-audit/rules/hierarchy-heading-levels.md",
+      "skill_path": "typography-audit/rules/hierarchy-heading-levels.md",
+      "sha": "f66c20cc9f436654d9bf2481642afbdd95a339e7",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography-audit/rules/hierarchy-modular-scale.md",
+      "skill_path": "typography-audit/rules/hierarchy-modular-scale.md",
+      "sha": "243fff071858b709ff18680cdfeff1992ef83598",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography-audit/rules/hierarchy-size-contrast.md",
+      "skill_path": "typography-audit/rules/hierarchy-size-contrast.md",
+      "sha": "aa5735ea0cc9e092cd1805b638ef202980f46109",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography-audit/rules/hierarchy-weight-contrast.md",
+      "skill_path": "typography-audit/rules/hierarchy-weight-contrast.md",
+      "sha": "70de89bce8524e2d8a37d988108b786fd9cc3e62",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography-audit/rules/layout-center-alignment.md",
+      "skill_path": "typography-audit/rules/layout-center-alignment.md",
+      "sha": "6496d13ae32335d9e177aefbf7ef1b2e5e020f51",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography-audit/rules/layout-justified-text.md",
+      "skill_path": "typography-audit/rules/layout-justified-text.md",
+      "sha": "53c9aac4180b4c5f4982bfe37f2bfa405680e431",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography-audit/rules/layout-lists.md",
+      "skill_path": "typography-audit/rules/layout-lists.md",
+      "sha": "d2ed0063fff854c29c220eb8bab8ed1c794e8e5a",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography-audit/rules/layout-optical-balance.md",
+      "skill_path": "typography-audit/rules/layout-optical-balance.md",
+      "sha": "395e47948af3a39c174566df416e0b2534a348b7",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography-audit/rules/layout-proximity-dividers.md",
+      "skill_path": "typography-audit/rules/layout-proximity-dividers.md",
+      "sha": "6b12ab7025beed9c7687ad52a8b430db380a2e03",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography-audit/rules/layout-widows-orphans.md",
+      "skill_path": "typography-audit/rules/layout-widows-orphans.md",
+      "sha": "f90e35abfbb77d93ef04e21e0dafa3af6ee5ca9b",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography-audit/rules/opentype-body-features.md",
+      "skill_path": "typography-audit/rules/opentype-body-features.md",
+      "sha": "546e9f91fbdd13d42bc085caf4215a31d24d8815",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography-audit/rules/opentype-kerning.md",
+      "skill_path": "typography-audit/rules/opentype-kerning.md",
+      "sha": "22188c8dd513d763a197b96f55d4540684370c73",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography-audit/rules/opentype-ligatures.md",
+      "skill_path": "typography-audit/rules/opentype-ligatures.md",
+      "sha": "895b548530cd15db8b836025381d8a50f0654d81",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography-audit/rules/opentype-monoscript-kerning.md",
+      "skill_path": "typography-audit/rules/opentype-monoscript-kerning.md",
+      "sha": "ebb811b13bc334c3df46f94adb45877ab1062e26",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography-audit/rules/opentype-oldstyle-figures.md",
+      "skill_path": "typography-audit/rules/opentype-oldstyle-figures.md",
+      "sha": "587dd99a8a7cb850539c464976fc636494b5fe38",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography-audit/rules/opentype-small-caps.md",
+      "skill_path": "typography-audit/rules/opentype-small-caps.md",
+      "sha": "7b21a83c91af6d3a45b2ed159ba477b7c053fa49",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography-audit/rules/opentype-tabular-figures.md",
+      "skill_path": "typography-audit/rules/opentype-tabular-figures.md",
+      "sha": "c7eccd9796341ab9dbdd1d4f09988aae35e25fea",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography-audit/rules/pairing-contrast-harmony.md",
+      "skill_path": "typography-audit/rules/pairing-contrast-harmony.md",
+      "sha": "0d75ac20c80206ebefe732473ee306458100e951",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography-audit/rules/pairing-limit-typefaces.md",
+      "skill_path": "typography-audit/rules/pairing-limit-typefaces.md",
+      "sha": "7d72458ecd3f4c6cd46c44899f015555d130912b",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography-audit/rules/pairing-stress-skeleton.md",
+      "skill_path": "typography-audit/rules/pairing-stress-skeleton.md",
+      "sha": "61ac7aa0089321b194487e182e5dbdf25e0ee162",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography-audit/rules/pairing-superfamilies.md",
+      "skill_path": "typography-audit/rules/pairing-superfamilies.md",
+      "sha": "818a14fe8078ad80cd10c3654c0b29a79f1c6f30",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography-audit/rules/pairing-ui-fonts.md",
+      "skill_path": "typography-audit/rules/pairing-ui-fonts.md",
+      "sha": "37341ffb1549e7290361c7b40e525bbb5a3c793d",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography-audit/rules/punct-abbreviations.md",
+      "skill_path": "typography-audit/rules/punct-abbreviations.md",
+      "sha": "5ce4f68cf376456e46317d81311cbb9ef1482347",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography-audit/rules/punct-ampersands.md",
+      "skill_path": "typography-audit/rules/punct-ampersands.md",
+      "sha": "5d6809b80d3467da18c63bd9010eb9367df52b74",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography-audit/rules/punct-case-rules.md",
+      "skill_path": "typography-audit/rules/punct-case-rules.md",
+      "sha": "866ade1f0be149dcf31fa83b4f651955af161785",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography-audit/rules/punct-daggers.md",
+      "skill_path": "typography-audit/rules/punct-daggers.md",
+      "sha": "da9f2683e510c50e312dd863398d65c51b7d8432",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography-audit/rules/punct-dashes.md",
+      "skill_path": "typography-audit/rules/punct-dashes.md",
+      "sha": "f1df229c9a808439e589775ee304ea2aa117ee57",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography-audit/rules/punct-diacritics.md",
+      "skill_path": "typography-audit/rules/punct-diacritics.md",
+      "sha": "002bb1cef32452fd81c931b86dd5f91f7382f5d5",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography-audit/rules/punct-fractions.md",
+      "skill_path": "typography-audit/rules/punct-fractions.md",
+      "sha": "d65b358dcaa7da5d0327a97ad149a8949e34eea4",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography-audit/rules/punct-midpoints.md",
+      "skill_path": "typography-audit/rules/punct-midpoints.md",
+      "sha": "46951151560a8c5210b5814274af74876dcb01ec",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography-audit/rules/punct-primes.md",
+      "skill_path": "typography-audit/rules/punct-primes.md",
+      "sha": "cc0b88c884d6e16dca4359d7786eb2716592bd15",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography-audit/rules/punct-single-space.md",
+      "skill_path": "typography-audit/rules/punct-single-space.md",
+      "sha": "f51d87de39e8a8c1b34fa04c70d4349051c733f5",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography-audit/rules/punct-smart-quotes.md",
+      "skill_path": "typography-audit/rules/punct-smart-quotes.md",
+      "sha": "84379c7457ca8f91c591cc0823587cd8c51d6f58",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography-audit/rules/punct-symbols.md",
+      "skill_path": "typography-audit/rules/punct-symbols.md",
+      "sha": "91432090fa6405d18affe1cd686367b23edf02f9",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography-audit/rules/size-body-text.md",
+      "skill_path": "typography-audit/rules/size-body-text.md",
+      "sha": "cf5413d868a93f0dfb5a3623c8a89ac54451fd87",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography-audit/rules/size-emphasis.md",
+      "skill_path": "typography-audit/rules/size-emphasis.md",
+      "sha": "afa099d4cd49832a0a97e8387628c42cae51eaa0",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography-audit/rules/size-hanging-punctuation.md",
+      "skill_path": "typography-audit/rules/size-hanging-punctuation.md",
+      "sha": "3b3d7b7403887d23ecdef030542b7c35fceaf737",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography-audit/rules/size-line-height.md",
+      "skill_path": "typography-audit/rules/size-line-height.md",
+      "sha": "0f67bf2a4e326aebe056c060d09753b2106da09b",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography-audit/rules/size-line-length.md",
+      "skill_path": "typography-audit/rules/size-line-length.md",
+      "sha": "4cb5f06d7adfd0d1389681a4b30afc6bead74b3a",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography-audit/rules/size-responsive.md",
+      "skill_path": "typography-audit/rules/size-responsive.md",
+      "sha": "d1eb9a72fe369e9158df0902099e569beb93b937",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography-audit/rules/spacing-hair-thin-spaces.md",
+      "skill_path": "typography-audit/rules/spacing-hair-thin-spaces.md",
+      "sha": "cdad9fc9db891740a203d53236e0f573e09c4169",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography-audit/rules/spacing-letterspacing-body.md",
+      "skill_path": "typography-audit/rules/spacing-letterspacing-body.md",
+      "sha": "0fcca434351c5a19b4819473672e32afc7d6a5c8",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography-audit/rules/spacing-letterspacing-uppercase.md",
+      "skill_path": "typography-audit/rules/spacing-letterspacing-uppercase.md",
+      "sha": "3da4f3c08239933854595238f1ae7b17a3787f1e",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography-audit/rules/spacing-nav-items.md",
+      "skill_path": "typography-audit/rules/spacing-nav-items.md",
+      "sha": "067f67a3e2ff2cdd5c488c24d3177fcfb88fbcd0",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography-audit/rules/spacing-paragraph-indent.md",
+      "skill_path": "typography-audit/rules/spacing-paragraph-indent.md",
+      "sha": "243d90db086fb568e5e4f8d1201dbec6e5906274",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography-audit/rules/spacing-paragraph-margins.md",
+      "skill_path": "typography-audit/rules/spacing-paragraph-margins.md",
+      "sha": "b57ba6277cc98eaca0783477d9dc5582a82d8f3d",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography-audit/rules/spacing-paragraph-separation.md",
+      "skill_path": "typography-audit/rules/spacing-paragraph-separation.md",
+      "sha": "a56722297096b02bb03e0c2c773a0bff2fe0d85f",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/typography-audit/rules/spacing-subhead-proximity.md",
+      "skill_path": "typography-audit/rules/spacing-subhead-proximity.md",
+      "sha": "7448df1b800ed22ea2f84511e66951fa512aa57b",
+      "mode": "100644"
+    },
+    {
+      "repository": "TobiasKulvik/web-design-skills",
+      "commit": "c6eddde74e98c48d37e5e01a3e0e7cc9275bdffc",
+      "upstream_path": "skills/responsive-design/SKILL.md",
+      "skill_path": "responsive-design/SKILL.md",
+      "sha": "9dc84755d9a1ca9d5828a82272dc04538dc522b9",
+      "mode": "100644"
+    },
+    {
+      "repository": "TobiasKulvik/web-design-skills",
+      "commit": "c6eddde74e98c48d37e5e01a3e0e7cc9275bdffc",
+      "upstream_path": "skills/content-structure/SKILL.md",
+      "skill_path": "content-structure/SKILL.md",
+      "sha": "143be4e97b86978b6bcb4eaa538d30b14ab67c11",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/color-theory/LICENSE",
+      "skill_path": "color-theory/LICENSE",
+      "sha": "725c844a325beca28b9321aa6bd892961804078f",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/color-theory/SKILL.md",
+      "skill_path": "color-theory/SKILL.md",
+      "sha": "2acbe7483560628c385a83cec7d82e0e4383c3cf",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/color-theory/references/patterns.md",
+      "skill_path": "color-theory/references/patterns.md",
+      "sha": "86aa28157d4ddf14771d636c39e15640c1321857",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/color-theory/references/sharp_edges.md",
+      "skill_path": "color-theory/references/sharp_edges.md",
+      "sha": "a97a546b246989ff5c1b311334a14d24eb32f41b",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/color-theory/references/validations.md",
+      "skill_path": "color-theory/references/validations.md",
+      "sha": "fae89319bfd4fe04b58dc94dac26d55fd16764c2",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/design-tokens/LICENSE",
+      "skill_path": "design-tokens/LICENSE",
+      "sha": "6344dae25cef4a158de59968b08f0e490ad1ab65",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/design-tokens/SKILL.md",
+      "skill_path": "design-tokens/SKILL.md",
+      "sha": "47bf6dea3f03ec3a462edef8947d2a04018474c1",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/designer-frontend-design/LICENSE",
+      "skill_path": "designer-frontend-design/LICENSE",
+      "sha": "6344dae25cef4a158de59968b08f0e490ad1ab65",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/designer-frontend-design/SKILL.md",
+      "skill_path": "designer-frontend-design/SKILL.md",
+      "sha": "c5526f5d773ca81e498baa6a633604b3fa661444",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/impeccable/LICENSE",
+      "skill_path": "impeccable/LICENSE",
+      "sha": "bb3f6d23b1f8025514a62a12b51b47d73e3c9aa9",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/impeccable/NOTICE.md",
+      "skill_path": "impeccable/NOTICE.md",
+      "sha": "0468271c904ae334cfaf27da6f8df3d5f419a1f0",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/impeccable/SKILL.md",
+      "skill_path": "impeccable/SKILL.md",
+      "sha": "a5e66fb2bb1588746ce309e6b41be5a099d3db2c",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/impeccable/reference/adapt.md",
+      "skill_path": "impeccable/reference/adapt.md",
+      "sha": "58d54aa3e6b1dfb34622d7b99e51c9c9c660b69a",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/impeccable/reference/adapt.native.md",
+      "skill_path": "impeccable/reference/adapt.native.md",
+      "sha": "f1ccd65d9788ffdfb5761824e6c51b8866f4cba5",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/impeccable/reference/android.md",
+      "skill_path": "impeccable/reference/android.md",
+      "sha": "1f67a6bb574960cccb1692f460cc5432baebad65",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/impeccable/reference/animate.md",
+      "skill_path": "impeccable/reference/animate.md",
+      "sha": "4ae4cc5fcd7ae4341f4f130ab67a7d9b03c00562",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/impeccable/reference/audit.md",
+      "skill_path": "impeccable/reference/audit.md",
+      "sha": "b3e1d7c98646501fcf150fb722f56f5d0eb38c2a",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/impeccable/reference/audit.native.md",
+      "skill_path": "impeccable/reference/audit.native.md",
+      "sha": "fbccb56f6e6fe64fc6b24d82977f392a6285848e",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/impeccable/reference/bolder.md",
+      "skill_path": "impeccable/reference/bolder.md",
+      "sha": "1cad2f1d1bbec240aaf39f2332e83c25dcc20cd0",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/impeccable/reference/clarify.md",
+      "skill_path": "impeccable/reference/clarify.md",
+      "sha": "3047a9d82b9cfa31b392e35c643d82bcdb50250a",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/impeccable/reference/colorize.md",
+      "skill_path": "impeccable/reference/colorize.md",
+      "sha": "dc45f88c5f81c61355a915c6ea1391b1a36c9ba8",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/impeccable/reference/component-review.md",
+      "skill_path": "impeccable/reference/component-review.md",
+      "sha": "16af0335b57a9fac63d5f7868b48dea9ff2410f2",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/impeccable/reference/craft-floor.md",
+      "skill_path": "impeccable/reference/craft-floor.md",
+      "sha": "9653b980895fa343127982ba575085c31726eecc",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/impeccable/reference/craft.md",
+      "skill_path": "impeccable/reference/craft.md",
+      "sha": "dbbc9402c07cdab21f2b6eb69279b8435fecfd7f",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/impeccable/reference/critique.md",
+      "skill_path": "impeccable/reference/critique.md",
+      "sha": "387fd6793875f190692d346d6cba1cb36bddd4cc",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/impeccable/reference/degraded/asset-producer.md",
+      "skill_path": "impeccable/reference/degraded/asset-producer.md",
+      "sha": "216dc91fc18bb4607bcf3cfb01ab982c65ba5eeb",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/impeccable/reference/degraded/documenter.md",
+      "skill_path": "impeccable/reference/degraded/documenter.md",
+      "sha": "e9dfb799bcece32233386bf9702bc3141d56d196",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/impeccable/reference/degraded/finish-reviewer.md",
+      "skill_path": "impeccable/reference/degraded/finish-reviewer.md",
+      "sha": "af7c451dfcbf2f753603a00089f35ac87aa575f9",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/impeccable/reference/degraded/manual-edit-applier.md",
+      "skill_path": "impeccable/reference/degraded/manual-edit-applier.md",
+      "sha": "ef5095b924623ce04e02188a6790ebd98a273bcd",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/impeccable/reference/delight.md",
+      "skill_path": "impeccable/reference/delight.md",
+      "sha": "798c43a5b735a5b75b67484c516821f1355dfbd6",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/impeccable/reference/distill.md",
+      "skill_path": "impeccable/reference/distill.md",
+      "sha": "7b93f0fb72bb296ad2cacd20428c6a0b6b4fb909",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/impeccable/reference/doctor.md",
+      "skill_path": "impeccable/reference/doctor.md",
+      "sha": "c7933af530fdb7c42336c823101b0cb080531685",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/impeccable/reference/document.md",
+      "skill_path": "impeccable/reference/document.md",
+      "sha": "033ff9b3e6754ea85e2a0316bf732b051138a7a5",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/impeccable/reference/extract.md",
+      "skill_path": "impeccable/reference/extract.md",
+      "sha": "fb1cd199e3d8d298e2fcc46defb5fcd1f873d27e",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/impeccable/reference/generate.md",
+      "skill_path": "impeccable/reference/generate.md",
+      "sha": "4ca1ca08ea7ea54fe6fdc85baca0062e2590727b",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/impeccable/reference/harden.md",
+      "skill_path": "impeccable/reference/harden.md",
+      "sha": "cbe2941e5e9959dc5b475da24d33aecbff090e5a",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/impeccable/reference/hooks.md",
+      "skill_path": "impeccable/reference/hooks.md",
+      "sha": "d24c2a923b0b56834df26418b84e903154be96ca",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/impeccable/reference/init.md",
+      "skill_path": "impeccable/reference/init.md",
+      "sha": "25251a65e48fef527233695009c6c97b440ed04f",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/impeccable/reference/ios.md",
+      "skill_path": "impeccable/reference/ios.md",
+      "sha": "c6244dfe32176e5718d86211b7d1eb5601eb0860",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/impeccable/reference/layout.md",
+      "skill_path": "impeccable/reference/layout.md",
+      "sha": "7c13be125c644cee234884a06edb2f87e0b87048",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/impeccable/reference/live-setup.md",
+      "skill_path": "impeccable/reference/live-setup.md",
+      "sha": "816b34ada4c78ab1eab84b308582ff6360d6aa94",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/impeccable/reference/live.md",
+      "skill_path": "impeccable/reference/live.md",
+      "sha": "0df66f1e0a715e5789d554a7ca3af80752f8e64b",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/impeccable/reference/mode-operate.md",
+      "skill_path": "impeccable/reference/mode-operate.md",
+      "sha": "833775ba85f03bf65a4c1b23e39192f7653414e6",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/impeccable/reference/mode-persuade.md",
+      "skill_path": "impeccable/reference/mode-persuade.md",
+      "sha": "9c152d67064fb8453a7eaa89de20c35fc115b085",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/impeccable/reference/mode-read.md",
+      "skill_path": "impeccable/reference/mode-read.md",
+      "sha": "b30c4c9139e3094bd35c60738decb6109326153f",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/impeccable/reference/new-work.md",
+      "skill_path": "impeccable/reference/new-work.md",
+      "sha": "e754f664c6e0d6859b925d99f4cc9eb677f63695",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/impeccable/reference/onboard.md",
+      "skill_path": "impeccable/reference/onboard.md",
+      "sha": "d6a6de372d527d232c60f8317a077b5c5405b927",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/impeccable/reference/operate.md",
+      "skill_path": "impeccable/reference/operate.md",
+      "sha": "524f2c3ae9fa497284e9699f3ca5320cce5d05cf",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/impeccable/reference/optimize.md",
+      "skill_path": "impeccable/reference/optimize.md",
+      "sha": "cc6ce4925266bf3c4a7d40b5a435fe315cbf6f1a",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/impeccable/reference/overdrive.md",
+      "skill_path": "impeccable/reference/overdrive.md",
+      "sha": "764740e4e910a64d5b570c71b9347bb326a05bc8",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/impeccable/reference/polish.md",
+      "skill_path": "impeccable/reference/polish.md",
+      "sha": "ea300b3997247461ca0e159f8bbf8fa6c3d05662",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/impeccable/reference/quieter.md",
+      "skill_path": "impeccable/reference/quieter.md",
+      "sha": "5c1331c252b47bf2262b9a11248e54c56bf9c164",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/impeccable/reference/region-map.md",
+      "skill_path": "impeccable/reference/region-map.md",
+      "sha": "277508938ce94418aad1ea9487ceae2ef8eb2b2e",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/impeccable/reference/routing.md",
+      "skill_path": "impeccable/reference/routing.md",
+      "sha": "9ccd9d59e293c92f8998659760fd4d84de42e939",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/impeccable/reference/shape.md",
+      "skill_path": "impeccable/reference/shape.md",
+      "sha": "90a74ae813331cbce8fff6beb498ced77970fadf",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/impeccable/reference/typeset.md",
+      "skill_path": "impeccable/reference/typeset.md",
+      "sha": "60a5029d7a00ab52f2bd84dbcad7595658b0a6fd",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/impeccable/reference/visualize.md",
+      "skill_path": "impeccable/reference/visualize.md",
+      "sha": "40ac2e0ba2b0f58df36990cbc48642bbcba349a6",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/impeccable/scripts/VERSION",
+      "skill_path": "impeccable/scripts/VERSION",
+      "sha": "20f49513e15fe8c9e59ec1b906021854bd91aea8",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/impeccable/scripts/command-metadata.json",
+      "skill_path": "impeccable/scripts/command-metadata.json",
+      "sha": "89891ea4df179d5a07cf3aef42e84dafb1d05689",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/impeccable/scripts/data/font-index-failures.json",
+      "skill_path": "impeccable/scripts/data/font-index-failures.json",
+      "sha": "1aca67220413ef163570c75405b444d7a27a32be",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/impeccable/scripts/data/font-index.json",
+      "skill_path": "impeccable/scripts/data/font-index.json",
+      "sha": "9d2029971df232a72ff6584d264c104490521742",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/impeccable/scripts/impeccable",
+      "skill_path": "impeccable/scripts/impeccable",
+      "sha": "eb60f8667dd6924bc6271e9e1a0761ea5f945751",
+      "mode": "100755"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/impeccable/scripts/impeccable.cmd",
+      "skill_path": "impeccable/scripts/impeccable.cmd",
+      "sha": "dc0fd33e5ac02ec325cb21af7cef39b201959a35",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/impeccable/scripts/live-browser-dom.js",
+      "skill_path": "impeccable/scripts/live-browser-dom.js",
+      "sha": "8646944982fcb5e36c111d134c5bf1e027bb27c6",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/impeccable/scripts/live-browser-ignores.js",
+      "skill_path": "impeccable/scripts/live-browser-ignores.js",
+      "sha": "1c8514c7bcd8b8d889a1763965326fb6adec24a1",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/impeccable/scripts/live-browser-session.js",
+      "skill_path": "impeccable/scripts/live-browser-session.js",
+      "sha": "ad9cdf008fdbeebd3da6a93d4ef408b5abff7420",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/impeccable/scripts/live-browser.js",
+      "skill_path": "impeccable/scripts/live-browser.js",
+      "sha": "c7eed77fb06fa81ef9841f61b5ac28d3bfe5a4f1",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/impeccable/scripts/modern-screenshot.umd.js",
+      "skill_path": "impeccable/scripts/modern-screenshot.umd.js",
+      "sha": "a9c5208f6b141d3bafdb8eb843d6fcbdcf23e370",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/interaction-design/LICENSE",
+      "skill_path": "interaction-design/LICENSE",
+      "sha": "326f0a55c96e672fedf9d807ca043c00df05ba0e",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/interaction-design/SKILL.md",
+      "skill_path": "interaction-design/SKILL.md",
+      "sha": "47338f040fe3dbe06be12bc7477331328d8db7a7",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/interaction-design/references/animation-libraries.md",
+      "skill_path": "interaction-design/references/animation-libraries.md",
+      "sha": "e33eda5a6dd39285c740cf8f4f9d464810cdaacf",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/interaction-design/references/microinteraction-patterns.md",
+      "skill_path": "interaction-design/references/microinteraction-patterns.md",
+      "sha": "3cecea6548871352c4670cf5c983235b5e123b74",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/interaction-design/references/scroll-animations.md",
+      "skill_path": "interaction-design/references/scroll-animations.md",
+      "sha": "75b23544d1afe189927e96d607c9abbcad2d6f7f",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/motion-design/LICENSE",
+      "skill_path": "motion-design/LICENSE",
+      "sha": "79f2ec369e3fdf2802adcbf7c625bd1f019972d5",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/motion-design/SKILL.md",
+      "skill_path": "motion-design/SKILL.md",
+      "sha": "22ba21b1d9455337e1067f2fa24e0a82f6775d0e",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/motion-design/references/12-principles.md",
+      "skill_path": "motion-design/references/12-principles.md",
+      "sha": "1cb1e2fb493be070c6d7a3c76fa48b1d4f56bf51",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/motion-design/references/composition-for-motion.md",
+      "skill_path": "motion-design/references/composition-for-motion.md",
+      "sha": "5dc9ec632737e79abbdba7b5b568ba00caf6621f",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/motion-design/references/defaults-to-avoid.md",
+      "skill_path": "motion-design/references/defaults-to-avoid.md",
+      "sha": "c84e6cfe69c4059d85848a8bfacd88f30592b600",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/motion-design/references/easing-taxonomy.md",
+      "skill_path": "motion-design/references/easing-taxonomy.md",
+      "sha": "058004f84c900b85802d3300876c028964a38d37",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/motion-design/references/timing-and-spacing.md",
+      "skill_path": "motion-design/references/timing-and-spacing.md",
+      "sha": "5d4f65f40886a3143f22619fc225da2ca2625f8e",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/animation-vocabulary/LICENSE",
+      "skill_path": "animation-vocabulary/LICENSE",
+      "sha": "57b46f1fd11dc62351ea548104a88aa3f659c11b",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/animation-vocabulary/SKILL.md",
+      "skill_path": "animation-vocabulary/SKILL.md",
+      "sha": "5ab2976514c74a194ebf069506d95ff3a5a0084f",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/animate/LICENSE",
+      "skill_path": "animate/LICENSE",
+      "sha": "57b46f1fd11dc62351ea548104a88aa3f659c11b",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/animate/RECIPES.md",
+      "skill_path": "animate/RECIPES.md",
+      "sha": "6744891261bdf0bb0473d77f2cc706f2d78b574e",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/animate/SKILL.md",
+      "skill_path": "animate/SKILL.md",
+      "sha": "7c3b20c6ed681b2d47c9ca9e3ee0e659ed47d032",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/emil-design-eng/LICENSE",
+      "skill_path": "emil-design-eng/LICENSE",
+      "sha": "57b46f1fd11dc62351ea548104a88aa3f659c11b",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/emil-design-eng/SKILL.md",
+      "skill_path": "emil-design-eng/SKILL.md",
+      "sha": "62ce902af8dd32c590ea7203e9ab2edb1d6ef81a",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/make-interfaces-feel-better/LICENSE",
+      "skill_path": "make-interfaces-feel-better/LICENSE",
+      "sha": "6a067e906e1346e640a0cda6ed37c5fb793104e4",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/make-interfaces-feel-better/SKILL.md",
+      "skill_path": "make-interfaces-feel-better/SKILL.md",
+      "sha": "e47b87b369396655fa6bea7240c17f108ea494d5",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/make-interfaces-feel-better/agents/openai.yaml",
+      "skill_path": "make-interfaces-feel-better/agents/openai.yaml",
+      "sha": "e4ce76ae96b3709bf19bf4603ad8ec3a3666f0eb",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/make-interfaces-feel-better/animations.md",
+      "skill_path": "make-interfaces-feel-better/animations.md",
+      "sha": "d319874bb69b596b25c23f9bfcb5a933ab3e4dc0",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/make-interfaces-feel-better/icons.md",
+      "skill_path": "make-interfaces-feel-better/icons.md",
+      "sha": "6bdc0078c08cb6a6c0c2ebd7b4957870d0043554",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/make-interfaces-feel-better/performance.md",
+      "skill_path": "make-interfaces-feel-better/performance.md",
+      "sha": "c12257a2ba29c5f6275dfda77467f688a0339b11",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/make-interfaces-feel-better/surfaces.md",
+      "skill_path": "make-interfaces-feel-better/surfaces.md",
+      "sha": "e66d44cb83ff614d286b06b71fef8084b608d1cf",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/make-interfaces-feel-better/typography.md",
+      "skill_path": "make-interfaces-feel-better/typography.md",
+      "sha": "a9505359425ed0af9c8b6053937e3fa96f1142b2",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/find-animation-opportunities/LICENSE",
+      "skill_path": "find-animation-opportunities/LICENSE",
+      "sha": "57b46f1fd11dc62351ea548104a88aa3f659c11b",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/find-animation-opportunities/SKILL.md",
+      "skill_path": "find-animation-opportunities/SKILL.md",
+      "sha": "d3b030fbca9abad9220a032f72d425c6b7fa2de8",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/improve-animations/AUDIT.md",
+      "skill_path": "improve-animations/AUDIT.md",
+      "sha": "94056154e532d695b8792ea67d701625b4f43b6e",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/improve-animations/LICENSE",
+      "skill_path": "improve-animations/LICENSE",
+      "sha": "57b46f1fd11dc62351ea548104a88aa3f659c11b",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/improve-animations/PLAN-TEMPLATE.md",
+      "skill_path": "improve-animations/PLAN-TEMPLATE.md",
+      "sha": "239026b91f8032df191dde2085fd796b8c116d91",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/improve-animations/SKILL.md",
+      "skill_path": "improve-animations/SKILL.md",
+      "sha": "d6e77f37272329af0cc36f9eeedbe5226e86ce63",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/review-animations/LICENSE",
+      "skill_path": "review-animations/LICENSE",
+      "sha": "57b46f1fd11dc62351ea548104a88aa3f659c11b",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/review-animations/SKILL.md",
+      "skill_path": "review-animations/SKILL.md",
+      "sha": "577a64397267ce20960de2202950594d5bd6f9b6",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/review-animations/STANDARDS.md",
+      "skill_path": "review-animations/STANDARDS.md",
+      "sha": "863ea12ea94c1f7a47b5f7e1019e976aa82bd4cd",
+      "mode": "100644"
+    },
+    {
+      "repository": "mblode/agent-skills",
+      "commit": "81d0af2f6d4b32d791fb26caa82b17603ef4d807",
+      "upstream_path": "skills/ui-animation/SKILL.md",
+      "skill_path": "ui-animation/SKILL.md",
+      "sha": "e6046bc9bad912a86a2881ffffc45a0d3d8bdf1a",
+      "mode": "100644"
+    },
+    {
+      "repository": "mblode/agent-skills",
+      "commit": "81d0af2f6d4b32d791fb26caa82b17603ef4d807",
+      "upstream_path": "skills/ui-animation/evals/discovery-mode.json",
+      "skill_path": "ui-animation/evals/discovery-mode.json",
+      "sha": "158fa308f8456d68e8b7d4033f66b5c992e9fb11",
+      "mode": "100644"
+    },
+    {
+      "repository": "mblode/agent-skills",
+      "commit": "81d0af2f6d4b32d791fb26caa82b17603ef4d807",
+      "upstream_path": "skills/ui-animation/evals/evals.json",
+      "skill_path": "ui-animation/evals/evals.json",
+      "sha": "9ebeff395f575b7a4dd644d9ff1a6889a57159ef",
+      "mode": "100644"
+    },
+    {
+      "repository": "mblode/agent-skills",
+      "commit": "81d0af2f6d4b32d791fb26caa82b17603ef4d807",
+      "upstream_path": "skills/ui-animation/evals/fixtures/settings-panel.tsx",
+      "skill_path": "ui-animation/evals/fixtures/settings-panel.tsx",
+      "sha": "5fe656ad3e01ea1456941b11976e69bf6ff16543",
+      "mode": "100644"
+    },
+    {
+      "repository": "mblode/agent-skills",
+      "commit": "81d0af2f6d4b32d791fb26caa82b17603ef4d807",
+      "upstream_path": "skills/ui-animation/references/choreography.md",
+      "skill_path": "ui-animation/references/choreography.md",
+      "sha": "7287b749c4587d107dfc3d2d67f7f5a956b0be98",
+      "mode": "100644"
+    },
+    {
+      "repository": "mblode/agent-skills",
+      "commit": "81d0af2f6d4b32d791fb26caa82b17603ef4d807",
+      "upstream_path": "skills/ui-animation/references/clip-path-techniques.md",
+      "skill_path": "ui-animation/references/clip-path-techniques.md",
+      "sha": "7cc6a4a59e5678997eb82b82bc7beea01a5b05c9",
+      "mode": "100644"
+    },
+    {
+      "repository": "mblode/agent-skills",
+      "commit": "81d0af2f6d4b32d791fb26caa82b17603ef4d807",
+      "upstream_path": "skills/ui-animation/references/code-output.md",
+      "skill_path": "ui-animation/references/code-output.md",
+      "sha": "bc3c1707681c3ad1e3bc2f4cc45b0c70ea8d52dd",
+      "mode": "100644"
+    },
+    {
+      "repository": "mblode/agent-skills",
+      "commit": "81d0af2f6d4b32d791fb26caa82b17603ef4d807",
+      "upstream_path": "skills/ui-animation/references/component-patterns.md",
+      "skill_path": "ui-animation/references/component-patterns.md",
+      "sha": "bf7b35c4999006a2310e864c58a2cfb7ac4c77f4",
+      "mode": "100644"
+    },
+    {
+      "repository": "mblode/agent-skills",
+      "commit": "81d0af2f6d4b32d791fb26caa82b17603ef4d807",
+      "upstream_path": "skills/ui-animation/references/contextual-animations.md",
+      "skill_path": "ui-animation/references/contextual-animations.md",
+      "sha": "cf686e73fbb372ff61b20ec65c773a24d9bb45a0",
+      "mode": "100644"
+    },
+    {
+      "repository": "mblode/agent-skills",
+      "commit": "81d0af2f6d4b32d791fb26caa82b17603ef4d807",
+      "upstream_path": "skills/ui-animation/references/curve-fitting.md",
+      "skill_path": "ui-animation/references/curve-fitting.md",
+      "sha": "f0fb5f189bf4f0f60bb06a0f4b3414b42de1896e",
+      "mode": "100644"
+    },
+    {
+      "repository": "mblode/agent-skills",
+      "commit": "81d0af2f6d4b32d791fb26caa82b17603ef4d807",
+      "upstream_path": "skills/ui-animation/references/debugging-symptoms.md",
+      "skill_path": "ui-animation/references/debugging-symptoms.md",
+      "sha": "e50a12948015dcd1474e0e6858865bf40627404c",
+      "mode": "100644"
+    },
+    {
+      "repository": "mblode/agent-skills",
+      "commit": "81d0af2f6d4b32d791fb26caa82b17603ef4d807",
+      "upstream_path": "skills/ui-animation/references/decision-framework.md",
+      "skill_path": "ui-animation/references/decision-framework.md",
+      "sha": "fe27d344da2d364a8b8ba083132a64092099de47",
+      "mode": "100644"
+    },
+    {
+      "repository": "mblode/agent-skills",
+      "commit": "81d0af2f6d4b32d791fb26caa82b17603ef4d807",
+      "upstream_path": "skills/ui-animation/references/gesture-drag.md",
+      "skill_path": "ui-animation/references/gesture-drag.md",
+      "sha": "5c61d912ece7be3e9ecee635a9dcaa5dc7c25198",
+      "mode": "100644"
+    },
+    {
+      "repository": "mblode/agent-skills",
+      "commit": "81d0af2f6d4b32d791fb26caa82b17603ef4d807",
+      "upstream_path": "skills/ui-animation/references/interface-sfx.md",
+      "skill_path": "ui-animation/references/interface-sfx.md",
+      "sha": "19b6736562c62c19d05289215d1f52bfdd2e9c5e",
+      "mode": "100644"
+    },
+    {
+      "repository": "mblode/agent-skills",
+      "commit": "81d0af2f6d4b32d791fb26caa82b17603ef4d807",
+      "upstream_path": "skills/ui-animation/references/measurement-guide.md",
+      "skill_path": "ui-animation/references/measurement-guide.md",
+      "sha": "a2c8f6317d28ea6462053540c47e5fe82a3bb597",
+      "mode": "100644"
+    },
+    {
+      "repository": "mblode/agent-skills",
+      "commit": "81d0af2f6d4b32d791fb26caa82b17603ef4d807",
+      "upstream_path": "skills/ui-animation/references/performance-deep-dive.md",
+      "skill_path": "ui-animation/references/performance-deep-dive.md",
+      "sha": "76b92636ba5cb6e3f9074bd7897b41d2b00c748f",
+      "mode": "100644"
+    },
+    {
+      "repository": "mblode/agent-skills",
+      "commit": "81d0af2f6d4b32d791fb26caa82b17603ef4d807",
+      "upstream_path": "skills/ui-animation/references/review-format.md",
+      "skill_path": "ui-animation/references/review-format.md",
+      "sha": "ae6d3ca372e4ea8f525fdb6c8e4236c71ef2d6c9",
+      "mode": "100644"
+    },
+    {
+      "repository": "mblode/agent-skills",
+      "commit": "81d0af2f6d4b32d791fb26caa82b17603ef4d807",
+      "upstream_path": "skills/ui-animation/references/scroll-animations.md",
+      "skill_path": "ui-animation/references/scroll-animations.md",
+      "sha": "e559c1e2f6155052063e041694e3af45af944780",
+      "mode": "100644"
+    },
+    {
+      "repository": "mblode/agent-skills",
+      "commit": "81d0af2f6d4b32d791fb26caa82b17603ef4d807",
+      "upstream_path": "skills/ui-animation/references/spring-animations.md",
+      "skill_path": "ui-animation/references/spring-animations.md",
+      "sha": "ec3b15c280d442776ccaff2a8fffeb0a7c219d4e",
+      "mode": "100644"
+    },
+    {
+      "repository": "mblode/agent-skills",
+      "commit": "81d0af2f6d4b32d791fb26caa82b17603ef4d807",
+      "upstream_path": "skills/ui-animation/references/svg-animation.md",
+      "skill_path": "ui-animation/references/svg-animation.md",
+      "sha": "aed8422de3f1cf1c8cc7ec069f0220365c078f1a",
+      "mode": "100644"
+    },
+    {
+      "repository": "mblode/agent-skills",
+      "commit": "81d0af2f6d4b32d791fb26caa82b17603ef4d807",
+      "upstream_path": "skills/ui-animation/references/transition-recipes.md",
+      "skill_path": "ui-animation/references/transition-recipes.md",
+      "sha": "a24baf4b1f42897db88c7b3917dff40b4016f533",
+      "mode": "100644"
+    },
+    {
+      "repository": "mblode/agent-skills",
+      "commit": "81d0af2f6d4b32d791fb26caa82b17603ef4d807",
+      "upstream_path": "skills/ui-animation/references/vocabulary.md",
+      "skill_path": "ui-animation/references/vocabulary.md",
+      "sha": "b91949b067bfc6b04562e76db7bbfbe05fc0abd6",
+      "mode": "100644"
+    },
+    {
+      "repository": "mblode/agent-skills",
+      "commit": "81d0af2f6d4b32d791fb26caa82b17603ef4d807",
+      "upstream_path": "skills/ui-animation/scripts/extract_frames.py",
+      "skill_path": "ui-animation/scripts/extract_frames.py",
+      "sha": "8d5c2edd77692672feca3be50f5594debf6a59c1",
+      "mode": "100644"
+    },
+    {
+      "repository": "mblode/agent-skills",
+      "commit": "81d0af2f6d4b32d791fb26caa82b17603ef4d807",
+      "upstream_path": "skills/ui-animation/scripts/fit_curves.py",
+      "skill_path": "ui-animation/scripts/fit_curves.py",
+      "sha": "be38db869a9129d7d839c08104783a7f9d82c6f1",
+      "mode": "100644"
+    },
+    {
+      "repository": "mblode/agent-skills",
+      "commit": "81d0af2f6d4b32d791fb26caa82b17603ef4d807",
+      "upstream_path": "skills/ui-animation/scripts/track_motion.py",
+      "skill_path": "ui-animation/scripts/track_motion.py",
+      "sha": "cdbf1fe0457cd62d70d8d6e65dd40e4b7b53beaa",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/icon-set-generator/LICENSE",
+      "skill_path": "icon-set-generator/LICENSE",
+      "sha": "6ea2e76c813f12b078e82823703d58033a04fee2",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/icon-set-generator/SKILL.md",
+      "skill_path": "icon-set-generator/SKILL.md",
+      "sha": "239a7d5d57e5aed57008a200af897796f38991b2",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/icon-set-generator/references/industry-icons.md",
+      "skill_path": "icon-set-generator/references/industry-icons.md",
+      "sha": "e2738b9615dcb4c37296cb71aa6ed3bd9aba8136",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/icon-set-generator/references/preview-template.md",
+      "skill_path": "icon-set-generator/references/preview-template.md",
+      "sha": "21926311d46841065856e645f8a0e03bd70d8bb7",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/icon-set-generator/references/style-presets.md",
+      "skill_path": "icon-set-generator/references/style-presets.md",
+      "sha": "dfaf9903f6c8eb63c2b98e961fef2741c9b91ff2",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/icon-set-generator/references/svg-examples.md",
+      "skill_path": "icon-set-generator/references/svg-examples.md",
+      "sha": "82b74c47827eee9e40e77cae549e2b6ce8232630",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/better-icons/LICENSE",
+      "skill_path": "better-icons/LICENSE",
+      "sha": "cf99d48615c57aa424b38f3abc1deeda27aa01d3",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/better-icons/SKILL.md",
+      "skill_path": "better-icons/SKILL.md",
+      "sha": "0e44f0c9e4f5837b80420ce90710670954e366dd",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/app-icon-expert/LICENSE",
+      "skill_path": "app-icon-expert/LICENSE",
+      "sha": "014ba2c8d1ea384aba8b98740f6454e075535b92",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/app-icon-expert/SKILL.md",
+      "skill_path": "app-icon-expert/SKILL.md",
+      "sha": "628168f3df94c0e62264f835f7767b01f979d14c",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/favicon-gen/LICENSE",
+      "skill_path": "favicon-gen/LICENSE",
+      "sha": "6ea2e76c813f12b078e82823703d58033a04fee2",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/favicon-gen/SKILL.md",
+      "skill_path": "favicon-gen/SKILL.md",
+      "sha": "83a90b392389cc3faea4303b0f9a9ee53309df6b",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/favicon-gen/assets/favicon-svg-circle.svg",
+      "skill_path": "favicon-gen/assets/favicon-svg-circle.svg",
+      "sha": "2206268b95a98cb4bc6d6b2fe81eb6f9e7c4bb91",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/favicon-gen/assets/favicon-svg-shield.svg",
+      "skill_path": "favicon-gen/assets/favicon-svg-shield.svg",
+      "sha": "9179826382551626f574eed139aa207707cb381b",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/favicon-gen/assets/favicon-svg-square.svg",
+      "skill_path": "favicon-gen/assets/favicon-svg-square.svg",
+      "sha": "a25fb7f6afffd47f7588e260ce6e89d4aa6b2cd0",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/favicon-gen/assets/manifest.webmanifest",
+      "skill_path": "favicon-gen/assets/manifest.webmanifest",
+      "sha": "500ccd6123952c84abb8989f5619bdff02b1a71b",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/favicon-gen/references/extraction-methods.md",
+      "skill_path": "favicon-gen/references/extraction-methods.md",
+      "sha": "410648d75dedee44f56cf40dfedf3bbed18ef9f8",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/favicon-gen/references/format-guide.md",
+      "skill_path": "favicon-gen/references/format-guide.md",
+      "sha": "f5ace386266b71705c38723632bc6cedfcc6d456",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/favicon-gen/references/monogram-patterns.md",
+      "skill_path": "favicon-gen/references/monogram-patterns.md",
+      "sha": "852865d7f19c282f9d69811a40b8e4b106380546",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/favicon-gen/references/shape-templates.md",
+      "skill_path": "favicon-gen/references/shape-templates.md",
+      "sha": "09db4bcaec0f5d5cfc27ba3b3cda60bdac31b615",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/branding/LICENSE",
+      "skill_path": "branding/LICENSE",
+      "sha": "725c844a325beca28b9321aa6bd892961804078f",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/branding/SKILL.md",
+      "skill_path": "branding/SKILL.md",
+      "sha": "a8d307cea7633820956067002547904152600bcf",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/branding/references/patterns.md",
+      "skill_path": "branding/references/patterns.md",
+      "sha": "ac89a8c9ed0f32b34f06bdf11dde16245110b171",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/branding/references/sharp_edges.md",
+      "skill_path": "branding/references/sharp_edges.md",
+      "sha": "9b4e7dfffc91ba3da2201d1b9143cfe4d901dc97",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/branding/references/validations.md",
+      "skill_path": "branding/references/validations.md",
+      "sha": "6478962d0999a50ca3dccb08f5a543575a0db651",
+      "mode": "100644"
+    },
+    {
+      "repository": "supermemoryai/skills",
+      "commit": "64e285d5a4a56c773e86c088af54524328b71c42",
+      "upstream_path": "svg-animations/SKILL.md",
+      "skill_path": "svg-animations/SKILL.md",
+      "sha": "ed5a4096780ca67c2e4556c4b27047acc0569c22",
+      "mode": "100644"
+    },
+    {
+      "repository": "molauu/svg-character-animator",
+      "commit": "5ee1e7845caefe2c9ab51c64a2aa6f386e72ef5b",
+      "upstream_path": "LICENSE",
+      "skill_path": "svg-character-animator/LICENSE",
+      "sha": "54c3f7acecd74af04c678b69952d35d1c2596e63",
+      "mode": "100644"
+    },
+    {
+      "repository": "molauu/svg-character-animator",
+      "commit": "5ee1e7845caefe2c9ab51c64a2aa6f386e72ef5b",
+      "upstream_path": "SKILL.md",
+      "skill_path": "svg-character-animator/SKILL.md",
+      "sha": "123e73852b9efdc7d32ac95e1627fd7562ffded8",
+      "mode": "100644"
+    },
+    {
+      "repository": "molauu/svg-character-animator",
+      "commit": "5ee1e7845caefe2c9ab51c64a2aa6f386e72ef5b",
+      "upstream_path": "assets/preset-library.json",
+      "skill_path": "svg-character-animator/assets/preset-library.json",
+      "sha": "528dd07bc9a685df58ea94834c963f8ececbf3b0",
+      "mode": "100644"
+    },
+    {
+      "repository": "molauu/svg-character-animator",
+      "commit": "5ee1e7845caefe2c9ab51c64a2aa6f386e72ef5b",
+      "upstream_path": "examples/LICENSE.md",
+      "skill_path": "svg-character-animator/examples/LICENSE.md",
+      "sha": "0688a765b910c7f4620a386aacb5c8cd2b8c8965",
+      "mode": "100644"
+    },
+    {
+      "repository": "molauu/svg-character-animator",
+      "commit": "5ee1e7845caefe2c9ab51c64a2aa6f386e72ef5b",
+      "upstream_path": "examples/critters.states.js",
+      "skill_path": "svg-character-animator/examples/critters.states.js",
+      "sha": "fd87fa0aed4abc285c798b0cba618c3778aaa6c4",
+      "mode": "100644"
+    },
+    {
+      "repository": "molauu/svg-character-animator",
+      "commit": "5ee1e7845caefe2c9ab51c64a2aa6f386e72ef5b",
+      "upstream_path": "examples/snowman.states.js",
+      "skill_path": "svg-character-animator/examples/snowman.states.js",
+      "sha": "ce754be0fb62c6c4dc07b9d117c7e55715cd3514",
+      "mode": "100644"
+    },
+    {
+      "repository": "molauu/svg-character-animator",
+      "commit": "5ee1e7845caefe2c9ab51c64a2aa6f386e72ef5b",
+      "upstream_path": "references/idle-animation-recipes.md",
+      "skill_path": "svg-character-animator/references/idle-animation-recipes.md",
+      "sha": "4e37d657bbb602b6e357c309f77368e77097dea4",
+      "mode": "100644"
+    },
+    {
+      "repository": "molauu/svg-character-animator",
+      "commit": "5ee1e7845caefe2c9ab51c64a2aa6f386e72ef5b",
+      "upstream_path": "references/ios-porting.md",
+      "skill_path": "svg-character-animator/references/ios-porting.md",
+      "sha": "a5cf87aba7472765cbd35ca3947ad233d5bf8c84",
+      "mode": "100644"
+    },
+    {
+      "repository": "molauu/svg-character-animator",
+      "commit": "5ee1e7845caefe2c9ab51c64a2aa6f386e72ef5b",
+      "upstream_path": "references/morph-library-comparison.md",
+      "skill_path": "svg-character-animator/references/morph-library-comparison.md",
+      "sha": "c0f9aafd9771246d5bfccb29ecc4b64252ab8075",
+      "mode": "100644"
+    },
+    {
+      "repository": "molauu/svg-character-animator",
+      "commit": "5ee1e7845caefe2c9ab51c64a2aa6f386e72ef5b",
+      "upstream_path": "references/motion-design-basics.md",
+      "skill_path": "svg-character-animator/references/motion-design-basics.md",
+      "sha": "d9bfb0efc6ced297cfc0b10d2cbff6f4fe609c40",
+      "mode": "100644"
+    },
+    {
+      "repository": "molauu/svg-character-animator",
+      "commit": "5ee1e7845caefe2c9ab51c64a2aa6f386e72ef5b",
+      "upstream_path": "references/path-normalization.md",
+      "skill_path": "svg-character-animator/references/path-normalization.md",
+      "sha": "680246dd13497ac265d3244aa89191d499aadf75",
+      "mode": "100644"
+    },
+    {
+      "repository": "molauu/svg-character-animator",
+      "commit": "5ee1e7845caefe2c9ab51c64a2aa6f386e72ef5b",
+      "upstream_path": "references/state-machine-patterns.md",
+      "skill_path": "svg-character-animator/references/state-machine-patterns.md",
+      "sha": "f0b5183a141a2345900c938a4a523b5135ea1710",
+      "mode": "100644"
+    },
+    {
+      "repository": "molauu/svg-character-animator",
+      "commit": "5ee1e7845caefe2c9ab51c64a2aa6f386e72ef5b",
+      "upstream_path": "references/strategy-detection.md",
+      "skill_path": "svg-character-animator/references/strategy-detection.md",
+      "sha": "de09639465df897e73458b4de0af80579aceda88",
+      "mode": "100644"
+    },
+    {
+      "repository": "molauu/svg-character-animator",
+      "commit": "5ee1e7845caefe2c9ab51c64a2aa6f386e72ef5b",
+      "upstream_path": "references/transform-interpolation.md",
+      "skill_path": "svg-character-animator/references/transform-interpolation.md",
+      "sha": "339eeb5bf2a4e59db32e6ce8d49f4dd2331da848",
+      "mode": "100644"
+    },
+    {
+      "repository": "molauu/svg-character-animator",
+      "commit": "5ee1e7845caefe2c9ab51c64a2aa6f386e72ef5b",
+      "upstream_path": "scripts/build-standalone.js",
+      "skill_path": "svg-character-animator/scripts/build-standalone.js",
+      "sha": "02d065497e3e7eeb36e273f86e6c94f5339f3769",
+      "mode": "100644"
+    },
+    {
+      "repository": "molauu/svg-character-animator",
+      "commit": "5ee1e7845caefe2c9ab51c64a2aa6f386e72ef5b",
+      "upstream_path": "scripts/export-swift.js",
+      "skill_path": "svg-character-animator/scripts/export-swift.js",
+      "sha": "350558e59f82bdc429ded29cc209cc7d8926e8af",
+      "mode": "100644"
+    },
+    {
+      "repository": "molauu/svg-character-animator",
+      "commit": "5ee1e7845caefe2c9ab51c64a2aa6f386e72ef5b",
+      "upstream_path": "scripts/figma-to-states.js",
+      "skill_path": "svg-character-animator/scripts/figma-to-states.js",
+      "sha": "c6f10cc01598416cb6ca77257b6549829fc6367d",
+      "mode": "100644"
+    },
+    {
+      "repository": "molauu/svg-character-animator",
+      "commit": "5ee1e7845caefe2c9ab51c64a2aa6f386e72ef5b",
+      "upstream_path": "templates/App.jsx",
+      "skill_path": "svg-character-animator/templates/App.jsx",
+      "sha": "cbe16ce6271fe55bb8770be74ac850e12b04ea1d",
+      "mode": "100644"
+    },
+    {
+      "repository": "molauu/svg-character-animator",
+      "commit": "5ee1e7845caefe2c9ab51c64a2aa6f386e72ef5b",
+      "upstream_path": "templates/MorphAnimator.jsx",
+      "skill_path": "svg-character-animator/templates/MorphAnimator.jsx",
+      "sha": "5bb311e247a621f20778527e1efad173f7420db0",
+      "mode": "100644"
+    },
+    {
+      "repository": "molauu/svg-character-animator",
+      "commit": "5ee1e7845caefe2c9ab51c64a2aa6f386e72ef5b",
+      "upstream_path": "templates/preview/app.jsx",
+      "skill_path": "svg-character-animator/templates/preview/app.jsx",
+      "sha": "c39afbb5c4c1d4b6c66947e5d868cb26e16806ea",
+      "mode": "100644"
+    },
+    {
+      "repository": "molauu/svg-character-animator",
+      "commit": "5ee1e7845caefe2c9ab51c64a2aa6f386e72ef5b",
+      "upstream_path": "templates/preview/engine.jsx",
+      "skill_path": "svg-character-animator/templates/preview/engine.jsx",
+      "sha": "181a59e2ecd4be12f6dd0af7cfaecf2e23d57ee8",
+      "mode": "100644"
+    },
+    {
+      "repository": "molauu/svg-character-animator",
+      "commit": "5ee1e7845caefe2c9ab51c64a2aa6f386e72ef5b",
+      "upstream_path": "templates/preview/exporters.js",
+      "skill_path": "svg-character-animator/templates/preview/exporters.js",
+      "sha": "60b6ed1faba2caa07174ba7da4faaf8169e052c1",
+      "mode": "100644"
+    },
+    {
+      "repository": "molauu/svg-character-animator",
+      "commit": "5ee1e7845caefe2c9ab51c64a2aa6f386e72ef5b",
+      "upstream_path": "templates/preview/preview.html",
+      "skill_path": "svg-character-animator/templates/preview/preview.html",
+      "sha": "5761f196e5278a8f9773e97884b812c11c1a2fbb",
+      "mode": "100644"
+    },
+    {
+      "repository": "molauu/svg-character-animator",
+      "commit": "5ee1e7845caefe2c9ab51c64a2aa6f386e72ef5b",
+      "upstream_path": "templates/preview/states.example.js",
+      "skill_path": "svg-character-animator/templates/preview/states.example.js",
+      "sha": "92bfcae5baeb281227c8157f37079ba2c829d2db",
+      "mode": "100644"
+    },
+    {
+      "repository": "upbrew-tech/svg-creator-skill",
+      "commit": "1eb83d602a992b69a1771c4e0116a9f7de6ffaa2",
+      "upstream_path": "LICENSE",
+      "skill_path": "svg-creator/LICENSE",
+      "sha": "dc567a6aef8185e1ccbb6bd586445421092d7da8",
+      "mode": "100644"
+    },
+    {
+      "repository": "upbrew-tech/svg-creator-skill",
+      "commit": "1eb83d602a992b69a1771c4e0116a9f7de6ffaa2",
+      "upstream_path": "SKILL.md",
+      "skill_path": "svg-creator/SKILL.md",
+      "sha": "89aba03bf2f1a128f3cc35c31e8fea28efd6257a",
+      "mode": "100644"
+    },
+    {
+      "repository": "upbrew-tech/svg-creator-skill",
+      "commit": "1eb83d602a992b69a1771c4e0116a9f7de6ffaa2",
+      "upstream_path": "examples/cat-astronaut.svg",
+      "skill_path": "svg-creator/examples/cat-astronaut.svg",
+      "sha": "12ae15a32b461cfbd7e80123b0c100ad23a6ebed",
+      "mode": "100644"
+    },
+    {
+      "repository": "upbrew-tech/svg-creator-skill",
+      "commit": "1eb83d602a992b69a1771c4e0116a9f7de6ffaa2",
+      "upstream_path": "examples/fox-yoga-static.svg",
+      "skill_path": "svg-creator/examples/fox-yoga-static.svg",
+      "sha": "239870cbaa26bbe1ba70fcfff9bfb338234d70cf",
+      "mode": "100644"
+    },
+    {
+      "repository": "upbrew-tech/svg-creator-skill",
+      "commit": "1eb83d602a992b69a1771c4e0116a9f7de6ffaa2",
+      "upstream_path": "references/advanced-techniques.md",
+      "skill_path": "svg-creator/references/advanced-techniques.md",
+      "sha": "e2a12f7eff4e5c98f8ef024f5428c2b60f88f56c",
+      "mode": "100644"
+    },
+    {
+      "repository": "upbrew-tech/svg-creator-skill",
+      "commit": "1eb83d602a992b69a1771c4e0116a9f7de6ffaa2",
+      "upstream_path": "scripts/svg_loop.py",
+      "skill_path": "svg-creator/scripts/svg_loop.py",
+      "sha": "088de04b0ae3f23433d3154168f5a43d2abfe879",
+      "mode": "100644"
+    },
+    {
+      "repository": "nolangz/pixel2motion",
+      "commit": "e9faedb28930df0da2acf17da00c80730a78cfe8",
+      "upstream_path": "LICENSE",
+      "skill_path": "pixel2motion/LICENSE",
+      "sha": "113347e59d2441ba810d6bc3ef66eddb500d9360",
+      "mode": "100644"
+    },
+    {
+      "repository": "nolangz/pixel2motion",
+      "commit": "e9faedb28930df0da2acf17da00c80730a78cfe8",
+      "upstream_path": "SKILL.md",
+      "skill_path": "pixel2motion/SKILL.md",
+      "sha": "ee92218e6d057f9e218fd9da78c725c58d0b3829",
+      "mode": "100644"
+    },
+    {
+      "repository": "nolangz/pixel2motion",
+      "commit": "e9faedb28930df0da2acf17da00c80730a78cfe8",
+      "upstream_path": "agents/openai.yaml",
+      "skill_path": "pixel2motion/agents/openai.yaml",
+      "sha": "bed0d3da29af1a840a1826c52640c5a32909d5d2",
+      "mode": "100644"
+    },
+    {
+      "repository": "nolangz/pixel2motion",
+      "commit": "e9faedb28930df0da2acf17da00c80730a78cfe8",
+      "upstream_path": "references/html-delivery-template.md",
+      "skill_path": "pixel2motion/references/html-delivery-template.md",
+      "sha": "beb1924bb76bf49a320acc4cc1dabab97dae28b9",
+      "mode": "100644"
+    },
+    {
+      "repository": "nolangz/pixel2motion",
+      "commit": "e9faedb28930df0da2acf17da00c80730a78cfe8",
+      "upstream_path": "references/motion-personality.md",
+      "skill_path": "pixel2motion/references/motion-personality.md",
+      "sha": "63c3b81364a1b29c9a9c42ddc13c6c8ba9794e2a",
+      "mode": "100644"
+    },
+    {
+      "repository": "nolangz/pixel2motion",
+      "commit": "e9faedb28930df0da2acf17da00c80730a78cfe8",
+      "upstream_path": "references/reveal-patterns.md",
+      "skill_path": "pixel2motion/references/reveal-patterns.md",
+      "sha": "72d7ec0b2316a4d16710ecf052a5195628db8e42",
+      "mode": "100644"
+    },
+    {
+      "repository": "nolangz/pixel2motion",
+      "commit": "e9faedb28930df0da2acf17da00c80730a78cfe8",
+      "upstream_path": "references/ribbon-fitting.md",
+      "skill_path": "pixel2motion/references/ribbon-fitting.md",
+      "sha": "abd7566db4d712ab861715e7596d0d7fb6c6f112",
+      "mode": "100644"
+    },
+    {
+      "repository": "nolangz/pixel2motion",
+      "commit": "e9faedb28930df0da2acf17da00c80730a78cfe8",
+      "upstream_path": "references/twelve-principles-for-logos.md",
+      "skill_path": "pixel2motion/references/twelve-principles-for-logos.md",
+      "sha": "e1d70d39a547e5feb1ce3478252a219a432dec4f",
+      "mode": "100644"
+    },
+    {
+      "repository": "nolangz/pixel2motion",
+      "commit": "e9faedb28930df0da2acf17da00c80730a78cfe8",
+      "upstream_path": "scripts/animate_svg_html.py",
+      "skill_path": "pixel2motion/scripts/animate_svg_html.py",
+      "sha": "66fe0870ba61211b29690dbda7b321cf042aa41d",
+      "mode": "100644"
+    },
+    {
+      "repository": "nolangz/pixel2motion",
+      "commit": "e9faedb28930df0da2acf17da00c80730a78cfe8",
+      "upstream_path": "scripts/animate_svg_showcase.py",
+      "skill_path": "pixel2motion/scripts/animate_svg_showcase.py",
+      "sha": "7752efab549421a000509732df09ae99163e4dcb",
+      "mode": "100644"
+    },
+    {
+      "repository": "nolangz/pixel2motion",
+      "commit": "e9faedb28930df0da2acf17da00c80730a78cfe8",
+      "upstream_path": "scripts/capture_motion_frames.py",
+      "skill_path": "pixel2motion/scripts/capture_motion_frames.py",
+      "sha": "aa6e60b9f6b827619a3d6ff7926da6213d588cb4",
+      "mode": "100644"
+    },
+    {
+      "repository": "nolangz/pixel2motion",
+      "commit": "e9faedb28930df0da2acf17da00c80730a78cfe8",
+      "upstream_path": "scripts/fit_ribbon_centerline.py",
+      "skill_path": "pixel2motion/scripts/fit_ribbon_centerline.py",
+      "sha": "022900eeb57d9e660bb7673ec99bcd87faeac827",
+      "mode": "100644"
+    },
+    {
+      "repository": "nolangz/pixel2motion",
+      "commit": "e9faedb28930df0da2acf17da00c80730a78cfe8",
+      "upstream_path": "scripts/overlay_progress_strip.py",
+      "skill_path": "pixel2motion/scripts/overlay_progress_strip.py",
+      "sha": "29a508bad1113c6ea5cdc064275aaf569d28d74a",
+      "mode": "100644"
+    },
+    {
+      "repository": "nolangz/pixel2motion",
+      "commit": "e9faedb28930df0da2acf17da00c80730a78cfe8",
+      "upstream_path": "scripts/probe_motion_continuity.py",
+      "skill_path": "pixel2motion/scripts/probe_motion_continuity.py",
+      "sha": "e152c34a30cc2f92ccc7e6bca5784f4e68bc5636",
+      "mode": "100644"
+    },
+    {
+      "repository": "nolangz/pixel2motion",
+      "commit": "e9faedb28930df0da2acf17da00c80730a78cfe8",
+      "upstream_path": "scripts/raster_logo_trace.py",
+      "skill_path": "pixel2motion/scripts/raster_logo_trace.py",
+      "sha": "b0461f96ba697ee364200e7fc625bbed65ca9518",
+      "mode": "100644"
+    },
+    {
+      "repository": "nolangz/pixel2motion",
+      "commit": "e9faedb28930df0da2acf17da00c80730a78cfe8",
+      "upstream_path": "scripts/render_overlay.py",
+      "skill_path": "pixel2motion/scripts/render_overlay.py",
+      "sha": "1d4db0790e91498a0821479a054064e4225aa99b",
+      "mode": "100644"
+    },
+    {
+      "repository": "nolangz/pixel2motion",
+      "commit": "e9faedb28930df0da2acf17da00c80730a78cfe8",
+      "upstream_path": "scripts/svg_path_audit.py",
+      "skill_path": "pixel2motion/scripts/svg_path_audit.py",
+      "sha": "a510acb2a662eb2c67e58ba9414d2e6df41ce12e",
+      "mode": "100755"
+    },
+    {
+      "repository": "nolangz/pixel2motion",
+      "commit": "e9faedb28930df0da2acf17da00c80730a78cfe8",
+      "upstream_path": "scripts/svg_to_js_html.py",
+      "skill_path": "pixel2motion/scripts/svg_to_js_html.py",
+      "sha": "53a01b8ac5f465a554e78fa44e46c43a67d00262",
+      "mode": "100755"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/lottie-motion-design/LICENSE",
+      "skill_path": "lottie-motion-design/LICENSE",
+      "sha": "cf29711a87aa93532c1253aa71c8c9815938abe2",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/lottie-motion-design/SKILL.md",
+      "skill_path": "lottie-motion-design/SKILL.md",
+      "sha": "3cc73344a3cf87904c6f3081669524a117aaf2a4",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/lottie-motion-design/director/choreography.md",
+      "skill_path": "lottie-motion-design/director/choreography.md",
+      "sha": "8b0322efe715247e4e120c561d2023308d2273a2",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/lottie-motion-design/director/context-adaptation.md",
+      "skill_path": "lottie-motion-design/director/context-adaptation.md",
+      "sha": "97bc36ee57deb70b2c721caaad41b76191a066dd",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/lottie-motion-design/director/core-philosophy.md",
+      "skill_path": "lottie-motion-design/director/core-philosophy.md",
+      "sha": "b48ea367dca840ec251b4cc36adbdc6df34c243f",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/lottie-motion-design/director/decision-framework.md",
+      "skill_path": "lottie-motion-design/director/decision-framework.md",
+      "sha": "040e1ed776993ea0071388425143e39bc7664d0b",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/lottie-motion-design/director/disney-principles.md",
+      "skill_path": "lottie-motion-design/director/disney-principles.md",
+      "sha": "4e573031d960aaf69aeea9aa42a2d00a1985afcc",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/lottie-motion-design/director/emotion-mapping.md",
+      "skill_path": "lottie-motion-design/director/emotion-mapping.md",
+      "sha": "3a923b76b405231074881f5f27415a7ec8978fd6",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/lottie-motion-design/director/motion-personality.md",
+      "skill_path": "lottie-motion-design/director/motion-personality.md",
+      "sha": "63e319397123f15169af44e3da904d32fd8a34c9",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/lottie-motion-design/director/narrative-structure.md",
+      "skill_path": "lottie-motion-design/director/narrative-structure.md",
+      "sha": "c989603d1e8749220e66d7273f349bb69db72b82",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/lottie-motion-design/patterns/ambient-continuous.md",
+      "skill_path": "lottie-motion-design/patterns/ambient-continuous.md",
+      "sha": "17d6533571b39a1e8a171b6366623bf8df6c1e1b",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/lottie-motion-design/patterns/entrance-exit.md",
+      "skill_path": "lottie-motion-design/patterns/entrance-exit.md",
+      "sha": "4f3dc318565fce5ae410da5c95448bc786d1407f",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/lottie-motion-design/patterns/multi-element.md",
+      "skill_path": "lottie-motion-design/patterns/multi-element.md",
+      "sha": "68aab1c0ccfd08a535a59bc01b3d39ad4823dc72",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/lottie-motion-design/patterns/state-feedback.md",
+      "skill_path": "lottie-motion-design/patterns/state-feedback.md",
+      "sha": "8efb7209986ee450a11df829c413a943ff156de7",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/lottie-motion-design/reference/property-selection.md",
+      "skill_path": "lottie-motion-design/reference/property-selection.md",
+      "sha": "21e8594a4eb360093b22aa3ed3146dbb513618ce",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/lottie-motion-design/reference/quality-checklist.md",
+      "skill_path": "lottie-motion-design/reference/quality-checklist.md",
+      "sha": "a3d7033f744256e3b6d45468b64a3f19b48ebb6e",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/lottie-motion-design/reference/timing-easing-tables.md",
+      "skill_path": "lottie-motion-design/reference/timing-easing-tables.md",
+      "sha": "810de35c9923d8f43ffc37aeef70faebb7e5bbfc",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/lottie-motion-design/reference/troubleshooting.md",
+      "skill_path": "lottie-motion-design/reference/troubleshooting.md",
+      "sha": "dbae0ebed28c920893393d9210661c1c4e27bf64",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/design-brief/LICENSE",
+      "skill_path": "design-brief/LICENSE",
+      "sha": "6344dae25cef4a158de59968b08f0e490ad1ab65",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/design-brief/SKILL.md",
+      "skill_path": "design-brief/SKILL.md",
+      "sha": "9bf2ff6edffa80d7c33077fccf95f44f74d98c50",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/design-review/LICENSE",
+      "skill_path": "design-review/LICENSE",
+      "sha": "6344dae25cef4a158de59968b08f0e490ad1ab65",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/design-review/SKILL.md",
+      "skill_path": "design-review/SKILL.md",
+      "sha": "de22f344801a504df3a472fcbc5a3c203f27c0b6",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/prototype/LICENSE",
+      "skill_path": "prototype/LICENSE",
+      "sha": "57b46f1fd11dc62351ea548104a88aa3f659c11b",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/prototype/PICKER.md",
+      "skill_path": "prototype/PICKER.md",
+      "sha": "aaa88c0eba38eb01c00d4eb2b144e39f808fc26a",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/prototype/SKILL.md",
+      "skill_path": "prototype/SKILL.md",
+      "sha": "dbcc1a23c66933f7372c0aacbce2b0d7cc6100b6",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/ui-ux-pro-max/LICENSE",
+      "skill_path": "ui-ux-pro-max/LICENSE",
+      "sha": "1e71cbf26660f31903807d099fe902c098fc7e4c",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/ui-ux-pro-max/SKILL.md",
+      "skill_path": "ui-ux-pro-max/SKILL.md",
+      "sha": "37d5fce4a0cb0531eb1f8eb75dc0d49b07ff6970",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/ui-ux-pro-max/data/app-interface.csv",
+      "skill_path": "ui-ux-pro-max/data/app-interface.csv",
+      "sha": "95e328c807a23be02c9c32c736d0fa19109c6076",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/ui-ux-pro-max/data/catalog-summary.json",
+      "skill_path": "ui-ux-pro-max/data/catalog-summary.json",
+      "sha": "f911c3ae48fac5863a5a5e210866ec5cabece164",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/ui-ux-pro-max/data/charts.csv",
+      "skill_path": "ui-ux-pro-max/data/charts.csv",
+      "sha": "c6f4f875fd5b34379f24dbb541539492366a1058",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/ui-ux-pro-max/data/colors.csv",
+      "skill_path": "ui-ux-pro-max/data/colors.csv",
+      "sha": "5d2bf7389105f8a824b504b57cc93c00dc1d7e0a",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/ui-ux-pro-max/data/data-provenance.json",
+      "skill_path": "ui-ux-pro-max/data/data-provenance.json",
+      "sha": "e41d2e553bdc7e5a8e6d16f5daab565faf372188",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/ui-ux-pro-max/data/google-font-licenses.json",
+      "skill_path": "ui-ux-pro-max/data/google-font-licenses.json",
+      "sha": "3ac2c34e80665bc902e265c52ab6c27b1654524c",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/ui-ux-pro-max/data/google-fonts.csv",
+      "skill_path": "ui-ux-pro-max/data/google-fonts.csv",
+      "sha": "d7f87e3e0159b1caba083b9954793d9852256aa0",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/ui-ux-pro-max/data/icons.csv",
+      "skill_path": "ui-ux-pro-max/data/icons.csv",
+      "sha": "cfc3f1eccd7e5aee15d8d70f86d8fa17ba737958",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/ui-ux-pro-max/data/landing.csv",
+      "skill_path": "ui-ux-pro-max/data/landing.csv",
+      "sha": "34858160aa2789c49dca274d48bb116d51dd3f0a",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/ui-ux-pro-max/data/motion.csv",
+      "skill_path": "ui-ux-pro-max/data/motion.csv",
+      "sha": "8e0ca9ceb0e4cd4832aee60ac74713e1e1830de8",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/ui-ux-pro-max/data/phosphor-icons-upstream.json",
+      "skill_path": "ui-ux-pro-max/data/phosphor-icons-upstream.json",
+      "sha": "ec1d76b8117ccbfdce5df214bf0d993e41a75318",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/ui-ux-pro-max/data/products.csv",
+      "skill_path": "ui-ux-pro-max/data/products.csv",
+      "sha": "9f40f1d1f9743c4a81603076dfbfd115bbb55246",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/ui-ux-pro-max/data/react-performance.csv",
+      "skill_path": "ui-ux-pro-max/data/react-performance.csv",
+      "sha": "425a8e76c6b3bae40e8c633ffbf7ad6222c9f73a",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/ui-ux-pro-max/data/stacks/angular.csv",
+      "skill_path": "ui-ux-pro-max/data/stacks/angular.csv",
+      "sha": "5a1878dbee2b3c55c6468cbb18699b84d1a8c4d2",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/ui-ux-pro-max/data/stacks/astro.csv",
+      "skill_path": "ui-ux-pro-max/data/stacks/astro.csv",
+      "sha": "1fd2492420b20a0b311295ab883597fadb8245a6",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/ui-ux-pro-max/data/stacks/avalonia.csv",
+      "skill_path": "ui-ux-pro-max/data/stacks/avalonia.csv",
+      "sha": "c67f4117105865587eda9020c57d8c209f3a929a",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/ui-ux-pro-max/data/stacks/flutter.csv",
+      "skill_path": "ui-ux-pro-max/data/stacks/flutter.csv",
+      "sha": "731805c4076bd9f2755ca4bd7def5be6f6df7e9c",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/ui-ux-pro-max/data/stacks/html-tailwind.csv",
+      "skill_path": "ui-ux-pro-max/data/stacks/html-tailwind.csv",
+      "sha": "9089eb0fc821ff0c8d135f8ee503be345e8fcb84",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/ui-ux-pro-max/data/stacks/javafx.csv",
+      "skill_path": "ui-ux-pro-max/data/stacks/javafx.csv",
+      "sha": "744bd80f437f12bfb5bb9c84630a58022604675a",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/ui-ux-pro-max/data/stacks/jetpack-compose.csv",
+      "skill_path": "ui-ux-pro-max/data/stacks/jetpack-compose.csv",
+      "sha": "8daa0b8f9a2ca3f0f1711664d9d677cd1c38dd9e",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/ui-ux-pro-max/data/stacks/laravel.csv",
+      "skill_path": "ui-ux-pro-max/data/stacks/laravel.csv",
+      "sha": "ed11b0fba457e02857f996d1542fb0b8e1271756",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/ui-ux-pro-max/data/stacks/nextjs.csv",
+      "skill_path": "ui-ux-pro-max/data/stacks/nextjs.csv",
+      "sha": "acdaf097dff26ba0d3b22ab4544bf6169c87afd4",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/ui-ux-pro-max/data/stacks/nuxt-ui.csv",
+      "skill_path": "ui-ux-pro-max/data/stacks/nuxt-ui.csv",
+      "sha": "e2aaeca45faa8b987bf94010162b14d458811dde",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/ui-ux-pro-max/data/stacks/nuxtjs.csv",
+      "skill_path": "ui-ux-pro-max/data/stacks/nuxtjs.csv",
+      "sha": "ceab9cf3358d2788af0bd7dc14cb3fab769740d0",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/ui-ux-pro-max/data/stacks/react-native.csv",
+      "skill_path": "ui-ux-pro-max/data/stacks/react-native.csv",
+      "sha": "a5aea45dc1d0341b11ee42076a86db842d4d2a19",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/ui-ux-pro-max/data/stacks/react.csv",
+      "skill_path": "ui-ux-pro-max/data/stacks/react.csv",
+      "sha": "fe8f001e695a978733449e04e99d7135af0f1bf3",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/ui-ux-pro-max/data/stacks/shadcn.csv",
+      "skill_path": "ui-ux-pro-max/data/stacks/shadcn.csv",
+      "sha": "0e8bedf3084e7a40d6310bcd3011c437efcb1700",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/ui-ux-pro-max/data/stacks/svelte.csv",
+      "skill_path": "ui-ux-pro-max/data/stacks/svelte.csv",
+      "sha": "51684fe70448e15333cd16207db7da8aea0508e6",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/ui-ux-pro-max/data/stacks/swiftui.csv",
+      "skill_path": "ui-ux-pro-max/data/stacks/swiftui.csv",
+      "sha": "ea9b95e8922e663b2adf27a7346e2c2f44c7a215",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/ui-ux-pro-max/data/stacks/threejs.csv",
+      "skill_path": "ui-ux-pro-max/data/stacks/threejs.csv",
+      "sha": "f62286320038beabbdc5e11e07ca2818d8e959a4",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/ui-ux-pro-max/data/stacks/uno.csv",
+      "skill_path": "ui-ux-pro-max/data/stacks/uno.csv",
+      "sha": "9cab32326b4ad3a3cf43451a3c24553a41126cc1",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/ui-ux-pro-max/data/stacks/uwp.csv",
+      "skill_path": "ui-ux-pro-max/data/stacks/uwp.csv",
+      "sha": "04a84ea092a7657fef11e5daa97982be52dc6f59",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/ui-ux-pro-max/data/stacks/vue.csv",
+      "skill_path": "ui-ux-pro-max/data/stacks/vue.csv",
+      "sha": "83997c515775170f22b638635aae0a67a46dfc87",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/ui-ux-pro-max/data/stacks/winui.csv",
+      "skill_path": "ui-ux-pro-max/data/stacks/winui.csv",
+      "sha": "107ecead11728a83ec0ea10d815a9d1f43a35792",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/ui-ux-pro-max/data/stacks/wpf.csv",
+      "skill_path": "ui-ux-pro-max/data/stacks/wpf.csv",
+      "sha": "4e88d6750833a74f85ba487cf2b8f4ff6ebd2f4a",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/ui-ux-pro-max/data/styles.csv",
+      "skill_path": "ui-ux-pro-max/data/styles.csv",
+      "sha": "d1eb2c216e453005ffa8232ffb94491c183afe3c",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/ui-ux-pro-max/data/typography.csv",
+      "skill_path": "ui-ux-pro-max/data/typography.csv",
+      "sha": "70d107d107de30150863c965767320ec33ef29ad",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/ui-ux-pro-max/data/ui-reasoning.csv",
+      "skill_path": "ui-ux-pro-max/data/ui-reasoning.csv",
+      "sha": "8931d4c809f8e22ddac00ce612ce0c35f34a59b6",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/ui-ux-pro-max/data/ux-guidelines.csv",
+      "skill_path": "ui-ux-pro-max/data/ux-guidelines.csv",
+      "sha": "4e7d52b296537a03513b18b2c3f2b946cc802051",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/ui-ux-pro-max/references/pro-rules.md",
+      "skill_path": "ui-ux-pro-max/references/pro-rules.md",
+      "sha": "b2ce233287e37ec9ca13476c4014b922e9d5a0e9",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/ui-ux-pro-max/references/quick-reference.md",
+      "skill_path": "ui-ux-pro-max/references/quick-reference.md",
+      "sha": "7acc7e7540ca6981d878a90aae4455c1638e2385",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/ui-ux-pro-max/scripts/core.py",
+      "skill_path": "ui-ux-pro-max/scripts/core.py",
+      "sha": "670fe33070cfe706401da4ff276831257dbf1e25",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/ui-ux-pro-max/scripts/design_system.py",
+      "skill_path": "ui-ux-pro-max/scripts/design_system.py",
+      "sha": "d5fe1575f00d839f919603bd09b44fe7e9def4fb",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/ui-ux-pro-max/scripts/reasoning_contract.py",
+      "skill_path": "ui-ux-pro-max/scripts/reasoning_contract.py",
+      "sha": "63652a666b130c249ea1e2954316f1ac8a5a73d5",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/ui-ux-pro-max/scripts/search.py",
+      "skill_path": "ui-ux-pro-max/scripts/search.py",
+      "sha": "5038aa875a0d39f24dea803a4c73b38f8f56915f",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/ui-ux-pro-max/scripts/validate_data.py",
+      "skill_path": "ui-ux-pro-max/scripts/validate_data.py",
+      "sha": "8b6c7941f6ad3e51cb9d412b11185133e7763001",
+      "mode": "100644"
+    },
+    {
+      "repository": "TobiasKulvik/web-design-skills",
+      "commit": "c6eddde74e98c48d37e5e01a3e0e7cc9275bdffc",
+      "upstream_path": "skills/ui-components/SKILL.md",
+      "skill_path": "ui-components/SKILL.md",
+      "sha": "088d396e0438c1752f110a085ebcd8a523bd270a",
+      "mode": "100644"
+    },
+    {
+      "repository": "TobiasKulvik/web-design-skills",
+      "commit": "c6eddde74e98c48d37e5e01a3e0e7cc9275bdffc",
+      "upstream_path": "skills/app-patterns/SKILL.md",
+      "skill_path": "app-patterns/SKILL.md",
+      "sha": "eb090f77fa58a895989ee97a0811918c729ade54",
+      "mode": "100644"
+    },
+    {
+      "repository": "TobiasKulvik/web-design-skills",
+      "commit": "c6eddde74e98c48d37e5e01a3e0e7cc9275bdffc",
+      "upstream_path": "skills/ux-flows/SKILL.md",
+      "skill_path": "ux-flows/SKILL.md",
+      "sha": "f71edf959f07cb86284f309224d7b70156121c97",
+      "mode": "100644"
+    },
+    {
+      "repository": "TobiasKulvik/web-design-skills",
+      "commit": "c6eddde74e98c48d37e5e01a3e0e7cc9275bdffc",
+      "upstream_path": "skills/internationalization/SKILL.md",
+      "skill_path": "internationalization/SKILL.md",
+      "sha": "7b8036caae2aff3e3d4dd7e98054a66eaf0f6816",
+      "mode": "100644"
+    },
+    {
+      "repository": "TobiasKulvik/web-design-skills",
+      "commit": "c6eddde74e98c48d37e5e01a3e0e7cc9275bdffc",
+      "upstream_path": "skills/accessibility/SKILL.md",
+      "skill_path": "accessibility/SKILL.md",
+      "sha": "0eff0d9a5cbbb876ace32b92f1436f212606a46a",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/web-design-guidelines/SKILL.md",
+      "skill_path": "web-design-guidelines/SKILL.md",
+      "sha": "ceae92ab319216a68274168fba9b63b998b65997",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/mobile-ios-design/LICENSE",
+      "skill_path": "mobile-ios-design/LICENSE",
+      "sha": "326f0a55c96e672fedf9d807ca043c00df05ba0e",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/mobile-ios-design/SKILL.md",
+      "skill_path": "mobile-ios-design/SKILL.md",
+      "sha": "931c50668b5ebba95d5eced9e2d28463c94c64e5",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/mobile-ios-design/references/hig-patterns.md",
+      "skill_path": "mobile-ios-design/references/hig-patterns.md",
+      "sha": "978ec4155991737433e6b3be299db7e58d98e881",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/mobile-ios-design/references/ios-navigation.md",
+      "skill_path": "mobile-ios-design/references/ios-navigation.md",
+      "sha": "658f84db00852888cb31953561094b12ecf68f29",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/mobile-ios-design/references/swiftui-components.md",
+      "skill_path": "mobile-ios-design/references/swiftui-components.md",
+      "sha": "43553a388d480864aa980ec5ab26958838e8c2df",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/mobile-android-design/LICENSE",
+      "skill_path": "mobile-android-design/LICENSE",
+      "sha": "326f0a55c96e672fedf9d807ca043c00df05ba0e",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/mobile-android-design/SKILL.md",
+      "skill_path": "mobile-android-design/SKILL.md",
+      "sha": "daf78dddb4716cecfd80b1046fe8c279c74aa298",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/mobile-android-design/references/android-navigation.md",
+      "skill_path": "mobile-android-design/references/android-navigation.md",
+      "sha": "2d77dec09c2969a9c7965c9d13cdd6b19bec48b6",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/mobile-android-design/references/compose-components.md",
+      "skill_path": "mobile-android-design/references/compose-components.md",
+      "sha": "3d6ace0636b83a158ef224b2fe0eabfe2e866455",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/mobile-android-design/references/details.md",
+      "skill_path": "mobile-android-design/references/details.md",
+      "sha": "75b178d2ebd6b15d0f82fe6e4b37fe4f84a96e0c",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/mobile-android-design/references/material3-theming.md",
+      "skill_path": "mobile-android-design/references/material3-theming.md",
+      "sha": "bc8b130f3549b535ff5f910675ca4a319da558d4",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/apple-design/LICENSE",
+      "skill_path": "apple-design/LICENSE",
+      "sha": "57b46f1fd11dc62351ea548104a88aa3f659c11b",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/apple-design/SKILL.md",
+      "skill_path": "apple-design/SKILL.md",
+      "sha": "adf68c517f2d7d2781587d619de07f4de286da57",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/game-ui-design/LICENSE",
+      "skill_path": "game-ui-design/LICENSE",
+      "sha": "725c844a325beca28b9321aa6bd892961804078f",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/game-ui-design/SKILL.md",
+      "skill_path": "game-ui-design/SKILL.md",
+      "sha": "89600260be95c413ee91c5cfe52d872737d33652",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/game-ui-design/references/patterns.md",
+      "skill_path": "game-ui-design/references/patterns.md",
+      "sha": "af4e7f56530ab622a3127f40b7de46170468771c",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/game-ui-design/references/sharp_edges.md",
+      "skill_path": "game-ui-design/references/sharp_edges.md",
+      "sha": "6a1874ee599e67c2944854effc1e72305e65429f",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/game-ui-design/references/validations.md",
+      "skill_path": "game-ui-design/references/validations.md",
+      "sha": "8881cff7850b3b529be89837c68c668385f10e5c",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/game-ui-ux/LICENSE",
+      "skill_path": "game-ui-ux/LICENSE",
+      "sha": "c7fc0c6d59cb8129a0e30fe13f5a6118f3933c44",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/game-ui-ux/NOTICE",
+      "skill_path": "game-ui-ux/NOTICE",
+      "sha": "d4204881c3f79f39151a53a6aae476b188a8c51f",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/game-ui-ux/SKILL.md",
+      "skill_path": "game-ui-ux/SKILL.md",
+      "sha": "c84646755c3d8f2b96fd955d1d2706e911b45596",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/game-ui-ux/references/layout-and-flow.md",
+      "skill_path": "game-ui-ux/references/layout-and-flow.md",
+      "sha": "139caf1d76828a303ba85b9446c75fa259610ea8",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/game-interface-feedback/LICENSE",
+      "skill_path": "game-interface-feedback/LICENSE",
+      "sha": "876812b098eb6a10044a39a32840bad32338d669",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/game-interface-feedback/SKILL.md",
+      "skill_path": "game-interface-feedback/SKILL.md",
+      "sha": "9a5ef8ec4c342d4492f9219fe2e8ffe133fad7f8",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/game-interface-feedback/references/core/guide.md",
+      "skill_path": "game-interface-feedback/references/core/guide.md",
+      "sha": "b2bc49ae9ef01aed360e67c886ff6e55d194b596",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/game-interface-feedback/workflows/interface-audit.md",
+      "skill_path": "game-interface-feedback/workflows/interface-audit.md",
+      "sha": "a92a1c536009c2fdab19f7b5fcbfce8472f7c2f4",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/ui-design-review/LICENSE",
+      "skill_path": "ui-design-review/LICENSE",
+      "sha": "44a67a678283e93d58d61c06ee6fa41ea9c1c720",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/ui-design-review/SKILL.md",
+      "skill_path": "ui-design-review/SKILL.md",
+      "sha": "2b811e51c695f63140c1a5c5ae225036204fbd18",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/break-ui/CATALOG.md",
+      "skill_path": "break-ui/CATALOG.md",
+      "sha": "46962bb89445b8526ea94994a79b49508573b5fd",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/break-ui/LICENSE",
+      "skill_path": "break-ui/LICENSE",
+      "sha": "57b46f1fd11dc62351ea548104a88aa3f659c11b",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/break-ui/SKILL.md",
+      "skill_path": "break-ui/SKILL.md",
+      "sha": "091a28d488662d2451131f1aaa60a6dcd2391932",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/webapp-testing/LICENSE.txt",
+      "skill_path": "webapp-testing/LICENSE.txt",
+      "sha": "4f881c52d1f72f4cfb720e339e2d35c3058d01a9",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/webapp-testing/SKILL.md",
+      "skill_path": "webapp-testing/SKILL.md",
+      "sha": "4726215301db64a0cc4d41fc3219c61f37a30f4a",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/webapp-testing/examples/console_logging.py",
+      "skill_path": "webapp-testing/examples/console_logging.py",
+      "sha": "9329b5e232ed53d944bfe95e750070117d31b9ab",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/webapp-testing/examples/element_discovery.py",
+      "skill_path": "webapp-testing/examples/element_discovery.py",
+      "sha": "917ba72f52421a1b324f93ae8e38af72010a87b9",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/webapp-testing/examples/static_html_automation.py",
+      "skill_path": "webapp-testing/examples/static_html_automation.py",
+      "sha": "90bbedcc08cdb345c74fb938ebad02c0baf56603",
+      "mode": "100644"
+    },
+    {
+      "repository": "DIOKai/T1",
+      "commit": "2048d16242f0f8da9188aba5625fa710f60626b3",
+      "upstream_path": ".claude/skills/webapp-testing/scripts/with_server.py",
+      "skill_path": "webapp-testing/scripts/with_server.py",
+      "sha": "431f2eba16b268b7f3e2ae4daae9db41c0289b6d",
+      "mode": "100644"
+    },
+    {
+      "repository": "microsoft/skills",
+      "commit": "8850874f66fb4d905bfcfcb923a18883bb70d1cd",
+      "upstream_path": ".github/skills/frontend-design-review/SKILL.md",
+      "skill_path": "frontend-design-review/SKILL.md",
+      "sha": "6fd8fe378026252e3810eae36844704f3c684fe3",
+      "mode": "100644"
+    },
+    {
+      "repository": "microsoft/skills",
+      "commit": "8850874f66fb4d905bfcfcb923a18883bb70d1cd",
+      "upstream_path": ".github/skills/frontend-design-review/references/pattern-examples.md",
+      "skill_path": "frontend-design-review/references/pattern-examples.md",
+      "sha": "e2133bbe0cd409cca9dfc47efcca033630488151",
+      "mode": "100644"
+    },
+    {
+      "repository": "microsoft/skills",
+      "commit": "8850874f66fb4d905bfcfcb923a18883bb70d1cd",
+      "upstream_path": ".github/skills/frontend-design-review/references/quick-checklist.md",
+      "skill_path": "frontend-design-review/references/quick-checklist.md",
+      "sha": "7c29054b2f307d76b71ac54a2da81edcf3014d09",
+      "mode": "100644"
+    },
+    {
+      "repository": "microsoft/skills",
+      "commit": "8850874f66fb4d905bfcfcb923a18883bb70d1cd",
+      "upstream_path": ".github/skills/frontend-design-review/references/review-output-format.md",
+      "skill_path": "frontend-design-review/references/review-output-format.md",
+      "sha": "065f3cef3e43ea5ac2b1727a9ffcbcaa4639216b",
+      "mode": "100644"
+    },
+    {
+      "repository": "microsoft/skills",
+      "commit": "8850874f66fb4d905bfcfcb923a18883bb70d1cd",
+      "upstream_path": ".github/skills/frontend-design-review/references/review-type-modifiers.md",
+      "skill_path": "frontend-design-review/references/review-type-modifiers.md",
+      "sha": "d3f94c042bd2baf133e8970037595849357d96d3",
+      "mode": "100644"
+    }
+  ],
+  "validation": {
+    "requested_skills": 50,
+    "codex_format_checks": 50,
+    "claude_frontmatter_checks": 50,
+    "script_syntax_files": 35,
+    "script_paths": [
+      "impeccable/scripts/live-browser-dom.js",
+      "impeccable/scripts/live-browser-ignores.js",
+      "impeccable/scripts/live-browser-session.js",
+      "impeccable/scripts/live-browser.js",
+      "impeccable/scripts/modern-screenshot.umd.js",
+      "pixel2motion/scripts/animate_svg_html.py",
+      "pixel2motion/scripts/animate_svg_showcase.py",
+      "pixel2motion/scripts/capture_motion_frames.py",
+      "pixel2motion/scripts/fit_ribbon_centerline.py",
+      "pixel2motion/scripts/overlay_progress_strip.py",
+      "pixel2motion/scripts/probe_motion_continuity.py",
+      "pixel2motion/scripts/raster_logo_trace.py",
+      "pixel2motion/scripts/render_overlay.py",
+      "pixel2motion/scripts/svg_path_audit.py",
+      "pixel2motion/scripts/svg_to_js_html.py",
+      "svg-character-animator/examples/critters.states.js",
+      "svg-character-animator/examples/snowman.states.js",
+      "svg-character-animator/scripts/build-standalone.js",
+      "svg-character-animator/scripts/export-swift.js",
+      "svg-character-animator/scripts/figma-to-states.js",
+      "svg-character-animator/templates/preview/exporters.js",
+      "svg-character-animator/templates/preview/states.example.js",
+      "svg-creator/scripts/svg_loop.py",
+      "ui-animation/scripts/extract_frames.py",
+      "ui-animation/scripts/fit_curves.py",
+      "ui-animation/scripts/track_motion.py",
+      "ui-ux-pro-max/scripts/core.py",
+      "ui-ux-pro-max/scripts/design_system.py",
+      "ui-ux-pro-max/scripts/reasoning_contract.py",
+      "ui-ux-pro-max/scripts/search.py",
+      "ui-ux-pro-max/scripts/validate_data.py",
+      "webapp-testing/examples/console_logging.py",
+      "webapp-testing/examples/element_discovery.py",
+      "webapp-testing/examples/static_html_automation.py",
+      "webapp-testing/scripts/with_server.py"
+    ],
+    "local_markdown_links": 364,
+    "upstream_broken_links": [],
+    "source_files_verified": 415,
+    "shared_new_skills": 15,
+    "adaptations": [
+      {
+        "name": "typography",
+        "host": "New Codex and Claude copies only",
+        "frontmatter_changes": [
+          "description"
+        ],
+        "instruction_body_unchanged": true
+      },
+      {
+        "name": "color-theory",
+        "host": "New Codex and Claude copies only",
+        "frontmatter_changes": [
+          "description"
+        ],
+        "instruction_body_unchanged": true
+      },
+      {
+        "name": "impeccable",
+        "host": "Codex/new shared copies only",
+        "frontmatter_changes": [
+          "argument-hint",
+          "metadata",
+          "user-invocable",
+          "version"
+        ],
+        "instruction_body_unchanged": true
+      },
+      {
+        "name": "review-animations",
+        "host": "Codex/new shared copies only",
+        "frontmatter_changes": [
+          "disable-model-invocation",
+          "metadata"
+        ],
+        "instruction_body_unchanged": true
+      },
+      {
+        "name": "review-animations",
+        "change": "Codex UI metadata adapted; original explicit invocation policy preserved when present."
+      },
+      {
+        "name": "icon-set-generator",
+        "host": "Codex/new shared copies only",
+        "frontmatter_changes": [
+          "compatibility",
+          "metadata"
+        ],
+        "instruction_body_unchanged": true
+      },
+      {
+        "name": "better-icons",
+        "host": "Codex/new shared copies only",
+        "frontmatter_changes": [
+          "description"
+        ],
+        "instruction_body_unchanged": true
+      },
+      {
+        "name": "favicon-gen",
+        "host": "Codex/new shared copies only",
+        "frontmatter_changes": [
+          "compatibility",
+          "metadata"
+        ],
+        "instruction_body_unchanged": true
+      },
+      {
+        "name": "svg-creator",
+        "change": "Added linked Windows host note; Linux helper left unchanged and not executed."
+      },
+      {
+        "name": "pixel2motion",
+        "change": "Codex UI metadata adapted; original explicit invocation policy preserved when present."
+      },
+      {
+        "name": "prototype",
+        "host": "Codex/new shared copies only",
+        "frontmatter_changes": [
+          "disable-model-invocation",
+          "metadata"
+        ],
+        "instruction_body_unchanged": true
+      },
+      {
+        "name": "prototype",
+        "change": "Codex UI metadata adapted; original explicit invocation policy preserved when present."
+      },
+      {
+        "name": "game-ui-design",
+        "host": "New Codex and Claude copies only",
+        "frontmatter_changes": [
+          "description"
+        ],
+        "instruction_body_unchanged": true
+      },
+      {
+        "name": "game-interface-feedback",
+        "host": "Codex/new shared copies only",
+        "frontmatter_changes": [
+          "compatibility",
+          "metadata"
+        ],
+        "instruction_body_unchanged": true
+      },
+      {
+        "name": "frontend-design-review",
+        "host": "Codex/new shared copies only",
+        "frontmatter_changes": [
+          "acknowledgments",
+          "metadata"
+        ],
+        "instruction_body_unchanged": true
+      }
+    ],
+    "runtime_tests": "not run; installation and static verification only",
+    "claude_description_length_checks": 50
+  },
+  "local_install": {
+    "installed": true,
+    "roots": [
+      {
+        "root": "C:\\Users\\Owner\\.codex\\skills",
+        "requested_available": 50,
+        "new_skills": 50,
+        "kept_existing_skills": [],
+        "new_files_verified": 420,
+        "old_files_preserved": 193,
+        "old_entries_preserved": 310,
+        "old_hashes_mtimes_attributes_preserved": true,
+        "existing_links_preserved": true,
+        "final_verification_passed": true
+      },
+      {
+        "root": "C:\\Users\\Owner\\.claude\\skills",
+        "requested_available": 50,
+        "new_skills": 48,
+        "kept_existing_skills": [
+          "motion-design",
+          "game-interface-feedback"
+        ],
+        "new_files_verified": 407,
+        "old_files_preserved": 413,
+        "old_entries_preserved": 608,
+        "old_hashes_mtimes_attributes_preserved": true,
+        "existing_links_preserved": true,
+        "final_verification_passed": true
+      }
+    ],
+    "configuration_changes": false,
+    "design_dependencies_installed": false,
+    "skill_runtime_executed": false
+  },
+  "license_unspecified": [
+    "TobiasKulvik/web-design-skills",
+    "supermemoryai/skills"
+  ],
+  "runtime_verified": false
+}
