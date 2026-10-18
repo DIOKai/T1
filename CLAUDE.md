@@ -39,14 +39,18 @@
 - `qbcore-framework`、`qbox-framework`：QBCore / Qbox 的 API。先看用户用的是哪个框架（`qb-core` 还是 `qbx_core`），不要混用；Qbox 以 docs.qbox.re 为准
 - `fivem-security`：写伺服器代码时就防漏洞（事件验证、权限、限频）；写完再用 `fivem-security-audit` 审查
 - `fivem-basics`、`lua-basics`、`fivem-deployment`：FiveM 资源结构、Lua 基础、FXServer 版本和 server.cfg
+- 做素材：`fivem-prop-creator`（道具：Blender → Sollumz → CodeWalker，ydr/ytd/ytyp、碰撞、LOD）、`fivem-clothing-creator`（freemode 衣服、裤子、鞋）、`fivem-ped-character`（ped 的头、身体、皮肤、头发、胡子）、`fivem-map-world-editor`（户外地图、ymap、地形、外部碰撞；室内和 MLO 用 `fivem-mlo-housing`）。还没有模型时先用 `free-3d-assets` 找或生成，转成道具的步骤以 `fivem-prop-creator` 为主。做完上服前用 `fivem-asset-acceptance` 验收；整理已有素材库用 `fivem-asset-catalog`；处理买来的素材用 `fivem-authorized-asset-workflow`（先备份原档，照 LESSONS 1:1 转换）；打不开的文件用 `fivem-file-analysis` 判断是什么（只读，不破解 Asset Escrow）
+- 声音：音效资源打包、没声音用 `fivem-audio-package-check`；pma-voice 语音、对讲机、电话用 `fivem-voice-radio`
+- `qbox-economy-integrity`：检查买卖、交易、制作、奖励会不会被刷或重复发（数值怎么定仍用 `game-balance-economy`）
+- `fivem-performance-profile`：卡顿、掉帧用 resmon / profiler 的数据找原因，不要凭感觉调
 
-改完 FiveM 的 Lua 后，如果用户电脑上有 `qbx-lint`，就对改过的文件跑一次检查（只读，直接跑）；要用 `qbx-lint --fix` 或 `qbx-lint fmt` 改文件前先问。
+改完 FiveM 的 Lua 后，如果用户电脑上有 `qbx-lint`，就照 `qbox-lua-check` 的流程对改过的文件跑一次检查（只读，直接跑）；要用 `qbx-lint --fix` 或 `qbx-lint fmt` 改文件前先问。
 
-`fivem` MCP 能在用户的伺服器上下指令、调用 native，权限很大：用之前先问，只连本机测试服，不要连正式服。
+`fivem` MCP 能在用户的伺服器上下指令、调用 native，权限很大：用之前先问，只连本机测试服，不要连正式服。用法和安全边界见 `fivem-mcp` 技能；RCON 密码不要显示或写进文件。
 
 ## 3D 模型和动作
 
-Blender 技能（retopology、lod-pipeline、asset-optimization、uv-workflow、rigging、animation、export-pipeline、vehicle-artist、hard-surface、collision-proxy、texture-workflow，以及做室内用的 set-dressing、archviz、prop-artist、environment-artist）要通过 `blender` MCP 在用户自己的 Blender 里执行代码，用之前先问。做 GTA 模型时，在 Blender 里完成后提醒用户用 Sollumz 导出成 .ydr/.yft/.ycd。
+Blender 技能（retopology、lod-pipeline、asset-optimization、uv-workflow、rigging、animation、export-pipeline、vehicle-artist、hard-surface、collision-proxy、texture-workflow，以及做室内用的 set-dressing、archviz、prop-artist、environment-artist，做角色和细节用的 character-artist、sculpting、cloth-sim、hair-groom、materials）要通过 `blender` MCP 在用户自己的 Blender 里执行代码，用之前先问。`blender` MCP 怎么操作见 `mcp-for-blender` 技能（`dcc-mcp` 是另一套工具，用户点名才用）。做 GTA 模型时，在 Blender 里完成后提醒用户用 Sollumz 导出成 .ydr/.yft/.ycd；GTA 衣服和 ped 以 `fivem-clothing-creator`、`fivem-ped-character` 为主。
 
 要 3D 模型（道具、家具、食物、角色）时先建议 `free-3d-assets`：常见的东西先从 Poly Haven / Poly Pizza / Sketchfab 找免费模型（`blender` MCP 的 `search_assets`），独特的东西用用户自己电脑上的 Hunyuan3D 从图片生成（不用 Tripo、Meshy、Rodin 和 Blender MCP Premium，都要付费）。它的 `hunyuan3d_client.py` 只连用户本机的 Hunyuan3D 服务器，用户同意用这个技能后就可以直接跑；帮用户装 Hunyuan3D、启动服务器、在 Blender 里执行代码前要先问。`blender` MCP 本地模式的 Inference Steps 要设 20（Hunyuan3D 2.1 最多 20）。Hunyuan3D 授权不适用于欧盟、英国、韩国，用户在那些地方要提醒。
 
@@ -65,6 +69,18 @@ Blender 技能（retopology、lod-pipeline、asset-optimization、uv-workflow、
 
 做网页、FiveM NUI、HUD、菜单这类界面时，可以先问要不要用：`example-skills:frontend-design`（基础）、`impeccable`（最完整：audit 找问题、critique 点评、polish 润色、animate 加动效、bolder/quieter 等）、`taste-skill:design-taste-frontend`（避免 AI 模板感，旧站改造用 `redesign`）。FiveM NUI 跑在游戏内浏览器里，动效和特效要克制，以不影响帧数为准。做 FiveM 菜单、NUI 时先建议 `fivem-menu-design`（它会再搭配 `game-ui-ux`、`game-feel`、`ui-ux-pro-max`、`impeccable`），它的 `check_nui_menu.py` 是本地只读检查，用户同意用这个技能后可以直接跑。要加细节、打磨动效时可以建议 `make-interfaces-feel-better`、`emil-design-eng`、`review-animations`、`find-animation-opportunities`；界面做完用 `break-ui` 拿极端数据测一遍；风格还没定时可以建议 `prototype` 做几个版本给用户挑。审查做好的界面可以建议 `visual-critique` 插件（`/critique-screen`）、`ui-design-review`、`web-design-guidelines`（要联网下载规则）；要统一整个服务器的界面风格可以建议 `design-brief` → `design-tokens` → `design-review`。这些都要先问。海报、静态图用 `canvas-design`。做游戏 HUD、菜单时可以再问要不要搭配 `game-ui-design`；定配色用 `color-theory`，定字体用 `typography`，做完 NUI 用 `typography-audit` 检查字体；设计动效的节奏和性格可以用 `lottie-motion-design`；做伺服器整套品牌用 `branding`；规划设计系统、做原型和测试可以用 `design-systems`、`prototyping-testing` 插件。`vehicle-design`、`character-design`、`lighting-design` 讲外形和灯光的设计原理，做 GTA 车、ped、MLO 灯光时可以搭配，但骨骼、碰撞、灯光设置照 GTA 的规则。做 icon 时可以先问要不要用：自己画一整套风格统一的 SVG icon（FiveM 菜单、HUD、手机 app）用 `icon-set-generator`；伺服器 logo、手机 app 图标用 `app-icon-expert`；找现成的免费 icon 用 `better-icons`（要 `npm install -g better-icons` 或 npx，第一次装之前先问；它的 `better-icons setup` 会改 MCP 设置，不要自己跑；每个 icon 库授权不同，Tabler、Heroicons 是 MIT，Lucide 是 ISC，Material Symbols 和 mdi 是 Apache 2.0，这些都能免费商用；CC BY 的要署名）；网站 favicon 用 `favicon-gen`（在 Windows 上 ImageMagick 的指令是 `magick`，不要用 `convert`，那是 Windows 自带的磁盘转换指令）。FiveM 里的 icon 要打包进资源，不要从 CDN 加载。`brandkit`、`imagegen-frontend-*` 要配外部生图工具，Claude Code 自己不能生图；免费的选项不确定时先说明，不推荐付费生图服务。做视频用 Remotion 技能（只在本机装了 `--remotion` 才有），用户的公司超过 3 人就要付费授权，要先提醒。
 
+## 音频和视频
+
+剪辑、转换影音、量响度用 `ffmpeg-skill`（要用户电脑装 ffmpeg，免费；原档保留不动）；做引擎声、环境音这类无缝循环用 `audio-loop-editing`；检查音档长度、音量、爆音用 `audio-quality-check`（只测不改）。做成 FiveM 音效资源后用 `fivem-audio-package-check` 检查；音效该怎么设计（分层、音量平衡）用 `audio-design`。这些会读写用户的音档，用之前先问。
+
+## 网页 3D（Three.js）
+
+做浏览器里的 3D 画面（伺服器官网 3D 展示、3D loading screen、网页上预览车或地图）时，先问要不要用 `threejs-web`，由它挑最少需要的几个 `threejs-*` 技能，不要一次全用。基础 20 个（`threejs-scene`、`threejs-materials`、`threejs-performance` 等）照项目原本的 Three.js 版本；城市和特效 20 个（`threejs-procedural-buildings-and-cities`、`threejs-water-optics`、`threejs-volumetric-clouds`、`threejs-rain-snow-and-wet-surfaces` 等）写的是 Three.js r185 的 WebGPU/TSL，不要为了用它就升级用户项目的 Three.js。`threejs-compatibility-fallbacks` 只在用户要求、而且确认 WebGPU 不能用时才用。FiveM NUI 跑在游戏内浏览器，3D 很吃帧，WebGPU 在里面能不能用还没验证，要先测；loading screen 的 3D 背景保持轻量。
+
+## 手机 App 开发（真的手机 App，不是 FiveM 手机）
+
+Expo 项目先问要不要用 `expo-overview`，由它带到 `expo-router`、`expo-native-ui`、`expo-ui`、`expo-animation`、`expo-data-fetching`、`expo-design-system` 等；React Native 性能用 `vercel-react-native-skills`；iOS 原生用 `swiftui-expert-skill`、`swift-testing-expert`；Android 用 `adaptive`、`jetpack-compose-performance`、`android-profiler`、`android-intent-security`、`android-permissions-security`、`testing-setup`；通知、离线同步、内购、上架前检查用 `mobile-notifications-background`、`mobile-offline-sync`、`mobile-purchases-subscriptions`、`mobile-release-readiness`；UI 自动测试用 `maestro`；规划用 `prd`、`create-implementation-plan`；后端用 `supabase`、`supabase-postgres-best-practices`（用免费额度，不推荐付费方案）。几个要注意的：`expo-skill-feedback` 自带的匿名统计保持关闭，不要自己送反馈；`mobile-purchases-subscriptions` 不开付费账号、不做真实购买；`deepseek-app-integration` 要 DeepSeek API（按用量付费），只在用户已经有 key 而且要求时才用，key 只放后端。
+
 ## 游戏设计
 
 设计工作收入、抢劫奖励、声望/等级曲线、商店价格这类数值时，用 `game-balance-economy`（可以用它的 `expected_value.py` 算期望收益）；设计小游戏、HUD、通知这类玩家看到的反馈时，用 `game-interface-feedback`。经济相关的奖励一定要由伺服器判定（配合 `fivem-security-audit`）。设计任务、抢劫、小游戏时可以问要不要用 `puzzle-design`、`level-design`；写剧情、城市背景、帮派设定用 `narrative-design`、`worldbuilding`、`lore-building`；想让主播容易出精彩片段用 `streamer-bait-design`，彩蛋用 `easter-egg-design`；核心玩法、打斗、社群用 `game-design-core`、`combat-design`、`community-building`。系统方面：NPC 对话和行为用 `dialogue-systems`、`game-ai`，音效用 `audio-design`，制作和等级系统用 `survival-crafting`、`rpg`，镜头用 `camera-systems`，玩家数据存储用 `save-systems`。这些都是通用游戏设计，例子多是 Godot/Unity，用在 FiveM 时换成 Lua、oxmysql、ox_lib 的做法；FiveM 的存档就是数据库，玩家进度和奖励一样要伺服器判定。
@@ -78,4 +94,6 @@ GTA V / FiveM 资料库插件。回答游戏资料相关的问题（原版车规
 - `quantity-surveyor`：算工程量、BOQ、单价分析，相关时先问要不要用。它没有马来西亚 SMM2 的资料，单价和计量规则要用户提供，不要自己编。
 - `freecad` MCP（FreeCAD 建模、FEM 分析）和 `ifc` MCP（BIM/IFC 模型）会在用户电脑上执行操作，用之前先问。
 - 马来西亚标准：MS EN 1992 就是 Eurocode 2 加马来西亚国家附件。用 Eurocode 的方法算，国家附件的数值请用户提供，不要猜。
+- 土木技能（都要先问；结果是初步分析，不代替工程师签核）：测量点检查 `civil-survey-qc`、竣工对比 `civil-as-built-check`、土方和场地 `civil-site-earthworks`、道路排水 `civil-road-drainage`、结构有限元 `civil-structural-fem`（FreeCAD FEM + CalculiX）、材料试验记录 `civil-material-test-tracker`、4D 施工排程 `civil-construction-4d`。
+- 在 Blender 的免费 Bonsai 插件里建 IFC 模型用 `bonsai-project-setup` → `bonsai-walls`、`bonsai-openings`、`bonsai-stairs`、`bonsai-roofs`、`bonsai-spaces-grid` → `bonsai-drawings` 出平面、剖面、立面图（经 `blender` MCP，先问）。`freecad` 和 `ifc` MCP 的用法见 `freecad-mcp`、`ifc-mcp` 技能。
 - AutoCAD、Revit、Civil 3D、ETABS 是付费软件，不推荐基于它们的工具。
