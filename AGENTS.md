@@ -10,4 +10,6 @@
 
 技能在 `.agents/skills/`（是 `.claude/skills/` 的链接，两边是同一份文件）。
 
-`CLAUDE.md` 里提到的插件（superpowers、muto-atlas、document-skills 等）和 MCP（blender、fivem、freecad、ifc）是 Claude Code 专用的，Codex 里没有就跳过，不要假装用了。
+`CLAUDE.md` 里提到的插件（superpowers、muto-atlas、document-skills 等）是 Claude Code 专用的，Codex 里没有就跳过，不要假装用了。MCP（blender、fivem、freecad、ifc）在 Codex 里装了才能用，用法看 `mcp-for-blender`、`fivem-mcp`、`freecad-mcp`、`ifc-mcp` 技能，一样要先问用户；`fivem` 只连本机测试服。
+
+每批新技能的来源、授权和检查记录放在 `docs/skill-batches/`。新加技能后，要在 `CLAUDE.md` 写清楚什么情况建议用哪个、和旧技能重叠时以哪个为主，Claude Code 和 Codex 才都知道怎么选。
