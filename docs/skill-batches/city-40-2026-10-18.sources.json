@@ -1,0 +1,1599 @@
+{
+  "date": "2026-10-18",
+  "base_commit": "32eee32ea2dbabccb8f8760b016c88da87545359",
+  "selection": "40 community skills selected by the user; not an authenticated author skill bundle.",
+  "preservation": "Add paths only; preserve every old blob, mode, type, shared skill link and original asset.",
+  "upstreams": [
+    {
+      "repository": "cesartevisual/threejs-skills",
+      "commit": "84f9bcb4bea1f7a28d57fe7f0af78f7f9c3dc467",
+      "tree": "63c3144dc0b352a86e5f1e5f4ff9a972e4982aca"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "tree": "0cebd309b84f55f75194cf1cafd9d7e890c86f70"
+    }
+  ],
+  "skills": [
+    {
+      "number": 1,
+      "name": "threejs-web",
+      "purpose": "完整网页项目",
+      "priority": "核心",
+      "repository": "cesartevisual/threejs-skills",
+      "path": "skills/threejs-web/SKILL.md",
+      "source_url": "https://github.com/cesartevisual/threejs-skills/blob/84f9bcb4bea1f7a28d57fe7f0af78f7f9c3dc467/skills/threejs-web/SKILL.md",
+      "verified_tree_sha": "63c3144dc0b352a86e5f1e5f4ff9a972e4982aca",
+      "source_commit": "84f9bcb4bea1f7a28d57fe7f0af78f7f9c3dc467"
+    },
+    {
+      "number": 2,
+      "name": "threejs-scene",
+      "purpose": "场景与相机",
+      "priority": "核心",
+      "repository": "cesartevisual/threejs-skills",
+      "path": "skills/threejs-scene/SKILL.md",
+      "source_url": "https://github.com/cesartevisual/threejs-skills/blob/84f9bcb4bea1f7a28d57fe7f0af78f7f9c3dc467/skills/threejs-scene/SKILL.md",
+      "verified_tree_sha": "63c3144dc0b352a86e5f1e5f4ff9a972e4982aca",
+      "source_commit": "84f9bcb4bea1f7a28d57fe7f0af78f7f9c3dc467"
+    },
+    {
+      "number": 3,
+      "name": "threejs-geometry",
+      "purpose": "基础几何与实例",
+      "priority": "核心",
+      "repository": "cesartevisual/threejs-skills",
+      "path": "skills/threejs-geometry/SKILL.md",
+      "source_url": "https://github.com/cesartevisual/threejs-skills/blob/84f9bcb4bea1f7a28d57fe7f0af78f7f9c3dc467/skills/threejs-geometry/SKILL.md",
+      "verified_tree_sha": "63c3144dc0b352a86e5f1e5f4ff9a972e4982aca",
+      "source_commit": "84f9bcb4bea1f7a28d57fe7f0af78f7f9c3dc467"
+    },
+    {
+      "number": 4,
+      "name": "threejs-materials",
+      "purpose": "材质与贴图",
+      "priority": "核心",
+      "repository": "cesartevisual/threejs-skills",
+      "path": "skills/threejs-materials/SKILL.md",
+      "source_url": "https://github.com/cesartevisual/threejs-skills/blob/84f9bcb4bea1f7a28d57fe7f0af78f7f9c3dc467/skills/threejs-materials/SKILL.md",
+      "verified_tree_sha": "63c3144dc0b352a86e5f1e5f4ff9a972e4982aca",
+      "source_commit": "84f9bcb4bea1f7a28d57fe7f0af78f7f9c3dc467"
+    },
+    {
+      "number": 5,
+      "name": "threejs-lighting",
+      "purpose": "灯光与阴影",
+      "priority": "核心",
+      "repository": "cesartevisual/threejs-skills",
+      "path": "skills/threejs-lighting/SKILL.md",
+      "source_url": "https://github.com/cesartevisual/threejs-skills/blob/84f9bcb4bea1f7a28d57fe7f0af78f7f9c3dc467/skills/threejs-lighting/SKILL.md",
+      "verified_tree_sha": "63c3144dc0b352a86e5f1e5f4ff9a972e4982aca",
+      "source_commit": "84f9bcb4bea1f7a28d57fe7f0af78f7f9c3dc467"
+    },
+    {
+      "number": 6,
+      "name": "threejs-assets",
+      "purpose": "加载和优化模型",
+      "priority": "核心",
+      "repository": "cesartevisual/threejs-skills",
+      "path": "skills/threejs-assets/SKILL.md",
+      "source_url": "https://github.com/cesartevisual/threejs-skills/blob/84f9bcb4bea1f7a28d57fe7f0af78f7f9c3dc467/skills/threejs-assets/SKILL.md",
+      "verified_tree_sha": "63c3144dc0b352a86e5f1e5f4ff9a972e4982aca",
+      "source_commit": "84f9bcb4bea1f7a28d57fe7f0af78f7f9c3dc467"
+    },
+    {
+      "number": 7,
+      "name": "threejs-animation",
+      "purpose": "动画与时间线",
+      "priority": "核心",
+      "repository": "cesartevisual/threejs-skills",
+      "path": "skills/threejs-animation/SKILL.md",
+      "source_url": "https://github.com/cesartevisual/threejs-skills/blob/84f9bcb4bea1f7a28d57fe7f0af78f7f9c3dc467/skills/threejs-animation/SKILL.md",
+      "verified_tree_sha": "63c3144dc0b352a86e5f1e5f4ff9a972e4982aca",
+      "source_commit": "84f9bcb4bea1f7a28d57fe7f0af78f7f9c3dc467"
+    },
+    {
+      "number": 8,
+      "name": "threejs-interaction",
+      "purpose": "拾取与操作",
+      "priority": "核心",
+      "repository": "cesartevisual/threejs-skills",
+      "path": "skills/threejs-interaction/SKILL.md",
+      "source_url": "https://github.com/cesartevisual/threejs-skills/blob/84f9bcb4bea1f7a28d57fe7f0af78f7f9c3dc467/skills/threejs-interaction/SKILL.md",
+      "verified_tree_sha": "63c3144dc0b352a86e5f1e5f4ff9a972e4982aca",
+      "source_commit": "84f9bcb4bea1f7a28d57fe7f0af78f7f9c3dc467"
+    },
+    {
+      "number": 9,
+      "name": "threejs-shaders",
+      "purpose": "自定义着色器",
+      "priority": "按需",
+      "repository": "cesartevisual/threejs-skills",
+      "path": "skills/threejs-shaders/SKILL.md",
+      "source_url": "https://github.com/cesartevisual/threejs-skills/blob/84f9bcb4bea1f7a28d57fe7f0af78f7f9c3dc467/skills/threejs-shaders/SKILL.md",
+      "verified_tree_sha": "63c3144dc0b352a86e5f1e5f4ff9a972e4982aca",
+      "source_commit": "84f9bcb4bea1f7a28d57fe7f0af78f7f9c3dc467"
+    },
+    {
+      "number": 10,
+      "name": "threejs-webgpu",
+      "purpose": "WebGPU 与 TSL",
+      "priority": "按需",
+      "repository": "cesartevisual/threejs-skills",
+      "path": "skills/threejs-webgpu/SKILL.md",
+      "source_url": "https://github.com/cesartevisual/threejs-skills/blob/84f9bcb4bea1f7a28d57fe7f0af78f7f9c3dc467/skills/threejs-webgpu/SKILL.md",
+      "verified_tree_sha": "63c3144dc0b352a86e5f1e5f4ff9a972e4982aca",
+      "source_commit": "84f9bcb4bea1f7a28d57fe7f0af78f7f9c3dc467"
+    },
+    {
+      "number": 11,
+      "name": "threejs-postprocessing",
+      "purpose": "后处理流程",
+      "priority": "按需",
+      "repository": "cesartevisual/threejs-skills",
+      "path": "skills/threejs-postprocessing/SKILL.md",
+      "source_url": "https://github.com/cesartevisual/threejs-skills/blob/84f9bcb4bea1f7a28d57fe7f0af78f7f9c3dc467/skills/threejs-postprocessing/SKILL.md",
+      "verified_tree_sha": "63c3144dc0b352a86e5f1e5f4ff9a972e4982aca",
+      "source_commit": "84f9bcb4bea1f7a28d57fe7f0af78f7f9c3dc467"
+    },
+    {
+      "number": 12,
+      "name": "threejs-r3f",
+      "purpose": "React 三维集成",
+      "priority": "React 项目",
+      "repository": "cesartevisual/threejs-skills",
+      "path": "skills/threejs-r3f/SKILL.md",
+      "source_url": "https://github.com/cesartevisual/threejs-skills/blob/84f9bcb4bea1f7a28d57fe7f0af78f7f9c3dc467/skills/threejs-r3f/SKILL.md",
+      "verified_tree_sha": "63c3144dc0b352a86e5f1e5f4ff9a972e4982aca",
+      "source_commit": "84f9bcb4bea1f7a28d57fe7f0af78f7f9c3dc467"
+    },
+    {
+      "number": 13,
+      "name": "threejs-physics",
+      "purpose": "物体碰撞",
+      "priority": "可玩场景",
+      "repository": "cesartevisual/threejs-skills",
+      "path": "skills/threejs-physics/SKILL.md",
+      "source_url": "https://github.com/cesartevisual/threejs-skills/blob/84f9bcb4bea1f7a28d57fe7f0af78f7f9c3dc467/skills/threejs-physics/SKILL.md",
+      "verified_tree_sha": "63c3144dc0b352a86e5f1e5f4ff9a972e4982aca",
+      "source_commit": "84f9bcb4bea1f7a28d57fe7f0af78f7f9c3dc467"
+    },
+    {
+      "number": 14,
+      "name": "threejs-particles",
+      "purpose": "烟尘等粒子",
+      "priority": "按需",
+      "repository": "cesartevisual/threejs-skills",
+      "path": "skills/threejs-particles/SKILL.md",
+      "source_url": "https://github.com/cesartevisual/threejs-skills/blob/84f9bcb4bea1f7a28d57fe7f0af78f7f9c3dc467/skills/threejs-particles/SKILL.md",
+      "verified_tree_sha": "63c3144dc0b352a86e5f1e5f4ff9a972e4982aca",
+      "source_commit": "84f9bcb4bea1f7a28d57fe7f0af78f7f9c3dc467"
+    },
+    {
+      "number": 15,
+      "name": "threejs-html",
+      "purpose": "说明和控制面板",
+      "priority": "核心",
+      "repository": "cesartevisual/threejs-skills",
+      "path": "skills/threejs-html/SKILL.md",
+      "source_url": "https://github.com/cesartevisual/threejs-skills/blob/84f9bcb4bea1f7a28d57fe7f0af78f7f9c3dc467/skills/threejs-html/SKILL.md",
+      "verified_tree_sha": "63c3144dc0b352a86e5f1e5f4ff9a972e4982aca",
+      "source_commit": "84f9bcb4bea1f7a28d57fe7f0af78f7f9c3dc467"
+    },
+    {
+      "number": 16,
+      "name": "threejs-performance",
+      "purpose": "帧率与显存",
+      "priority": "核心",
+      "repository": "cesartevisual/threejs-skills",
+      "path": "skills/threejs-performance/SKILL.md",
+      "source_url": "https://github.com/cesartevisual/threejs-skills/blob/84f9bcb4bea1f7a28d57fe7f0af78f7f9c3dc467/skills/threejs-performance/SKILL.md",
+      "verified_tree_sha": "63c3144dc0b352a86e5f1e5f4ff9a972e4982aca",
+      "source_commit": "84f9bcb4bea1f7a28d57fe7f0af78f7f9c3dc467"
+    },
+    {
+      "number": 17,
+      "name": "threejs-debugging",
+      "purpose": "排查渲染故障",
+      "priority": "核心",
+      "repository": "cesartevisual/threejs-skills",
+      "path": "skills/threejs-debugging/SKILL.md",
+      "source_url": "https://github.com/cesartevisual/threejs-skills/blob/84f9bcb4bea1f7a28d57fe7f0af78f7f9c3dc467/skills/threejs-debugging/SKILL.md",
+      "verified_tree_sha": "63c3144dc0b352a86e5f1e5f4ff9a972e4982aca",
+      "source_commit": "84f9bcb4bea1f7a28d57fe7f0af78f7f9c3dc467"
+    },
+    {
+      "number": 18,
+      "name": "threejs-testing",
+      "purpose": "浏览器效果测试",
+      "priority": "核心",
+      "repository": "cesartevisual/threejs-skills",
+      "path": "skills/threejs-testing/SKILL.md",
+      "source_url": "https://github.com/cesartevisual/threejs-skills/blob/84f9bcb4bea1f7a28d57fe7f0af78f7f9c3dc467/skills/threejs-testing/SKILL.md",
+      "verified_tree_sha": "63c3144dc0b352a86e5f1e5f4ff9a972e4982aca",
+      "source_commit": "84f9bcb4bea1f7a28d57fe7f0af78f7f9c3dc467"
+    },
+    {
+      "number": 19,
+      "name": "threejs-deployment",
+      "purpose": "构建与发布",
+      "priority": "交付时",
+      "repository": "cesartevisual/threejs-skills",
+      "path": "skills/threejs-deployment/SKILL.md",
+      "source_url": "https://github.com/cesartevisual/threejs-skills/blob/84f9bcb4bea1f7a28d57fe7f0af78f7f9c3dc467/skills/threejs-deployment/SKILL.md",
+      "verified_tree_sha": "63c3144dc0b352a86e5f1e5f4ff9a972e4982aca",
+      "source_commit": "84f9bcb4bea1f7a28d57fe7f0af78f7f9c3dc467"
+    },
+    {
+      "number": 20,
+      "name": "threejs-audio",
+      "purpose": "空间环境音",
+      "priority": "需要声音时",
+      "repository": "cesartevisual/threejs-skills",
+      "path": "skills/threejs-audio/SKILL.md",
+      "source_url": "https://github.com/cesartevisual/threejs-skills/blob/84f9bcb4bea1f7a28d57fe7f0af78f7f9c3dc467/skills/threejs-audio/SKILL.md",
+      "verified_tree_sha": "63c3144dc0b352a86e5f1e5f4ff9a972e4982aca",
+      "source_commit": "84f9bcb4bea1f7a28d57fe7f0af78f7f9c3dc467"
+    },
+    {
+      "number": 21,
+      "name": "threejs-procedural-buildings-and-cities",
+      "purpose": "城市与建筑生成",
+      "priority": "核心",
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "path": "skills/threejs-procedural-buildings-and-cities/SKILL.md",
+      "source_url": "https://github.com/linegel/threejs-complete-set-of-skill/blob/e3c9563a070b214aa73b84d1ea6026c9ec4db6cb/skills/threejs-procedural-buildings-and-cities/SKILL.md",
+      "verified_tree_sha": "0cebd309b84f55f75194cf1cafd9d7e890c86f70",
+      "source_commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb"
+    },
+    {
+      "number": 22,
+      "name": "threejs-procedural-geometry",
+      "purpose": "拱门和复杂轮廓",
+      "priority": "按需",
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "path": "skills/threejs-procedural-geometry/SKILL.md",
+      "source_url": "https://github.com/linegel/threejs-complete-set-of-skill/blob/e3c9563a070b214aa73b84d1ea6026c9ec4db6cb/skills/threejs-procedural-geometry/SKILL.md",
+      "verified_tree_sha": "0cebd309b84f55f75194cf1cafd9d7e890c86f70",
+      "source_commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb"
+    },
+    {
+      "number": 23,
+      "name": "threejs-procedural-materials",
+      "purpose": "程序化砖石材质",
+      "priority": "按需",
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "path": "skills/threejs-procedural-materials/SKILL.md",
+      "source_url": "https://github.com/linegel/threejs-complete-set-of-skill/blob/e3c9563a070b214aa73b84d1ea6026c9ec4db6cb/skills/threejs-procedural-materials/SKILL.md",
+      "verified_tree_sha": "0cebd309b84f55f75194cf1cafd9d7e890c86f70",
+      "source_commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb"
+    },
+    {
+      "number": 24,
+      "name": "threejs-procedural-fields",
+      "purpose": "地形与分布场",
+      "priority": "按需",
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "path": "skills/threejs-procedural-fields/SKILL.md",
+      "source_url": "https://github.com/linegel/threejs-complete-set-of-skill/blob/e3c9563a070b214aa73b84d1ea6026c9ec4db6cb/skills/threejs-procedural-fields/SKILL.md",
+      "verified_tree_sha": "0cebd309b84f55f75194cf1cafd9d7e890c86f70",
+      "source_commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb"
+    },
+    {
+      "number": 25,
+      "name": "threejs-object-sculptor",
+      "purpose": "参考图驱动建模",
+      "priority": "按需",
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "path": "skills/threejs-object-sculptor/SKILL.md",
+      "source_url": "https://github.com/linegel/threejs-complete-set-of-skill/blob/e3c9563a070b214aa73b84d1ea6026c9ec4db6cb/skills/threejs-object-sculptor/SKILL.md",
+      "verified_tree_sha": "0cebd309b84f55f75194cf1cafd9d7e890c86f70",
+      "source_commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb"
+    },
+    {
+      "number": 26,
+      "name": "threejs-procedural-vegetation",
+      "purpose": "树木与植被分布",
+      "priority": "按需",
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "path": "skills/threejs-procedural-vegetation/SKILL.md",
+      "source_url": "https://github.com/linegel/threejs-complete-set-of-skill/blob/e3c9563a070b214aa73b84d1ea6026c9ec4db6cb/skills/threejs-procedural-vegetation/SKILL.md",
+      "verified_tree_sha": "0cebd309b84f55f75194cf1cafd9d7e890c86f70",
+      "source_commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb"
+    },
+    {
+      "number": 27,
+      "name": "threejs-sky-atmosphere-and-haze",
+      "purpose": "天空与远景雾",
+      "priority": "按需",
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "path": "skills/threejs-sky-atmosphere-and-haze/SKILL.md",
+      "source_url": "https://github.com/linegel/threejs-complete-set-of-skill/blob/e3c9563a070b214aa73b84d1ea6026c9ec4db6cb/skills/threejs-sky-atmosphere-and-haze/SKILL.md",
+      "verified_tree_sha": "0cebd309b84f55f75194cf1cafd9d7e890c86f70",
+      "source_commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb"
+    },
+    {
+      "number": 28,
+      "name": "threejs-volumetric-clouds",
+      "purpose": "体积云",
+      "priority": "进阶",
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "path": "skills/threejs-volumetric-clouds/SKILL.md",
+      "source_url": "https://github.com/linegel/threejs-complete-set-of-skill/blob/e3c9563a070b214aa73b84d1ea6026c9ec4db6cb/skills/threejs-volumetric-clouds/SKILL.md",
+      "verified_tree_sha": "0cebd309b84f55f75194cf1cafd9d7e890c86f70",
+      "source_commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb"
+    },
+    {
+      "number": 29,
+      "name": "threejs-water-optics",
+      "purpose": "湖泊与近岸水面",
+      "priority": "按需",
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "path": "skills/threejs-water-optics/SKILL.md",
+      "source_url": "https://github.com/linegel/threejs-complete-set-of-skill/blob/e3c9563a070b214aa73b84d1ea6026c9ec4db6cb/skills/threejs-water-optics/SKILL.md",
+      "verified_tree_sha": "0cebd309b84f55f75194cf1cafd9d7e890c86f70",
+      "source_commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb"
+    },
+    {
+      "number": 30,
+      "name": "threejs-spectral-ocean",
+      "purpose": "海洋波浪",
+      "priority": "有海景时",
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "path": "skills/threejs-spectral-ocean/SKILL.md",
+      "source_url": "https://github.com/linegel/threejs-complete-set-of-skill/blob/e3c9563a070b214aa73b84d1ea6026c9ec4db6cb/skills/threejs-spectral-ocean/SKILL.md",
+      "verified_tree_sha": "0cebd309b84f55f75194cf1cafd9d7e890c86f70",
+      "source_commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb"
+    },
+    {
+      "number": 31,
+      "name": "threejs-rain-snow-and-wet-surfaces",
+      "purpose": "雨雪与湿润表面",
+      "priority": "天气场景",
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "path": "skills/threejs-rain-snow-and-wet-surfaces/SKILL.md",
+      "source_url": "https://github.com/linegel/threejs-complete-set-of-skill/blob/e3c9563a070b214aa73b84d1ea6026c9ec4db6cb/skills/threejs-rain-snow-and-wet-surfaces/SKILL.md",
+      "verified_tree_sha": "0cebd309b84f55f75194cf1cafd9d7e890c86f70",
+      "source_commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb"
+    },
+    {
+      "number": 32,
+      "name": "threejs-scalable-real-time-shadows",
+      "purpose": "大场景阴影",
+      "priority": "进阶",
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "path": "skills/threejs-scalable-real-time-shadows/SKILL.md",
+      "source_url": "https://github.com/linegel/threejs-complete-set-of-skill/blob/e3c9563a070b214aa73b84d1ea6026c9ec4db6cb/skills/threejs-scalable-real-time-shadows/SKILL.md",
+      "verified_tree_sha": "0cebd309b84f55f75194cf1cafd9d7e890c86f70",
+      "source_commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb"
+    },
+    {
+      "number": 33,
+      "name": "threejs-ambient-contact-shading",
+      "purpose": "缝隙和接触阴影",
+      "priority": "按需",
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "path": "skills/threejs-ambient-contact-shading/SKILL.md",
+      "source_url": "https://github.com/linegel/threejs-complete-set-of-skill/blob/e3c9563a070b214aa73b84d1ea6026c9ec4db6cb/skills/threejs-ambient-contact-shading/SKILL.md",
+      "verified_tree_sha": "0cebd309b84f55f75194cf1cafd9d7e890c86f70",
+      "source_commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb"
+    },
+    {
+      "number": 34,
+      "name": "threejs-bloom",
+      "purpose": "高亮泛光",
+      "priority": "按需",
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "path": "skills/threejs-bloom/SKILL.md",
+      "source_url": "https://github.com/linegel/threejs-complete-set-of-skill/blob/e3c9563a070b214aa73b84d1ea6026c9ec4db6cb/skills/threejs-bloom/SKILL.md",
+      "verified_tree_sha": "0cebd309b84f55f75194cf1cafd9d7e890c86f70",
+      "source_commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb"
+    },
+    {
+      "number": 35,
+      "name": "threejs-exposure-color-grading",
+      "purpose": "曝光和调色",
+      "priority": "按需",
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "path": "skills/threejs-exposure-color-grading/SKILL.md",
+      "source_url": "https://github.com/linegel/threejs-complete-set-of-skill/blob/e3c9563a070b214aa73b84d1ea6026c9ec4db6cb/skills/threejs-exposure-color-grading/SKILL.md",
+      "verified_tree_sha": "0cebd309b84f55f75194cf1cafd9d7e890c86f70",
+      "source_commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb"
+    },
+    {
+      "number": 36,
+      "name": "threejs-camera-controls-and-rigs",
+      "purpose": "游览镜头控制",
+      "priority": "按需",
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "path": "skills/threejs-camera-controls-and-rigs/SKILL.md",
+      "source_url": "https://github.com/linegel/threejs-complete-set-of-skill/blob/e3c9563a070b214aa73b84d1ea6026c9ec4db6cb/skills/threejs-camera-controls-and-rigs/SKILL.md",
+      "verified_tree_sha": "0cebd309b84f55f75194cf1cafd9d7e890c86f70",
+      "source_commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb"
+    },
+    {
+      "number": 37,
+      "name": "threejs-dynamic-surface-effects",
+      "purpose": "表面动态效果",
+      "priority": "按需",
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "path": "skills/threejs-dynamic-surface-effects/SKILL.md",
+      "source_url": "https://github.com/linegel/threejs-complete-set-of-skill/blob/e3c9563a070b214aa73b84d1ea6026c9ec4db6cb/skills/threejs-dynamic-surface-effects/SKILL.md",
+      "verified_tree_sha": "0cebd309b84f55f75194cf1cafd9d7e890c86f70",
+      "source_commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb"
+    },
+    {
+      "number": 38,
+      "name": "threejs-image-pipeline",
+      "purpose": "最终画面输出",
+      "priority": "进阶",
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "path": "skills/threejs-image-pipeline/SKILL.md",
+      "source_url": "https://github.com/linegel/threejs-complete-set-of-skill/blob/e3c9563a070b214aa73b84d1ea6026c9ec4db6cb/skills/threejs-image-pipeline/SKILL.md",
+      "verified_tree_sha": "0cebd309b84f55f75194cf1cafd9d7e890c86f70",
+      "source_commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb"
+    },
+    {
+      "number": 39,
+      "name": "threejs-compatibility-fallbacks",
+      "purpose": "兼容与降级",
+      "priority": "进阶",
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "path": "skills/threejs-compatibility-fallbacks/SKILL.md",
+      "source_url": "https://github.com/linegel/threejs-complete-set-of-skill/blob/e3c9563a070b214aa73b84d1ea6026c9ec4db6cb/skills/threejs-compatibility-fallbacks/SKILL.md",
+      "verified_tree_sha": "0cebd309b84f55f75194cf1cafd9d7e890c86f70",
+      "source_commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb"
+    },
+    {
+      "number": 40,
+      "name": "threejs-visual-validation",
+      "purpose": "验证视觉结论",
+      "priority": "进阶",
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "path": "skills/threejs-visual-validation/SKILL.md",
+      "source_url": "https://github.com/linegel/threejs-complete-set-of-skill/blob/e3c9563a070b214aa73b84d1ea6026c9ec4db6cb/skills/threejs-visual-validation/SKILL.md",
+      "verified_tree_sha": "0cebd309b84f55f75194cf1cafd9d7e890c86f70",
+      "source_commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb"
+    }
+  ],
+  "copied_files": [
+    {
+      "repository": "cesartevisual/threejs-skills",
+      "commit": "84f9bcb4bea1f7a28d57fe7f0af78f7f9c3dc467",
+      "upstream_path": "skills/threejs-web/SKILL.md",
+      "path": ".claude/skills/threejs-web/SKILL.md",
+      "sha": "fba89c709128dcfe0e9954738d23666020c7973a",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "cesartevisual/threejs-skills",
+      "commit": "84f9bcb4bea1f7a28d57fe7f0af78f7f9c3dc467",
+      "upstream_path": "skills/threejs-web/references/routing.md",
+      "path": ".claude/skills/threejs-web/references/routing.md",
+      "sha": "1c7980d93b1a4610729bf923c84e8b325edb2467",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "cesartevisual/threejs-skills",
+      "commit": "84f9bcb4bea1f7a28d57fe7f0af78f7f9c3dc467",
+      "upstream_path": "skills/threejs-scene/SKILL.md",
+      "path": ".claude/skills/threejs-scene/SKILL.md",
+      "sha": "7a201b0e37a694aa9087aa0381d0473e9cad2f3a",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "cesartevisual/threejs-skills",
+      "commit": "84f9bcb4bea1f7a28d57fe7f0af78f7f9c3dc467",
+      "upstream_path": "skills/threejs-geometry/SKILL.md",
+      "path": ".claude/skills/threejs-geometry/SKILL.md",
+      "sha": "2220c9327a43bc0b9d5e36c94d775e83450d9141",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "cesartevisual/threejs-skills",
+      "commit": "84f9bcb4bea1f7a28d57fe7f0af78f7f9c3dc467",
+      "upstream_path": "skills/threejs-materials/SKILL.md",
+      "path": ".claude/skills/threejs-materials/SKILL.md",
+      "sha": "8e3b6956a3068fde2e7c4dfb23ca870394f5acdf",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "cesartevisual/threejs-skills",
+      "commit": "84f9bcb4bea1f7a28d57fe7f0af78f7f9c3dc467",
+      "upstream_path": "skills/threejs-lighting/SKILL.md",
+      "path": ".claude/skills/threejs-lighting/SKILL.md",
+      "sha": "c1e70e716101f6565dc279a8031687cddd37ac42",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "cesartevisual/threejs-skills",
+      "commit": "84f9bcb4bea1f7a28d57fe7f0af78f7f9c3dc467",
+      "upstream_path": "skills/threejs-assets/SKILL.md",
+      "path": ".claude/skills/threejs-assets/SKILL.md",
+      "sha": "6c0a3b491d32865e36b9485316c96bc69d22de39",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "cesartevisual/threejs-skills",
+      "commit": "84f9bcb4bea1f7a28d57fe7f0af78f7f9c3dc467",
+      "upstream_path": "skills/threejs-animation/SKILL.md",
+      "path": ".claude/skills/threejs-animation/SKILL.md",
+      "sha": "58deab629aef059c07bad34b16a090e94947e3b7",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "cesartevisual/threejs-skills",
+      "commit": "84f9bcb4bea1f7a28d57fe7f0af78f7f9c3dc467",
+      "upstream_path": "skills/threejs-interaction/SKILL.md",
+      "path": ".claude/skills/threejs-interaction/SKILL.md",
+      "sha": "68a425e3203696f02881de21d012616e0be3be33",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "cesartevisual/threejs-skills",
+      "commit": "84f9bcb4bea1f7a28d57fe7f0af78f7f9c3dc467",
+      "upstream_path": "skills/threejs-shaders/SKILL.md",
+      "path": ".claude/skills/threejs-shaders/SKILL.md",
+      "sha": "5b45a84d93a34354e165798e6413c958f8ce0895",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "cesartevisual/threejs-skills",
+      "commit": "84f9bcb4bea1f7a28d57fe7f0af78f7f9c3dc467",
+      "upstream_path": "skills/threejs-webgpu/SKILL.md",
+      "path": ".claude/skills/threejs-webgpu/SKILL.md",
+      "sha": "417b82d70645f69aa1fdee4871697d6ce2e2f6ca",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "cesartevisual/threejs-skills",
+      "commit": "84f9bcb4bea1f7a28d57fe7f0af78f7f9c3dc467",
+      "upstream_path": "skills/threejs-postprocessing/SKILL.md",
+      "path": ".claude/skills/threejs-postprocessing/SKILL.md",
+      "sha": "5324e75860531c9856836eae8fa53e08d909da1a",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "cesartevisual/threejs-skills",
+      "commit": "84f9bcb4bea1f7a28d57fe7f0af78f7f9c3dc467",
+      "upstream_path": "skills/threejs-r3f/SKILL.md",
+      "path": ".claude/skills/threejs-r3f/SKILL.md",
+      "sha": "cb36f347ecc564b14c52ab76223ecff2e31ad7cb",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "cesartevisual/threejs-skills",
+      "commit": "84f9bcb4bea1f7a28d57fe7f0af78f7f9c3dc467",
+      "upstream_path": "skills/threejs-physics/SKILL.md",
+      "path": ".claude/skills/threejs-physics/SKILL.md",
+      "sha": "85a5ebcfcb367adadcde58d560a54683c4c5e391",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "cesartevisual/threejs-skills",
+      "commit": "84f9bcb4bea1f7a28d57fe7f0af78f7f9c3dc467",
+      "upstream_path": "skills/threejs-particles/SKILL.md",
+      "path": ".claude/skills/threejs-particles/SKILL.md",
+      "sha": "5ffdff3fa60c8d5d21761bd7477d7148947af99a",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "cesartevisual/threejs-skills",
+      "commit": "84f9bcb4bea1f7a28d57fe7f0af78f7f9c3dc467",
+      "upstream_path": "skills/threejs-html/SKILL.md",
+      "path": ".claude/skills/threejs-html/SKILL.md",
+      "sha": "8cf71132000310856b33a89f6bb2e43e2f572e30",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "cesartevisual/threejs-skills",
+      "commit": "84f9bcb4bea1f7a28d57fe7f0af78f7f9c3dc467",
+      "upstream_path": "skills/threejs-performance/SKILL.md",
+      "path": ".claude/skills/threejs-performance/SKILL.md",
+      "sha": "14189766fce1523dfaf7b1aa64d431870b0d6e0f",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "cesartevisual/threejs-skills",
+      "commit": "84f9bcb4bea1f7a28d57fe7f0af78f7f9c3dc467",
+      "upstream_path": "skills/threejs-performance/references/profile.md",
+      "path": ".claude/skills/threejs-performance/references/profile.md",
+      "sha": "63faf2662a4c3ab197c63e5d00926ed4c25a53b7",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "cesartevisual/threejs-skills",
+      "commit": "84f9bcb4bea1f7a28d57fe7f0af78f7f9c3dc467",
+      "upstream_path": "skills/threejs-debugging/SKILL.md",
+      "path": ".claude/skills/threejs-debugging/SKILL.md",
+      "sha": "80e4d0222be797d26cac2c4b9c2c6c24f868a232",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "cesartevisual/threejs-skills",
+      "commit": "84f9bcb4bea1f7a28d57fe7f0af78f7f9c3dc467",
+      "upstream_path": "skills/threejs-debugging/references/diagnostics.md",
+      "path": ".claude/skills/threejs-debugging/references/diagnostics.md",
+      "sha": "dc711311527051ae4c027bad78cfb20cf6f5c1a5",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "cesartevisual/threejs-skills",
+      "commit": "84f9bcb4bea1f7a28d57fe7f0af78f7f9c3dc467",
+      "upstream_path": "skills/threejs-testing/SKILL.md",
+      "path": ".claude/skills/threejs-testing/SKILL.md",
+      "sha": "bd38a2ddd2cf9a12893a18356d90bd8485c71819",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "cesartevisual/threejs-skills",
+      "commit": "84f9bcb4bea1f7a28d57fe7f0af78f7f9c3dc467",
+      "upstream_path": "skills/threejs-deployment/SKILL.md",
+      "path": ".claude/skills/threejs-deployment/SKILL.md",
+      "sha": "b27e2be387f8282a588e365f5584d599cfe8ef70",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "cesartevisual/threejs-skills",
+      "commit": "84f9bcb4bea1f7a28d57fe7f0af78f7f9c3dc467",
+      "upstream_path": "skills/threejs-audio/SKILL.md",
+      "path": ".claude/skills/threejs-audio/SKILL.md",
+      "sha": "79e2c8db8c7e4ae6b22f7dbbcac0c0200f7c772b",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-procedural-buildings-and-cities/LICENSE",
+      "path": ".claude/skills/threejs-procedural-buildings-and-cities/LICENSE",
+      "sha": "b4563e92e1695714c0531a381f0f0f49a8cc7d7f",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-procedural-buildings-and-cities/SKILL.md",
+      "path": ".claude/skills/threejs-procedural-buildings-and-cities/SKILL.md",
+      "sha": "405cfbf7389e1f3487e4aea52e28741d218c50e2",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-procedural-buildings-and-cities/agents/openai.yaml",
+      "path": ".claude/skills/threejs-procedural-buildings-and-cities/agents/openai.yaml",
+      "sha": "6f8c261b8696ec947bed931ce49409d8e20f4a4c",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-procedural-buildings-and-cities/references/grammar-and-mesh-compiler.md",
+      "path": ".claude/skills/threejs-procedural-buildings-and-cities/references/grammar-and-mesh-compiler.md",
+      "sha": "d6493270f87828c921c15d379727de128fb5383b",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-procedural-buildings-and-cities/scripts/deterministic-placement-key.mjs",
+      "path": ".claude/skills/threejs-procedural-buildings-and-cities/scripts/deterministic-placement-key.mjs",
+      "sha": "ac5861efb5b895f65839662a80e7d80c9bec492a",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-procedural-geometry/LICENSE",
+      "path": ".claude/skills/threejs-procedural-geometry/LICENSE",
+      "sha": "b4563e92e1695714c0531a381f0f0f49a8cc7d7f",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-procedural-geometry/SKILL.md",
+      "path": ".claude/skills/threejs-procedural-geometry/SKILL.md",
+      "sha": "0e3f80d2a998a5236bdfe281250a4aac93b6ebfd",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-procedural-geometry/agents/openai.yaml",
+      "path": ".claude/skills/threejs-procedural-geometry/agents/openai.yaml",
+      "sha": "11e76ba095c284e65464946a35c5d7a12bbfa62c",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-procedural-geometry/references/profile-sweeps-and-mesh-writers.md",
+      "path": ".claude/skills/threejs-procedural-geometry/references/profile-sweeps-and-mesh-writers.md",
+      "sha": "05a0a3c5e255777f87f162fccd1e9e4953a9af9a",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-procedural-materials/LICENSE",
+      "path": ".claude/skills/threejs-procedural-materials/LICENSE",
+      "sha": "b4563e92e1695714c0531a381f0f0f49a8cc7d7f",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-procedural-materials/SKILL.md",
+      "path": ".claude/skills/threejs-procedural-materials/SKILL.md",
+      "sha": "27e0801db44815719bf15e3da621d0c75ab7beb6",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-procedural-materials/agents/openai.yaml",
+      "path": ".claude/skills/threejs-procedural-materials/agents/openai.yaml",
+      "sha": "373e49270f140f97e4b8bf9ad20f90b6504bfa9a",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-procedural-materials/examples/filtered-height-normal.mjs",
+      "path": ".claude/skills/threejs-procedural-materials/examples/filtered-height-normal.mjs",
+      "sha": "409a596e5977ae7e3b14a8e110ee663efadcf8ea",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-procedural-materials/references/procedural-pbr-system.md",
+      "path": ".claude/skills/threejs-procedural-materials/references/procedural-pbr-system.md",
+      "sha": "1c1c12921d7a1af743ff1e93ff25f02e249531ab",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-procedural-fields/LICENSE",
+      "path": ".claude/skills/threejs-procedural-fields/LICENSE",
+      "sha": "b4563e92e1695714c0531a381f0f0f49a8cc7d7f",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-procedural-fields/SKILL.md",
+      "path": ".claude/skills/threejs-procedural-fields/SKILL.md",
+      "sha": "5dfebc26404bc801b13203a98b66766cbed50ea2",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-procedural-fields/agents/openai.yaml",
+      "path": ".claude/skills/threejs-procedural-fields/agents/openai.yaml",
+      "sha": "2ea022d1d320e49f9fe03655d40dd7063856b668",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-procedural-fields/examples/cpu-tsl-field-parity.mjs",
+      "path": ".claude/skills/threejs-procedural-fields/examples/cpu-tsl-field-parity.mjs",
+      "sha": "46eab5e50ee6655b52de4a714e8a1e21565b4446",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-procedural-fields/references/field-stack-recipes.md",
+      "path": ".claude/skills/threejs-procedural-fields/references/field-stack-recipes.md",
+      "sha": "8cfde544ec5984e442053c628896700f28de3501",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-object-sculptor/LICENSE",
+      "path": ".claude/skills/threejs-object-sculptor/LICENSE",
+      "sha": "3977b0f7e91b184cc41374764898c24fc87f3803",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-object-sculptor/SKILL.md",
+      "path": ".claude/skills/threejs-object-sculptor/SKILL.md",
+      "sha": "baddbfacfc7f5d546d954db1c06bfac3bb4dd6af",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-object-sculptor/agents/openai.yaml",
+      "path": ".claude/skills/threejs-object-sculptor/agents/openai.yaml",
+      "sha": "e6171accb7f9e36d6115c55f742280435f05ca1a",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-object-sculptor/references/attachment-joint-correctness.md",
+      "path": ".claude/skills/threejs-object-sculptor/references/attachment-joint-correctness.md",
+      "sha": "39809b1b5f974552ab4a8d13cda2f7dba133e8f5",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-object-sculptor/references/procedural-patterns.md",
+      "path": ".claude/skills/threejs-object-sculptor/references/procedural-patterns.md",
+      "sha": "c5bd51e0dc539df7f3d5b5b117b58c77f5476250",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-object-sculptor/scripts/probe_reference_image.py",
+      "path": ".claude/skills/threejs-object-sculptor/scripts/probe_reference_image.py",
+      "sha": "f31ba2d4784585f8438a0e75dd0806f31ce7f2ad",
+      "mode": "100755",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-procedural-vegetation/LICENSE",
+      "path": ".claude/skills/threejs-procedural-vegetation/LICENSE",
+      "sha": "b4563e92e1695714c0531a381f0f0f49a8cc7d7f",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-procedural-vegetation/SKILL.md",
+      "path": ".claude/skills/threejs-procedural-vegetation/SKILL.md",
+      "sha": "547c1cda2593cd1340dfd5552a3078d86abbb6a8",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-procedural-vegetation/agents/openai.yaml",
+      "path": ".claude/skills/threejs-procedural-vegetation/agents/openai.yaml",
+      "sha": "fa4c5226c08eb1f935cf9b0c38697da96e098c51",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-procedural-vegetation/references/terrain-ecology-and-placement.md",
+      "path": ".claude/skills/threejs-procedural-vegetation/references/terrain-ecology-and-placement.md",
+      "sha": "ee1142a288904d695a4881a77e24ea4f082b1a01",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-procedural-vegetation/references/tree-growth-and-wind.md",
+      "path": ".claude/skills/threejs-procedural-vegetation/references/tree-growth-and-wind.md",
+      "sha": "79156df0636450a87375b85b966324914391b090",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-procedural-vegetation/scripts/placement-oracle.mjs",
+      "path": ".claude/skills/threejs-procedural-vegetation/scripts/placement-oracle.mjs",
+      "sha": "327313f0bc4ae5654617fd52aa7afdda210e8c2e",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-sky-atmosphere-and-haze/LICENSE",
+      "path": ".claude/skills/threejs-sky-atmosphere-and-haze/LICENSE",
+      "sha": "b4563e92e1695714c0531a381f0f0f49a8cc7d7f",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-sky-atmosphere-and-haze/SKILL.md",
+      "path": ".claude/skills/threejs-sky-atmosphere-and-haze/SKILL.md",
+      "sha": "08e03f699840e400dc0e6763a11040541076e56b",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-sky-atmosphere-and-haze/agents/openai.yaml",
+      "path": ".claude/skills/threejs-sky-atmosphere-and-haze/agents/openai.yaml",
+      "sha": "8ecb13e95abb584d3bc1f0c91e9869753c602a17",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-sky-atmosphere-and-haze/references/atmosphere-transport.md",
+      "path": ".claude/skills/threejs-sky-atmosphere-and-haze/references/atmosphere-transport.md",
+      "sha": "87295950a61fe8bd2ab30155bd25b18cea40b15f",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-sky-atmosphere-and-haze/references/body-depth-and-composition.md",
+      "path": ".claude/skills/threejs-sky-atmosphere-and-haze/references/body-depth-and-composition.md",
+      "sha": "f39bbb5897982c355f179baf16380e68bd6799d9",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-volumetric-clouds/LICENSE",
+      "path": ".claude/skills/threejs-volumetric-clouds/LICENSE",
+      "sha": "b4563e92e1695714c0531a381f0f0f49a8cc7d7f",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-volumetric-clouds/SKILL.md",
+      "path": ".claude/skills/threejs-volumetric-clouds/SKILL.md",
+      "sha": "33747f70128f181fc844a7493f4d692fc17cfea3",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-volumetric-clouds/agents/openai.yaml",
+      "path": ".claude/skills/threejs-volumetric-clouds/agents/openai.yaml",
+      "sha": "f0e9da7d227e6c9f6b926ce75e7bc59070f7fd52",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-volumetric-clouds/references/density-and-marching.md",
+      "path": ".claude/skills/threejs-volumetric-clouds/references/density-and-marching.md",
+      "sha": "b3be3d425b468bd8b32a1f63a36a536ef0ac0cf6",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-volumetric-clouds/references/lighting-and-shadows.md",
+      "path": ".claude/skills/threejs-volumetric-clouds/references/lighting-and-shadows.md",
+      "sha": "4f0aa0e60d3d5f6b4ba11bc3696687764a73e02f",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-volumetric-clouds/references/temporal-reconstruction.md",
+      "path": ".claude/skills/threejs-volumetric-clouds/references/temporal-reconstruction.md",
+      "sha": "c33c861cda7a2f529e8d8faaa16104198d23ce8a",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-water-optics/LICENSE",
+      "path": ".claude/skills/threejs-water-optics/LICENSE",
+      "sha": "b4563e92e1695714c0531a381f0f0f49a8cc7d7f",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-water-optics/SKILL.md",
+      "path": ".claude/skills/threejs-water-optics/SKILL.md",
+      "sha": "11a13649f449e4d29d82a76a581d87059d40dc79",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-water-optics/agents/openai.yaml",
+      "path": ".claude/skills/threejs-water-optics/agents/openai.yaml",
+      "sha": "7a55760484d8e6a54aa99fc2c227099be5e97c9c",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-water-optics/references/coastal-water-system.md",
+      "path": ".claude/skills/threejs-water-optics/references/coastal-water-system.md",
+      "sha": "0e19de2fc566a81c3cf744e0143ee0a3bea8ba35",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-water-optics/references/water-surface-system.md",
+      "path": ".claude/skills/threejs-water-optics/references/water-surface-system.md",
+      "sha": "ed3e89330df0c044f39a6a760062faf2af81da1a",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-water-optics/scripts/bounded-heightfield-dispersion.mjs",
+      "path": ".claude/skills/threejs-water-optics/scripts/bounded-heightfield-dispersion.mjs",
+      "sha": "5b59a39eb4faf1e540582d2b5bb8d283b315e65a",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-spectral-ocean/LICENSE",
+      "path": ".claude/skills/threejs-spectral-ocean/LICENSE",
+      "sha": "b4563e92e1695714c0531a381f0f0f49a8cc7d7f",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-spectral-ocean/SKILL.md",
+      "path": ".claude/skills/threejs-spectral-ocean/SKILL.md",
+      "sha": "3d0b8be2d312d8b14b3d54c4a9b4be2072d45452",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-spectral-ocean/agents/openai.yaml",
+      "path": ".claude/skills/threejs-spectral-ocean/agents/openai.yaml",
+      "sha": "ccf21ca4eb294eb763e7d000df8631658093bdec",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-spectral-ocean/references/spectral-cascade-ocean-system.md",
+      "path": ".claude/skills/threejs-spectral-ocean/references/spectral-cascade-ocean-system.md",
+      "sha": "a470eede5d95ecf376c05c2b60cc85224408d171",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-spectral-ocean/scripts/fft-convention-oracle.mjs",
+      "path": ".claude/skills/threejs-spectral-ocean/scripts/fft-convention-oracle.mjs",
+      "sha": "c2ad4c10a54c7949f525d824dfe95696e9dace0a",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-rain-snow-and-wet-surfaces/LICENSE",
+      "path": ".claude/skills/threejs-rain-snow-and-wet-surfaces/LICENSE",
+      "sha": "b4563e92e1695714c0531a381f0f0f49a8cc7d7f",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-rain-snow-and-wet-surfaces/SKILL.md",
+      "path": ".claude/skills/threejs-rain-snow-and-wet-surfaces/SKILL.md",
+      "sha": "ae3fd475d57be9affcddbdb3115d1503565dd938",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-rain-snow-and-wet-surfaces/agents/openai.yaml",
+      "path": ".claude/skills/threejs-rain-snow-and-wet-surfaces/agents/openai.yaml",
+      "sha": "57feaa29ac89f8e7d2d54e52aca1650e6f5b4750",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-rain-snow-and-wet-surfaces/examples/physical-area-deposition.mjs",
+      "path": ".claude/skills/threejs-rain-snow-and-wet-surfaces/examples/physical-area-deposition.mjs",
+      "sha": "55502b61af0677007feecf788ca3c6d00caf1a31",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-rain-snow-and-wet-surfaces/references/precipitation-motion.md",
+      "path": ".claude/skills/threejs-rain-snow-and-wet-surfaces/references/precipitation-motion.md",
+      "sha": "3fa5b3429c1f6017a906efe3b0e9a66a2fd67560",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-rain-snow-and-wet-surfaces/references/receiver-weathering.md",
+      "path": ".claude/skills/threejs-rain-snow-and-wet-surfaces/references/receiver-weathering.md",
+      "sha": "b4bc09dfc9ac8e20810822320142c3cc3248d353",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-scalable-real-time-shadows/LICENSE",
+      "path": ".claude/skills/threejs-scalable-real-time-shadows/LICENSE",
+      "sha": "b4563e92e1695714c0531a381f0f0f49a8cc7d7f",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-scalable-real-time-shadows/SKILL.md",
+      "path": ".claude/skills/threejs-scalable-real-time-shadows/SKILL.md",
+      "sha": "eddb12ee003409874291f53ab54ec5a03dac4a18",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-scalable-real-time-shadows/agents/openai.yaml",
+      "path": ".claude/skills/threejs-scalable-real-time-shadows/agents/openai.yaml",
+      "sha": "6c291bc861794590331da1f0a55536252bf48f96",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-scalable-real-time-shadows/references/cached-clipmap-shadows.md",
+      "path": ".claude/skills/threejs-scalable-real-time-shadows/references/cached-clipmap-shadows.md",
+      "sha": "ae8ce29b870dabfccdb2a8406f7bbe06dc091102",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-ambient-contact-shading/LICENSE",
+      "path": ".claude/skills/threejs-ambient-contact-shading/LICENSE",
+      "sha": "b4563e92e1695714c0531a381f0f0f49a8cc7d7f",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-ambient-contact-shading/SKILL.md",
+      "path": ".claude/skills/threejs-ambient-contact-shading/SKILL.md",
+      "sha": "366d4c5cdf42af868f8ef3643ee8c9ad2983c4c6",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-ambient-contact-shading/agents/openai.yaml",
+      "path": ".claude/skills/threejs-ambient-contact-shading/agents/openai.yaml",
+      "sha": "b1dcb6ba1de69f0418f773fabfa04589eb3a8d92",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-ambient-contact-shading/references/gtao-bent-normal-pipeline.md",
+      "path": ".claude/skills/threejs-ambient-contact-shading/references/gtao-bent-normal-pipeline.md",
+      "sha": "40e53f77784427d2934caf6705b2266350978b01",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-bloom/LICENSE",
+      "path": ".claude/skills/threejs-bloom/LICENSE",
+      "sha": "b4563e92e1695714c0531a381f0f0f49a8cc7d7f",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-bloom/SKILL.md",
+      "path": ".claude/skills/threejs-bloom/SKILL.md",
+      "sha": "acd618b44a42555c9e6a1e1c8219611c462dcd3d",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-bloom/agents/openai.yaml",
+      "path": ".claude/skills/threejs-bloom/agents/openai.yaml",
+      "sha": "73d27927dffde9268ea1bf6c03ebafe6e28179ca",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-bloom/references/hdr-bloom-system.md",
+      "path": ".claude/skills/threejs-bloom/references/hdr-bloom-system.md",
+      "sha": "74fe354b18c2c2324b3600aaf9977e9f830d6880",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-exposure-color-grading/LICENSE",
+      "path": ".claude/skills/threejs-exposure-color-grading/LICENSE",
+      "sha": "b4563e92e1695714c0531a381f0f0f49a8cc7d7f",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-exposure-color-grading/SKILL.md",
+      "path": ".claude/skills/threejs-exposure-color-grading/SKILL.md",
+      "sha": "88c50e4aa8f447bce69e9184606286415a923e3b",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-exposure-color-grading/agents/openai.yaml",
+      "path": ".claude/skills/threejs-exposure-color-grading/agents/openai.yaml",
+      "sha": "f83a7805fda0e9939d79e701feb1d48f847fc3ea",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-exposure-color-grading/examples/identity-3d-lut.mjs",
+      "path": ".claude/skills/threejs-exposure-color-grading/examples/identity-3d-lut.mjs",
+      "sha": "121574305a9a42dbb77d1c704f68cd887b8437b2",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-exposure-color-grading/references/scene-referred-color-pipeline.md",
+      "path": ".claude/skills/threejs-exposure-color-grading/references/scene-referred-color-pipeline.md",
+      "sha": "694f7aec9fee6ddb7eaec64303e2564482e97d6f",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-camera-controls-and-rigs/LICENSE",
+      "path": ".claude/skills/threejs-camera-controls-and-rigs/LICENSE",
+      "sha": "b4563e92e1695714c0531a381f0f0f49a8cc7d7f",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-camera-controls-and-rigs/SKILL.md",
+      "path": ".claude/skills/threejs-camera-controls-and-rigs/SKILL.md",
+      "sha": "b8fe60b0b5cbbf9491b9444bd0e27cdf4a75b4e4",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-camera-controls-and-rigs/agents/openai.yaml",
+      "path": ".claude/skills/threejs-camera-controls-and-rigs/agents/openai.yaml",
+      "sha": "52f16667be9dbd031b5aa941a9d02454f7046504",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-camera-controls-and-rigs/references/camera-rig-and-cinematic-systems.md",
+      "path": ".claude/skills/threejs-camera-controls-and-rigs/references/camera-rig-and-cinematic-systems.md",
+      "sha": "b63198280fdae2ab7a4c29504e76dfbcd4019da5",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-dynamic-surface-effects/LICENSE",
+      "path": ".claude/skills/threejs-dynamic-surface-effects/LICENSE",
+      "sha": "b4563e92e1695714c0531a381f0f0f49a8cc7d7f",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-dynamic-surface-effects/SKILL.md",
+      "path": ".claude/skills/threejs-dynamic-surface-effects/SKILL.md",
+      "sha": "a0ce48ae50e02aad5bac06956eb30959056d82e4",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-dynamic-surface-effects/agents/openai.yaml",
+      "path": ".claude/skills/threejs-dynamic-surface-effects/agents/openai.yaml",
+      "sha": "02ac97c95b4e8943074c9cef8f2b10c691ee39da",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-dynamic-surface-effects/references/ping-pong-accumulation.md",
+      "path": ".claude/skills/threejs-dynamic-surface-effects/references/ping-pong-accumulation.md",
+      "sha": "ce981b726d0c767cbbd1f48ea7ec0015abdb1a7f",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-image-pipeline/LICENSE",
+      "path": ".claude/skills/threejs-image-pipeline/LICENSE",
+      "sha": "b4563e92e1695714c0531a381f0f0f49a8cc7d7f",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-image-pipeline/SKILL.md",
+      "path": ".claude/skills/threejs-image-pipeline/SKILL.md",
+      "sha": "c56824424c1f4491043bf651cad5952b0c40ff7c",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-image-pipeline/agents/openai.yaml",
+      "path": ".claude/skills/threejs-image-pipeline/agents/openai.yaml",
+      "sha": "dc07d02f34719e92e69f9731d7d1dffed1260fa4",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-image-pipeline/examples/rebuild-traa-node.mjs",
+      "path": ".claude/skills/threejs-image-pipeline/examples/rebuild-traa-node.mjs",
+      "sha": "547b0d955f428cb2bdbaa58d8fb59d9f250d91cf",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-image-pipeline/references/production-image-pipeline.md",
+      "path": ".claude/skills/threejs-image-pipeline/references/production-image-pipeline.md",
+      "sha": "36e926e1481a5e9a6eb6835b6b90b74b369bc1fd",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-compatibility-fallbacks/LICENSE",
+      "path": ".claude/skills/threejs-compatibility-fallbacks/LICENSE",
+      "sha": "b4563e92e1695714c0531a381f0f0f49a8cc7d7f",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-compatibility-fallbacks/SKILL.md",
+      "path": ".claude/skills/threejs-compatibility-fallbacks/SKILL.md",
+      "sha": "dd99f1bd9a5d96acbf7e4961c0f1a7873857d3d4",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-compatibility-fallbacks/agents/openai.yaml",
+      "path": ".claude/skills/threejs-compatibility-fallbacks/agents/openai.yaml",
+      "sha": "9b41210d079173e004f36b33b5287d2533073654",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-compatibility-fallbacks/references/downgrade-decision-matrix.md",
+      "path": ".claude/skills/threejs-compatibility-fallbacks/references/downgrade-decision-matrix.md",
+      "sha": "adba0b5be9dcaa3b4cfc87655970dee6b3f8dcf0",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-compatibility-fallbacks/references/r185-api-map.md",
+      "path": ".claude/skills/threejs-compatibility-fallbacks/references/r185-api-map.md",
+      "sha": "f9ce38d6b6d07580b3787dd103e5a4a8e87948ac",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-visual-validation/LICENSE",
+      "path": ".claude/skills/threejs-visual-validation/LICENSE",
+      "sha": "b4563e92e1695714c0531a381f0f0f49a8cc7d7f",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-visual-validation/SKILL.md",
+      "path": ".claude/skills/threejs-visual-validation/SKILL.md",
+      "sha": "e92b514636f7c171193be44d80478f4abdc28210",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-visual-validation/agents/openai.yaml",
+      "path": ".claude/skills/threejs-visual-validation/agents/openai.yaml",
+      "sha": "5be670926e6e3f633f6d6bf5ac30a9fb52500260",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-visual-validation/references/graphics-validation-protocol.md",
+      "path": ".claude/skills/threejs-visual-validation/references/graphics-validation-protocol.md",
+      "sha": "42a0d354121b4d93308660d3c9f8ee0df69fa5ac",
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "repository": "linegel/threejs-complete-set-of-skill",
+      "commit": "e3c9563a070b214aa73b84d1ea6026c9ec4db6cb",
+      "upstream_path": "skills/threejs-visual-validation/scripts/aligned-readback.mjs",
+      "path": ".claude/skills/threejs-visual-validation/scripts/aligned-readback.mjs",
+      "sha": "f7b8169fec01112d86bb7e6fb761cc7cc7cda97f",
+      "mode": "100644",
+      "type": "blob"
+    }
+  ],
+  "validation": {
+    "skills": 40,
+    "quick_validate": "40 passed",
+    "script_syntax_files": 11,
+    "script_paths": [
+      ".claude/skills/threejs-exposure-color-grading/examples/identity-3d-lut.mjs",
+      ".claude/skills/threejs-image-pipeline/examples/rebuild-traa-node.mjs",
+      ".claude/skills/threejs-object-sculptor/scripts/probe_reference_image.py",
+      ".claude/skills/threejs-procedural-buildings-and-cities/scripts/deterministic-placement-key.mjs",
+      ".claude/skills/threejs-procedural-fields/examples/cpu-tsl-field-parity.mjs",
+      ".claude/skills/threejs-procedural-materials/examples/filtered-height-normal.mjs",
+      ".claude/skills/threejs-procedural-vegetation/scripts/placement-oracle.mjs",
+      ".claude/skills/threejs-rain-snow-and-wet-surfaces/examples/physical-area-deposition.mjs",
+      ".claude/skills/threejs-spectral-ocean/scripts/fft-convention-oracle.mjs",
+      ".claude/skills/threejs-visual-validation/scripts/aligned-readback.mjs",
+      ".claude/skills/threejs-water-optics/scripts/bounded-heightfield-dispersion.mjs"
+    ],
+    "local_markdown_links": 117,
+    "upstream_files_verified": 122,
+    "canonicalized_checkout_crlf_files": 99,
+    "entrypoint_content_changes": 0,
+    "added_root_license_copies": 20,
+    "runtime_tests": "not run; installation only",
+    "limitations": [
+      "No 3D scene, GPU/backend, browser, model quality or performance verification.",
+      "The collections overlap. Pick the smallest applicable subset and obey the project version/backend.",
+      "No npm install, paid API, MCP registration, browser launch, server deployment or original asset processing."
+    ]
+  },
+  "local_installation": {
+    "codex": 40,
+    "claude": 40,
+    "new_files_verified_per_host": 142,
+    "old_files_unchanged": true,
+    "old_hashes_mtimes_attributes_preserved": true,
+    "configuration_changes": false
+  },
+  "original_entrypoints_modified": false,
+  "runtime_verified": false
+}
