@@ -98,4 +98,4 @@ GTA V / FiveM 资料库插件。回答游戏资料相关的问题（原版车规
 - 马来西亚标准：MS EN 1992 就是 Eurocode 2 加马来西亚国家附件。用 Eurocode 的方法算，国家附件的数值请用户提供，不要猜。
 - 土木技能（都要先问；结果是初步分析，不代替工程师签核）：测量点检查 `civil-survey-qc`、竣工对比 `civil-as-built-check`、土方和场地 `civil-site-earthworks`、道路排水 `civil-road-drainage`、结构有限元 `civil-structural-fem`（FreeCAD FEM + CalculiX）、材料试验记录 `civil-material-test-tracker`、4D 施工排程 `civil-construction-4d`。
 - 在 Blender 的免费 Bonsai 插件里建 IFC 模型用 `bonsai-project-setup` → `bonsai-walls`、`bonsai-openings`、`bonsai-stairs`、`bonsai-roofs`、`bonsai-spaces-grid` → `bonsai-drawings` 出平面、剖面、立面图（经 `blender` MCP，先问）。`freecad` 和 `ifc` MCP 的用法见 `freecad-mcp`、`ifc-mcp` 技能。
-- AutoCAD、Revit、Civil 3D、ETABS 是付费软件，不推荐基于它们的工具。
+- 用户**有 Autodesk 会员**，AutoCAD、Civil 3D、Revit、InfraWorks、Navisworks、Vehicle Tracking、Robot Structural Analysis 都可以用，也可以推荐基于它们的工具（如 `autocad` MCP）；在用户电脑上操作这些软件前照样先问。要另外付费的部分（Autodesk 云端额度、APS Design Automation 等）仍照「不用付费」的规则。ETABS 不在会员里，仍不推荐。（2026-10-19 用户说「Autodesk 我有会员」）
