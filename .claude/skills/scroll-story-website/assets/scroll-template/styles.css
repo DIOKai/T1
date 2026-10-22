@@ -1,0 +1,111 @@
+/* Tokens: change these per client. Keep contrast >= 4.5:1 for text. */
+:root {
+  --bg: #0c0d10; --surface: #16181d; --line: #2a2d35;
+  --text: #f2f1ee; --muted: #a9adb7; --accent: #e8c26a; --danger: #ff8a7a;
+  --paint: #c8102e; --glass-alpha: .35;
+  --radius: 14px; --ease: cubic-bezier(.2, .8, .2, 1);
+  --font: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color-scheme: dark;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.55 var(--font); }
+h2 { font-size: clamp(1.8rem, 4vw, 3rem); line-height: 1.1; margin: 0 0 .5rem; letter-spacing: -.01em; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+.skip { position: absolute; left: 1rem; top: -4rem; z-index: 20; background: var(--accent); color: #111; padding: .6rem 1rem; border-radius: 8px; }
+.skip:focus { top: 1rem; }
+
+.top { position: fixed; inset: 0 0 auto; z-index: 10; display: flex; justify-content: space-between; align-items: center;
+  padding: .8rem clamp(1rem, 4vw, 2.5rem);
+  /* solid enough that the brand never sits on top of section text once the hero is past */
+  background: color-mix(in srgb, var(--bg) 82%, transparent); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
+.brand { color: var(--text); text-decoration: none; font-weight: 700; letter-spacing: .04em; }
+
+.btn { display: inline-flex; justify-content: center; align-items: center; gap: .5rem; min-height: 44px; padding: .7rem 1.3rem;
+  border: 0; border-radius: 999px; background: var(--accent); color: #15130d; font: 600 1rem var(--font); cursor: pointer;
+  text-decoration: none; transition: transform .2s var(--ease), filter .2s; }
+.btn:hover { filter: brightness(1.08); }
+.btn:active { transform: scale(.97); }
+.btn-sm { min-height: 40px; padding: .4rem 1rem; font-size: .9rem; }
+.btn.ghost { background: transparent; color: var(--text); box-shadow: inset 0 0 0 1px var(--line); }
+.btn.wide { width: 100%; }
+
+/* ---------- Scroll story: tall section, sticky stage ---------- */
+.story { position: relative; height: 400vh; }
+.stage { position: sticky; top: 0; height: 100vh; height: 100dvh; overflow: hidden; }
+#story-canvas { width: 100%; height: 100%; display: block; }
+.captions { position: absolute; inset: auto 0 12vh; padding: 0 clamp(1rem, 6vw, 5rem); pointer-events: none; }
+.cap { position: absolute; bottom: 0; margin: 0; max-width: 28ch; font-size: clamp(1.5rem, 3.6vw, 2.6rem); font-weight: 650; line-height: 1.15;
+  opacity: 0; transform: translateY(16px); transition: opacity .45s var(--ease), transform .45s var(--ease); text-shadow: 0 2px 18px rgba(0,0,0,.6); }
+.cap.is-on { opacity: 1; transform: none; }
+.eyebrow { display: block; font-size: .8rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); margin-bottom: .4rem; }
+.progress { position: absolute; left: 0; right: 0; bottom: 0; height: 3px; background: var(--line); }
+.progress span { display: block; height: 100%; width: 100%; background: var(--accent); transform-origin: left; transform: scaleX(var(--p, 0)); }
+
+/* ---------- Colour picker ---------- */
+.paint { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr); gap: clamp(1.5rem, 4vw, 4rem); align-items: center;
+  padding: clamp(4rem, 10vw, 8rem) clamp(1rem, 6vw, 5rem); scroll-margin-top: 4rem; }
+.paint p { color: var(--muted); }
+fieldset { border: 0; padding: 0; margin: 1.2rem 0; }
+legend { font-weight: 600; margin-bottom: .6rem; }
+.swatches, .tints { display: flex; flex-wrap: wrap; gap: .5rem; }
+.swatches label, .tints label { position: relative; display: inline-flex; align-items: center; gap: .5rem; min-height: 44px; padding: .35rem .9rem .35rem .4rem;
+  border-radius: 999px; box-shadow: inset 0 0 0 1px var(--line); cursor: pointer; font-size: .92rem; }
+.tints label { padding: .35rem .9rem; }
+.swatches span { width: 30px; height: 30px; border-radius: 50%; background: var(--c); box-shadow: inset 0 0 0 1px rgba(255,255,255,.25); }
+input[type=radio] { position: absolute; opacity: 0; width: 1px; height: 1px; }
+label:has(input:checked) { box-shadow: inset 0 0 0 2px var(--accent); }
+label:has(input:focus-visible) { outline: 3px solid var(--accent); outline-offset: 2px; }
+.choice { font-weight: 600; color: var(--text) !important; }
+.car { width: 100%; height: auto; }
+.car .body { fill: var(--paint); transition: fill .5s var(--ease); }
+.car .glass { fill: #0e1116; fill-opacity: calc(1 - var(--glass-alpha)); stroke: rgba(255,255,255,.18); transition: fill-opacity .4s; }
+.car .shine { stroke: rgba(255,255,255,.35); stroke-width: 3; fill: none; }
+.car .wheel { fill: #111; } .car .hub { fill: #8b8f98; }
+
+.cta { text-align: center; padding: clamp(4rem, 10vw, 8rem) 1rem; border-top: 1px solid var(--line); }
+.cta p { color: var(--muted); }
+
+/* ---------- Booking drawer (native <dialog>) ---------- */
+.drawer { margin: 0 0 0 auto; height: 100dvh; max-height: none; max-width: 100%; width: min(440px, 100%); padding: 1.4rem; border: 0;
+  background: var(--surface); color: var(--text); overflow-y: auto; transform: translateX(0);
+  transition: transform .35s var(--ease), overlay .35s allow-discrete, display .35s allow-discrete; }
+.drawer::backdrop { background: rgba(0,0,0,.55); }
+@starting-style { .drawer[open] { transform: translateX(100%); } }
+.drawer:not([open]) { transform: translateX(100%); }
+.drawer-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+.drawer h2 { font-size: 1.6rem; }
+.close { width: 44px; height: 44px; border: 0; border-radius: 50%; background: var(--line); color: var(--text); font-size: 1.5rem; cursor: pointer; }
+.field { display: grid; gap: .3rem; margin-bottom: .9rem; }
+.field label { font-size: .9rem; font-weight: 600; }
+.field input, .field select { min-height: 46px; padding: .6rem .8rem; border-radius: 10px; border: 1px solid var(--line);
+  background: var(--bg); color: var(--text); font: inherit; }
+.field [aria-invalid=true] { border-color: var(--danger); }
+.err { color: var(--danger); min-height: 1em; font-size: .85rem; }
+.check { grid-template-columns: auto 1fr; align-items: start; column-gap: .6rem; }
+.check input { width: 22px; height: 22px; margin-top: .15rem; accent-color: var(--accent); }
+.check label { font-weight: 400; color: var(--muted); }
+.check .err { grid-column: 1 / -1; }
+.hp { position: absolute; left: -9999px; }
+.form-status { min-height: 1.4em; color: var(--muted); }
+.done { display: grid; gap: .8rem; padding-top: 2rem; }
+.done[hidden], .wa[hidden] { display: none; }
+
+@media (max-width: 760px) {
+  .paint { grid-template-columns: 1fr; }
+  .car { order: -1; }
+  .story { height: 300vh; }
+}
+
+/* Reduced motion: no scrubbing, no sliding. Story becomes a still image with all captions listed. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+  .story { height: auto; }
+  .stage { position: relative; height: auto; }
+  #story-canvas { aspect-ratio: 16 / 9; height: auto; }
+  .captions { position: static; padding: 1.5rem clamp(1rem, 6vw, 5rem); display: grid; gap: 1.2rem; }
+  .cap { position: static; opacity: 1; transform: none; font-size: 1.3rem; }
+  .progress { display: none; }
+}

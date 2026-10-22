@@ -1,6 +1,6 @@
 ---
 name: archviz-web-walkthrough
-description: Turn a Blender building, apartment or interior into an interactive browser walkthrough like Klay / Kunkun Visual property tours — walk freely in first person (desktop pointer lock + WASD, mobile joystick, drag-to-look and tap-to-teleport), wall and stair collision, room labels and hotspots, an optional furniture / material swap panel, an optional Gaussian-splat mode for scanned real rooms, then free static hosting. Covers lightmap baking in Cycles, glTF export settings, glTF-Transform optimization that keeps lightmap UVs and extras, three.js lightMap on uv1, Octree capsule collision and mobile budgets. Use whenever the user wants a 3D web tour, virtual showroom, online open house, walk-through of a floor plan or Blender scene in the browser, "put my house model on a website", or a scanned room on the web — even if they only say "网页看房", "3D看房", "在线漫游", "网页漫游", "做成网页可以走", "VR看房", "虚拟样板间", "换家具", "第一人称走进房子", "高斯泼溅放网页".
+description: Turn a Blender building, apartment or interior into an interactive browser walkthrough like Klay / Kunkun Visual property tours — walk freely in first person (desktop pointer lock + WASD, mobile joystick, drag-to-look and tap-to-teleport), wall and stair collision, room labels and hotspots, an optional furniture / material swap panel, unit info panel, compass minimap, time-of-day sun, section cut and measuring tool, an optional Gaussian-splat mode for scanned real rooms, then free static hosting. Covers lightmap baking, glTF export and glTF-Transform optimization that keeps lightmap UVs, collision and mobile budgets. Use whenever the user wants a 3D web tour, virtual showroom, online open house, walk-through of a floor plan or Blender scene in the browser, "put my house model on a website", or a scanned room on the web — even if they only say "网页看房", "3D看房", "在线漫游", "网页漫游", "做成网页可以走", "VR看房", "虚拟样板间", "换家具", "第一人称走进房子", "高斯泼溅放网页", "剖切", "测量距离", "日照", "户型信息".
 ---
 
 # Archviz web walkthrough
@@ -56,6 +56,9 @@ Read `references/controls-and-collision.md`. It's the three.js `games_fps` capsu
 
 ### 7. Hotspots, labels, minimap
 Hotspot buttons come from `hotspot` extras; room names from `room` extras on floors (a downward ray every ~0.2 s). For richer labels/panels use `threejs-html`; for clicking 3D objects `threejs-interaction`. Minimap: on phones a 2D floor-plan image with a dot for the player is cheaper than a second rendered view (rule of thumb); `floorplan-to-blender`'s top SVG or a top-camera render works as the image.
+
+### 7b. Interactive extras (optional)
+Unit/lot info panel, compass + minimap, time-of-day sun and sky, section (cut) view with stencil caps, two-tap measuring and a material changer bar: read `references/interactive-features.md`. A moving sun conflicts with baked lightmaps — it lists the options (baked presets is the phone default).
 
 ### 8. Furniture / material swap (optional)
 Read `references/furniture-swap.md`. Colour or fabric options on the same geometry → **KHR_materials_variants** (ratified; authored in Blender's glTF Variants panel; three.js doesn't load it automatically — use the pattern from the official `webgl_loader_gltf_variants` example). Different models → `slot` empties + lazily loaded furniture GLBs, disposing the old one. Furniture sources: Poly Haven and Kenney (CC0), Poly Pizza/Sketchfab (check each model's licence), or the user's own Hunyuan3D via `free-3d-assets`. **IKEA has no public 3D model API** — don't scrape their site or redistribute their models; make "IKEA-style" from CC0 models instead.

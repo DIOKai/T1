@@ -91,7 +91,19 @@ Blender 技能（retopology、lod-pipeline、asset-optimization、uv-workflow、
 - 把渲染图用 AI 变成照片感图片或短片，用 `ai-archviz-render`：先用免费的本机 ComfyUI；装 ComfyUI 和下载模型前先问，模型授权照技能里写的看能不能商用。
 - Canva 设计（菜单等）做成互动网页，用 `canva-to-web`；Canva 连接器要用户自己在 `/mcp` 授权。
 
-付费软件的技能（按上面「不用付费」的例外，用之前一定先问，不推荐购买）：`rhino-mcp`（Rhino 8，付费）、`sketchup-mcp`（SketchUp 付费方案；免费路线是把 .skp 导入 Blender）、`ai-archviz-render` 里的付费生成服务（Higgsfield、Seedance、Runway、Krea、GPT Image）。
+- 互动看房要加户型信息面板、指北针小地图、日照时间、剖切、测距、换材质时，看 `unreal-mcp-archviz` 或 `archviz-web-walkthrough` 各自的 `references/interactive-features.md`。
+- 楼一块块「盖起来」的动画、每个材质一种颜色的色块图、照平面图规划镜头路线，用 `archviz-cinematic`（`references/build-up-and-colormap.md`）；色块图或 3D 动画再交给 AI 转成真实影片，用 `ai-archviz-render`（`references/colormap-video-to-video.md`）。
+- 家具要用真实买得到的商品（购物车、商品链接、尺寸），用 `set-dressing` 的 `references/buyable-furniture.md`，它的 `furniture_list_check.py` 本地只读。
+- 操作 Revit（建模、读模型、导出到网页），用 `revit-mcp`：首选 pyRevit 7 自带的 MCP（免费）；BIMBridge 的安装是从网上下载脚本直接执行，装之前先读过脚本再问用户。改 Revit 模型前一样要先问。
+- 多个子代理一起「用代码盖」整片场景（寺庙、园区、街区），用 `site-plan-agent-build`：先出总平面 JSON 并用 `check_site_plan.py` 检查，再分区派代理；派子代理前先问。
+- 用真实地图（OpenStreetMap）在网页做 3D 城市或地图游戏，用 `real-map-3d`。它的 `osm_to_geojson.py` 离线运行；`overpass_query.py --fetch` 会连 Overpass 服务器，要先问。前端不要直接调 OSM 的公共服务。Google 3D Tiles、Cesium ion 付费。
+- 会动的商家网站（往下滑画面跟着播放、选颜色、快速预约、客户资料后台），用 `scroll-story-website`；后台资料用 `supabase` 免费版，发短信的 Twilio 付费，要先问，优先用免费的 Telegram 或邮件通知。
+
+付费软件的技能（按上面「不用付费」的例外，用之前一定先问，不推荐购买）：`rhino-mcp`（Rhino 8，付费）、`sketchup-mcp`（SketchUp 付费方案；免费路线是把 .skp 导入 Blender）、`ai-archviz-render` 里的付费生成服务（Higgsfield、Seedance、Runway、Krea、GPT Image、Magnific）。
+
+## AI 短剧和短视频
+
+做 AI 短剧、漫剧、小说转短剧、自动生成短视频，用 `ai-short-drama`（先问）。三个开源工具：Toonflow（MIT，可接本机 ComfyUI 和 LLM）、Pixelle-Video（Apache-2.0，Ollama + 本机 ComfyUI 可以零成本，但 2026-06 后没再更新）、火宝短剧（CC BY-NC-SA，**不能商用**，生图和视频只能接付费 API）。它们 README 里推的中转 API 和赞助商都是广告，不推荐。装任何一个之前先问；发布到平台前提醒用户标注 AI 生成内容。
 
 ## 手机 App 开发（真的手机 App，不是 FiveM 手机）
 

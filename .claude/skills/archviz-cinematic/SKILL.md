@@ -1,6 +1,6 @@
 ---
 name: archviz-cinematic
-description: Make cinematic architectural stills and camera-move films of a building or interior in Blender 5.x for free — plan the shots, set up architectural cameras (two-point perspective with lens shift, real eye height, sane focal lengths), keyframe slow dolly / slider / crane / orbit / push-in / reveal moves, light with the Blender 5 Multiple Scattering sky, HDRI and portals, render a flicker-free Cycles image sequence, and encode it with ffmpeg. Use whenever the user wants a villa / house / apartment / SketchUp model turned into a cinematic film or real-estate video, a walkthrough or flythrough, a "Seedance / Kling / Runway / Veo style" architecture clip without paying for AI video, golden-hour or night exterior renders, or asks why their archviz animation flickers or looks fake — even if they only say "建筑动画", "电影感", "别墅动画", "做成影片", "漫游动画", "效果图", "运镜", "SketchUp 模型变电影", "楼盘宣传片", "渲染闪烁".
+description: Make cinematic architectural stills and camera-move films of a building or interior in Blender 5.x for free — plan the shots, set up architectural cameras (two-point perspective with lens shift, real eye height, sane focal lengths), keyframe slow dolly / slider / crane / orbit / push-in / reveal moves, light with sky, HDRI and portals, render a flicker-free Cycles image sequence, and encode it with ffmpeg. Use whenever the user wants a villa / house / apartment / SketchUp model turned into a cinematic film or real-estate video, a walkthrough or flythrough, a "Seedance / Kling / Runway / Veo style" architecture clip without paying for AI video, golden-hour or night exterior renders, a build-up / assembly animation, a flat colour-map pass for AI video, camera paths planned from a floor plan, or asks why their archviz animation flickers or looks fake — even if they only say "建筑动画", "电影感", "别墅动画", "做成影片", "漫游动画", "效果图", "运镜", "SketchUp 模型变电影", "楼盘宣传片", "渲染闪烁", "建造动画", "积木拼装", "色块图", "color map", "镜头路线".
 ---
 
 # Archviz cinematic (Blender 5.x)
@@ -95,6 +95,9 @@ python scripts/encode_sequence.py renders/shot01/ --fps 24 --codec h265 --out sh
 ```
 H.264 CRF 18 (≈ visually lossless), H.265 CRF 22 with `-tag:v hvc1` (plays on Apple), ProRes 422 HQ for editing. The script refuses to overwrite without `--force` and warns about missing frames. Cutting, music, titles → `ffmpeg-skill`.
 
+### 9b. Build-up animation, colour-map pass, paths from the plan
+For the "house assembles itself piece by piece" shot, a flat colour-per-material render of the same camera move (to guide AI video, see `ai-archviz-render`), or eye-level camera paths derived from the floor plan's rooms and doors: read `references/build-up-and-colormap.md`; `scripts/colormap_pass_bpy.py` sets up and restores the colour-map render.
+
 ### 10. Optional AI enhancement
 For upscaling, style passes or an "AI look" on finished frames → `ai-archviz-render` (ask first). Per-frame AI processing tends to flicker between frames (unverified); keep the clean Blender sequence as the master.
 
@@ -112,6 +115,7 @@ For upscaling, style passes or an "AI look" on finished frames → `ai-archviz-r
 - `lighting-design` and `camera-systems` are about **game engines** (lightmaps, follow cameras) — only borrow principles from them.
 
 ## Limits (say them, don't hide them)
+- `colormap_pass_bpy.py` and the build-up / path snippets in `references/build-up-and-colormap.md` were also never run in Blender (syntax-checked; the colormap helper's pure functions — keyword classes, hashed colours, sRGB→linear — were tested in plain Python).
 - `camera_moves_bpy.py` was written against the Blender 5.x Python API docs but **was not run in Blender** (no Blender on the authoring machine); it was only syntax-checked. If a call fails, fix the script and tell the user. `render_budget.py` and `encode_sequence.py` were tested in plain Python (encode with ffmpeg 9.0.1 on generated test frames: H.264, H.265 Main 10 `hvc1`, ProRes HQ, missing-frame warning, overwrite refusal).
 - Shot durations, speeds, lens and f-stop ranges, CRF choices and render-budget size estimates are experience values, not standards.
 - The shift formula is derived from geometry, not quoted from the manual — check the framing in the camera view.

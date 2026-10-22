@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: detailer-site-my
+expected_outcome: |
+  A static site folder that opens locally, with a scroll-scrubbed dirty-to-clean hero, colour and film picker, quick booking form with consent, a notification and leads plan that avoids paid services unless asked, and reduced-motion support.

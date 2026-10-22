@@ -1,0 +1,58 @@
+{
+ "version": 0.6,
+ "generator": "hand-made test fixture (nodes style)",
+ "elements": [
+  {
+   "type": "way",
+   "id": 21,
+   "nodes": [
+    1001,
+    1002,
+    1003,
+    1004,
+    1001
+   ],
+   "tags": {
+    "building": "retail",
+    "height": "7,5"
+   }
+  },
+  {
+   "type": "way",
+   "id": 22,
+   "nodes": [
+    1001,
+    1002,
+    9999,
+    1001
+   ],
+   "tags": {
+    "building": "yes"
+   }
+  },
+  {
+   "type": "node",
+   "id": 1001,
+   "lat": 52.516,
+   "lon": 13.377
+  },
+  {
+   "type": "node",
+   "id": 1002,
+   "lat": 52.516,
+   "lon": 13.3772213
+  },
+  {
+   "type": "node",
+   "id": 1003,
+   "lat": 52.5161079,
+   "lon": 13.3772213
+  },
+  {
+   "type": "node",
+   "id": 1004,
+   "lat": 52.5161079,
+   "lon": 13.377
+  }
+ ]
+}
