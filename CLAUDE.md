@@ -23,6 +23,8 @@
 
 用户不要付费的工具和服务。需要付费 API key、订阅或额度的技能和功能都不用，也不推荐；只有免费的替代方案时才提，并说明它是免费的。比如 Blender MCP 的 Premium AI 生成 3D 模型、Gemini/Nano Banana 生图 API，都不要用。
 
+例外：**写给付费软件或付费服务的技能（Rhino、SketchUp、Higgsfield 这类）可以照样加进 T1**，在技能里写明「付费」和免费的替代做法；要用到付费的部分时，一定先问用户，等用户同意再用，也不要主动推荐购买。（2026-10-22 用户说「不用经付费的也可以添加，但当我要使用你问我先」）
+
 ## 写 FiveM / QBCore / Qbox 相关代码时
 
 优先建议用户自己的 `fivem-script` 技能，再按需要搭配（都照上面的规则先问）：
@@ -78,6 +80,18 @@ Blender 技能（retopology、lod-pipeline、asset-optimization、uv-workflow、
 ## 网页 3D（Three.js）
 
 做浏览器里的 3D 画面（伺服器官网 3D 展示、3D loading screen、网页上预览车或地图）时，先问要不要用 `threejs-web`，由它挑最少需要的几个 `threejs-*` 技能，不要一次全用。基础 20 个（`threejs-scene`、`threejs-materials`、`threejs-performance` 等）照项目原本的 Three.js 版本；城市和特效 20 个（`threejs-procedural-buildings-and-cities`、`threejs-water-optics`、`threejs-volumetric-clouds`、`threejs-rain-snow-and-wet-surfaces` 等）写的是 Three.js r185 的 WebGPU/TSL，不要为了用它就升级用户项目的 Three.js。`threejs-compatibility-fallbacks` 只在用户要求、而且确认 WebGPU 不能用时才用。FiveM NUI 跑在游戏内浏览器，3D 很吃帧，WebGPU 在里面能不能用还没验证，要先测；loading screen 的 3D 背景保持轻量。
+
+## 建筑 3D、看房和建筑动画（2026-10-22 加的，都要先问）
+
+照平面图、房源照片或参考图把房子、公寓、别墅做成 Blender 模型，用 `floorplan-to-blender`：先读尺寸写成 layout.json，用它的 `validate_layout.py` 检查（本地只读，用户同意用这个技能后可以直接跑），再经 `blender` MCP 建模。要 BIM/IFC 图纸时同一份 JSON 交给 `bonsai-*` 技能；要进 FiveM 以 `fivem-mlo-housing` 为主。之后按用途选：
+- 出效果图和运镜动画用 `archviz-cinematic`（基础规则仍看 `archviz`；它的 `render_budget.py` 本地计算，`encode_sequence.py` 要用户电脑有 ffmpeg）。
+- 做网页里自由走动的看房，用 `archviz-web-walkthrough`，通用 Three.js 部分交给 `threejs-web` 挑的 `threejs-*` 技能。
+- 用 Unreal 做互动展示、网页控制面板换家具，用 `unreal-mcp-archviz`。Unreal 免费（年营收 100 万美元以下），但要下载约 70 GB；装 Unreal 或 MCP 前先问。
+- 参数化外立面、鳍片、楼板堆叠，免费的用 `parametric-facade`（Blender 几何节点）。
+- 把渲染图用 AI 变成照片感图片或短片，用 `ai-archviz-render`：先用免费的本机 ComfyUI；装 ComfyUI 和下载模型前先问，模型授权照技能里写的看能不能商用。
+- Canva 设计（菜单等）做成互动网页，用 `canva-to-web`；Canva 连接器要用户自己在 `/mcp` 授权。
+
+付费软件的技能（按上面「不用付费」的例外，用之前一定先问，不推荐购买）：`rhino-mcp`（Rhino 8，付费）、`sketchup-mcp`（SketchUp 付费方案；免费路线是把 .skp 导入 Blender）、`ai-archviz-render` 里的付费生成服务（Higgsfield、Seedance、Runway、Krea、GPT Image）。
 
 ## 手机 App 开发（真的手机 App，不是 FiveM 手机）
 

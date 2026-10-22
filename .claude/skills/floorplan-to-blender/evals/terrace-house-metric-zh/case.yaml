@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: terrace-house-metric-zh
+expected_outcome: |
+  一份米制布局（6.1 x 18.3 m、外墙 0.23 m、内墙 0.115 m、层高 3 m），前门居中 0.9 m 加 1.8 m 窗，后门在厨房后墙，18 级直跑楼梯，并用中文说明假设。
