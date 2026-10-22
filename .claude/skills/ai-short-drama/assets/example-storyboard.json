@@ -1,0 +1,21 @@
+{
+  "title": "ep01_betrayal",
+  "aspect": "9:16",
+  "speaker_in_subtitles": false,
+  "characters": {
+    "lin": {"name": "林夏", "ref": "refs/lin_sheet.png", "look": "25岁，黑色短发，白衬衫，左耳一颗银耳钉"},
+    "chen": {"name": "陈默", "ref": "refs/chen_sheet.png", "look": "30岁，背头，深灰西装，金丝眼镜"}
+  },
+  "shots": [
+    {"id": "01", "scene": "公司天台 夜", "shot": "close-up", "camera": "fast push-in", "characters": ["lin"],
+     "action": "林夏把一叠照片摔在陈默胸口", "line": {"speaker": "lin", "text": "你骗了我三年。"},
+     "prompt": "vertical 9:16, night rooftop, neon city behind, woman throws photos, wind in hair, cinematic"},
+    {"id": "02", "scene": "公司天台 夜", "shot": "medium", "camera": "static", "characters": ["chen"],
+     "action": "陈默低头看照片，嘴角一笑", "line": {"speaker": "chen", "text": "你现在才知道？"}},
+    {"id": "03", "scene": "公司天台 夜", "shot": "over-the-shoulder", "camera": "slow orbit", "characters": ["lin", "chen"],
+     "action": "两人对峙，远处直升机灯光扫过", "duration": 4},
+    {"id": "04", "scene": "公司天台 夜", "shot": "extreme close-up", "camera": "static", "characters": ["lin"],
+     "action": "林夏手机亮起：『董事会 9 点见』", "line": {"speaker": "lin", "text": "明天九点，我让你一无所有。"},
+     "cliffhanger": "她手里还有什么证据？"}
+  ]
+}

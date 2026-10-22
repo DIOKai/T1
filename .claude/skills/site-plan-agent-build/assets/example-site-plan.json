@@ -1,0 +1,163 @@
+{
+  "schema": "site-plan/1",
+  "name": "Small temple complex (example)",
+  "units": "m",
+  "axes": "plan points are [x, z]; x east, z south, y up (three.js). Blender: bx = x, by = -z, bz = y",
+  "site": {
+    "bounds": [-40, -30, 40, 30],
+    "ground_y": 0,
+    "grid": 0.5,
+    "north": "-z",
+    "notes": "Flat site. South gate at z=+30, main hall at the north end."
+  },
+  "style": {
+    "era": "Japanese Buddhist temple, wooden, Edo-period feel (stylised, not a copy of one real temple)",
+    "palette": {
+      "vermilion": "#c8402a",
+      "gold_trim": "#c9a227",
+      "aged_wood": "#5a3a24",
+      "white_plaster": "#efe9dc",
+      "roof_tile": "#3b4048",
+      "gravel": "#d8d3c8",
+      "sakura": "#f4c6d2"
+    },
+    "rules": [
+      "Every structure sits on a stone podium or the ground; nothing floats.",
+      "Roof eaves overhang their walls; overhang is part of the element height/footprint budget only through the podium, never into a neighbour.",
+      "Repeated parts (lanterns, rafters, bracket sets, tiles, petals) are instanced."
+    ]
+  },
+  "shared_files": [
+    {"path": "src/shared/materials.js", "owner": "lead", "note": "palette materials, read-only for zone agents"},
+    {"path": "src/shared/kit.js", "owner": "lead", "note": "helpers: podium(), roofTier(), lantern(), sakura(); read-only"},
+    {"path": "src/main.js", "owner": "lead", "note": "loads every zone module, camera, lights"}
+  ],
+  "zones": [
+    {"id": "approach", "owner": "agent-approach", "bbox": [-40, 10, 40, 30],
+     "files": ["src/zones/approach.js"],
+     "description": "South gate (sanmon), approach path, cherry trees, lanterns"},
+    {"id": "axis", "owner": "agent-approach", "bbox": [-4, -10, 4, 10],
+     "files": ["src/zones/axis.js"],
+     "description": "Central axis path between pond and pagoda"},
+    {"id": "pond", "owner": "agent-pond", "bbox": [-40, -10, -4, 10],
+     "files": ["src/zones/pond.js"],
+     "description": "Pond, red arched bridge (taikobashi), lantern on a rock"},
+    {"id": "pagoda", "owner": "agent-pagoda", "bbox": [4, -10, 40, 10],
+     "files": ["src/zones/pagoda.js"],
+     "description": "Five-storey pagoda on its podium, lanterns"},
+    {"id": "hall", "owner": "agent-hall", "bbox": [-40, -30, 40, -10],
+     "files": ["src/zones/hall.js"],
+     "description": "Main hall (hondo) with gold-trimmed pillars, karesansui gravel garden"}
+  ],
+  "water": [
+    {"id": "pond_water", "zone": "pond", "surface_y": -0.3, "depth": 0.8,
+     "polygon": [[-34, -6], [-20, -8], [-8, -5], [-7, 4], [-18, 7], [-32, 5]]}
+  ],
+  "paths": [
+    {"id": "path_approach", "zone": "approach", "width": 3, "material": "stone slabs",
+     "polyline": [[0, 30], [0, 10]]},
+    {"id": "path_axis", "zone": "axis", "width": 3, "material": "stone slabs",
+     "polyline": [[0, 10], [0, -10]]},
+    {"id": "path_hall", "zone": "hall", "width": 3, "material": "stone slabs",
+     "polyline": [[0, -10], [0, -13]]},
+    {"id": "path_bridge", "zone": "pond", "width": 1.6, "material": "gravel",
+     "polyline": [[-14, 8.6], [-8, 8], [-5, 1], [-4, 0]]}
+  ],
+  "interfaces": [
+    {"id": "if_approach_axis", "between": ["approach", "axis"], "point": [0, 10],
+     "note": "3 m stone path continues straight; ground level 0"},
+    {"id": "if_axis_hall", "between": ["axis", "hall"], "point": [0, -10],
+     "note": "3 m stone path ends at the hall podium steps (podium edge z=-13)"},
+    {"id": "if_pond_axis", "between": ["pond", "axis"], "point": [-4, 0],
+     "note": "1.6 m gravel path from the bridge joins the axis path at its west edge (x=-1.5)"}
+  ],
+  "elements": [
+    {"id": "sanmon", "zone": "approach", "type": "gate", "passable": true,
+     "footprint": {"rect": {"center": [0, 22], "size": [12, 6]}},
+     "height": 10, "anchor": "ground", "landmark": true, "clearance": 1.5,
+     "notes": "Two-storey gate; path passes through the middle bay"},
+    {"id": "lantern_a1", "zone": "approach", "type": "lantern",
+     "footprint": {"rect": {"center": [-3, 16], "size": [0.8, 0.8]}}, "height": 2.2, "anchor": "ground"},
+    {"id": "lantern_a2", "zone": "approach", "type": "lantern",
+     "footprint": {"rect": {"center": [3, 16], "size": [0.8, 0.8]}}, "height": 2.2, "anchor": "ground"},
+    {"id": "sakura_a1", "zone": "approach", "type": "tree",
+     "footprint": {"circle": {"center": [-12, 20], "radius": 0.35}}, "height": 7, "canopy_radius": 4,
+     "anchor": "ground", "clearance": 2.5},
+    {"id": "sakura_a2", "zone": "approach", "type": "tree",
+     "footprint": {"circle": {"center": [12, 20], "radius": 0.35}}, "height": 7, "canopy_radius": 4,
+     "anchor": "ground", "clearance": 2.5},
+    {"id": "sakura_a3", "zone": "approach", "type": "tree",
+     "footprint": {"circle": {"center": [-25, 16], "radius": 0.35}}, "height": 6.5, "canopy_radius": 3.5,
+     "anchor": "ground", "clearance": 2.5},
+
+    {"id": "lantern_x1", "zone": "axis", "type": "lantern",
+     "footprint": {"rect": {"center": [-3, -4], "size": [0.8, 0.8]}}, "height": 2.2, "anchor": "ground"},
+    {"id": "lantern_x2", "zone": "axis", "type": "lantern",
+     "footprint": {"rect": {"center": [3, -4], "size": [0.8, 0.8]}}, "height": 2.2, "anchor": "ground"},
+
+    {"id": "taikobashi", "zone": "pond", "type": "bridge", "over_water": true,
+     "footprint": {"rect": {"center": [-14, 0], "size": [2.4, 17]}},
+     "height": 2.4, "anchor": "ground", "landmark": true,
+     "notes": "Vermilion arched bridge, both ends on the banks; deck crown 2.2 m above ground"},
+    {"id": "pond_rock", "zone": "pond", "type": "rock",
+     "footprint": {"circle": {"center": [-24, -1], "radius": 0.9}},
+     "height": 1.4, "anchor": "water_bed", "base_y": -1.1},
+    {"id": "pond_lantern", "zone": "pond", "type": "lantern",
+     "footprint": {"rect": {"center": [-24, -1], "size": [0.6, 0.6]}},
+     "height": 1.6, "anchor": "on:pond_rock", "base_y": 0.3},
+    {"id": "sakura_p1", "zone": "pond", "type": "tree",
+     "footprint": {"circle": {"center": [-30, 8], "radius": 0.35}}, "height": 6, "canopy_radius": 3.5,
+     "anchor": "ground", "clearance": 1.0},
+
+    {"id": "pagoda_kidan", "zone": "pagoda", "type": "podium",
+     "footprint": {"rect": {"center": [22, 0], "size": [10, 10]}}, "height": 1.2, "anchor": "ground",
+     "notes": "Stone podium with steps on the west side"},
+    {"id": "pagoda", "zone": "pagoda", "type": "pagoda", "landmark": true,
+     "footprint": {"rect": {"center": [22, 0], "size": [6.4, 6.4]}},
+     "height": 31.3, "anchor": "on:pagoda_kidan", "base_y": 1.2,
+     "proportions": {
+       "tiers": 5,
+       "bays": "3x3 on tiers 1-4, 2x2 on tier 5 (Horyuji pattern, JAANUS)",
+       "base_side_m": 6.42,
+       "roof_diminution": "each tier slightly smaller; 10:9:8:7:6 is a starting point only (unverified)",
+       "finial": "sorin: roban, fukubachi, 9 rings, suien, ryusha, hoju (JAANUS)",
+       "total_height_ref_m": 32.45
+     }},
+    {"id": "lantern_p1", "zone": "pagoda", "type": "lantern",
+     "footprint": {"rect": {"center": [14, -6], "size": [0.8, 0.8]}}, "height": 2.2, "anchor": "ground"},
+    {"id": "lantern_p2", "zone": "pagoda", "type": "lantern",
+     "footprint": {"rect": {"center": [14, 6], "size": [0.8, 0.8]}}, "height": 2.2, "anchor": "ground"},
+    {"id": "sakura_g1", "zone": "pagoda", "type": "tree",
+     "footprint": {"circle": {"center": [34, 7], "radius": 0.35}}, "height": 7, "canopy_radius": 4,
+     "anchor": "ground", "clearance": 2.5},
+
+    {"id": "hondo_kidan", "zone": "hall", "type": "podium",
+     "footprint": {"rect": {"center": [10, -20], "size": [22, 14]}}, "height": 1.0, "anchor": "ground"},
+    {"id": "hondo", "zone": "hall", "type": "hall", "landmark": true,
+     "footprint": {"rect": {"center": [10, -20], "size": [18, 11]}},
+     "height": 12, "anchor": "on:hondo_kidan", "base_y": 1.0,
+     "notes": "Hip-and-gable roof, vermilion columns with gold caps and bases"},
+    {"id": "karesansui", "zone": "hall", "type": "ground_cover",
+     "footprint": {"rect": {"center": [-22, -20], "size": [24, 12]}}, "height": 0.05, "anchor": "ground",
+     "notes": "Raked white gravel, viewed from the hall veranda"},
+    {"id": "kare_rock_1", "zone": "hall", "type": "rock",
+     "footprint": {"circle": {"center": [-26, -21], "radius": 1.0}}, "height": 1.2,
+     "anchor": "on:karesansui", "base_y": 0.05},
+    {"id": "kare_rock_2", "zone": "hall", "type": "rock",
+     "footprint": {"circle": {"center": [-18, -18], "radius": 0.7}}, "height": 0.8,
+     "anchor": "on:karesansui", "base_y": 0.05},
+    {"id": "sakura_h1", "zone": "hall", "type": "tree",
+     "footprint": {"circle": {"center": [-37, -27], "radius": 0.35}}, "height": 7, "canopy_radius": 3,
+     "anchor": "ground", "clearance": 2.5}
+  ],
+  "shots": [
+    {"id": "shot_01", "start_target": "pond_lantern", "end_includes": ["taikobashi", "pagoda"],
+     "lens_mm": [85, 35], "seconds": 8,
+     "camera": {"start": [-23.0, 1.4, 0.4], "end": [-14, 8, 24]},
+     "note": "Moss on the lantern cap, pull back over the pond until bridge and pagoda share the frame"},
+    {"id": "shot_02", "start_target": "pagoda", "end_includes": ["pagoda", "hondo"],
+     "lens_mm": [70, 28], "seconds": 10,
+     "camera": {"start": [17.5, 5.5, 0], "end": [8, 16, 26]},
+     "note": "Bracket set under the first roof, pull out and rise until the whole pagoda and hall roof are in frame"}
+  ]
+}

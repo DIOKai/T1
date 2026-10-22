@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gloss &amp; Tint Studio</title>
+  <meta name="description" content="Detailing, ceramic coating and window tint. Book in 30 seconds.">
+  <link rel="stylesheet" href="styles.css">
+  <!-- Optional first frame as LCP image when you have real frames:
+  <link rel="preload" as="image" href="frames/f_0001.webp" fetchpriority="high"> -->
+  <script>
+    // Everything a new client changes lives here. No build step.
+    window.SITE_CONFIG = {
+      // Real frames: set count (e.g. 120) and put frames/f_0001.webp ... f_0120.webp next to this file.
+      // count 0 = draw procedural placeholder frames so the demo works out of the box.
+      frames: { path: 'frames/f_', ext: '.webp', count: 0, pad: 4 },
+      // '' = local demo: no network request, just shows the success state.
+      // Supabase example (anon key may only INSERT, see references/leads-backend.md):
+      // endpoint: 'https://YOUR-REF.supabase.co/rest/v1/leads',
+      // headers: { apikey: 'PUBLISHABLE_KEY', Authorization: 'Bearer PUBLISHABLE_KEY', Prefer: 'return=minimal' },
+      endpoint: '',
+      headers: {},
+      whatsapp: ''            // e.g. '60123456789' adds a free "Message us on WhatsApp" link after booking
+    };
+  </script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#paint">Skip the animation</a>
+  <header class="top">
+    <a class="brand" href="#">Gloss&nbsp;&amp;&nbsp;Tint</a>
+    <button class="btn btn-sm" type="button" data-open-booking>Book now</button>
+  </header>
+
+  <main>
+    <section id="story" class="story" aria-label="From dirty to showroom">
+      <div class="stage">
+        <canvas id="story-canvas" role="img" aria-label="A dusty car is washed clean, the camera moves in to the badge and light sweeps across the paint."></canvas>
+        <div class="captions">
+          <p class="cap" data-at="0-0.22"><span class="eyebrow">Before</span>Three months of road dust.</p>
+          <p class="cap" data-at="0.25-0.5"><span class="eyebrow">Hand wash &amp; decon</span>Every panel, every gap.</p>
+          <p class="cap" data-at="0.55-0.78"><span class="eyebrow">Paint correction</span>Swirls out. Depth back.</p>
+          <p class="cap" data-at="0.82-1"><span class="eyebrow">Ceramic coat</span>Showroom, every angle.</p>
+        </div>
+        <div class="progress" aria-hidden="true"><span></span></div>
+      </div>
+    </section>
+
+    <section id="paint" class="paint" aria-labelledby="paint-title">
+      <div class="paint-copy">
+        <h2 id="paint-title">Try it on</h2>
+        <p>A different colour from every angle. Pick a wrap and a window film to preview.</p>
+        <fieldset class="swatches">
+          <legend>Wrap colour</legend>
+          <label><input type="radio" name="paint" value="#c8102e" data-name="Rosso red" checked><span style="--c:#c8102e"></span>Rosso red</label>
+          <label><input type="radio" name="paint" value="#0b3d91" data-name="Midnight blue"><span style="--c:#0b3d91"></span>Midnight blue</label>
+          <label><input type="radio" name="paint" value="#e9e6df" data-name="Pearl white"><span style="--c:#e9e6df"></span>Pearl white</label>
+          <label><input type="radio" name="paint" value="#2f3a2f" data-name="Satin olive"><span style="--c:#2f3a2f"></span>Satin olive</label>
+          <label><input type="radio" name="paint" value="#1a1a1c" data-name="Gloss black"><span style="--c:#1a1a1c"></span>Gloss black</label>
+        </fieldset>
+        <fieldset class="tints">
+          <legend>Window film (light let through)</legend>
+          <label><input type="radio" name="tint" value="70" checked>70%</label>
+          <label><input type="radio" name="tint" value="50">50%</label>
+          <label><input type="radio" name="tint" value="35">35%</label>
+          <label><input type="radio" name="tint" value="20">20%</label>
+        </fieldset>
+        <p class="choice" aria-live="polite">Rosso red · 70% film</p>
+        <button class="btn" type="button" data-open-booking>Book this look</button>
+      </div>
+      <svg class="car" viewBox="0 0 600 260" role="img" aria-label="Car preview in the selected colour and window film">
+        <ellipse cx="300" cy="232" rx="250" ry="14" fill="rgba(0,0,0,.35)"/>
+        <path class="body" d="M40 190 Q40 150 90 142 L170 132 Q215 82 280 76 L380 76 Q430 80 470 128 L540 140 Q570 148 570 182 L570 200 L40 200 Z"/>
+        <path class="glass" d="M190 132 Q228 92 282 88 L322 88 L322 132 Z M334 88 L378 88 Q420 92 452 132 L334 132 Z"/>
+        <path class="shine" d="M70 160 L540 152" />
+        <circle class="wheel" cx="150" cy="200" r="36"/><circle class="wheel" cx="460" cy="200" r="36"/>
+        <circle class="hub" cx="150" cy="200" r="14"/><circle class="hub" cx="460" cy="200" r="14"/>
+      </svg>
+    </section>
+
+    <section class="cta" aria-labelledby="cta-title">
+      <h2 id="cta-title">Books in 30 seconds</h2>
+      <p>Pick a slot, we text you back to confirm. No payment online.</p>
+      <button class="btn" type="button" data-open-booking>Book a slot</button>
+    </section>
+  </main>
+
+  <dialog id="booking" class="drawer" aria-labelledby="booking-title">
+    <form id="booking-form" novalidate>
+      <div class="drawer-head">
+        <h2 id="booking-title">Book a slot</h2>
+        <button type="button" class="close" data-close aria-label="Close booking">×</button>
+      </div>
+      <div class="field"><label for="f-name">Name</label>
+        <input id="f-name" name="name" autocomplete="name" required maxlength="80" aria-describedby="e-name"><small id="e-name" class="err"></small></div>
+      <div class="field"><label for="f-phone">Mobile number</label>
+        <input id="f-phone" name="phone" type="tel" autocomplete="tel" required inputmode="tel" pattern="^\+?[0-9 \-]{8,16}$" aria-describedby="e-phone"><small id="e-phone" class="err"></small></div>
+      <div class="field"><label for="f-vehicle">Car make &amp; model</label>
+        <input id="f-vehicle" name="vehicle" required maxlength="80" placeholder="e.g. Honda Civic 2022" aria-describedby="e-vehicle"><small id="e-vehicle" class="err"></small></div>
+      <div class="field"><label for="f-service">Service</label>
+        <select id="f-service" name="service" required aria-describedby="e-service">
+          <option value="">Choose…</option><option>Full detail</option><option>Ceramic coating</option><option>Window tint</option><option>Colour wrap</option>
+        </select><small id="e-service" class="err"></small></div>
+      <div class="field"><label for="f-date">Preferred date</label>
+        <input id="f-date" name="date" type="date" required aria-describedby="e-date"><small id="e-date" class="err"></small></div>
+      <div class="hp" aria-hidden="true"><label>Company <input name="company" tabindex="-1" autocomplete="off"></label></div>
+      <div class="field check"><input id="f-consent" name="consent" type="checkbox" required aria-describedby="e-consent">
+        <label for="f-consent">I agree that the shop may contact me about this booking. My details are kept for 12 months and deleted on request.</label>
+        <small id="e-consent" class="err"></small></div>
+      <button class="btn wide" type="submit">Send booking</button>
+      <p class="form-status" role="status"></p>
+    </form>
+    <div class="done" hidden>
+      <h2 tabindex="-1">Booking sent</h2>
+      <p>Thanks! We'll text you to confirm your slot.</p>
+      <a class="btn wide wa" hidden target="_blank" rel="noopener">Message us on WhatsApp</a>
+      <button type="button" class="btn ghost wide" data-close>Close</button>
+    </div>
+  </dialog>
+</body>
+</html>

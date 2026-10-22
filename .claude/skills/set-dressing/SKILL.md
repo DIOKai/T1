@@ -1,13 +1,13 @@
 ---
 name: set-dressing
-description: Set dressing and environmental storytelling placement for interiors and exteriors using prop density, narrative clusters, and readability rules via MCP.
+description: Set dressing and environmental storytelling placement for interiors and exteriors using prop density, narrative clusters, and readability rules via MCP. Also furnishing from a real store cart (buyable furniture list with links, prices and real W×D×H, models scaled to real size, shopping list CSV) — 真实家具清单, 可购买家具, 购物车家具, Airbnb 布置.
 license: MIT
 metadata:
   author: https://github.com/arjun988
   version: "1.0.0"
   domain: blender
   role: specialist
-  triggers: set dressing, dressing, storytelling props, interior dressing, clutter, narrative placement, set decals
+  triggers: set dressing, dressing, storytelling props, interior dressing, clutter, narrative placement, set decals, buyable furniture, shopping list, store cart, Mercado Livre, IKEA dimensions
   related-skills: prop-artist, scene-assembly, environment-artist, horror-style, qa-review
 ---
 
@@ -51,6 +51,10 @@ Layout locked → Hero narrative props → Secondary clusters
 - Kitbash / modular libraries for filler
 - Instance repeats; vary rotation/scale slightly
 
+## Buyable Furniture
+
+Furnishing from a real store/cart: keep the furniture list first (name, link, price, W×D×H), check it with `scripts/furniture_list_check.py`, use free stand-in models scaled to the real size and mark substitutes. Read `references/buyable-furniture.md`.
+
 ## Horror / Sparse Styles
 
 - Fewer props, more meaning
@@ -74,3 +78,4 @@ Layout locked → Hero narrative props → Secondary clusters
 |-------|-----------|----------|
 | Story Clusters | `references/story-clusters.md` | When needed |
 | Density Map | `references/density-map.md` | When needed |
+| Buyable Furniture | `references/buyable-furniture.md` | Furnishing from a real store cart / shopping list |
