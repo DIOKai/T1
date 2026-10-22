@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Furniture Panel</title>
+<style>
+  :root { --bg:#f6f5f2; --card:#fff; --ink:#1d1d1f; --muted:#6b6b70; --line:#e2e0db; --accent:#2f6f5e; --err:#b3261e; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#151517; --card:#202023; --ink:#ececee; --muted:#9a9aa1; --line:#333338; --accent:#6cc3a7; --err:#ff8a80; } }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:14px/1.45 system-ui, sans-serif; }
+  header { padding:16px; border-bottom:1px solid var(--line); display:flex; gap:12px; align-items:center; flex-wrap:wrap; }
+  header h1 { font-size:16px; margin:0 auto 0 0; }
+  main { display:grid; grid-template-columns: 240px 1fr; gap:16px; padding:16px; max-width:1100px; margin:auto; }
+  @media (max-width: 720px) { main { grid-template-columns: 1fr; } }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:14px; }
+  .list button { display:block; width:100%; text-align:left; margin-bottom:6px; }
+  button, select, input { font:inherit; color:inherit; background:var(--card); border:1px solid var(--line); border-radius:7px; padding:6px 10px; }
+  button { cursor:pointer; } button:hover { border-color:var(--accent); }
+  button.sel, button.primary { background:var(--accent); color:#fff; border-color:var(--accent); }
+  .row { display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin:8px 0; }
+  .row label { min-width:70px; color:var(--muted); }
+  input[type=number] { width:90px; }
+  input[type=range] { flex:1; min-width:140px; }
+  h2 { font-size:14px; margin:14px 0 4px; } h2:first-child { margin-top:0; }
+  .path { font:12px ui-monospace, monospace; color:var(--muted); word-break:break-all; }
+  #log { font:12px/1.4 ui-monospace, monospace; white-space:pre-wrap; max-height:320px; overflow:auto; margin:0; }
+  .err { color:var(--err); } .ok { color:var(--accent); }
+  #status { font-size:12px; color:var(--muted); }
+</style>
+</head>
+<body>
+<header>
+  <h1>Furniture Panel · Unreal Remote Control</h1>
+  <span id="status"></span>
+  <label><input type="checkbox" id="dry"> Dry run (log only)</label>
+  <button id="ping">Test connection</button>
+</header>
+<main>
+  <section class="card list" id="actors" aria-label="Actors"></section>
+  <section>
+    <div class="card" id="controls"></div>
+    <div class="card" style="margin-top:16px">
+      <div class="row" style="margin:0 0 8px"><strong>Request / response log</strong><button id="clear" style="margin-left:auto">Clear</button></div>
+      <pre id="log"></pre>
+    </div>
+  </section>
+</main>
+<script>
+/* ======================= CONFIG — edit this block ======================= */
+// Safety switch. Leave false: only 127.0.0.1 / localhost / [::1] are allowed.
+// Set true ONLY after the user agreed, set a Remote Control passphrase and AllowedOrigin,
+// and the target is on their own LAN/VPN (never the public internet).
+const ALLOW_NON_LOCALHOST_TARGET = false;
+
+const CONFIG = {
+  host: "127.0.0.1",
+  port: 30010,                  // Remote Control HTTP default
+  passphrase: "",               // only for non-localhost targets; do not commit a real one
+  generateTransaction: true,    // undoable in the editor
+  // Copy each objectPath from the editor (right-click actor > Copy Reference).
+  actors: [
+    { label: "Sofa",         objectPath: "/Game/Maps/House.House:PersistentLevel.Sofa_2",
+      location: { X: 0, Y: 0, Z: 0 }, yaw: 0, scale: 1 },
+    { label: "Dining table", objectPath: "/Game/Maps/House.House:PersistentLevel.DiningTable_1",
+      location: { X: 300, Y: 150, Z: 0 }, yaw: 90, scale: 1 },
+  ],
+  // Material swap. Default: call SetMaterial on the actor's StaticMeshComponent.
+  // With a BP_FurnitureManager, change target() to return the manager's path and
+  // params() to e.g. ({ Slot: actor.label, MaterialInstance: mat, ElementIndex: 0 }).
+  materialSwap: {
+    functionName: "SetMaterial",
+    target: (actor) => actor.objectPath + ".StaticMeshComponent0",
+    params: (actor, mat) => ({ ElementIndex: 0, Material: mat }),
+  },
+  materials: [
+    { label: "Fabric – sand",  path: "/Game/Archviz/Materials/MI_Fabric_Sand.MI_Fabric_Sand" },
+    { label: "Fabric – green", path: "/Game/Archviz/Materials/MI_Fabric_Green.MI_Fabric_Green" },
+    { label: "Oak",            path: "/Game/Archviz/Materials/MI_Wood_Oak.MI_Wood_Oak" },
+  ],
+};
+/* ======================================================================= */
+
+const LOCAL_HOSTS = new Set(["127.0.0.1", "localhost", "[::1]", "::1"]);
+const $ = (id) => document.getElementById(id);
+let current = 0;
+const state = CONFIG.actors.map(a => ({ loc: { ...a.location }, yaw: a.yaw, scale: a.scale }));
+
+function baseUrl() {
+  const h = String(CONFIG.host).trim();
+  if (!LOCAL_HOSTS.has(h) && !ALLOW_NON_LOCALHOST_TARGET) {
+    throw new Error(`Refused: host "${h}" is not localhost. Edit ALLOW_NON_LOCALHOST_TARGET only if you really mean it.`);
+  }
+  const host = h.includes(":") && !h.startsWith("[") ? `[${h}]` : h;
+  return `http://${host}:${Number(CONFIG.port)}`;
+}
+
+function log(msg, cls) {
+  const line = document.createElement("div");
+  if (cls) line.className = cls;
+  line.textContent = `[${new Date().toLocaleTimeString()}] ${msg}`;
+  $("log").prepend(line);
+}
+
+async function rc(method, route, body) {
+  let url;
+  try { url = baseUrl() + route; } catch (e) { log(e.message, "err"); setStatus(e.message, true); return null; }
+  const text = body ? JSON.stringify(body, null, 2) : "";
+  log(`→ ${method} ${url}${text ? "\n" + text : ""}`);
+  if ($("dry").checked && method !== "GET") { log("(dry run, not sent)"); return null; }
+  const headers = { "Content-Type": "application/json" };
+  if (CONFIG.passphrase) headers["Passphrase"] = CONFIG.passphrase;
+  try {
+    const res = await fetch(url, { method, headers, body: body ? JSON.stringify(body) : undefined });
+    const out = await res.text();
+    log(`← ${res.status} ${res.statusText}\n${out.slice(0, 2000)}`, res.ok ? "ok" : "err");
+    setStatus(res.ok ? "Connected" : `HTTP ${res.status}`, !res.ok);
+    try { return JSON.parse(out); } catch { return out; }
+  } catch (e) {
+    log(`✕ ${e.message} — is Unreal running with the Remote Control API plugin and WebControl.StartServer? (CORS/Origin can also block file:// pages.)`, "err");
+    setStatus("Not reachable", true);
+    return null;
+  }
+}
+
+function call(objectPath, functionName, parameters) {
+  return rc("PUT", "/remote/object/call", {
+    objectPath, functionName, parameters, generateTransaction: CONFIG.generateTransaction,
+  });
+}
+
+const act = () => CONFIG.actors[current];
+const st = () => state[current];
+const sendLocation = () => call(act().objectPath, "SetActorLocation",
+  { NewLocation: { ...st().loc }, bSweep: false, bTeleport: true });
+const sendRotation = () => call(act().objectPath, "SetActorRotation",
+  { NewRotation: { Pitch: 0, Yaw: st().yaw, Roll: 0 }, bTeleportPhysics: true });
+const sendScale = () => call(act().objectPath, "SetActorScale3D",
+  { NewScale3D: { X: st().scale, Y: st().scale, Z: st().scale } });
+function sendMaterial(path) {
+  const m = CONFIG.materialSwap;
+  return call(m.target(act()), m.functionName, m.params(act(), path));
+}
+
+function setStatus(t, bad) { $("status").textContent = t; $("status").className = bad ? "err" : "ok"; }
+
+function renderList() {
+  const box = $("actors"); box.innerHTML = "<h2>Actors</h2>";
+  CONFIG.actors.forEach((a, i) => {
+    const b = document.createElement("button");
+    b.textContent = a.label; if (i === current) b.className = "sel";
+    b.onclick = () => { current = i; renderList(); renderControls(); };
+    box.appendChild(b);
+  });
+}
+
+function numInput(axis) {
+  const i = document.createElement("input");
+  i.type = "number"; i.step = "10"; i.value = st().loc[axis]; i.title = axis + " (cm)";
+  i.onchange = () => { st().loc[axis] = Number(i.value) || 0; sendLocation(); };
+  return i;
+}
+
+function renderControls() {
+  const a = act(), s = st(), c = $("controls");
+  c.innerHTML = `<h2>${a.label}</h2><div class="path">${a.objectPath}</div>`;
+  // Move
+  c.insertAdjacentHTML("beforeend", "<h2>Move (cm)</h2>");
+  const r1 = document.createElement("div"); r1.className = "row";
+  ["X", "Y", "Z"].forEach(ax => { const l = document.createElement("label"); l.textContent = ax; l.style.minWidth = "auto"; r1.append(l, numInput(ax)); });
+  c.appendChild(r1);
+  const r2 = document.createElement("div"); r2.className = "row";
+  [["X", -50, "← X"], ["X", 50, "X →"], ["Y", -50, "← Y"], ["Y", 50, "Y →"]].forEach(([ax, d, t]) => {
+    const b = document.createElement("button"); b.textContent = t + " 50";
+    b.onclick = () => { s.loc[ax] += d; renderControls(); sendLocation(); };
+    r2.appendChild(b);
+  });
+  c.appendChild(r2);
+  // Rotate
+  c.insertAdjacentHTML("beforeend", `<h2>Rotate (yaw °)</h2><div class="row"><input type="range" id="yaw" min="-180" max="180" step="15" value="${s.yaw}"><span id="yawv">${s.yaw}°</span></div>`);
+  $("yaw").oninput = (e) => { $("yawv").textContent = e.target.value + "°"; };
+  $("yaw").onchange = (e) => { s.yaw = Number(e.target.value); sendRotation(); };
+  // Scale
+  c.insertAdjacentHTML("beforeend", `<h2>Scale (uniform)</h2><div class="row"><input type="range" id="scl" min="0.5" max="2" step="0.05" value="${s.scale}"><span id="sclv">${s.scale}×</span></div>`);
+  $("scl").oninput = (e) => { $("sclv").textContent = e.target.value + "×"; };
+  $("scl").onchange = (e) => { s.scale = Number(e.target.value); sendScale(); };
+  // Material
+  c.insertAdjacentHTML("beforeend", "<h2>Material</h2>");
+  const r3 = document.createElement("div"); r3.className = "row";
+  CONFIG.materials.forEach(m => {
+    const b = document.createElement("button"); b.textContent = m.label; b.title = m.path;
+    b.onclick = () => sendMaterial(m.path);
+    r3.appendChild(b);
+  });
+  c.appendChild(r3);
+  // Utilities
+  const r4 = document.createElement("div"); r4.className = "row";
+  const send = document.createElement("button"); send.className = "primary"; send.textContent = "Send full transform";
+  send.onclick = async () => { await sendLocation(); await sendRotation(); await sendScale(); };
+  const desc = document.createElement("button"); desc.textContent = "Describe actor";
+  desc.onclick = () => rc("PUT", "/remote/object/describe", { objectPath: a.objectPath });
+  r4.append(send, desc); c.appendChild(r4);
+}
+
+$("ping").onclick = () => rc("GET", "/remote/info");
+$("clear").onclick = () => { $("log").innerHTML = ""; };
+renderList(); renderControls();
+try { baseUrl(); setStatus("Target " + baseUrl() + " (not tested yet)"); } catch (e) { setStatus(e.message, true); }
+</script>
+</body>
+</html>

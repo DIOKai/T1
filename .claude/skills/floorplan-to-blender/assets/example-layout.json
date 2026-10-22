@@ -1,0 +1,47 @@
+{
+  "schema": "floorplan-to-blender/1",
+  "units": "m",
+  "source": {
+    "type": "plan_image",
+    "files": ["example-plan.png"],
+    "scale": {
+      "method": "dimension_string",
+      "px_per_m": 50.0,
+      "samples": [
+        {"label": "26'-3\"", "px": 400.0, "m": 8.0},
+        {"label": "19'-8\"", "px": 300.0, "m": 6.0}
+      ],
+      "error_pct": 0.5
+    },
+    "listing_area": {"value": 520, "unit": "ft2", "standard": "unknown"}
+  },
+  "levels": [
+    {"id": "L1", "elevation": 0.0, "height": 2.7, "slab_thickness": 0.2}
+  ],
+  "walls": [
+    {"id": "W_ext", "level": "L1", "kind": "exterior",
+     "path": [[0, 0], [8, 0], [8, 6], [0, 6]], "closed": true,
+     "thickness": 0.2, "thickness_source": "measured", "justify": "center"},
+    {"id": "W_int1", "level": "L1", "kind": "interior",
+     "path": [[4.5, 0.1], [4.5, 5.9]],
+     "thickness": 0.1, "thickness_source": "default", "justify": "center"},
+    {"id": "W_int2", "level": "L1", "kind": "interior",
+     "path": [[4.55, 3.0], [7.9, 3.0]],
+     "thickness": 0.1, "thickness_source": "default", "justify": "center"}
+  ],
+  "openings": [
+    {"id": "D_front", "wall": "W_ext", "segment": 0, "type": "door", "offset": 1.5, "width": 0.91, "height": 2.03, "sill": 0.0, "swing": "in_left"},
+    {"id": "Win_living", "wall": "W_ext", "segment": 3, "type": "window", "offset": 3.0, "offset_ref": "center", "width": 1.6, "height": 1.3, "sill": 0.9},
+    {"id": "Win_bed", "wall": "W_ext", "segment": 1, "type": "window", "offset": 4.5, "offset_ref": "center", "width": 1.2, "height": 1.2, "sill": 0.9},
+    {"id": "Win_bath", "wall": "W_ext", "segment": 0, "type": "window", "offset": 6.2, "offset_ref": "center", "width": 0.6, "height": 0.6, "sill": 1.5},
+    {"id": "D_bed", "wall": "W_int1", "segment": 0, "type": "door", "offset": 3.6, "width": 0.81, "height": 2.03, "sill": 0.0, "swing": "in_right"},
+    {"id": "D_bath", "wall": "W_int1", "segment": 0, "type": "door", "offset": 1.2, "width": 0.76, "height": 2.03, "sill": 0.0, "swing": "in_left"}
+  ],
+  "rooms": [
+    {"id": "R_living", "name": "Living / Kitchen", "level": "L1", "polygon": [[0.1, 0.1], [4.45, 0.1], [4.45, 5.9], [0.1, 5.9]], "floor_finish": "wood", "label_area": {"value": 270, "unit": "ft2"}},
+    {"id": "R_bath", "name": "Bath", "level": "L1", "polygon": [[4.55, 0.1], [7.9, 0.1], [7.9, 2.95], [4.55, 2.95]], "floor_finish": "tile"},
+    {"id": "R_bed", "name": "Bedroom", "level": "L1", "polygon": [[4.55, 3.05], [7.9, 3.05], [7.9, 5.9], [4.55, 5.9]], "floor_finish": "carpet"}
+  ],
+  "stairs": [],
+  "notes": ["Interior wall thickness not readable on the plan; 0.10 m default used."]
+}
