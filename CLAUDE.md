@@ -121,6 +121,8 @@ GTA V / FiveM 资料库插件。回答游戏资料相关的问题（原版车规
 
 ## 土木工程
 
+- Autodesk Civil 3D 的马来西亚项目优先使用 `civil3d-malaysia`：测量/TIN、土方、路线/纵断/走廊、排水和出图；以项目采用的 JKR、JPS/MSMA、测量基准为依据，不默认套用 EU/美国设计值。通用 civil 技能只补充检查，Civil 3D 操作由本技能主导；Claude Code 与 Codex 共用 `.claude/skills/`（`.agents/skills` 已链接到这里）。启用和实际操作前遵循本文件已有的授权规则。
+
 - `quantity-surveyor`：算工程量、BOQ、单价分析，相关时先问要不要用。它没有马来西亚 SMM2 的资料，单价和计量规则要用户提供，不要自己编。
 - `freecad` MCP（FreeCAD 建模、FEM 分析）和 `ifc` MCP（BIM/IFC 模型）会在用户电脑上执行操作，用之前先问。
 - 马来西亚标准：MS EN 1992 就是 Eurocode 2 加马来西亚国家附件。用 Eurocode 的方法算，国家附件的数值请用户提供，不要猜。

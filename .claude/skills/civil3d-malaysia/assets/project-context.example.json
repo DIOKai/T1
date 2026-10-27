@@ -1,0 +1,22 @@
+{
+  "project": {"name": null, "country": "MY", "state": null, "authority": null},
+  "scope": ["survey", "earthworks", "road", "drainage"],
+  "drawing": {"release": null, "build": null, "template": null, "linear_unit": "m"},
+  "survey": {"horizontal_reference": null, "vertical_reference": null, "control_evidence": null},
+  "criteria": [
+    {
+      "id": "road-criterion-01",
+      "scope": "road",
+      "value": null,
+      "unit": null,
+      "applicability": null,
+      "source": null,
+      "edition": null,
+      "clause": null,
+      "evidence_status": "unreviewed",
+      "basis_jurisdiction": "MY",
+      "external_reference": null,
+      "malaysian_adoption_evidence": null
+    }
+  ]
+}

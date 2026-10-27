@@ -1,0 +1,4 @@
+interface:
+  display_name: "Civil 3D Malaysia"
+  short_description: "Civil 3D workflows with Malaysian project criteria"
+  default_prompt: "Use $civil3d-malaysia to help with my Malaysian Civil 3D project, checking local design criteria and survey datums before applying settings."
