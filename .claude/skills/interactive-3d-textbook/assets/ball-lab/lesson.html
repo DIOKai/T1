@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>球的实验课本 · Ball Lab</title>
+<link rel="stylesheet" href="styles.css">
+<!-- Pinned versions: postprocessing 6.36.x supports three >= 0.157 < 0.171. To work offline, copy the two
+     builds next to this file (npm i three@0.170.0 postprocessing@6.36.4) and point the map at them. -->
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+  "postprocessing": "https://cdn.jsdelivr.net/npm/postprocessing@6.36.4/build/index.js"
+} }
+</script>
+</head>
+<body>
+<header class="top">
+  <h1 data-t="bookTitle"></h1>
+  <div class="top-tools">
+    <div class="seg" role="group" aria-label="2D / 3D">
+      <button type="button" id="view2d" aria-pressed="true">2D</button>
+      <button type="button" id="view3d" aria-pressed="false">3D</button>
+    </div>
+    <button type="button" id="angle" hidden data-t="angle"></button>
+    <div class="seg" role="group" aria-label="Language">
+      <button type="button" class="lang" data-lang="zh" aria-pressed="true">中文</button>
+      <button type="button" class="lang" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+</header>
+<nav class="tabs" id="tabs" role="tablist" aria-label="Experiments"></nav>
+<p id="viewNote" class="note" role="status"></p>
+
+<main class="page">
+  <section class="text-col">
+    <h2 id="title"></h2>
+    <p class="hook" id="hook"></p>
+
+    <form class="predict" onsubmit="return false">
+      <fieldset>
+        <legend id="question"></legend>
+        <div id="options"></div>
+        <div class="sure" id="sureRow"></div>
+      </fieldset>
+      <button type="button" class="primary" id="lock" disabled></button>
+    </form>
+
+    <div class="flap-wrap">
+      <button type="button" class="flap-btn" id="flapBtn" aria-expanded="false" aria-controls="flap" disabled></button>
+      <div class="flap" id="flap" hidden>
+        <div id="explain"></div>
+        <p class="ignores"><strong data-t="ignoresTitle"></strong> <span id="ignores"></span></p>
+      </div>
+    </div>
+
+    <div class="stamp" id="stamp" hidden>
+      <span class="stamp-text" id="stampText"></span>
+      <span class="stamp-mark" id="stampMark" hidden></span>
+      <button type="button" class="stamp-close" id="stampClose" data-t="close"></button>
+    </div>
+  </section>
+
+  <section class="lab-col">
+    <div class="diagram" id="canvasHost" role="img" aria-label=""></div>
+    <p class="speed-note" id="speedNote"></p>
+    <div class="controls" id="controls"></div>
+    <div class="buttons">
+      <button type="button" class="primary" id="run" disabled></button>
+      <button type="button" id="skip" disabled data-t="skip"></button>
+      <button type="button" id="resetBtn" data-t="reset"></button>
+    </div>
+    <div class="readouts" id="readouts"></div>
+    <details class="rep">
+      <summary data-t="showBars"></summary>
+      <div class="bars" id="bars"></div>
+    </details>
+    <details class="rep">
+      <summary data-t="showGraph"></summary>
+      <canvas class="graph" id="graph" aria-hidden="true"></canvas>
+      <p class="graph-label" id="graphLabel"></p>
+    </details>
+    <section class="more-box" id="moreBox" hidden>
+      <h3 data-t="moreTitle"></h3>
+      <p id="moreIntro"></p>
+      <div class="controls" id="more"></div>
+    </section>
+  </section>
+</main>
+
+<section class="quiz-box page-wide" id="quizBox" hidden>
+  <h3 data-t="quizTitle"></h3>
+  <div id="quiz"></div>
+</section>
+
+<details class="teacher page-wide">
+  <summary data-t="teacherTitle"></summary>
+  <div id="teacher"></div>
+</details>
+
+<p class="sr-only" id="desc" aria-live="polite"></p>
+<p class="sr-only" id="live" aria-live="polite"></p>
+
+<script type="module" src="main.js"></script>
+</body>
+</html>
