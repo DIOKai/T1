@@ -160,7 +160,7 @@ export async function createView3D(host) {
       };
       f.balls.forEach((bd, i) => {
         const m = ball(i); m.visible = true;
-        m.position.set(X(bd.x), Y(bd.y), (bd.z || 0) * scale); m.scale.setScalar(Math.max(bd.r * scale, 0.05));
+        m.position.set(X(bd.x), Y(bd.y), (bd.z || 0) * scale); m.scale.setScalar(Math.max(bd.r * scale, 0.012));   // tiny floor only, so small markers stay small
         m.material.userData.store = bd.store || 'kinetic'; emissive(m.material, f.glow[bd.store || 'kinetic'] || 0);
       });
       pools.ball.slice(f.balls.length).forEach((m) => { m.visible = false; });

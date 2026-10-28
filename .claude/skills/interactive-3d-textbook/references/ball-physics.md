@@ -19,9 +19,9 @@ Contents: 0 Template · 1 Models and formulas · 2 Numerics · 3 Misconceptions 
 | `view3d.js` | Book-on-desk 3D view following SKILL.md: WebGLRenderer, `NoToneMapping`, half-float composer, depth+normal Sobel ink, bloom threshold 1.0 composited as a tint, glow colour scaled by the energy share, render on demand, `visibilitychange`. Unlit (`MeshBasicMaterial`) surfaces so blank paper renders exactly its colour; glow = store colour × (1.5 + 4·share), so it exceeds 1.0 only while the store holds energy. |
 | `lesson.html`, `styles.css`, `main.js` | Page shell, 2D/3D toggle (`?view=3d`), language toggle, import map pinned to three 0.170.0 + postprocessing 6.36.4. |
 
-Both views draw the same primitives returned by `lesson.frame(sim, params)` (balls, markers, rods, trails, arrows, floor, in metres), so 2D and 3D can never disagree. To add an experiment, add a lesson object; you normally don't touch the views.
+Both views draw the same primitives returned by `lesson.frame(sim, params)` (balls, markers, rods, trails, arrows, floor, in metres), so 2D and 3D can never disagree. A ball or marker glows by its `store` (`kinetic`, `potential`, `lost`); give decorative balls (strobe ghosts, labels) `store: 'none'` and they never glow. Readout values may be plain strings or `{zh, en}` words. To add an experiment, add a lesson object; you normally don't touch the views.
 
-Checks: `node tests/physics.test.mjs` (48 exact-formula checks), `python scripts/check_lesson.py assets/ball-lab`, `node tests/ball-lab.e2e.cjs <dir with three + postprocessing in node_modules> <shots>` (69 browser checks, 2D and 3D, CDN routed to local packages).
+Checks: `node tests/physics.test.mjs` (exact-formula checks), `python scripts/check_lesson.py assets/ball-lab`, `node tests/ball-lab.e2e.cjs <dir with three + postprocessing in node_modules> <shots>` (browser checks in 2D and 3D, CDN routed to local packages, phone layout after the whole loop).
 
 ---
 

@@ -71,7 +71,7 @@ export function createLesson({ lessons, ui, makeView, lang: startLang = 'zh' }) 
     st.view.draw(frameData, L);
     // readouts
     ui.readouts.replaceChildren(...L.readouts(sim, st.params).map(([label, value]) =>
-      el('div', { class: 'readout' }, el('span', {}, T(label)), el('output', {}, value))));
+      el('div', { class: 'readout' }, el('span', {}, T(label)), el('output', {}, T(value)))));   // values may be {zh, en} words too
     // energy bars (stores have a colour AND a pattern AND a text label)
     const stores = L.stores || ['kinetic', 'potential', 'lost'];
     ui.bars.replaceChildren(...stores.map((k) => {
@@ -267,7 +267,8 @@ export function createLesson({ lessons, ui, makeView, lang: startLang = 'zh' }) 
       load(0);
       if (new URLSearchParams(location.search).has('debug')) {
         // test hook, only with ?debug: step the simulation without relying on requestAnimationFrame
-        window.__lesson = { st, advance, finish, load, choose: (id) => { st.choice = id; }, lock: () => ui.lock.click() };
+        window.__lesson = { st, advance, finish, load, lock: () => ui.lock.click(),
+          choose: (id) => { const r = ui.options.querySelector(`input[value="${id}"]`); r.checked = true; r.dispatchEvent(new Event('change', { bubbles: true })); } };
       }
     },
     switchView: async (makeNew) => {

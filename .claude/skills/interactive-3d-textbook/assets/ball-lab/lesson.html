@@ -5,8 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>球的实验课本 · Ball Lab</title>
 <link rel="stylesheet" href="styles.css">
-<!-- Pinned versions: postprocessing 6.36.x supports three >= 0.157 < 0.171. To work offline, copy the two
-     builds next to this file (npm i three@0.170.0 postprocessing@6.36.4) and point the map at them. -->
+<!-- Pinned versions: postprocessing 6.36.x supports three >= 0.157 < 0.171. To work offline: npm i three@0.170.0
+     postprocessing@6.36.4, copy node_modules/three/build/three.module.js and node_modules/postprocessing/build/index.js
+     into vendor/ with each package's LICENSE (MIT / Zlib), and point the map at them. three r171+ also needs
+     three.core.js next to three.module.js (it was split), so keep the pin unless you upgrade both. -->
 <script type="importmap">
 { "imports": {
   "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",

@@ -5,7 +5,7 @@ the mistakes that unguided builds of this kind of page keep making.
 Usage:
     python check_lesson.py <lesson-folder-or-file> [more paths] [--json]
 
-Reads .html / .js / .mjs / .css files (skips node_modules, dist, build and
+Reads .html / .js / .mjs / .css files (skips node_modules, vendor, dist, build and
 *.min.js). Standard library only, read-only. Exit code 1 when errors are found.
 
 These are static heuristics: a hit means "go and look", not proof. Each finding
@@ -31,7 +31,7 @@ import re
 import sys
 
 EXTS = ('.html', '.htm', '.js', '.mjs', '.css')
-SKIP_DIRS = {'node_modules', 'dist', 'build', '.git', '.vite'}
+SKIP_DIRS = {'node_modules', 'dist', 'build', '.git', '.vite', 'vendor'}   # vendor/: third-party builds, not lesson code
 
 
 def walk(paths):

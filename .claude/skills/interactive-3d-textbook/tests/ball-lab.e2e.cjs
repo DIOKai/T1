@@ -145,6 +145,7 @@ async function loop(page, lesson, choice, label, reload = true) {
     await page.click(`#tabs button:nth-child(${i})`);
     await page.waitForTimeout(900);
     await page.evaluate(() => { window.__lesson.choose('c'); window.__lesson.lock(); for (let k = 0; k < 30; k++) window.__lesson.advance(0.05); });
+    ok(`3D lesson ${i}: the debug hook really locks the prediction`, await page.evaluate(() => window.__lesson.st.locked));
     await page.waitForTimeout(200);
     await page.screenshot({ path: `${shots}/3d-lesson${i}.png`, clip: box });
   }
@@ -160,6 +161,15 @@ async function loop(page, lesson, choice, label, reload = true) {
   const small = await phone.evaluate(() => [...document.querySelectorAll('button:not([disabled])')].filter((b) => b.offsetParent && (b.offsetHeight < 44 || b.offsetWidth < 44)).map((b) => b.textContent.trim()));
   ok('buttons at least 44 px on a phone', small.length === 0, JSON.stringify(small));
   ok('reduced motion: no rise animation class', !(await phone.$eval('#canvasHost svg', (n) => n.classList.contains('rise'))));
+  // the whole loop on a phone: sliders usable, no sideways scroll even while the stamp animates in
+  const sliderW = await phone.$eval('#ctl-h0', (n) => n.getBoundingClientRect().width);
+  ok('phone: sliders are wide enough to use (≥ 200 px)', sliderW >= 200, sliderW);
+  await phone.check('input[name=predict][value=a]'); await phone.click('#lock'); await phone.click('#skip');
+  await phone.waitForFunction(() => !document.querySelector('#flapBtn').disabled);
+  await phone.click('#flapBtn');
+  const widths = [];
+  for (let k = 0; k < 6; k++) { widths.push(await phone.evaluate(() => document.documentElement.scrollWidth)); await phone.waitForTimeout(100); }
+  ok('phone: no sideways scroll during and after the stamp', widths.every((w) => w <= 375), widths);
   await phone.screenshot({ path: `${shots}/phone.png`, fullPage: true });
   const nogl = await browser.newPage();
   await nogl.addInitScript(() => { const orig = HTMLCanvasElement.prototype.getContext; HTMLCanvasElement.prototype.getContext = function (t, ...a) { return /webgl/.test(t) ? null : orig.call(this, t, ...a); }; });

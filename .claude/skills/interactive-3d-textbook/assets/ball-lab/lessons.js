@@ -312,7 +312,7 @@ const shot = {
   },
   readouts(sim, p) {
     const dy = RIM_H - (p.h0 ?? 2.0);
-    return [[t2('结果', 'Result'), shotWord(sim.shot.status)[document.documentElement.lang.startsWith('zh') ? 'zh' : 'en']],
+    return [[t2('结果', 'Result'), shotWord(sim.shot.status)],
       [t2('这个角度要的速度', 'Speed needed at this angle'), Number.isFinite(speedToHit(RIM_X, dy, p.angle)) ? fmt(speedToHit(RIM_X, dy, p.angle), 'm/s') : '—'],
       [t2('最省力的角度', 'Easiest angle'), fmt(easiestAngle(RIM_X, dy), '°', 1)],
       [t2('过框高度时的位置', 'Where it crossed rim height'), sim.shot.crossX != null ? fmt(sim.shot.crossX - RIM_X, 'm') : '—']];

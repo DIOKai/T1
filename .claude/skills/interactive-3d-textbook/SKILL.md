@@ -94,7 +94,7 @@ document.addEventListener('visibilitychange', () => {
 - Shadows: `renderer.shadowMap.autoUpdate = false`; set `shadowMap.needsUpdate = true` only on frames where something that casts moves. The book never moves — bake or render its contact shadow once.
 - Pixel ratio ≤ 2, and drop it (to ~1.25) on touch devices or when frame time stays above ~25 ms; raise it back after a few good seconds.
 - One `EffectPass` holding all effects (they merge into one shader). Skip MSAA on phones; prefer the ink effect's own anti-aliasing.
-- Measure: `renderer.info.render.calls` (rule of thumb ≤ ~100 on phones — a heuristic, verify on a device), and say in the report what you measured and what you didn't.
+- Measure: `renderer.info.render.calls` (rule of thumb ≤ ~100 on phones — a heuristic, verify on a device), and say in the report what you measured and what you didn't. With an `EffectComposer` the counter resets on every internal render and reads 1: set `renderer.info.autoReset = false`, call `renderer.info.reset()` before `composer.render()`, and read it after.
 
 ## Accessibility (non-negotiable for a lesson)
 
