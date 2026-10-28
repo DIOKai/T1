@@ -1,0 +1,107 @@
+{
+  "shop": {
+    "name": { "en": "Demo Café", "zh": "示范咖啡", "ms": "Kafe Demo" },
+    "tagline": { "en": "Order from your table.", "zh": "在座位上直接点单。", "ms": "Pesan terus dari meja anda." },
+    "currency": "RM",
+    "timezone": "Asia/Kuala_Lumpur",
+    "languages": ["en", "zh", "ms"],
+    "halal_cert": null,
+    "sst_rate": 0,
+    "sst_reg_no": null,
+    "service_charge_rate": 0,
+    "sst_on_service_charge": true,
+    "service_charge_takeaway": false,
+    "round_cash_to_5sen": true,
+    "prep_minutes": 10,
+    "slot_minutes": 15,
+    "max_tables": 20,
+    "dine_in": true,
+    "takeaway": true,
+    "takeaway_preorder": false,
+    "payment": { "counter": true, "duitnow_qr": true, "online": false },
+    "closed_dates": [],
+    "hours": {
+      "mon": [["10:00", "22:00"]],
+      "tue": [["10:00", "22:00"]],
+      "wed": [["10:00", "22:00"]],
+      "thu": [["10:00", "22:00"]],
+      "fri": [["10:00", "23:00"]],
+      "sat": [["10:00", "23:00"]],
+      "sun": [["10:00", "22:00"]]
+    }
+  },
+  "option_groups": [
+    {
+      "id": "size", "type": "single", "required": true, "default": "regular",
+      "label": { "en": "Size", "zh": "杯型", "ms": "Saiz" },
+      "options": [
+        { "id": "regular", "price": 0, "label": { "en": "Regular", "zh": "中杯", "ms": "Biasa" } },
+        { "id": "large", "price": 2, "label": { "en": "Large", "zh": "大杯", "ms": "Besar" } }
+      ]
+    },
+    {
+      "id": "sweetness", "type": "single", "required": true, "default": "s50",
+      "label": { "en": "Sweetness", "zh": "甜度", "ms": "Kemanisan" },
+      "options": [
+        { "id": "s0", "price": 0, "label": { "en": "0%", "zh": "无糖", "ms": "0%" } },
+        { "id": "s30", "price": 0, "label": { "en": "30%", "zh": "微糖", "ms": "30%" } },
+        { "id": "s50", "price": 0, "label": { "en": "50%", "zh": "半糖", "ms": "50%" } },
+        { "id": "s70", "price": 0, "label": { "en": "70%", "zh": "少糖", "ms": "70%" } },
+        { "id": "s100", "price": 0, "label": { "en": "100%", "zh": "全糖", "ms": "100%" } }
+      ]
+    },
+    {
+      "id": "milk", "type": "single", "required": true, "default": "fresh",
+      "label": { "en": "Milk", "zh": "奶类", "ms": "Susu" },
+      "options": [
+        { "id": "fresh", "price": 0, "label": { "en": "Fresh milk", "zh": "鲜奶", "ms": "Susu segar" } },
+        { "id": "oat", "price": 1.5, "label": { "en": "Oat milk", "zh": "燕麦奶", "ms": "Susu oat" } }
+      ]
+    },
+    {
+      "id": "toppings", "type": "multi", "required": false, "max_total": 4,
+      "label": { "en": "Toppings", "zh": "加料", "ms": "Tambahan" },
+      "options": [
+        { "id": "pearl", "price": 1.5, "max": 3, "label": { "en": "Brown sugar pearls", "zh": "黑糖珍珠", "ms": "Mutiara gula perang" } },
+        { "id": "jelly", "price": 1.2, "max": 3, "label": { "en": "Coconut jelly", "zh": "椰果", "ms": "Jeli kelapa" } },
+        { "id": "foam", "price": 2.5, "max": 1, "allergens": ["milk"], "label": { "en": "Cheese foam", "zh": "芝士奶盖", "ms": "Buih keju" } }
+      ]
+    }
+  ],
+  "categories": [
+    { "id": "coffee", "label": { "en": "Coffee", "zh": "咖啡", "ms": "Kopi" } },
+    { "id": "tea", "label": { "en": "Tea", "zh": "茶饮", "ms": "Teh" } }
+  ],
+  "items": [
+    {
+      "id": "latte", "category": "coffee", "price": 9.9, "color": "#b5835a", "featured": true,
+      "name": { "en": "Caffè Latte", "zh": "拿铁", "ms": "Kafe Latte" },
+      "desc": { "en": "Double espresso, silky milk.", "zh": "双份浓缩，丝滑牛奶。", "ms": "Espreso berganda, susu lembut." },
+      "groups": ["size", "sweetness", "milk"], "allergens": ["milk"], "dietary": ["vegetarian"]
+    },
+    {
+      "id": "mocha", "category": "coffee", "price": 12.5, "color": "#5b3a2e",
+      "name": { "en": "Dark Mocha", "zh": "黑巧摩卡", "ms": "Moka Gelap" },
+      "desc": { "en": "70% chocolate, espresso, cream.", "zh": "70% 巧克力、浓缩咖啡、奶油。", "ms": "Coklat 70%, espreso, krim." },
+      "groups": ["size", "sweetness", "milk"], "allergens": ["milk", "soy"], "dietary": ["vegetarian"]
+    },
+    {
+      "id": "matcha", "category": "tea", "price": 12.9, "color": "#7fa35b", "featured": true,
+      "name": { "en": "Uji Matcha Latte", "zh": "宇治抹茶拿铁", "ms": "Latte Matcha Uji" },
+      "desc": { "en": "Stone-ground matcha, lightly sweet.", "zh": "石磨抹茶，微甜。", "ms": "Matcha kisar batu, sedikit manis." },
+      "groups": ["size", "sweetness", "milk", "toppings"], "allergens": ["milk"], "dietary": ["vegetarian"]
+    },
+    {
+      "id": "brownsugar", "category": "tea", "price": 11.5, "color": "#8a5a3b", "featured": true,
+      "name": { "en": "Brown Sugar Milk Tea", "zh": "黑糖奶茶", "ms": "Teh Susu Gula Perang" },
+      "desc": { "en": "Assam tea, caramelised syrup.", "zh": "阿萨姆红茶，焦糖黑糖浆。", "ms": "Teh Assam, sirap karamel." },
+      "groups": ["size", "sweetness", "milk", "toppings"], "allergens": ["milk"], "dietary": ["vegetarian"]
+    },
+    {
+      "id": "lemon", "category": "tea", "price": 8.9, "color": "#e3c341", "sold_out": false,
+      "name": { "en": "Sparkling Lemon Tea", "zh": "气泡柠檬茶", "ms": "Teh Lemon Berkarbonat" },
+      "desc": { "en": "Jasmine green tea, fresh lemon.", "zh": "茉莉绿茶，新鲜柠檬。", "ms": "Teh hijau melati, lemon segar." },
+      "groups": ["size", "sweetness", "toppings"], "allergens": [], "dietary": ["vegan"]
+    }
+  ]
+}

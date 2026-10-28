@@ -224,3 +224,9 @@ No third-party code or Pixabay content is included. API parameters and licence p
 - License: Apache 2.0 (LICENSE copied into each skill folder)
 - Skills: design-brief, design-tokens, design-review, and frontend-design renamed to `designer-frontend-design`
 - Local modification: `frontend-design` was renamed to `designer-frontend-design` (it clashed with Anthropic's frontend-design skill), and the references to it in design-brief, design-tokens and design-review were updated.
+
+## canva-to-web (written for this repository)
+
+`canva-to-web/assets/order-site/vendor/qrcode.js` is QR Code Generator for JavaScript by Kazuhiko Arase, MIT License (full text in `vendor/qrcode.LICENSE`), copied unmodified from https://github.com/kazuhikoarase/qrcode-generator (`js/dist/qrcode.js`, commit 83b7e8fe3fddd3b0368dbafd6ce56995bd25e3c8). "QR Code" is a registered trademark of DENSO WAVE INCORPORATED.
+
+Everything else (pages, SQL schema, Edge Function, menu tool, tests) was written for this repository. API behaviour comes from Supabase, PostgREST and Telegram Bot API documentation; Malaysian rules from the sources listed in `references/malaysia-rules.md`.

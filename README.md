@@ -52,6 +52,7 @@
 - 12 个通用技能，来自 [ComposioHQ/awesome-claude-skills](https://github.com/ComposioHQ/awesome-claude-skills)（Apache-2.0）：changelog-generator、competitive-ads-extractor、content-research-writer、domain-name-brainstormer、file-organizer、image-enhancer、invoice-organizer、lead-research-assistant、meeting-insights-analyzer、raffle-winner-picker、tailored-resume-generator、video-downloader
 
 - 2026-10-16 到 10-27 其他对话加的 141 个技能（FiveM 素材制作和验收、音频、Blender 角色细节、土木和 Bonsai BIM、手机 App 开发、40 个 Three.js 网页 3D、15 个版式/SVG/动效设计技能（其中 10 个来源没写授权，只给自己用）、15 个建筑 3D/看房/Autodesk/网站/AI 短剧技能），每批的来源、授权和检查记录见 [docs/skill-batches/](docs/skill-batches/) 和根目录的 `APP_SKILLS_*` 文件；什么情况用哪个写在 CLAUDE.md
+- 2026-10-28：`canva-to-web` 升级成正式点餐系统（自己写的）：顾客点单页 + 店员看单页 + Supabase 免费数据库（价格一律由数据库计算、权限规则防偷看订单和改价钱）+ Telegram 新单通知，按马来西亚的 SST、清真、5 仙进位、PDPA 规则做；附测试（数据库 68 项、价格对照 175 单、营业时间 501 个时间点、浏览器 40 + 16 项、Telegram 通知 13 项）。二维码生成用 [kazuhikoarase/qrcode-generator](https://github.com/kazuhikoarase/qrcode-generator)（MIT）
 
 来源与许可证见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
 

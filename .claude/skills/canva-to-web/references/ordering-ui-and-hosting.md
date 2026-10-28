@@ -1,32 +1,28 @@
-# Ordering UI rules and free hosting
+# Ordering UI rules (how the template behaves and why)
 
-"Rule of thumb" = common practice, not a standard.
+"Rule of thumb" = common practice, not a standard. Restyle freely; keep these behaviours.
 
-## Interaction rules
-- **Targets:** WCAG 2.2 SC 2.5.8 minimum is **24×24 CSS px** (with spacing/inline exceptions). Apple's HIG suggests 44×44 pt (HIG page could not be fetched, 未验证 from memory). The template uses ≥ 44 px for everything tappable.
-- **Swipe is never the only way:** horizontal scroll-snap gives touch swiping for free; add prev/next buttons and arrow keys on the carousel region. Cards get `aria-roledescription="slide"` and a "2 of 5" label (rule of thumb).
-- **Sweetness:** a radio group / segmented control (0/30/50/70/100 %) — one choice, arrow-key navigable for free with native radios.
-- **Toppings:** −/+ steppers (≥ 44 px) with the count in `aria-live="polite"`; respect a max per topping.
-- **Cart:** bottom sheet; the badge bumps when the count changes (reduced motion: colour change instead).
-- **Order complete:** CSS animation < 1.5 s plus a text confirmation in a `role="status"` region, saying clearly it's a demo and nothing was charged.
-- **Reduced motion:** `@media (prefers-reduced-motion: reduce)`: override with selectors of equal specificity, written after the defaults; **replace** scale/slide with fades rather than just slowing them. Supported by all browsers since 2020.
-- **Sheets:** native `<dialog>` with `showModal()` gives focus trapping, Esc to close and focus return in current browsers.
-- **Data from the design is untrusted text:** insert with `textContent`, never `innerHTML`.
-- **Copy:** short verbs on buttons ("Add · RM 12.40", "Place order"); empty cart says what to do next. `design:ux-copy` can help (ask first).
+- **Targets ≥ 44 px.** WCAG 2.2 SC 2.5.8 minimum is 24×24 CSS px; Apple suggests 44 pt. `flow.js` checks every visible button is ≥ 44 px at 320 px wide.
+- **No horizontal page scroll at 320 px.** Only the "Popular" row and category tabs scroll sideways, and both are also reachable by Tab.
+- **Swiping is never the only way:** the Popular row is native scroll-snap; every item is also in the list below.
+- **Single-choice options** (size, sweetness, milk) are native radio buttons styled as segments: arrow keys work, and the default is pre-selected so a customer can add a drink in one tap.
+- **Multi-choice toppings** use −/+ steppers with the count in `aria-live`; per-topping `max` and group `max_total` disable the + button instead of showing an error afterwards.
+- **Price on the button** ("Add to order · RM 26.80", "Place order · RM 52.70") updates live; the cart lists subtotal, service charge, SST and total separately so nothing is a surprise.
+- **Sheets** are native `<dialog>` with `showModal()` (focus trap, Esc, focus return). Tapping the backdrop closes.
+- **Errors say what to do:** sold out while in the cart → menu reloads, the line turns red, "Place order" stays disabled until it's removed. All server error codes map to `err_*` texts in three languages.
+- **Confirmation page** has a big order number, the table or pickup time, a 4-step status that refreshes itself, and payment instructions (exact amount; 5-sen cash total only when different).
+- **Text from the menu or customers is untrusted:** inserted with `textContent` only. The one `innerHTML` is the QR library's SVG of the shop's own URL.
+- **Reduced motion:** all animations collapse to instant under `prefers-reduced-motion: reduce`.
+- **Dark mode** via `prefers-color-scheme`; colours are tokens in `:root` of `styles.css`.
+- **No external scripts or fonts** are loaded (the QR library is vendored), so the CSP in `_headers` can be strict and the page works on slow mobile data. If adding a Google Font, also allow it in the CSP.
 
-## Free static hosting
-| Host | Free limits | Notes |
-|---|---|---|
-| GitHub Pages | site ≤ 1 GB, soft 100 GB/month bandwidth | **forbidden:** "facilitating commercial transactions", passwords, credit cards → demo only |
-| Cloudflare Pages | 500 builds/month, 20,000 files/site, **25 MiB per file**, 100 custom domains/project | bandwidth not stated on the limits page |
-| Netlify | Free plan capped at 300 credits; bandwidth 20 credits/GB (~15 GB if nothing else is used) | what happens past the cap isn't stated |
-| Claude Artifact | one private HTML page, shareable link | inline menu data into the page (no separate fetch) |
+## Polishing (ask first, per T1 rules)
+`impeccable` (critique/polish), `animate` (motion), `mobile-ios-design` (iOS-like sheets), `design:ux-copy` (button and error wording), `break-ui` (extreme data: 40-character drink names, 30 lines, Malay text length).
 
-Publishing is a public action: ask the user before deploying anywhere, and go through the licence checklist in SKILL.md first.
+## Hosting
+See `backend-setup.md` §5. GitHub Pages forbids commerce, so it's only for the demo. A private Claude Artifact link is fine for showing the owner a demo (inline the menu JSON; artifacts can't fetch sibling files).
 
 ## Sources
 - WCAG 2.5.8: https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html
 - prefers-reduced-motion: https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion
-- GitHub Pages limits: https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-limits
-- Cloudflare Pages limits: https://developers.cloudflare.com/pages/platform/limits/
-- Netlify pricing: https://www.netlify.com/pricing/
+- dialog: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog
