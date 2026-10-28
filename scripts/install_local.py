@@ -6,7 +6,8 @@ Cloud sessions and sessions opened inside the T1 folder already pick up
 another folder (your FiveM server, a Blender project...) only read your
 user-level ~/.claude. This script links T1 into it:
 
-  1. every skill in .claude/skills -> ~/.claude/skills/<name>
+  1. every skill in .claude/skills -> ~/.claude/skills/<name>, and the same links in
+     ~/.codex/skills/<name> for Codex (skip with --no-codex)
      (a symlink, or a directory junction on Windows, so `git pull` in T1
      updates them; folders you made yourself with the same name are skipped)
   2. a marked block in ~/.claude/CLAUDE.md that imports T1's CLAUDE.md
@@ -19,6 +20,7 @@ user-level ~/.claude. This script links T1 into it:
      re-links skills each time Claude Code starts (silent unless something changed)
      (not vendored in T1 because that repo has no licence file)
 Agents in .claude/agents (impeccable's reviewers) are linked into ~/.claude/agents too.
+Codex also gets a marked block in ~/.codex/AGENTS.md pointing at T1's AGENTS.md, CLAUDE.md and LESSONS.md.
 
 Usage (from the T1 folder):
     python scripts/install_local.py              # skills + rules
@@ -44,6 +46,9 @@ T1 = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 HOME_CLAUDE = os.path.join(os.path.expanduser('~'), '.claude')
 USER_SKILLS = os.path.join(HOME_CLAUDE, 'skills')
 USER_MEMORY = os.path.join(HOME_CLAUDE, 'CLAUDE.md')
+HOME_CODEX = os.path.join(os.path.expanduser('~'), '.codex')
+CODEX_SKILLS = os.path.join(HOME_CODEX, 'skills')
+CODEX_MEMORY = os.path.join(HOME_CODEX, 'AGENTS.md')
 BEGIN, END = '<!-- T1:begin (managed by T1/scripts/install_local.py) -->', '<!-- T1:end -->'
 WINDOWS = os.name == 'nt'
 
@@ -101,29 +106,34 @@ def remove_link(path):
         os.rmdir(path)
 
 
-def sync_skills(dry, uninstall):
+def sync_skills(dry, uninstall, dest=USER_SKILLS, label='skills', shown='~/.claude/skills'):
     src = os.path.join(T1, '.claude', 'skills')
     names = sorted(n for n in os.listdir(src) if os.path.isfile(os.path.join(src, n, 'SKILL.md')))
-    os.makedirs(USER_SKILLS, exist_ok=True)
+    if uninstall and not os.path.isdir(dest):
+        log(f'{label}: nothing to remove')
+        return
+    if not dry:
+        os.makedirs(dest, exist_ok=True)
+    existing = os.listdir(dest) if os.path.isdir(dest) else []
     added = kept = skipped = removed = 0
     # stale links into T1 (skill deleted or renamed upstream), or everything on uninstall
-    for n in os.listdir(USER_SKILLS):
-        p = os.path.join(USER_SKILLS, n)
+    for n in existing:
+        p = os.path.join(dest, n)
         if is_link(p) and points_into_t1(p) and (uninstall or n not in names or not os.path.exists(p)):
             log(f'  - remove {n}')
             if not dry:
                 remove_link(p)
             removed += 1
     if uninstall:
-        log(f'skills: removed {removed} links')
+        log(f'{label}: removed {removed} links')
         return
     for n in names:
-        link, target = os.path.join(USER_SKILLS, n), os.path.join(src, n)
+        link, target = os.path.join(dest, n), os.path.join(src, n)
         if os.path.lexists(link):
             if is_link(link) and points_into_t1(link):
                 kept += 1
             else:
-                log(f'  ! skip {n}: ~/.claude/skills/{n} already exists and is not a T1 link (left untouched)')
+                log(f'  ! skip {n}: {shown}/{n} already exists and is not a T1 link (left untouched)')
                 skipped += 1
             continue
         if make_link(link, target, dry):
@@ -132,7 +142,11 @@ def sync_skills(dry, uninstall):
         else:
             log(f'  ! could not link {n}')
             skipped += 1
-    log(f'skills: {added} added, {kept} already linked, {removed} stale removed, {skipped} skipped')
+    log(f'{label}: {added} added, {kept} already linked, {removed} stale removed, {skipped} skipped')
+
+
+def sync_codex_skills(dry, uninstall):
+    sync_skills(dry, uninstall, CODEX_SKILLS, 'codex skills', '~/.codex/skills')
 
 
 def block_text():
@@ -144,6 +158,18 @@ T1 仓库位置：`{t1}`。技能已链接到 `~/.claude/skills/`。下面导入
 
 @{t1}/CLAUDE.md
 
+在 T1 以外的文件夹工作时，用户纠正我就把经验写进 `{t1}/LESSONS.md`，在 T1 仓库里提交（`git -C "{t1}" ...`）。
+{END}
+"""
+
+
+def codex_block_text():
+    t1 = T1.replace('\\', '/')
+    return f"""{BEGIN}
+# T1 规则（所有本机 Codex 会话共用）
+
+T1 仓库位置：`{t1}`。技能已链接到 `~/.codex/skills/`（和 `~/.claude/skills/` 是同一份）。
+开始任何任务前先读 `{t1}/AGENTS.md`，再照它读 `{t1}/CLAUDE.md` 和 `{t1}/LESSONS.md`：用技能前先问用户、回复用中文、不用付费的东西等规则都写在那里。
 在 T1 以外的文件夹工作时，用户纠正我就把经验写进 `{t1}/LESSONS.md`，在 T1 仓库里提交（`git -C "{t1}" ...`）。
 {END}
 """
@@ -196,27 +222,32 @@ def sync_remotion(dry):
     log('remotion: free for individuals and companies of up to 3 people; 4+ need a paid Remotion licence.')
 
 
-def sync_memory(dry, uninstall):
+def sync_memory(dry, uninstall, path=USER_MEMORY, block=None, shown='~/.claude/CLAUDE.md'):
+    block = block or block_text()
     old = ''
-    if os.path.exists(USER_MEMORY):
-        with open(USER_MEMORY, encoding='utf-8') as fh:
+    if os.path.exists(path):
+        with open(path, encoding='utf-8') as fh:
             old = fh.read()
     if BEGIN in old and END in old:
         a, b = old.index(BEGIN), old.index(END) + len(END)
         rest = (old[:a] + old[b:]).strip('\n')
     else:
         rest = old.strip('\n')
-    new = rest + ('\n' if rest else '') if uninstall else (rest + '\n\n' if rest else '') + block_text()
-    if new == old:
-        log('memory: ~/.claude/CLAUDE.md already up to date')
+    new = rest + ('\n' if rest else '') if uninstall else (rest + '\n\n' if rest else '') + block
+    if new == old or (uninstall and not old):
+        log(f'memory: {shown} already up to date')
         return
-    log(f"memory: {'remove' if uninstall else 'write'} T1 block in {USER_MEMORY}")
+    log(f"memory: {'remove' if uninstall else 'write'} T1 block in {path}")
     if not dry:
-        os.makedirs(HOME_CLAUDE, exist_ok=True)
+        os.makedirs(os.path.dirname(path), exist_ok=True)
         if old:
-            shutil.copyfile(USER_MEMORY, USER_MEMORY + '.bak')
-        with open(USER_MEMORY, 'w', encoding='utf-8') as fh:
+            shutil.copyfile(path, path + '.bak')
+        with open(path, 'w', encoding='utf-8') as fh:
             fh.write(new)
+
+
+def sync_codex_memory(dry, uninstall):
+    sync_memory(dry, uninstall, CODEX_MEMORY, codex_block_text(), '~/.codex/AGENTS.md')
 
 
 def run(cmd, dry):
@@ -346,11 +377,15 @@ def update():
         if pull.returncode != 0 or not after or after == before:
             return 0  # offline, local changes, or nothing new: stay silent
         sync_skills(False, False)
+        if os.path.isdir(CODEX_SKILLS):
+            sync_codex_skills(False, False)
         sync_agents(False, False)
         sync_memory(False, False)
+        if os.path.exists(CODEX_MEMORY):
+            sync_codex_memory(False, False)
         new_plugins = sorted(enabled_plugins() - plugins_before)
         msg = f'T1 auto-updated {before[:7]}..{after[:7]}.'
-        changes = [m.strip() for m in QUIET[1:] if m.strip().startswith(('skills:', 'agents:', '+ link', '- remove'))]
+        changes = [m.strip() for m in QUIET[1:] if m.strip().startswith(('skills:', 'codex skills:', 'agents:', '+ link', '- remove'))]
         if changes:
             msg += ' ' + '; '.join(changes[:6])
         if new_plugins:
@@ -371,17 +406,21 @@ def main():
     ap.add_argument('--dry-run', action='store_true', help='show what would change')
     ap.add_argument('--auto-update', action='store_true',
                     help='add a SessionStart hook that pulls T1 and re-links skills whenever Claude Code starts')
+    ap.add_argument('--no-codex', action='store_true', help="don't link skills into ~/.codex/skills or write ~/.codex/AGENTS.md")
     ap.add_argument('--update', action='store_true', help=argparse.SUPPRESS)  # used by the hook
-    ap.add_argument('--uninstall', action='store_true', help='remove T1 skill links, the CLAUDE.md block and the hook')
+    ap.add_argument('--uninstall', action='store_true', help='remove T1 skill links (Claude and Codex), the CLAUDE.md/AGENTS.md blocks and the hook')
     args = ap.parse_args()
     if args.update:
         return update()
     if args.dry_run:
         log('(dry run - nothing is changed)')
-    log(f'T1: {T1}\nuser config: {HOME_CLAUDE}')
+    log(f'T1: {T1}\nuser config: {HOME_CLAUDE}' + ('' if args.no_codex else f' and {HOME_CODEX}'))
     sync_skills(args.dry_run, args.uninstall)
     sync_agents(args.dry_run, args.uninstall)
     sync_memory(args.dry_run, args.uninstall)
+    if not args.no_codex or args.uninstall:
+        sync_codex_skills(args.dry_run, args.uninstall)
+        sync_codex_memory(args.dry_run, args.uninstall)
     if args.auto_update or args.uninstall:
         sync_auto_update(args.dry_run, args.uninstall)
     if args.uninstall:
@@ -393,7 +432,7 @@ def main():
         sync_mcp(args.dry_run)
     if args.remotion or args.all:
         sync_remotion(args.dry_run)
-    log('done. Open a new local Claude Code session (CLI or desktop "Local") in any folder.')
+    log('done. Open a new local Claude Code session (CLI or desktop "Local") or Codex session in any folder.')
 
 
 if __name__ == '__main__':
