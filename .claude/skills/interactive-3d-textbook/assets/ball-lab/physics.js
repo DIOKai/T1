@@ -146,6 +146,17 @@ export function createProjectile({ v0 = 8, angle = 45, h0 = 0, g = G, m = 0.6, r
   };
 }
 
+/**
+ * Launch speed needed to pass through a point dx ahead and dy higher (no drag):
+ * v² = g·dx² / (2cos²θ·(dx·tanθ − dy)). Infinity when the angle can't reach it.
+ */
+export function speedToHit(dx, dy, angle, g = G) {
+  const th = rad(angle), d = dx * Math.tan(th) - dy;
+  return d <= 0 ? Infinity : Math.sqrt((g * dx * dx) / (2 * Math.cos(th) ** 2 * d));
+}
+/** The launch angle that needs the least speed to reach that point: 45° + half the elevation angle (Brancazio). */
+export const easiestAngle = (dx, dy) => 45 + (Math.atan2(dy, dx) * 180) / Math.PI / 2;
+
 // ------------------------------------------------------------------ C. collisions
 /**
  * Head-on collision along one line. e = 1 elastic, e = 0 the balls stick together.

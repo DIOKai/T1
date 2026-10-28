@@ -52,7 +52,7 @@ async function loop(page, lesson, choice, label, reload = true) {
   await page.waitForSelector('#options input');
 
   // ---------------------------------------------------------------- 2D: every lesson, wrong then right
-  const lessons = [['bounce', 'a', 'c'], ['launch', 'b', 'c'], ['collision', 'a', 'c'], ['pendulum', 'a', 'c']];
+  const lessons = [['bounce', 'a', 'c'], ['launch', 'b', 'c'], ['shot', 'b', 'c'], ['collision', 'a', 'c'], ['pendulum', 'a', 'c']];
   for (const [i, [id, wrong, right]] of lessons.entries()) {
     const w = await loop(page, i, wrong, `${id} wrong`);
     ok(`${id}: stamp for a WRONG prediction too`, w.stamp);
@@ -85,6 +85,14 @@ async function loop(page, lesson, choice, label, reload = true) {
   await page.click('#tabs button:nth-child(4)');
   await page.focus('input[name=predict][value=a]'); await page.keyboard.press('ArrowDown');
   ok('keyboard moves between prediction options', await page.isChecked('input[name=predict][value=b]'));
+  // basketball: the easiest angle scores at the speed the page says it needs
+  await page.click('#tabs button:nth-child(3)');
+  await page.$eval('#ctl-angle', (n) => { n.value = '52'; n.dispatchEvent(new Event('input', { bubbles: true })); });
+  const need = parseFloat((await page.textContent('.readouts')).match(/([0-9.]+) m\/s/)[1]);
+  await page.$eval('#ctl-v0', (n, v) => { n.value = String(v); n.dispatchEvent(new Event('input', { bubbles: true })); }, Math.round(need * 20) / 20);
+  await page.check('input[name=predict][value=c]'); await page.click('#lock'); await page.click('#skip');
+  await page.waitForFunction(() => !document.querySelector('#flapBtn').disabled);
+  ok('shot at 52° with the stated speed goes in', (await page.textContent('.readouts')).includes('进了'), await page.textContent('.readouts'));
   // slow motion is labelled
   await page.click('#tabs button:nth-child(2)');
   ok('slow motion labelled on screen', (await page.textContent('#speedNote')).includes('0.5'));
@@ -133,7 +141,7 @@ async function loop(page, lesson, choice, label, reload = true) {
   await page.click('#angle');
   await page.waitForTimeout(200);
   await page.screenshot({ path: `${shots}/3d-angle.png`, clip: box });
-  for (const i of [2, 3, 4]) {
+  for (const i of [2, 3, 4, 5]) {
     await page.click(`#tabs button:nth-child(${i})`);
     await page.waitForTimeout(900);
     await page.evaluate(() => { window.__lesson.choose('c'); window.__lesson.lock(); for (let k = 0; k < 30; k++) window.__lesson.advance(0.05); });

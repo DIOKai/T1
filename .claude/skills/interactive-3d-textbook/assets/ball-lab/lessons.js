@@ -2,7 +2,7 @@
 // (sources in the teacher notes), ≤3 controls on the first step, the student's own numbers in the
 // explanation, and a stamp for finishing the loop. Text is zh + en; add a language by adding keys.
 import { createBounce, createProjectile, createCollision, createPendulum, collide1D, bounceHeights, bounceRestTime,
-  pendulumPeriod, pendulumPeriodSmall, fmt, G } from './physics.js';
+  pendulumPeriod, pendulumPeriodSmall, speedToHit, easiestAngle, fmt, G } from './physics.js';
 
 const t2 = (zh, en) => ({ zh, en });
 const pick = (lang, o) => o[lang] ?? o.en;
@@ -235,6 +235,137 @@ const launch = {
   })
 };
 
+// ======================================================================= B2. basketball shot
+const RIM_H = 3.05, RIM_X = 4.2, RIM_R = 0.2286, BALL_R = 0.12;   // FIBA rim height 3.05 m, inner diameter 45.7 cm; free-throw distance ≈ 4.2 m to the rim centre
+function makeShot(p) {
+  const proj = createProjectile({ v0: p.v0, angle: p.angle, h0: p.h0 ?? 2.0, drag: !!p.drag, m: 0.6, radius: BALL_R });
+  const s = { proj, status: 'flying', crossX: null, stopped: false };
+  const boardX = RIM_X + RIM_R + 0.15 - BALL_R;                     // ball touching the backboard
+  return {
+    proj,
+    get state() { return proj.state; },
+    shot: s,
+    step(dt) {
+      if (s.stopped) return;
+      const y0 = proj.state.y;
+      proj.step(dt);
+      const y1 = proj.state.y;
+      if (s.status === 'flying' && y0 >= RIM_H && y1 < RIM_H && proj.state.vy < 0) {        // coming down through the rim height
+        s.crossX = proj.state.x;
+        s.status = Math.abs(s.crossX - RIM_X) <= RIM_R - BALL_R ? 'in' : s.crossX < RIM_X ? 'short' : 'long';
+      }
+      if (proj.state.x >= boardX && proj.state.y > 0) {                // no bounce model: stop at the board
+        s.stopped = true;
+        if (s.status === 'flying') s.status = proj.state.y >= RIM_H - 0.15 ? 'board' : 'short';   // below the board = the pole: it was short
+      }
+      if (s.status === 'flying' && proj.state.landed) s.status = proj.state.top < RIM_H ? 'short' : 'long';
+    },
+    energy: () => proj.energy()
+  };
+}
+const shotWord = (st) => ({ in: t2('进了！', 'In!'), short: t2('太短', 'Short'), long: t2('太远', 'Long'), board: t2('撞到篮板', 'Hit the backboard'), flying: t2('飞行中', 'In the air') })[st];
+const shot = {
+  id: 'shot',
+  title: t2('投篮', 'Basketball shot'),
+  hook: t2('罚球：球从 2.0 m 高出手，篮框在 4.2 m 外、3.05 m 高。怎样投最省力？', 'A free throw: you release at 2.0 m, the rim is 4.2 m away and 3.05 m high. What is the easiest way to score?'),
+  predict: {
+    question: t2('要投进这个篮框，哪个出手角度需要的出手速度最小？', 'To reach this rim, which launch angle needs the smallest launch speed?'),
+    correct: 'c',
+    options: [
+      { id: 'a', text: t2('平平地瞄准篮框投（大约 20°）', 'Aim straight at the rim, fairly flat (about 20°)'),
+        why: t2('瞄准篮框直直投，球不会走直线：重力一直把它往下拉，路线是抛物线。角度太平，球要飞得非常快才不会在半路掉下去。',
+          "The ball doesn't travel in a straight line: gravity pulls it down the whole way, so its path is a parabola. Too flat, and it needs a very high speed to avoid dropping short.") },
+      { id: 'b', text: t2('45°：课本说 45° 投得最远', '45°: the textbook says 45° goes furthest'),
+        why: t2('「45° 最远」只适用于出手点和落点一样高的情况。篮框比你的手高，最省力的角度要比 45° 再大一点：45° 加上「从手看篮框的仰角」的一半。',
+          '"45° goes furthest" only holds when you land at the height you launched from. The rim is higher than your hand, so the easiest angle is a bit more than 45°: 45° plus half the angle at which you look up at the rim.') },
+      { id: 'c', text: t2('比 45° 大一点（50° 多）', 'A bit more than 45° (just over 50°)'), why: t2('', '') }
+    ]
+  },
+  controls: [
+    { id: 'angle', label: t2('出手角度', 'Launch angle'), min: 20, max: 75, step: 1, value: 40, unit: '°', decimals: 0, unitName: t2('度', 'degrees') },
+    { id: 'v0', label: t2('出手速度', 'Launch speed'), min: 5, max: 11, step: 0.05, value: 7.3, unit: 'm/s', decimals: 2, unitName: t2('米每秒', 'metres per second') }
+  ],
+  more: [
+    { id: 'h0', label: t2('出手高度', 'Release height'), min: 1.6, max: 2.6, step: 0.05, value: 2.0, unit: 'm', unitName: t2('米', 'metres') },
+    { id: 'drag', label: t2('空气阻力', 'Air drag'), min: 0, max: 1, step: 1, value: 0, unit: '', decimals: 0, unitName: t2('（0 关，1 开）', '(0 off, 1 on)') }
+  ],
+  moreIntro: t2('长得高的人出手点比较高：最省力的角度会变吗？打开空气阻力，同样的投法还会进吗？', 'A taller player releases higher: does the easiest angle change? Switch on air drag: does the same shot still go in?'),
+  speed: 0.5,
+  stores: ['kinetic', 'potential', 'lost'],
+  make: makeShot,
+  sample: (sim) => [sim.state.t, sim.state.y],
+  done: (sim) => sim.shot.stopped || (sim.shot.status !== 'flying' && (sim.state.landed || sim.state.y < RIM_H - 0.6)),
+  graph: { label: t2('球的高度（米）对时间（秒）', 'Ball height (m) against time (s)'), tMax: () => 1.8, yMax: () => 5 },
+  frame(sim, p) {
+    const s = sim.state, h0 = p.h0 ?? 2.0;
+    const apex = h0 + (p.v0 * Math.sin(p.angle * Math.PI / 180)) ** 2 / (2 * G);
+    return {
+      bounds: { x0: -0.6, x1: RIM_X + 1.0, y0: 0, y1: Math.max(RIM_H + 1.2, apex + 0.3) }, floor: 0, heatX: s.x,
+      balls: [{ x: s.x, y: s.y, r: BALL_R, store: 'kinetic' }],
+      rods: [{ x1: 0, y1: 0, x2: 0, y2: h0 - BALL_R },                                          // the shooter, as a post
+        { x1: RIM_X - RIM_R, y1: RIM_H, x2: RIM_X + RIM_R, y2: RIM_H },                      // rim
+        { x1: RIM_X + RIM_R + 0.15, y1: RIM_H - 0.15, x2: RIM_X + RIM_R + 0.15, y2: RIM_H + 1.05 },   // backboard
+        { x1: RIM_X + RIM_R + 0.15, y1: 0, x2: RIM_X + RIM_R + 0.15, y2: RIM_H - 0.15 }],     // pole
+      markers: [{ x: -0.35, y0: 0, y1: s.y, store: 'potential' }],
+      trails: [{ points: s.trail }]
+    };
+  },
+  readouts(sim, p) {
+    const dy = RIM_H - (p.h0 ?? 2.0);
+    return [[t2('结果', 'Result'), shotWord(sim.shot.status)[document.documentElement.lang.startsWith('zh') ? 'zh' : 'en']],
+      [t2('这个角度要的速度', 'Speed needed at this angle'), Number.isFinite(speedToHit(RIM_X, dy, p.angle)) ? fmt(speedToHit(RIM_X, dy, p.angle), 'm/s') : '—'],
+      [t2('最省力的角度', 'Easiest angle'), fmt(easiestAngle(RIM_X, dy), '°', 1)],
+      [t2('过框高度时的位置', 'Where it crossed rim height'), sim.shot.crossX != null ? fmt(sim.shot.crossX - RIM_X, 'm') : '—']];
+  },
+  result: (sim) => t2(`结果：${shotWord(sim.shot.status).zh}`, `Result: ${shotWord(sim.shot.status).en}`),
+  describe: (sim, p) => t2(`投篮：${p.angle}° 出手，速度 ${fmt(p.v0, 'm/s')}。球在 ${fmt(sim.state.x, 'm')} 远、${fmt(sim.state.y, 'm')} 高。`,
+    `Basketball shot at ${p.angle}°, ${fmt(p.v0, 'm/s')}. Ball ${fmt(sim.state.x, 'm')} out, ${fmt(sim.state.y, 'm')} high.`),
+  explain(sim, p, lang) {
+    const h0 = p.h0 ?? 2.0, dy = RIM_H - h0, best = easiestAngle(RIM_X, dy), vBest = speedToHit(RIM_X, dy, best);
+    const need = speedToHit(RIM_X, dy, p.angle), look = Math.atan2(dy, RIM_X) * 180 / Math.PI;
+    const out = [
+      pick(lang, t2(`从你手上看，篮框高 ${fmt(dy, 'm')}、远 ${fmt(RIM_X, 'm')}，仰角 ${fmt(look, '°', 1)}。最省力的角度是 45° + ${fmt(look, '°', 1)} ÷ 2 = ${fmt(best, '°', 1)}，只要 ${fmt(vBest, 'm/s')}。`,
+        `From your hand the rim is ${fmt(dy, 'm')} up and ${fmt(RIM_X, 'm')} away: you look up at ${fmt(look, '°', 1)}. The easiest angle is 45° + ${fmt(look, '°', 1)} ÷ 2 = ${fmt(best, '°', 1)}, needing only ${fmt(vBest, 'm/s')}.`)),
+      pick(lang, Number.isFinite(need)
+        ? t2(`你用 ${p.angle}°：要投到框中心需要 ${fmt(need, 'm/s')}（你用了 ${fmt(p.v0, 'm/s')}）。角度离 ${fmt(best, '°', 0)} 越远，需要的速度越大，速度差一点点就会太短或太远。`,
+          `You used ${p.angle}°: reaching the rim centre takes ${fmt(need, 'm/s')} (you used ${fmt(p.v0, 'm/s')}). The further the angle from ${fmt(best, '°', 0)}, the more speed it takes, and the less room for error in speed.`)
+        : t2(`你用 ${p.angle}°：这么平的角度，再快也到不了框的高度。`, `You used ${p.angle}°: at an angle that flat the ball can't reach the rim at any speed.`)),
+      pick(lang, t2('球的路线是抛物线：横向速度不变，竖直方向一直受重力往下拉，所以不能「瞄直线」。', "The path is a parabola: the sideways speed stays the same while gravity keeps pulling down, so you can't aim in a straight line."))
+    ];
+    if (p.drag) out.push(pick(lang, t2('空气阻力打开：球慢一点，需要稍微大一点的速度或角度。', 'With drag on, the ball slows a little; it needs a bit more speed or angle.')));
+    return out;
+  },
+  stamp: t2('最省力的角度比 45° 大', 'The easiest angle is more than 45°'),
+  ignores: t2('空气阻力（可以在「再多玩一点」打开）；球的旋转；篮板和篮框的反弹（球从框内往下穿过框的高度就算进；碰到篮板就停下）。时间以 0.5 倍慢动作播放。',
+    "Air drag (switch it on in \"Explore more\"); spin; bounces off the board or rim (a shot counts as in if the ball comes down through rim height inside the rim; it stops when it touches the board). Time runs at 0.5× (slow motion)."),
+  quiz: [
+    { q: t2('在平地上，从地面投到地面，哪个角度投得最远（不计空气）？', 'On flat ground, launching from and landing at ground level, which angle goes furthest (no air)?'),
+      options: [t2('30°', '30°'), t2('45°', '45°'), t2('60°', '60°')], answer: 1,
+      why: [t2('30° 和 60° 射程一样，都比 45° 近。', '30° and 60° give the same range, both shorter than 45°.'), t2('对：起点和落点一样高时是 45°。', 'Right: 45° when launch and landing heights are equal.'), t2('60° 和 30° 一样远，比 45° 近。', '60° goes as far as 30°, less than 45°.')] },
+    { q: t2('篮框比出手点高，最省力的角度会？', 'The rim is higher than the release point. The easiest angle is…'),
+      options: [t2('小于 45°', 'below 45°'), t2('刚好 45°', 'exactly 45°'), t2('大于 45°', 'above 45°')], answer: 2,
+      why: [t2('目标越高，角度要越大。', 'A higher target needs a steeper angle.'), t2('45° 只适用于同样高度。', '45° is only for equal heights.'), t2('对：45° + 仰角的一半。', 'Right: 45° plus half the elevation angle.')] },
+    { q: t2('球在最高点时，速度是？', 'At the top of its path, the ball’s velocity is…'),
+      options: [t2('零', 'zero'), t2('只剩横向速度', 'only the sideways part'), t2('只剩竖直速度', 'only the vertical part')], answer: 1,
+      why: [t2('只有竖直速度变成零，横向速度还在。', 'Only the vertical part is zero; the sideways part remains.'), t2('对：横向速度从头到尾不变（不计空气）。', 'Right: the sideways velocity stays the same all the way (ignoring air).'), t2('最高点正是竖直速度为零的地方。', 'The top is exactly where the vertical part is zero.')] }
+  ],
+  teacher: (lang) => notes(lang, {
+    objectives: [t2('说明抛体路线是抛物线，横向和竖直运动独立', 'Explain that a projectile follows a parabola with independent horizontal and vertical motion'),
+      t2('说明「45° 最远」的条件，目标较高时最省力角度大于 45°', 'State when "45° goes furthest" holds, and that a higher target needs more than 45°'),
+      t2('用公式算出投到某一点需要的速度', 'Calculate the speed needed to reach a given point')],
+    misconceptions: [
+      { option: 'a', wrong: t2('瞄直线投 / 球走直线到力用完才掉下', 'Aim in a straight line / the ball flies straight until its push runs out'), right: t2('重力一直作用，路线是抛物线', 'Gravity acts throughout; the path is a parabola'),
+        sources: [['McCloskey, Caramazza & Green 1980 (curvilinear impetus)', 'https://www.science.org/doi/10.1126/science.210.4474.1139'], ['IOP Spark', 'https://spark.iop.org/most-pupils-think-if-object-moving-there-must-be-force-direction-its-motion']] },
+      { option: 'b', wrong: t2('45° 永远最好', '45° is always best'), right: t2('只有起点和终点同高时成立', 'Only when launch and landing heights are equal'),
+        sources: [["Teacher's judgement (common over-generalisation; no prevalence study found)", 'https://openstax.org/books/university-physics-volume-1/pages/4-3-projectile-motion']] }
+    ],
+    model: t2('不计空气时轨迹用精确公式；需要的速度 v² = g·dx² / (2cos²θ·(dx·tanθ − dy))，最省力角度 45° + ½·atan(dy/dx)（Brancazio 1981）。篮框高 3.05 m、内径 45.7 cm（FIBA），球直径 24 cm。打开阻力时用二次阻力、RK4。',
+      'Without drag the path is the exact formula; required speed v² = g·dx² / (2cos²θ·(dx·tanθ − dy)), easiest angle 45° + ½·atan(dy/dx) (Brancazio 1981). Rim 3.05 m high, 45.7 cm inner diameter (FIBA), ball 24 cm across. With drag: quadratic drag, RK4.'),
+    discussion: [t2('为什么职业球员罚球常用比最省力角度再高一点的角度？（提示：球从上面落下，框看起来比较「大」）', 'Why do players often shoot a little steeper than the easiest angle? (Hint: a ball coming down steeply "sees" a bigger rim.)'),
+      t2('出手高度变高，最省力角度怎么变？用「再多玩一点」验证。', 'How does a higher release change the easiest angle? Check with "Explore more".')]
+  })
+};
+
 // ======================================================================= C. collision
 const radiusOf = (m) => 0.07 * Math.cbrt(m / 0.5);        // same material: radius grows with the cube root of mass
 const collision = {
@@ -425,4 +556,4 @@ const pendulum = {
   })
 };
 
-export const LESSONS = [bounce, launch, collision, pendulum];
+export const LESSONS = [bounce, launch, shot, collision, pendulum];

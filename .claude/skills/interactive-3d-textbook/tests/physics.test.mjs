@@ -64,6 +64,22 @@ const run = (sim, seconds, dt = 1 / 240) => { const st = P.createStepper(sim.ste
   ok('drag: energy ledger sums and loss is positive', near(e2.kinetic + e2.potential + e2.lost, e2.total, 1e-9) && e2.lost > 0);
 }
 
+// ---------------------------------------------------------------- B2. basketball shot
+{
+  const dx = 4.2, dy = 1.05;                            // free throw: release 2.0 m, rim 3.05 m, 4.2 m away
+  const best = P.easiestAngle(dx, dy);
+  let scan = [90, Infinity];
+  for (let a = 20; a <= 80; a += 0.01) { const v = P.speedToHit(dx, dy, a); if (v < scan[1]) scan = [a, v]; }
+  ok('easiest angle = 45° + elevation/2 (matches a brute-force scan)', near(best, scan[0], 0.02), [best, scan[0]]);
+  ok('free throw: easiest angle ≈ 52°', near(best, 52.0, 0.1), best);
+  const v = P.speedToHit(dx, dy, 52);
+  const sim = P.createProjectile({ v0: v, angle: 52, h0: 2.0 });
+  const st = P.createStepper(sim.step); let hit = null;
+  for (let i = 0; i < 400 && !hit; i++) { const x0 = sim.state.x; st.advance(0.005); if (x0 < dx && sim.state.x >= dx) hit = sim.state.y; }
+  ok('speedToHit really reaches the rim (simulated, within 2 cm)', hit != null && near(hit, 3.05, 0.02), hit);
+  ok('too flat an angle cannot reach', P.speedToHit(dx, dy, 10) === Infinity);
+}
+
 // ---------------------------------------------------------------- C. collisions
 {
   const el = P.collide1D(1, 2, 1, 0, 1);

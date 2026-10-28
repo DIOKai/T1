@@ -13,7 +13,7 @@ Contents: 0 Template · 1 Models and formulas · 2 Numerics · 3 Misconceptions 
 | File | What it is |
 |---|---|
 | `physics.js` | Pure ES module, no DOM: fixed-step stepper, `createBounce`, `createProjectile` (optional quadratic drag), `collide1D` / `collide2D` / `createCollision`, `createPendulum` (full nonlinear), exact helpers (`bounceHeights`, `bounceRestTime`, `projectileAnalytic`, `pendulumPeriod` via AGM), `fmt` for SI readouts. Every sim has `energy()` returning `{total, kinetic, potential, lost}` that always sums to the start energy. |
-| `lessons.js` | Four lessons (bounce, thrown vs dropped, collision, pendulum), zh + en: hook, prediction from sourced misconceptions, ≤3 controls then "explore more", explanation built from the student's own run, stamp, "what this model ignores", 3-item quiz, teacher notes. |
+| `lessons.js` | Five lessons (bounce, thrown vs dropped, basketball free throw, collision, pendulum), zh + en: hook, prediction from sourced misconceptions, ≤3 controls then "explore more", explanation built from the student's own run, stamp, "what this model ignores", 3-item quiz, teacher notes. |
 | `loop.js` | Predict (locks) → test → flap → stamp for completing the loop (right or wrong), quiz, one state driving every view, readout, bar, graph and the canvas description in the same frame, polite live region, `?debug`-only test hook. |
 | `view2d.js` | Ink-on-paper SVG view. Light, prints well, and is the fallback when WebGL fails. |
 | `view3d.js` | Book-on-desk 3D view following SKILL.md: WebGLRenderer, `NoToneMapping`, half-float composer, depth+normal Sobel ink, bloom threshold 1.0 composited as a tint, glow colour scaled by the energy share, render on demand, `visibilitychange`. Unlit (`MeshBasicMaterial`) surfaces so blank paper renders exactly its colour; glow = store colour × (1.5 + 4·share), so it exceeds 1.0 only while the store holds energy. |
@@ -21,7 +21,7 @@ Contents: 0 Template · 1 Models and formulas · 2 Numerics · 3 Misconceptions 
 
 Both views draw the same primitives returned by `lesson.frame(sim, params)` (balls, markers, rods, trails, arrows, floor, in metres), so 2D and 3D can never disagree. To add an experiment, add a lesson object; you normally don't touch the views.
 
-Checks: `node tests/physics.test.mjs` (44 exact-formula checks), `python scripts/check_lesson.py assets/ball-lab`, `node tests/ball-lab.e2e.cjs <dir with three + postprocessing in node_modules> <shots>` (59 browser checks, 2D and 3D, CDN routed to local packages).
+Checks: `node tests/physics.test.mjs` (48 exact-formula checks), `python scripts/check_lesson.py assets/ball-lab`, `node tests/ball-lab.e2e.cjs <dir with three + postprocessing in node_modules> <shots>` (69 browser checks, 2D and 3D, CDN routed to local packages).
 
 ---
 
@@ -34,7 +34,7 @@ Checks: `node tests/physics.test.mjs` (44 exact-formula checks), `python scripts
 - Real e (back-calculated from competition specs) **[D]**: basketball (FIBA, 1800 mm drop → 1200–1400 mm, top of ball) ≈ 0.73–0.80 **[S-2nd]**; tennis (ITF, 254 cm → 135–147 cm) ≈ 0.73–0.76 **[S]**; table tennis (305 mm → 240–260 mm) ≈ 0.89–0.93 **[S-2nd]**; superball ≈ 0.85–0.9 **[S-2nd]**.
 
 ### Projectile
-- No drag, flat ground: R = v₀² sin 2θ / g, best angle 45°. From launch height h the best angle satisfies sin θ* = v₀/√(2(v₀²+gh)) (8 m/s from 2 m → 38.2°) **[D]**. Horizontal and vertical motion are independent: fall time from h is √(2h/g) whatever the sideways speed **[S]** (OpenStax UP1 §4.3).
+- No drag, flat ground: R = v₀² sin 2θ / g, best angle 45°. To pass through a point dx ahead and dy higher: v² = g·dx²/(2cos²θ(dx·tanθ − dy)); the angle needing the least speed is 45° + ½·atan(dy/dx) — a free throw (release 2.0 m, rim 3.05 m, 4.2 m away) gives 52.0° and 7.21 m/s **[D]**, matching Brancazio, *Am. J. Phys.* 49, 356 (1981) **[S]**. Template: `speedToHit`, `easiestAngle`, lesson `shot` (rim 3.05 m, inner diameter 45.7 cm per FIBA **[S-2nd]**). From launch height h the best angle satisfies sin θ* = v₀/√(2(v₀²+gh)) (8 m/s from 2 m → 38.2°) **[D]**. Horizontal and vertical motion are independent: fall time from h is √(2h/g) whatever the sideways speed **[S]** (OpenStax UP1 §4.3).
 - Air drag on a ball is **quadratic**: F = ½ρC_dAv² (ρ = 1.2 kg/m³ room air, 1.225 ISA; smooth sphere C_d ≈ 0.47 for 10³ < Re < 2×10⁵, drag crisis near 2–3.5×10⁵) **[S]**. Quadratic/linear drag ratio ≈ Re/48, so linear drag is wrong for balls in air **[S]** (Taylor problem 2.3). Terminal speed √(2mg/ρC_dA): basketball ≈ 20–21 m/s, tennis ≈ 24 m/s, table tennis ≈ 8.6 m/s **[D]**. With drag the best angle drops below 45° (tennis ball at 30 m/s ≈ 39.5°) **[D]**.
 
 ### Collisions
@@ -73,6 +73,7 @@ Write each option in the student's own words; put the source in the teacher note
 | M3 | A ball pushed off a table lands later (or sooner) than one dropped | Vertical motion independent of horizontal | IOP Spark (cites Dilber, Karaman & Duzgun 2007) **[S]** https://spark.iop.org/many-students-think-downward-motion-projectile-will-be-affected-its-horizontal-motion |
 | M4 | A thrown ball carries a "force of the throw" (impetus) | After release only gravity (+ drag) | IOP Spark **[S]**; FCI impetus codes **[S]**; Clement 1982 **[S-2nd]** |
 | M5 | Impetus runs out, then the ball drops straight (cartoon cliff path) | Parabola without drag | McCloskey, Caramazza & Green, *Science* 210 (1980) **[S]** |
+| M6b | "45° is always the best angle" (used for a raised target) | Only for equal launch and landing heights | Teacher's judgement (no prevalence study found); right lines from Brancazio 1981 **[S]** |
 | M6 | At the top v = 0 so a = 0 | Only v_y = 0; a = g | The Physics Classroom **[S]** https://www.physicsclassroom.com/minds-on/vectors-and-projectiles/mission-vp8/help/qg4help |
 | M7 | In a collision the heavier/faster object exerts the bigger force | Equal and opposite | FCI truck–car item **[S]** (pre-test figures from https://arxiv.org/pdf/1307.7177 are from a garbled table — recheck before quoting) |
 | M8 | Force is a property of an object | Force is an interaction between two objects | IOP Spark **[S]** https://spark.iop.org/many-students-think-force-property-objects-not-something-arises-when-two-objects-interact |
