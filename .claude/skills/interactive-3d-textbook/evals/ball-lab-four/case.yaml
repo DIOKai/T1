@@ -1,0 +1,14 @@
+schema_version: "1.1"
+name: ball-lab-four
+expected_outcome: |
+  A lesson page (or set of pages) with four ball experiments — bouncing ball, projectile / thrown vs
+  dropped, two-ball collision, pendulum — each a predict → test → prove loop with misconception-based
+  options, available in BOTH a 2D and a 3D view of the same lesson, built from assets/ball-lab rather
+  than from scratch. The physics matches exact results (rebound heights h0·e^(2n), fall time √(2h/g),
+  momentum conservation, pendulum period 2π√(L/g) and its large-angle correction), the stamp is given
+  for completing the loop, energy bars add up, and check_lesson.py reports no errors.
+---
+tags: [skill-creator]
+max_turns: 120
+timeout_seconds: 3600
+allowed_tools: [Read, Glob, Grep, Skill, Write, Edit, Bash]

@@ -1,6 +1,6 @@
 ---
 name: interactive-3d-textbook
-description: Build interactive 3D textbook / explorable lesson pages in the browser in the style of "Every Joule" — an open book on a desk, each diagram rising off the page as black-ink line-art 3D, the key quantity shown as glowing colour, and a predict → test → prove loop with a lift-the-flap explanation, a stamp, live sliders and readouts, plus quiz and teacher notes. Three.js (WebGLRenderer) with pmndrs postprocessing. Use whenever the user wants a 3D textbook, interactive lesson, explorable explanation, pop-up book diagram, "能动手玩的课本", "互动课本", "3D 课本", "互动教材", "立体书", "翻开书页图会立起来", "像 Every Joule 那样", physics/engineering/biology lessons students can experiment with (energy, seepage, soil mechanics, circuits, cells), or asks to make an existing lesson page look and teach like that — even if they never say "skill".
+description: Build interactive 3D textbook / explorable lesson pages in the browser in the style of "Every Joule" — an open book on a desk, each diagram rising off the page as black-ink line-art 3D, the key quantity shown as glowing colour, and a predict → test → prove loop with a lift-the-flap explanation, a stamp, live sliders and readouts, plus quiz and teacher notes. Three.js (WebGLRenderer) with pmndrs postprocessing. Use whenever the user wants a 3D textbook, interactive lesson, explorable explanation, pop-up book diagram, "能动手玩的课本", "互动课本", "3D 课本", "互动教材", "立体书", "翻开书页图会立起来", "像 Every Joule 那样", physics/engineering/biology lessons students can experiment with (energy, seepage, soil mechanics, circuits, cells), ball experiments (bouncing ball, projectile / throwing / basketball shot, two balls colliding, pendulum, "弹跳球", "抛物线", "投篮", "碰撞", "单摆", "可以弄球的互动网页"), a 2D or 3D version of such a page, or asks to make an existing lesson page look and teach like that — even if they never say "skill".
 ---
 
 # Interactive 3D textbook lessons
@@ -12,6 +12,9 @@ Read the reference for the part you are building; don't load all three up front:
 - `references/lesson-design.md` — predict → test → prove, prediction options from real misconceptions, the flap, the stamp, synchronised representations, quiz, teacher notes, accessibility. Read before writing any lesson text or UI.
 - `references/ink-rendering.md` — outlines (depth+normal edges, crease lines, inverted hull), hatching, paper, selective glow, tone mapping, r170 colour-management traps. Read before writing shaders or the postprocessing stack.
 - `references/book-and-popup.md` — modelling the book, page turn, pop-up rise, pen-drawn lines, camera framing, page text, phone budget, audio sprite. Read before building the book scene.
+- `references/ball-physics.md` — anything with a moving ball (bounce, projectile, collision, pendulum): exact formulas, fixed-step numerics, sourced misconceptions, what PhET shows, 2D vs 3D. Read before writing any physics.
+
+**Ball experiments: start from `assets/ball-lab/`.** It is a tested lesson page with five experiments (bounce, thrown vs dropped, basketball shot, collision, pendulum) in zh + en, one shared physics module, and a 2D (SVG) and 3D (book, ink, glow) view of the same lesson behind a toggle, with automatic 2D fallback. Copy the folder, then change or add lessons in `lessons.js`; keep `physics.js` and its tests. Never hand-write the motion with per-frame `y += v` updates: unchecked integrators and penetrate-then-correct bounces give numbers that disagree with the textbook formula the student will check them against.
 
 Related T1 skills (ask before using, per CLAUDE.md): `threejs-web` routes to the base three.js skills — use `threejs-postprocessing`, `threejs-shaders`, `threejs-materials`, `threejs-lighting`, `threejs-animation`, `threejs-interaction`, `threejs-html`, `threejs-performance`, `threejs-audio`. The `threejs-bloom`, `threejs-procedural-*`, `threejs-scalable-real-time-shadows`, `threejs-ambient-contact-shading`, `threejs-exposure-color-grading` and `threejs-camera-controls-and-rigs` skills target r185 WebGPU/TSL; read them for ideas only, their code does not run on WebGLRenderer. Interface polish: `impeccable`, `typography`, `game-feel`, `animate`. Sound: `audio-design`, `pixabay-assets`, `ffmpeg-skill`.
 
@@ -91,7 +94,7 @@ document.addEventListener('visibilitychange', () => {
 - Shadows: `renderer.shadowMap.autoUpdate = false`; set `shadowMap.needsUpdate = true` only on frames where something that casts moves. The book never moves — bake or render its contact shadow once.
 - Pixel ratio ≤ 2, and drop it (to ~1.25) on touch devices or when frame time stays above ~25 ms; raise it back after a few good seconds.
 - One `EffectPass` holding all effects (they merge into one shader). Skip MSAA on phones; prefer the ink effect's own anti-aliasing.
-- Measure: `renderer.info.render.calls` (rule of thumb ≤ ~100 on phones — a heuristic, verify on a device), and say in the report what you measured and what you didn't.
+- Measure: `renderer.info.render.calls` (rule of thumb ≤ ~100 on phones — a heuristic, verify on a device), and say in the report what you measured and what you didn't. With an `EffectComposer` the counter resets on every internal render and reads 1: set `renderer.info.autoReset = false`, call `renderer.info.reset()` before `composer.render()`, and read it after.
 
 ## Accessibility (non-negotiable for a lesson)
 
@@ -105,6 +108,7 @@ Page turn, flap, pen, stamp as one audio sprite (one mp3 + JSON offsets), `Audio
 
 1. Run the checker and fix every error it reports (local, read-only, Python standard library):
    `python .claude/skills/interactive-3d-textbook/scripts/check_lesson.py <lesson-folder>`
+   For ball lessons also run `node tests/physics.test.mjs` (exact-formula checks) and, if you changed lessons or views, `node tests/ball-lab.e2e.cjs <dir with three + postprocessing installed> <screenshot dir>` — it routes the CDN import map to local packages, so it works offline.
 2. Open it in a browser over a local server (ES modules don't load from `file://`): desktop and a 375×812 viewport. Walk the loop twice — once predicting right, once wrong — and confirm the stamp appears both times. A hidden or background browser tab runs no `requestAnimationFrame` and freezes CSS transitions, so build a `?debug`-only `advance(ms)` hook that steps the simulation and renders one frame; use it to test, and say in the report which animations you never saw at live frame rate.
 3. Screenshot blank paper and confirm it is white, not grey; screenshot the glow at 0 % and 100 % of the quantity.
 4. Remove test hooks (`window.__lesson`, `advance()` helpers) or put them behind `?debug`.
@@ -124,3 +128,6 @@ Page turn, flap, pen, stamp as one audio sprite (one mp3 + JSON offsets), `Audio
 | Distractors invented ("trick" options) | From documented misconceptions (`references/lesson-design.md` §6a source ladder); no trick answers. |
 | Glow uses the default SCREEN bloom on white paper, so no halo is visible | Composite bloom as a tint over the paper (see the rendering recipe). |
 | Debug globals shipped | Remove or gate behind `?debug`. |
+| Ball motion with `y += v*dt` and "if below floor, flip v" | Exact motion between impacts + solved impact time (`physics.js`); test against h₀e²ⁿ, √(2h/g), momentum, the exact pendulum period. |
+| "Period doesn't depend on amplitude" taught as exact | Almost independent below ~20°; say so, and show the +7 % at 60° in "explore more". |
+| Only a 3D view | Offer the 2D view too (phones, print, no WebGL); same lesson, same numbers. |
