@@ -85,6 +85,10 @@ No third-party code is included. `assets/timecycle_vars.txt` is a list of the ti
 
 No third-party code is included. The workflow summarises the Sollumz wiki (GPL-3 project), the FiveM documentation, and the public READMEs and configs of qbx_properties, qb-interior, qb-houses, ps-housing, bob74_ipl, object_gizmo and ht_mlotool; flag names and values were read from the Sollumz source (`ytyp/properties/flags.py`) and XML element names from Sollumz szio (MIT).
 
+## interactive-3d-textbook (written for this repository)
+
+No third-party code or assets are included. The rendering notes summarise the public documentation and source of three.js (MIT), pmndrs postprocessing (Zlib), spite/sketch (MIT) and popup-art-book (MIT); the lesson design summarises published research (White & Gunstone 1992; Crouch et al. 2004; Sadler 1998; PhET implicit scaffolding; Hattie & Timperley 2007). "Every Joule" (iamtechartist.com) was studied only as a style reference from its public pages and video; none of its code, text or images is copied. Suggested sound sources are Freesound CC0 clips, downloaded by the user.
+
 ## pbakaus/impeccable
 
 - Source: https://github.com/pbakaus/impeccable (commit `778c8a7b71ccd5bfe3ca6ac68c15d9d872d0f87d`, plugin version 4.5.0)

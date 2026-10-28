@@ -1,0 +1,9 @@
+schema_version: "1.1"
+name: seepage-sheet-pile
+expected_outcome: |
+  A single working lesson page with an open book on a desk, a 3D ink-drawn sheet pile, soil block and
+  water rising off the page, a flow net and exit gradient that update with the head-difference and
+  pile-depth sliders, the exit-gradient glow following the computed value, a predict → test → prove loop
+  whose stamp rewards completing the loop (right or wrong), white paper, render-on-demand idle
+  behaviour, keyboard and reduced-motion support, and an on-page note of the model's simplifications.
+  check_lesson.py reports no errors.

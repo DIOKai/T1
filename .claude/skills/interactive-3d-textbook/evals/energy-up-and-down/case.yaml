@@ -1,0 +1,9 @@
+schema_version: "1.1"
+name: energy-up-and-down
+expected_outcome: |
+  A single working lesson page (served over a local server) with an open book on a desk, a 3D ink-drawn
+  track and ball rising off the page, glowing energy stores whose glow follows the computed energies,
+  a predict (3–4 misconception-based options, locked before testing) → test → prove (flap reusing the
+  student's own numbers) loop, a stamp awarded for completing the loop even when the prediction was
+  wrong, white paper, render-on-demand idle behaviour, keyboard and reduced-motion support, and an
+  on-page note of what the model ignores. check_lesson.py reports no errors.

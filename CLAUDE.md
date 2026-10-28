@@ -83,6 +83,8 @@ Blender 技能（retopology、lod-pipeline、asset-optimization、uv-workflow、
 
 做浏览器里的 3D 画面（伺服器官网 3D 展示、3D loading screen、网页上预览车或地图）时，先问要不要用 `threejs-web`，由它挑最少需要的几个 `threejs-*` 技能，不要一次全用。基础 20 个（`threejs-scene`、`threejs-materials`、`threejs-performance` 等）照项目原本的 Three.js 版本；城市和特效 20 个（`threejs-procedural-buildings-and-cities`、`threejs-water-optics`、`threejs-volumetric-clouds`、`threejs-rain-snow-and-wet-surfaces` 等）写的是 Three.js r185 的 WebGPU/TSL，不要为了用它就升级用户项目的 Three.js。`threejs-compatibility-fallbacks` 只在用户要求、而且确认 WebGPU 不能用时才用。FiveM NUI 跑在游戏内浏览器，3D 很吃帧，WebGPU 在里面能不能用还没验证，要先测；loading screen 的 3D 背景保持轻量。
 
+做像 Every Joule 那样的互动 3D 课本、立体书式的教学页（打开的书、图从书页立起来的墨线 3D 图、发光表示物理量、「预测 → 实验 → 证明」加翻页解释和印章），先问要不要用 `interactive-3d-textbook`。它写的是 Three.js r170 WebGL + pmndrs postprocessing，不要混用上面那 20 个 r185 WebGPU/TSL 技能；它的 `check_lesson.py` 是本地只读检查，用户同意用这个技能后可以直接跑。印章奖励的是走完整个流程，不只奖励答对；物理以外的科目（土木、化学等）要另外找该科目学生常见的错误观念来出预测选项。
+
 ## 建筑 3D、看房和建筑动画（2026-10-22 加的，都要先问）
 
 照平面图、房源照片或参考图把房子、公寓、别墅做成 Blender 模型，用 `floorplan-to-blender`：先读尺寸写成 layout.json，用它的 `validate_layout.py` 检查（本地只读，用户同意用这个技能后可以直接跑），再经 `blender` MCP 建模。要 BIM/IFC 图纸时同一份 JSON 交给 `bonsai-*` 技能；要进 FiveM 以 `fivem-mlo-housing` 为主。之后按用途选：
