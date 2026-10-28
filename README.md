@@ -16,7 +16,7 @@
 
 `anthropics/knowledge-work-plugins` 和 `phuryn/pm-skills` 只登记了市场，没有默认启用，原因见下。要用时 `claude plugin install <插件>@<市场>`。
 
-## 直接放进仓库的技能（270 个，`.claude/skills/`）
+## 直接放进仓库的技能（269 个，`.claude/skills/`）
 
 - **FiveM**：`fivem-pro`（[leminhhuy113/fivem-pro](https://github.com/leminhhuy113/fivem-pro)，MIT）讲开发、性能优化，以及用 Sollumz + CodeWalker 做地图/MLO；`fivem-security-audit`（[matiaspalmac/fivem-audit-skill](https://github.com/matiaspalmac/fivem-audit-skill)，MIT）查后门、漏洞、性能问题
 - **FiveM ox 系列和 NUI**：oxlib、oxmysql、ox-inventory、ox-target（[germanfndez/fiveai-skills](https://github.com/germanfndez/fiveai-skills)，MIT）；fivem-react-nui（[proelias7/fivem-skill](https://github.com/proelias7/fivem-skill)，MIT），用 React + TypeScript + Vite + Tailwind 做 NUI
@@ -51,7 +51,7 @@
 - 20 个 Cowork 技能，来自 [EAIconsulting/cowork-skills-library](https://github.com/EAIconsulting/cowork-skills-library)（MIT）
 - 12 个通用技能，来自 [ComposioHQ/awesome-claude-skills](https://github.com/ComposioHQ/awesome-claude-skills)（Apache-2.0）：changelog-generator、competitive-ads-extractor、content-research-writer、domain-name-brainstormer、file-organizer、image-enhancer、invoice-organizer、lead-research-assistant、meeting-insights-analyzer、raffle-winner-picker、tailored-resume-generator、video-downloader
 
-- 2026-10-16 到 10-18 其他对话加的 126 个技能（FiveM 素材制作和验收、音频、Blender 角色细节、土木和 Bonsai BIM、手机 App 开发、40 个 Three.js 网页 3D、15 个版式/SVG/动效设计技能，其中 10 个来源没写授权，只给自己用），每批的来源、授权和检查记录见 [docs/skill-batches/](docs/skill-batches/) 和根目录的 `APP_SKILLS_*` 文件；什么情况用哪个写在 CLAUDE.md
+- 2026-10-16 到 10-27 其他对话加的 141 个技能（FiveM 素材制作和验收、音频、Blender 角色细节、土木和 Bonsai BIM、手机 App 开发、40 个 Three.js 网页 3D、15 个版式/SVG/动效设计技能（其中 10 个来源没写授权，只给自己用）、15 个建筑 3D/看房/Autodesk/网站/AI 短剧技能），每批的来源、授权和检查记录见 [docs/skill-batches/](docs/skill-batches/) 和根目录的 `APP_SKILLS_*` 文件；什么情况用哪个写在 CLAUDE.md
 
 来源与许可证见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
 
@@ -177,12 +177,13 @@ python scripts/install_local.py --all             # 技能 + 规则 + 插件 + M
 ```
 
 它会做这些事：
-- 把 253 个技能链接到 `~/.claude/skills/`。用的是链接不是复制，以后在 T1 里 `git pull`，技能就跟着更新；你自己建的同名技能不会被覆盖
+- 把 268 个技能链接到 `~/.claude/skills/`。用的是链接不是复制，以后在 T1 里 `git pull`，技能就跟着更新；你自己建的同名技能不会被覆盖
 - 在 `~/.claude/CLAUDE.md` 加一段，导入 T1 的 `CLAUDE.md`（它再导入 `LESSONS.md`），所以在哪个文件夹都用同一套规则，包括"用技能前一律先问"。原来的 CLAUDE.md 会先备份成 `CLAUDE.md.bak`
 - `--plugins`：用 `claude` 命令把 21 个插件装到用户范围
 - `--mcp`：把 blender、fivem、freecad、ifc 四个 MCP 加到用户范围（要先装 uv 和 Node.js）
 - `--remotion`：装 Remotion 的 12 个做视频技能（要先装 Node.js）
 - `.claude/agents/` 里的子代理（impeccable 的 4 个）也会一起链接到 `~/.claude/agents/`
+- 同样的技能也链接到 `~/.codex/skills/`，并在 `~/.codex/AGENTS.md` 加一段，叫本机 Codex 先读 T1 的 `AGENTS.md`、`CLAUDE.md`、`LESSONS.md`；你原本写在里面的内容会保留。不要 Codex 这部分就加 `--no-codex`
 
 只加 `--plugins` 或 `--mcp` 就只装那一部分，不加就只装技能和规则。`git pull` 之后再跑一次就会加上新技能、移除已删掉的技能。`--uninstall` 会移除链接和那段规则。Windows 不用管理员权限，链接做不了时会自动改用 junction。需要 Python 3（技能自带的检查脚本本来也要用）。
 
@@ -191,8 +192,8 @@ python scripts/install_local.py --all             # 技能 + 规则 + 插件 + M
 Codex 不读 `CLAUDE.md` 和 `.claude/skills/`，它读 `AGENTS.md` 和 `.agents/skills/`。所以：
 
 - `AGENTS.md` 让 Codex 先读 `CLAUDE.md` 和 `LESSONS.md`，两边用同一套规则和同一份纠正记录。
-- `.agents/skills` 是指向 `.claude/skills` 的链接（symlink），253 个技能两边共用，不会有两份内容不同步。
-- 插件（superpowers、muto-atlas 等）和 MCP 是 Claude Code 专用的，Codex 里没有。
+- `.agents/skills` 是指向 `.claude/skills` 的链接（symlink），268 个技能两边共用，不会有两份内容不同步。
+- 插件（superpowers、muto-atlas 等）是 Claude Code 专用的，Codex 里没有。MCP（blender、fivem、freecad、ifc）在 Codex 里装了才能用，用之前一样要先问。
 - Windows 上 clone 时，git 默认可能把链接变成普通文本文件：用 `git clone -c core.symlinks=true …` 并开启 Windows 开发者模式。Codex 云端（Linux）不受影响。
 
 ## 刻意没启用的
