@@ -17,6 +17,7 @@
     "max_tables": 20,
     "dine_in": true,
     "takeaway": true,
+    "takeaway_preorder": false,
     "payment": { "counter": true, "duitnow_qr": true, "online": false },
     "closed_dates": [],
     "hours": {
@@ -63,7 +64,7 @@
       "options": [
         { "id": "pearl", "price": 1.5, "max": 3, "label": { "en": "Brown sugar pearls", "zh": "黑糖珍珠", "ms": "Mutiara gula perang" } },
         { "id": "jelly", "price": 1.2, "max": 3, "label": { "en": "Coconut jelly", "zh": "椰果", "ms": "Jeli kelapa" } },
-        { "id": "foam", "price": 2.5, "max": 1, "label": { "en": "Cheese foam", "zh": "芝士奶盖", "ms": "Buih keju" } }
+        { "id": "foam", "price": 2.5, "max": 1, "allergens": ["milk"], "label": { "en": "Cheese foam", "zh": "芝士奶盖", "ms": "Buih keju" } }
       ]
     }
   ],

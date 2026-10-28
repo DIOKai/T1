@@ -40,6 +40,7 @@ const ok = (name, cond, detail) => { results.push([cond ? 'PASS' : 'FAIL', name,
   // matcha + 2 pearls + foam; foam max 1, toppings max 4
   await page.click('.item:has-text("Uji Matcha")');
   const plus = (o) => page.click(`button[data-o=${o}][data-d="1"]`);
+  ok('option allergen shown (cheese foam: milk)', (await page.textContent('.multi-row:has-text("Cheese foam")')).includes('Contains: Milk'), await page.textContent('.multi-row:has-text("Cheese foam")'));
   await plus('pearl'); await plus('pearl'); await plus('foam');
   ok('foam capped at 1', await page.isDisabled('button[data-o=foam][data-d="1"]'));
   await plus('jelly');
@@ -103,7 +104,7 @@ const ok = (name, cond, detail) => { results.push([cond ? 'PASS' : 'FAIL', name,
   await page.goto(B + 'index.html?lang=zh');
   await page.waitForSelector('.item');
   ok('chinese ui', (await page.textContent('#notices')).includes('试玩模式') && (await page.getAttribute('html', 'lang')) === 'zh-Hans');
-  await page.click('.item:has-text("拿铁")');
+  await page.click('.item:has(h3:text-is("拿铁"))');
   await page.click('#addBtn');
   await page.click('#cartBtn');
   ok('pickup slots offered', (await page.$$('#pickup option')).length > 3);
@@ -118,7 +119,7 @@ const ok = (name, cond, detail) => { results.push([cond ? 'PASS' : 'FAIL', name,
 
   // DuitNow payment instructions (no QR image configured in the test)
   await page.click('#orderMore');
-  await page.click('.item:has-text("拿铁")'); await page.click('#addBtn'); await page.click('#cartBtn');
+  await page.click('.item:has(h3:text-is("拿铁"))'); await page.click('#addBtn'); await page.click('#cartBtn');
   await page.check('input[name=payment][value=duitnow_qr]', { force: true });
   await page.click('#placeBtn');
   await page.waitForSelector('#doneView:not([hidden])');
@@ -129,6 +130,8 @@ const ok = (name, cond, detail) => { results.push([cond ? 'PASS' : 'FAIL', name,
   await staff.bringToFront();
   await staff.click('[data-tab=shop]');
   for (const d of ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun']) await staff.fill('#h-' + d, d === 'mon' ? '10:00-14:00, 17:00-22:00' : '');
+  // closed today whatever the time: today is also a closed date
+  await staff.fill('#closedDates', await staff.evaluate(() => window.Pricing.localDate(new Date(), 'Asia/Kuala_Lumpur')));
   await staff.click('#shopForm button[type=submit]');
   await staff.waitForSelector('#shopSaved:has-text("Saved")');
   await page.bringToFront();
@@ -140,8 +143,13 @@ const ok = (name, cond, detail) => { results.push([cond ? 'PASS' : 'FAIL', name,
   await page.click('.item:has-text("Caffè Latte")'); await page.click('#addBtn'); await page.click('#cartBtn');
   ok('cannot place dine-in order while closed', await page.isDisabled('#placeBtn'));
   await page.keyboard.press('Escape');
+  await page.goto(B + 'index.html'); await page.waitForSelector('.item');
+  await page.click('#cartBtn');
+  ok('no takeaway pickup slots while closed', (await page.$$eval('#pickup option', (os) => os.map((o) => o.value))).join() === '' && await page.isDisabled('#placeBtn'));
+  await page.keyboard.press('Escape');
   await staff.bringToFront();
   for (const d of ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun']) await staff.fill('#h-' + d, '00:00-00:00');
+  await staff.fill('#closedDates', '');
   await staff.click('#shopForm button[type=submit]');
   await staff.waitForSelector('#shopSaved:has-text("Saved")');
 
@@ -164,6 +172,13 @@ const ok = (name, cond, detail) => { results.push([cond ? 'PASS' : 'FAIL', name,
   await staff.click('#shopForm button[type=submit]');
   await staff.waitForSelector('#shopSaved:has-text("Saved")');
 
+  // staff screen in Chinese
+  const zh = await ctx.newPage();
+  await zh.goto(B + 'staff.html?lang=zh');
+  await zh.waitForSelector('#board .col');
+  ok('staff screen in Chinese', (await zh.textContent('[data-tab=orders]')) === '订单' && (await zh.textContent('#board')).includes('新订单') && (await zh.getAttribute('html', 'lang')) === 'zh-Hans', await zh.textContent('#board'));
+  await zh.close();
+
   // pause orders
   await staff.bringToFront();
   await staff.uncheck('#accepting');
@@ -178,7 +193,7 @@ const ok = (name, cond, detail) => { results.push([cond ? 'PASS' : 'FAIL', name,
   await staff.click('[data-tab=qr]');
   await staff.click('#makeQr');
   ok('21 QR cards (takeaway + 20 tables)', (await staff.$$('.qr-card svg')).length === 21);
-  ok('table QR url', (await staff.$eval('.qr-card:nth-child(3) svg title', (n) => n.textContent)) === 'Table 2');
+  ok('QR card title in all shop languages', (await staff.$eval('.qr-card:nth-child(3) svg title', (n) => n.textContent)) === 'Table 2 · 2 号桌 · Meja 2', await staff.$eval('.qr-card:nth-child(3) svg title', (n) => n.textContent));
   await staff.screenshot({ path: SHOTS + '/08-qr.png' });
 
   // layout: no sideways scroll at 320px, and dark mode

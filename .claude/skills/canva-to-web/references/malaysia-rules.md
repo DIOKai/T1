@@ -20,7 +20,7 @@ Not legal or tax advice. These are the points that change what the site shows or
 
 ## Allergens
 - Labelling rules in the Food Regulations 1985 cover **pre-packed** food; listing allergens on a café menu is good practice rather than a clear legal duty (未验证). If shown, they must be right: the sample menu's allergens are examples — the owner checks every item against supplier labels (milk, soy in chocolate/syrups, nuts in toppings, gluten in cookie crumbs).
-- The template shows "Contains: …" per item from `allergens` and vegetarian/vegan from `dietary`. It does not merge allergens from chosen options; put an option's allergen on the item if it can contain it.
+- The template shows "Contains: …" per item from `allergens`, vegetarian/vegan from `dietary`, and an option's own `allergens` next to that option (cheese foam → "Contains: Milk"). Put an allergen on the item only if the drink itself contains it, not because an optional topping does.
 
 ## Personal data (PDPA 2010, amended 2024)
 - Collect only what the order needs: name, phone (required for takeaway), note. The checkout has an unticked consent box linked to `privacy.html`.

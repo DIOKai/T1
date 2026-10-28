@@ -125,6 +125,7 @@ legend .muted { font-weight: 400; }
 .seg input:checked + span { background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
 .seg input:focus-visible + span { outline: 3px solid var(--accent); outline-offset: 2px; }
 .seg input:disabled + span { opacity: .45; text-decoration: line-through; }
+.opt-allergen { font-size: .85em; opacity: .8; }
 .multi-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 4px 0; }
 .stepper { display: inline-flex; align-items: center; gap: 4px; }
 .stepper output { min-width: 28px; text-align: center; font-weight: 650; }

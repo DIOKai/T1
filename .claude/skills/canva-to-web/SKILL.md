@@ -12,13 +12,13 @@ A menu design becomes **data** (`menu.json`), and a tested site is built around 
 | File | Role |
 |---|---|
 | `index.html`, `app.js` | customer page: table (`?t=12`) or takeaway, Popular row, categories, options sheet, cart, checkout, live order status |
-| `staff.html`, `staff.js` | staff screen: order board with beep, status / paid / cancel, prices, sold out, hours, closed dates, charges, pause switch, printable table QR codes |
+| `staff.html`, `staff.js`, `staff-i18n.js` | staff screen in 中文 / English / BM: order board with beep, status / paid / cancel, prices, sold out, hours, closed dates, charges, pause switch, printable table QR codes (card titles in every shop language) |
 | `supabase/schema.sql` | tables, row level security, `place_order()` (recalculates every price, checks hours, sold out, options, flood limits, idempotent retries), `order_status(token)`, `purge_personal_data()` |
 | `pricing.js` | the same price / hours rules for display; proven equal to the SQL by `tests/parity.js` and `tests/hours.js` |
 | `backend.js` | Supabase REST client + localStorage demo backend, same interface |
-| `i18n.js` | all UI text in en / zh / ms (AI-written: a native speaker should read the Malay and Chinese) |
-| `tools/menu_tool.py` | `check menu.json` (prices, ids, translations, halal wording, SST registration, hours) and `sql menu.json` (seed) |
-| `supabase/functions/notify-telegram/` | free Telegram message per new order |
+| `i18n.js` | customer page text in en / zh / ms (AI-written, like `staff-i18n.js`: a native speaker should read the Malay and Chinese) |
+| `tools/menu_tool.py` | `check menu.json` (prices, ids, translations, halal wording, SST registration, hours) and `sql menu.json` (seed; a re-run keeps prices, sold out, hours and charges changed on the staff screen, `--overwrite` resets them) |
+| `supabase/functions/notify-telegram/` | free Telegram message per new order, in the language set by `MESSAGE_LANG` (`zh` for a Chinese-speaking owner) |
 | `privacy.html`, `_headers`, `robots.txt`, `config.js`, `vendor/qrcode.js` (MIT) | PDPA notice template, security headers, settings |
 
 ## Workflow
@@ -28,7 +28,7 @@ A menu design becomes **data** (`menu.json`), and a tested site is built around 
 - **No Canva:** a photo/PDF of the menu or typed text works the same.
 
 ### 2. Write `menu.json` and confirm it with the user
-Copy `menu.sample.json`. Fill shop name (3 languages), items with categories, prices in RM, option groups (single: size/sweetness/milk with a default; multi: toppings with per-item `max` and group `max_total`), allergens, dietary, featured, opening hours (`["18:00","02:00"]` runs past midnight), closed dates, payment methods.
+Copy `menu.sample.json`. Fill shop name (3 languages — ask the owner if the menu doesn't show it), items with categories, prices in RM, option groups (single: size/sweetness/milk with a default; multi: toppings with per-item `max` and group `max_total`), allergens on items **and on options** (cheese foam → milk), dietary, featured, opening hours (`["18:00","02:00"]` runs past midnight), closed dates, payment methods. `takeaway_preorder: false` (default) means no orders at all while closed, which is what "打烊时不能下单" asks for; set it true only if the owner wants takeaway booked ahead for the next opening.
 Then `python tools/menu_tool.py check menu.json` and fix every error. **Show the user the extracted names and prices** before building — stylised menu fonts are misread, and this is the cheapest moment to fix it. Mark guessed items, translations and allergens as guesses; allergens must be checked by the owner against supplier labels.
 
 ### 3. Brand it
@@ -52,7 +52,7 @@ Read `references/malaysia-rules.md` before switching any of these on:
 Free defaults: pay at counter, and the shop's static **DuitNow QR** (customer types the order number as reference; staff confirm in the bank app and tap "Mark paid" — nothing is automatic, say so). Gateways (Billplz, ToyyibPay, Stripe, dynamic QR) are **付费**: describe them only if asked, ask before wiring one, follow `references/online-payments.md` (amount from the database, signed callbacks; code there is untested).
 
 ### 8. Test before handing over
-After any change to schema, pricing or pages, run `tests/` (see `tests/README.md`): SQL security + rules, JS/SQL price parity, hours parity, demo browser flow, live-mode flow through the PostgREST mock. At minimum: `node --check *.js`, `menu_tool.py check`, open both pages with no console errors at 320 px.
+`tests/` runs against `menu.sample.json` and proves the **template** (see `tests/README.md`): SQL security + rules, JS/SQL price and hours parity, demo and live-mode browser flows, the Telegram function. Run it after changing schema, pricing or page code — keep the sample menu for that run. For the owner's real menu: `menu_tool.py check`, `node --check *.js`, open both pages with no console errors at 320 px, place one order of each kind; if you change behaviour, add a test rather than editing the sample-based ones until they pass.
 
 ## Mistakes this template already prevents (don't reintroduce them)
 | Tempting shortcut | Why it's wrong |
@@ -68,7 +68,8 @@ After any change to schema, pricing or pages, run `tests/` (see `tests/README.md
 ## Limits to tell the user
 - Tested on local Postgres 16 with Supabase-like roles and a PostgREST look-alike, **not on a live Supabase project** — run the live checklist in `backend-setup.md` §6 before printing QR codes.
 - `?t=12` table numbers can be guessed; a prank order still has to be made by staff. If it happens, add random table tokens (not built).
-- Not built: online payment, kitchen/receipt printing, reports beyond CSV export from Supabase, adding new items from the staff screen (edit `menu.json` and re-run the seed), e-invoice.
+- Staff can change prices, sold out, hours, closed dates, charges and the pause switch — nothing else (column-level grants). Names, new items, payment methods and the halal certificate are owner-only: `menu.json` + seed, or the SQL editor. There is no separate owner login on the staff screen.
+- Not built: online payment, kitchen/receipt printing, reports beyond CSV export from Supabase, adding new items from the staff screen, e-invoice, allergens that change with the chosen option in the item's chips (options show their own allergens next to the option).
 - Supabase Free pauses after about a week without activity and has no downloadable backups: export orders monthly.
 - The site is a rebuild in the design's style, not a pixel copy of the Canva poster.
 

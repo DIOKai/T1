@@ -175,6 +175,19 @@ for ts, want in (("2026-10-30 20:00+08", "f"), ("2026-10-31 01:00+08", "f")):
 admin("update settings set closed_dates = '{}', hours = '{\"mon\":[[\"00:00\",\"00:00\"]],\"tue\":[[\"00:00\",\"00:00\"]],\"wed\":[[\"00:00\",\"00:00\"]],"
       "\"thu\":[[\"00:00\",\"00:00\"]],\"fri\":[[\"00:00\",\"00:00\"]],\"sat\":[[\"00:00\",\"00:00\"]],\"sun\":[[\"00:00\",\"00:00\"]]}'")
 
+# takeaway while closed: refused unless takeaway_preorder; pickup more than 12 h ahead refused
+code, h, _ = sql("select to_char((now() at time zone 'Asia/Kuala_Lumpur') + interval '3 hours', 'HH24')")
+admin("update settings set hours = '{" + ",".join(f'"{d}":[["{h}:00","{h}:59"]]' for d in ["mon", "tue", "wed", "thu", "fri", "sat", "sun"]) + "}'")
+code, pick, _ = sql(f"select to_char(date_trunc('hour', now() + interval '3 hours') + interval '15 minutes', 'YYYY-MM-DD\"T\"HH24:MI:SSOF')")
+expect_error("takeaway refused while closed", dict(base, mode="takeaway", pickup_at=pick, phone="0122222222", lines=[{"item": "latte", "qty": 1}]), "closed")
+admin("update settings set takeaway_preorder = true")
+res, err = order(dict(base, mode="takeaway", pickup_at=pick, phone="0122222222", lines=[{"item": "latte", "qty": 1}]))
+ok("takeaway pre-order allowed when switched on", res is not None, err)
+admin("update settings set takeaway_preorder = false, hours = '{\"mon\":[[\"00:00\",\"00:00\"]],\"tue\":[[\"00:00\",\"00:00\"]],\"wed\":[[\"00:00\",\"00:00\"]],"
+      "\"thu\":[[\"00:00\",\"00:00\"]],\"fri\":[[\"00:00\",\"00:00\"]],\"sat\":[[\"00:00\",\"00:00\"]],\"sun\":[[\"00:00\",\"00:00\"]]}'")
+code, far, _ = sql("select to_char(now() + interval '13 hours', 'YYYY-MM-DD\"T\"HH24:MI:SSOF')")
+expect_error("pickup more than 12 h ahead refused", dict(base, mode="takeaway", pickup_at=far, phone="0123333333", lines=[{"item": "latte", "qty": 1}]), "bad_pickup_time")
+
 # --- staff
 staff_id, other_id = str(uuid.uuid4()), str(uuid.uuid4())
 admin(f"insert into auth.users values ('{staff_id}'), ('{other_id}'); insert into staff (user_id) values ('{staff_id}')")
@@ -193,6 +206,28 @@ ok("non-staff cannot edit menu", code == 0 and out in ("", "UPDATE 0"), out or e
 code, out, err = sql("update settings set accepting_orders = false returning accepting_orders", "authenticated", staff_id)
 ok("staff can pause orders", code == 0 and out.startswith("f"), err)
 admin("update settings set accepting_orders = true; update items set sold_out = false")
+for stmt, what in (("update settings set halal_cert = '{\"number\":\"X\",\"expires\":\"2099-01-01\"}'", "halal certificate"),
+                   ("update settings set payment = '{\"counter\":true,\"online\":true}'", "payment methods"),
+                   ("update items set name = '{\"en\":\"Free\"}' where id = 'latte'", "item names"),
+                   ("insert into items (id, category_id, name, price_sen) values ('x', 'tea', '{}', 1)", "new items")):
+    code, out, err = sql(stmt, "authenticated", staff_id)
+    ok(f"staff cannot change {what}", code != 0 and "permission denied" in err, out or err)
+code, out, err = sql("update options set price_sen = 160, sold_out = true where group_id = 'toppings' and id = 'pearl' returning id", "authenticated", staff_id)
+ok("staff can change option price / sold out", code == 0 and out.startswith("pearl"), err)
+code, out, err = sql("update settings set closed_dates = '{2026-12-25}', prep_minutes = 12 returning prep_minutes", "authenticated", staff_id)
+ok("staff can change hours-type settings", code == 0 and out.startswith("12"), err)
+
+# re-running the seed keeps what staff changed; --overwrite resets it
+import os
+site = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "assets", "order-site")
+admin("update items set price_sen = 1111, sold_out = true where id = 'latte'")
+for flag, want in (("", "1111|t|12"), ("--overwrite", "990|f|10")):
+    seed = subprocess.run(["python3", os.path.join(site, "tools", "menu_tool.py"), "sql"] + ([flag] if flag else []) +
+                          [os.path.join(site, "menu.sample.json")], capture_output=True, text=True).stdout
+    r = subprocess.run(PG + ["-q"], input=seed, capture_output=True, text=True)
+    code, out, _ = sql("select i.price_sen || '|' || case when i.sold_out then 't' else 'f' end || '|' || s.prep_minutes from items i, settings s where i.id = 'latte'")
+    ok(f"seed {flag or '(normal)'} -> {want}", r.returncode == 0 and out == want, (out, r.stderr[-300:]))
+
 code, out, err = sql("delete from orders", "authenticated", staff_id)
 ok("staff cannot delete orders", code != 0 and "permission denied" in err, out)
 

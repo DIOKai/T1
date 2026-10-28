@@ -23,7 +23,7 @@
       groups[g.id] = {
         id: g.id, label: g.label, type: g.type, required: !!g.required, default_option: g.default || null,
         max_total: g.max_total || null, sort: gi,
-        options: g.options.map((o) => ({ id: o.id, label: o.label, price_sen: P.toSen(o.price || 0), max_qty: o.max || 1, sold_out: !!o.sold_out }))
+        options: g.options.map((o) => ({ id: o.id, label: o.label, price_sen: P.toSen(o.price || 0), max_qty: o.max || 1, sold_out: !!o.sold_out, allergens: o.allergens || [] }))
       };
     });
     return {
@@ -183,6 +183,9 @@
       const s = m.settings;
       const now = new Date();
       const fail = (code) => { throw new Error(code); };
+      // same order as place_order(): a retry of an order already placed returns it before any other check
+      const earlier = p.client_ref && load().orders.find((o) => o.client_ref === p.client_ref);
+      if (earlier) return earlier;
       const name = String(p.name || '').trim();
       const phone = String(p.phone || '').replace(/[^0-9+]/g, '') || null;
       const notes = String(p.notes || '').trim() || null;
@@ -201,14 +204,13 @@
       } else if (p.mode === 'takeaway') {
         if (!s.takeaway) fail('mode_not_allowed');
         if (!phone) fail('phone_required');
+        if (!s.takeaway_preorder && !P.isOpen(s, now)) fail('closed');
         pickup = p.pickup_at ? new Date(p.pickup_at) : null;
         if (!pickup || isNaN(pickup) || pickup < new Date(now.getTime() + (s.prep_minutes - 2) * 60000) ||
             pickup > new Date(now.getTime() + 24 * 3600000) || !P.isOpen(s, pickup)) fail('bad_pickup_time');
       } else fail('bad_mode');
 
       const db = load();
-      const again = p.client_ref && db.orders.find((o) => o.client_ref === p.client_ref);
-      if (again) return again;
       if (phone && db.orders.filter((o) => o.phone === phone && now - new Date(o.created_at) < 600000).length >= 5) fail('too_many_orders');
       if (!Array.isArray(p.lines) || p.lines.length < 1 || p.lines.length > 30) fail('bad_lines');
 

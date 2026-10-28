@@ -6,7 +6,7 @@ Everything here is on free plans. Dashboard menu names change often: if a name b
 1. Sign up at supabase.com, create a project on the Free plan, region **Southeast Asia (Singapore)** for Malaysian customers.
 2. Free plan facts to tell the owner (from Supabase pricing/docs, check the current page): 500 MB database, 2 active projects, **the project pauses after about a week with no activity** (it's restarted from the dashboard), and no downloadable daily backups on Free. A shop that takes orders every day stays active; still export the `orders` table to CSV monthly (Table Editor → orders → Export).
 3. **SQL Editor** → paste and run `supabase/schema.sql` once.
-4. Load the menu: `python tools/menu_tool.py check menu.json` (fix every error), then `python tools/menu_tool.py sql menu.json > seed.sql`, paste `seed.sql` into the SQL Editor and run. Re-running is safe (upserts); it does not delete items — hide one with `update items set active = false where id = '...'`.
+4. Load the menu: `python tools/menu_tool.py check menu.json` (fix every error), then `python tools/menu_tool.py sql menu.json > seed.sql`, paste `seed.sql` into the SQL Editor and run. Re-running later adds new items and updates names, options, photos and owner settings, but **keeps prices, sold-out marks, hours, closed dates and charges that staff changed** on the staff screen. `sql --overwrite` resets those from `menu.json` too — use it only on purpose. It never deletes items: hide one with `update items set active = false where id = '...'` (or `"active": false` in `menu.json`).
 5. **Project Settings → API Keys**: copy the project URL and the **publishable** key (`sb_publishable_...`; older projects show a legacy `anon` key, which also works) into `config.js`. Never put the **secret / service_role** key in any file the browser loads: it bypasses all row level security.
 
 What the schema guarantees (tested in `tests/test_sql.py`): the public key can read the menu, call `place_order()` and `order_status(token)`, nothing else. Prices are always recalculated in the database, so a customer editing the page can't change what they pay.
@@ -22,7 +22,8 @@ What the schema guarantees (tested in `tests/test_sql.py`): the public key can r
    Remove someone: `delete from public.staff where user_id = (select id from auth.users where email = '...');` then delete the user.
 4. Staff sign in at `/staff.html`. The page refreshes every `pollSeconds` (8 s), beeps on new orders once "Sound on" is tapped (browsers block sound until a tap) and keeps the screen awake where the browser supports it.
 
-Staff can change an order's status, payment status and note, mark items/options sold out, edit prices, hours, closed dates, charges and the pause switch. They cannot change an order's amounts or delete orders. If the owner wants staff who can't edit prices, add an `owner` flag to `staff` and tighten the `staff_edit` policies (not done in the template).
+Staff can change an order's status, payment status and note, mark items/options sold out, edit prices, hours, closed dates, charges and the pause switch. The database enforces this with column-level grants, so a staff login can't do more through the API either: no changing amounts, deleting orders, renaming items, adding items, switching payment methods or setting the halal certificate (owner: SQL editor or `menu_tool.py`). If the owner wants staff who can't edit prices, add an `owner` flag to `staff` and tighten the `staff_edit` policies (not done in the template).
+The staff screen follows `?lang=zh|en|ms`, then the last language chosen on that device, then the browser language.
 
 ## 3. Telegram alerts for new orders (free, optional)
 1. In Telegram, talk to **@BotFather** → `/newbot` → copy the token (**owner**; it's a secret).
@@ -31,13 +32,13 @@ Staff can change an order's status, payment status and note, mark items/options 
    ```bash
    npx supabase login
    npx supabase link --project-ref <ref>
-   npx supabase secrets set TELEGRAM_BOT_TOKEN=... TELEGRAM_CHAT_ID=... WEBHOOK_SECRET=$(openssl rand -hex 24)
+   npx supabase secrets set TELEGRAM_BOT_TOKEN=... TELEGRAM_CHAT_ID=... WEBHOOK_SECRET=$(openssl rand -hex 24) MESSAGE_LANG=zh
    npx supabase functions deploy notify-telegram --no-verify-jwt
    ```
-   or in the dashboard (**Edge Functions → Deploy a new function → via editor**, paste `supabase/functions/notify-telegram/index.ts`, add the three secrets, turn JWT verification off for this function). `--no-verify-jwt` is safe here because the function checks `x-webhook-secret` itself.
+   or in the dashboard (**Edge Functions → Deploy a new function → via editor**, paste `supabase/functions/notify-telegram/index.ts`, add the secrets, turn JWT verification off for this function). `MESSAGE_LANG` is `en` (default), `zh` or `ms`; item names follow it when the menu has them. `--no-verify-jwt` is safe here because the function checks `x-webhook-secret` itself.
 4. **Database → Webhooks → Create**: table `public.orders`, event **Insert**, type HTTP request, POST to `https://<ref>.supabase.co/functions/v1/notify-telegram`, add header `x-webhook-secret: <same secret>`.
 5. Place a test order and check the message arrives. If not: **Edge Functions → notify-telegram → Logs**.
-The message leaves out the phone number (Telegram is a third party; share the minimum). Plain text only, so customer-typed names can't inject links. The function code was type-checked by eye and is **未测试** against real Telegram; test it before relying on it.
+The message leaves out the phone number (Telegram is a third party; share the minimum). Plain text only, so customer-typed names can't inject links. `tests/telegram.mjs` runs the function with a fake Deno and fetch (secret check, text in three languages, no phone); it has **not** been run against real Telegram or Supabase — test with one real order before relying on it.
 
 ## 4. PDPA clean-up (optional, free)
 `purge_personal_data(days)` blanks names, phones and notes on orders older than `days` and keeps amounts for the books. Schedule it: **Integrations → Cron** (enable pg_cron), then

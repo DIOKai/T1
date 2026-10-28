@@ -199,6 +199,8 @@
   }
 
   function priceTag(sen) { return sen ? ' +' + money(sen) : ''; }
+  const allergenTag = (o) => (o.allergens || []).length > 0 &&
+    el('span', { class: 'opt-allergen' }, ' · ' + t('contains') + ': ' + o.allergens.map((a) => t('allergen_' + a)).join(', '));
 
   function groupField(g) {
     if (g.type === 'single') {
@@ -206,11 +208,11 @@
         el('div', { class: 'seg' }, g.options.map((o) => el('label', {},
           el('input', { type: 'radio', name: g.id, value: o.id, checked: o.id === g.default_option, disabled: o.sold_out,
             onchange: () => { editing.options[g.id] = o.id; updateItemSheet(); } }),
-          el('span', {}, L(o.label), el('span', { class: 'num' }, priceTag(o.price_sen)), o.sold_out && ' · ' + t('sold_out'))))));
+          el('span', {}, L(o.label), el('span', { class: 'num' }, priceTag(o.price_sen)), allergenTag(o), o.sold_out && ' · ' + t('sold_out'))))));
     }
     return el('fieldset', {}, el('legend', {}, L(g.label), g.max_total && el('span', { class: 'muted' }, t('up_to', { n: g.max_total }))),
       g.options.map((o) => el('div', { class: 'multi-row' },
-        el('span', {}, L(o.label), el('span', { class: 'muted num' }, priceTag(o.price_sen)), o.sold_out && ' · ' + t('sold_out')),
+        el('span', {}, L(o.label), el('span', { class: 'muted num' }, priceTag(o.price_sen)), allergenTag(o), o.sold_out && ' · ' + t('sold_out')),
         el('div', { class: 'stepper' },
           el('button', { type: 'button', 'data-g': g.id, 'data-o': o.id, 'data-d': '-1', 'aria-label': t('decrease', { x: L(o.label) }), onclick: stepOption }, '−'),
           el('output', { id: `o-${g.id}-${o.id}`, 'aria-live': 'polite' }, '0'),

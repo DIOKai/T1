@@ -13,7 +13,7 @@ The template's free defaults are **pay at the counter** and the shop's **static 
 ## How to wire one in safely (pattern; the code is **未测试**)
 The rule: **the amount always comes from the database, never from the browser**, and an order becomes `paid` only from the gateway's signed callback.
 
-1. Turn on `payment.online = true` in settings (staff can't; owner runs SQL) — the customer page shows "Pay online" only when `window.startOnlinePayment` exists as well.
+1. Turn on `payment.online = true` in settings (owner, in the SQL editor: staff logins have no grant on `payment`) — the customer page shows "Pay online" only when `window.startOnlinePayment` exists as well.
 2. Edge Function `create-payment` (POST `{token}`): look up the order by `token` with the service role key, refuse if not `unpaid`, create a bill/checkout session at the gateway for `total_sen` with your order id as reference, return the gateway URL.
 3. In the page, define the hook (e.g. in a small `payment.js` loaded after `app.js`):
    ```js

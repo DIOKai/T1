@@ -86,8 +86,10 @@
     return false;
   }
 
-  /** Pickup slots from now + prep time, on the slot grid, while open, for the next 12 hours (max 40). */
+  /** Pickup slots from now + prep time, on the slot grid, while open, for the next 12 hours (max 40).
+      Unless takeaway_preorder is on, there are none while the shop is closed (same rule as place_order). */
   function pickupSlots(settings, now) {
+    if (!settings.takeaway_preorder && !isOpen(settings, now)) return [];
     const step = settings.slot_minutes * 60000;
     const start = Math.ceil((now.getTime() + settings.prep_minutes * 60000) / step) * step;
     const slots = [];

@@ -29,6 +29,7 @@ create table public.settings (
   max_tables int not null default 20 check (max_tables between 0 and 500),
   dine_in boolean not null default true,
   takeaway boolean not null default true,
+  takeaway_preorder boolean not null default false,  -- true: takeaway can be ordered while closed for a pickup in the next opening
   payment jsonb not null default '{"counter": true, "duitnow_qr": true, "online": false}',
   hours jsonb not null,                      -- {"mon": [["10:00","22:00"]], ..., "sun": []}; close <= open means past midnight
   closed_dates date[] not null default '{}', -- public holidays and other days off, in shop-local dates
@@ -58,6 +59,7 @@ create table public.options (
   label jsonb not null,
   price_sen int not null default 0 check (price_sen between 0 and 100000),
   max_qty int not null default 1 check (max_qty between 1 and 20),
+  allergens text[] not null default '{}',    -- e.g. cheese foam: {milk}; shown next to the option
   sold_out boolean not null default false,
   sort int not null default 0,
   primary key (group_id, id)
@@ -247,9 +249,10 @@ begin
     if not s.takeaway then raise exception 'mode_not_allowed'; end if;
     if v_phone is null then raise exception 'phone_required'; end if;
     v_pickup := (p ->> 'pickup_at')::timestamptz;
+    if not s.takeaway_preorder and not public.shop_is_open(now_ts) then raise exception 'closed'; end if;
     if v_pickup is null
        or v_pickup < now_ts + make_interval(mins => s.prep_minutes) - interval '2 minutes'
-       or v_pickup > now_ts + interval '24 hours'
+       or v_pickup > now_ts + interval '12 hours'
        or not public.shop_is_open(v_pickup) then
       raise exception 'bad_pickup_time';
     end if;
@@ -376,16 +379,14 @@ create policy menu_read on public.options for select to anon, authenticated usin
 create policy menu_read on public.items for select to anon, authenticated using (active or public.is_staff());
 create policy menu_read on public.item_groups for select to anon, authenticated using (true);
 
--- staff edit the menu (no deletes: hide items with active = false)
-grant update on public.settings, public.categories, public.option_groups, public.options, public.items to authenticated;
-grant insert on public.categories, public.option_groups, public.options, public.items, public.item_groups to authenticated;
-grant delete on public.item_groups to authenticated;
+-- staff change only what the staff screen edits: prices, sold out, hours, charges, the pause switch.
+-- Names, items, option groups, payment methods and the halal certificate are owner-only (SQL editor / menu_tool.py).
+grant update (price_sen, sold_out) on public.items, public.options to authenticated;
+grant update (hours, closed_dates, accepting_orders, service_charge_rate, service_charge_takeaway, sst_rate, sst_reg_no,
+              sst_on_service_charge, round_cash_to_5sen, prep_minutes, slot_minutes) on public.settings to authenticated;
 create policy staff_edit on public.settings for update to authenticated using (public.is_staff()) with check (public.is_staff());
-create policy staff_edit on public.categories for all to authenticated using (public.is_staff()) with check (public.is_staff());
-create policy staff_edit on public.option_groups for all to authenticated using (public.is_staff()) with check (public.is_staff());
-create policy staff_edit on public.options for all to authenticated using (public.is_staff()) with check (public.is_staff());
-create policy staff_edit on public.items for all to authenticated using (public.is_staff()) with check (public.is_staff());
-create policy staff_edit on public.item_groups for all to authenticated using (public.is_staff()) with check (public.is_staff());
+create policy staff_edit on public.options for update to authenticated using (public.is_staff()) with check (public.is_staff());
+create policy staff_edit on public.items for update to authenticated using (public.is_staff()) with check (public.is_staff());
 
 -- staff see and move orders; only status, payment and a note can change
 grant select on public.orders to authenticated;
