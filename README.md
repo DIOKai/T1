@@ -16,7 +16,7 @@
 
 `anthropics/knowledge-work-plugins` 和 `phuryn/pm-skills` 只登记了市场，没有默认启用，原因见下。要用时 `claude plugin install <插件>@<市场>`。
 
-## 直接放进仓库的技能（268 个，`.claude/skills/`）
+## 直接放进仓库的技能（269 个，`.claude/skills/`）
 
 - **FiveM**：`fivem-pro`（[leminhhuy113/fivem-pro](https://github.com/leminhhuy113/fivem-pro)，MIT）讲开发、性能优化，以及用 Sollumz + CodeWalker 做地图/MLO；`fivem-security-audit`（[matiaspalmac/fivem-audit-skill](https://github.com/matiaspalmac/fivem-audit-skill)，MIT）查后门、漏洞、性能问题
 - **FiveM ox 系列和 NUI**：oxlib、oxmysql、ox-inventory、ox-target（[germanfndez/fiveai-skills](https://github.com/germanfndez/fiveai-skills)，MIT）；fivem-react-nui（[proelias7/fivem-skill](https://github.com/proelias7/fivem-skill)，MIT），用 React + TypeScript + Vite + Tailwind 做 NUI
@@ -46,6 +46,7 @@
 - **动画**：motion-design（[LobzyJay/motion-design-with-claude](https://github.com/LobzyJay/motion-design-with-claude)，MIT）——12 条动画原则、时间和间距、缓动；blender-animation-rigging（[ra100/blender-claude-plugin](https://github.com/ra100/blender-claude-plugin)，MIT）——Blender 5.x 关键帧、曲线编辑器、NLA、驱动器、约束、IK/FK、形态键
 - **游戏设计**：game-balance-economy、game-interface-feedback（[LVTD-LLC/skills](https://github.com/LVTD-LLC/skills)，MIT）——经济与数值平衡（工作收入、抢劫奖励、声望曲线）、界面反馈和小游戏手感
 - **Blender 建模 / 模型优化 / 动作**：从 [arjun988/blender-skills](https://github.com/arjun988/blender-skills)（MIT）挑了 11 个：retopology、lod-pipeline、asset-optimization、uv-workflow、rigging、animation、export-pipeline，以及做车用的 vehicle-artist、hard-surface、collision-proxy、texture-workflow。需要下面的 Blender MCP
+- **互动 3D 课本**：`interactive-3d-textbook`（本仓库自己写的）——做像 Every Joule 那样的网页课本：书桌上打开的书、图从书页立起来变成墨线风格的 3D 物件、物理量用发光颜色表示，每课是「预测 → 实验 → 证明」，翻开小页看用学生自己数字算的解释，走完流程盖印章。用 Three.js r170（WebGL）+ pmndrs postprocessing，附手机性能做法、无障碍要求和本地只读检查脚本 `check_lesson.py`；教学设计参考 POE（预测-观察-解释）和 PhET 的研究
 
 - 20 个 Cowork 技能，来自 [EAIconsulting/cowork-skills-library](https://github.com/EAIconsulting/cowork-skills-library)（MIT）
 - 12 个通用技能，来自 [ComposioHQ/awesome-claude-skills](https://github.com/ComposioHQ/awesome-claude-skills)（Apache-2.0）：changelog-generator、competitive-ads-extractor、content-research-writer、domain-name-brainstormer、file-organizer、image-enhancer、invoice-organizer、lead-research-assistant、meeting-insights-analyzer、raffle-winner-picker、tailored-resume-generator、video-downloader
