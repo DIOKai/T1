@@ -1,0 +1,10 @@
+# Cloudflare Pages / Netlify security headers. Replace YOUR-PROJECT with your Supabase project ref.
+/*
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://YOUR-PROJECT.supabase.co; frame-ancestors 'none'; base-uri 'self'; form-action 'self'
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+
+/staff.html
+  X-Robots-Tag: noindex
+  Cache-Control: no-store

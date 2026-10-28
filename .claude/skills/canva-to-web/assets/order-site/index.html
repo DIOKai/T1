@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f7f1ea">
+<title>Order</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div>
+      <h1 id="shopName">…</h1>
+      <p class="tagline" id="tagline"></p>
+      <p class="pill" id="modePill" hidden></p>
+    </div>
+    <nav class="lang" id="langs" aria-label="Language"></nav>
+  </header>
+  <div id="notices" aria-live="polite"></div>
+
+  <main id="menuView">
+    <section id="featuredWrap" hidden>
+      <h2 class="sr-only" id="featuredTitle"></h2>
+      <div class="featured" id="featured" role="list"></div>
+    </section>
+    <nav class="tabs" id="tabs" aria-label="Menu"></nav>
+    <div id="sections"></div>
+    <div class="spacer"></div>
+  </main>
+
+  <main id="doneView" hidden>
+    <div class="done">
+      <svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="44"/><path d="M30 52 l14 14 l26 -30"/></svg>
+      <h2 id="doneTitle" tabindex="-1"></h2>
+      <p class="muted" id="orderNoLabel"></p>
+      <p class="order-no num" id="orderNo"></p>
+      <p id="doneWhere"></p>
+      <ol class="steps" id="steps" aria-live="polite"></ol>
+      <div class="pay-box" id="payBox"></div>
+      <p class="muted" id="autoUpdate"></p>
+      <p style="margin-top:16px"><button class="primary" id="orderMore"></button></p>
+    </div>
+  </main>
+</div>
+
+<div class="bar" id="bar" hidden>
+  <button class="primary" id="cartBtn"><span id="cartCount"></span><span id="cartTotal" class="num"></span></button>
+</div>
+
+<dialog id="itemSheet" aria-labelledby="itemTitle">
+  <div class="sheet-head"><h2 id="itemTitle"></h2><button class="icon ghost" data-close aria-label="Close">✕</button></div>
+  <div class="sheet-body">
+    <p class="muted" id="itemDesc"></p>
+    <div class="chips" id="itemChips"></div>
+    <form id="itemForm" style="margin-top:16px"></form>
+  </div>
+  <div class="sheet-foot">
+    <div class="stepper"><button type="button" id="qMinus">−</button><output id="qty" aria-live="polite">1</output><button type="button" id="qPlus">+</button></div>
+    <button class="primary" id="addBtn"></button>
+  </div>
+</dialog>
+
+<dialog id="cartSheet" aria-labelledby="cartTitle">
+  <div class="sheet-head"><h2 id="cartTitle"></h2><button class="icon ghost" data-close aria-label="Close">✕</button></div>
+  <div class="sheet-body">
+    <ul class="lines" id="lines"></ul>
+    <p class="muted" id="emptyCart"></p>
+    <dl class="sum num" id="sum"></dl>
+    <form id="checkout" novalidate>
+      <fieldset id="modeSet" hidden><legend id="modeLegend"></legend><div class="seg" id="modeSeg"></div></fieldset>
+      <label class="field" id="pickupField" hidden><span id="pickupLabel"></span><select id="pickup" name="pickup"></select></label>
+      <label class="field"><span id="nameLabel"></span><input type="text" id="name" name="name" maxlength="60" autocomplete="given-name" required></label>
+      <label class="field"><span id="phoneLabel"></span><input type="tel" id="phone" name="phone" maxlength="20" autocomplete="tel" inputmode="tel"><span class="muted" id="phoneHint"></span></label>
+      <label class="field"><span id="notesLabel"></span><textarea id="notes" name="notes" maxlength="200"></textarea></label>
+      <fieldset><legend id="payLegend"></legend><div class="seg" id="paySeg"></div></fieldset>
+      <label class="check"><input type="checkbox" id="consent" required><span id="consentText"></span></label>
+      <p class="alert" id="checkoutError" role="alert"></p>
+    </form>
+  </div>
+  <div class="sheet-foot"><button class="primary" id="placeBtn" form="checkout" type="submit"></button></div>
+</dialog>
+
+<script src="config.js"></script>
+<script src="i18n.js"></script>
+<script src="pricing.js"></script>
+<script src="backend.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

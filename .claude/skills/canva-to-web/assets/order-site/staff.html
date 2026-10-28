@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Staff · Orders</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  .wrap { max-width: 1200px; }
+  .staff-top { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; justify-content: space-between; padding: 16px 0; }
+  .tabs-s { display: flex; gap: 6px; flex-wrap: wrap; }
+  .tabs-s button[aria-selected=true] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+  .board { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; align-items: start; }
+  .col h2 { font-size: 1rem; margin: 0 0 8px; display: flex; justify-content: space-between; }
+  .ticket { background: var(--surface); border-radius: var(--radius); padding: 12px; margin-bottom: 10px; box-shadow: var(--shadow); }
+  .ticket header { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+  .ticket .no { font-size: 1.5rem; font-weight: 800; }
+  .ticket ul { margin: 8px 0; padding-left: 18px; }
+  .ticket .acts { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+  .ticket.fresh { outline: 3px solid var(--warn); }
+  .tag { font-size: .8rem; padding: 2px 8px; border-radius: 999px; background: var(--surface-2); }
+  .tag.unpaid { background: var(--warn); color: #fff; }
+  .tag.paid { background: var(--ok); color: #fff; }
+  table { width: 100%; border-collapse: collapse; }
+  th, td { text-align: left; padding: 8px; border-bottom: 1px solid var(--line); vertical-align: middle; }
+  td input[type=number] { max-width: 110px; }
+  .switch { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; }
+  .switch input { width: 22px; height: 22px; }
+  .qr-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px; }
+  .qr-card { background: #fff; color: #000; border-radius: 12px; padding: 12px; text-align: center; break-inside: avoid; }
+  .qr-card svg { width: 100%; height: auto; }
+  .login { max-width: 360px; margin: 10vh auto; }
+  @media print {
+    body { background: #fff; }
+    .staff-top, .noprint, .notice { display: none !important; }
+    .qr-grid { grid-template-columns: repeat(3, 1fr); }
+    .qr-card { border: 1px solid #000; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <form class="login" id="login" hidden>
+    <h1 style="margin-bottom:16px">Staff sign-in</h1>
+    <label class="field">Email<input type="email" id="email" autocomplete="username" required></label>
+    <label class="field">Password<input type="password" id="password" autocomplete="current-password" required></label>
+    <p class="alert" id="loginError" role="alert"></p>
+    <button class="primary" type="submit" style="width:100%">Sign in</button>
+  </form>
+
+  <div id="app" hidden>
+    <div class="staff-top">
+      <div class="tabs-s" role="tablist">
+        <button role="tab" aria-selected="true" data-tab="orders">Orders</button>
+        <button role="tab" aria-selected="false" data-tab="menu">Menu</button>
+        <button role="tab" aria-selected="false" data-tab="shop">Shop</button>
+        <button role="tab" aria-selected="false" data-tab="qr">Table QR</button>
+      </div>
+      <div style="display:flex;gap:8px;align-items:center">
+        <label class="switch"><input type="checkbox" id="accepting"> Taking online orders</label>
+        <button id="sound" aria-pressed="false">🔔 Sound off</button>
+        <button id="signOut">Sign out</button>
+      </div>
+    </div>
+    <div id="notices" aria-live="polite"></div>
+
+    <section data-panel="orders">
+      <div class="board" id="board"></div>
+    </section>
+
+    <section data-panel="menu" hidden>
+      <p class="muted">Changes go live for customers at once. Prices are in RM. To add or remove items, edit menu.json and run tools/menu_tool.py sql again.</p>
+      <table><thead><tr><th>Item</th><th>Price (RM)</th><th>Sold out</th></tr></thead><tbody id="itemRows"></tbody></table>
+      <h2 style="margin:24px 0 8px;font-size:1.1rem">Options</h2>
+      <table><thead><tr><th>Option</th><th>Extra (RM)</th><th>Sold out</th></tr></thead><tbody id="optionRows"></tbody></table>
+    </section>
+
+    <section data-panel="shop" hidden>
+      <form id="shopForm" style="max-width:560px">
+        <h2 style="font-size:1.1rem;margin-bottom:8px">Opening hours</h2>
+        <p class="muted" style="margin-bottom:8px">Format 10:00-22:00. Several windows: 10:00-14:00, 17:00-22:00. Closing after midnight: 18:00-02:00. Empty = closed.</p>
+        <div id="hoursFields"></div>
+        <label class="field">Closed dates<span class="muted">Public holidays and days off, YYYY-MM-DD, separated by commas.</span><input type="text" id="closedDates" placeholder="2026-03-20, 2026-03-21"></label>
+        <h2 style="font-size:1.1rem;margin:16px 0 8px">Charges</h2>
+        <label class="field">Service charge %<input type="number" id="svc" min="0" max="20" step="0.01"></label>
+        <label class="field">SST %<span class="muted">Only if the business is registered for SST. Check the current rate and threshold on MySST.</span><input type="number" id="sst" min="0" max="20" step="0.01"></label>
+        <label class="field">SST registration number<span class="muted">Required before SST can be charged.</span><input type="text" id="sstReg" maxlength="40"></label>
+        <label class="check"><input type="checkbox" id="svcTakeaway"><span>Charge the service charge on takeaway orders too</span></label>
+        <label class="check"><input type="checkbox" id="sstOnSvc"><span>Charge SST on the service charge too</span></label>
+        <label class="check"><input type="checkbox" id="round5"><span>Show the cash total rounded to 5 sen</span></label>
+        <h2 style="font-size:1.1rem;margin:16px 0 8px">Takeaway</h2>
+        <label class="field">Preparation time (minutes)<input type="number" id="prep" min="0" max="240"></label>
+        <label class="field">Pickup slot every (minutes)<input type="number" id="slot" min="5" max="120"></label>
+        <p class="alert" id="shopError" role="alert"></p>
+        <button class="primary" type="submit">Save</button> <span id="shopSaved" class="muted" role="status"></span>
+      </form>
+    </section>
+
+    <section data-panel="qr" hidden>
+      <div class="noprint" style="display:flex;gap:8px;flex-wrap:wrap;align-items:end;margin-bottom:12px">
+        <label class="field" style="margin:0">Site address<input type="text" id="siteUrl"></label>
+        <button class="primary" id="makeQr">Make QR codes</button>
+        <button id="printQr">Print</button>
+      </div>
+      <p class="muted noprint" style="margin-bottom:12px">Test one code with a phone before printing them all. The takeaway code has no table number.</p>
+      <div class="qr-grid" id="qrGrid"></div>
+    </section>
+  </div>
+</div>
+<script src="config.js"></script>
+<script src="i18n.js"></script>
+<script src="pricing.js"></script>
+<script src="backend.js"></script>
+<script src="vendor/qrcode.js"></script>
+<script src="staff.js"></script>
+</body>
+</html>

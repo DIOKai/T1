@@ -1,65 +1,80 @@
 ---
 name: canva-to-web
-description: Turn a Canva design (café or bubble-tea menu, restaurant menu, flyer, price list) into an interactive mobile ordering DEMO website — swipe through drinks, customise sweetness, milk and size, add toppings, cart, animated order-complete — by reading the design through the Canva connector, extracting the menu into JSON, and building a small accessible static site from the bundled template. Demo only, no real payments or orders. Covers Canva licence limits (Pro images ≤480,000 px on the web, fonts can't be extracted, no logos from Canva content) and free hosting. Use whenever the user wants to "make my Canva menu a website", "Canva 转网页", "把菜单做成点餐网站", "饮料店点单页面", "咖啡店菜单网站", "做一个可以滑动选饮料的网页", "手机点餐 demo", "Canva 设计变成可以互动的网站" — even if they don't say Canva but have a menu design to convert.
+description: Use when a café, bubble-tea shop, restaurant or food stall wants its menu (a Canva design, a menu photo, PDF or typed price list) turned into a mobile ordering website — table QR ordering, takeaway with pickup times, a staff/counter screen for incoming orders, sold-out and opening-hours control, multi-language menus (English / 中文 / Bahasa Melayu), SST and service charge, halal or allergen labels, DuitNow QR or pay-at-counter, Telegram order alerts, or a swipeable ordering demo. Also when they say "Canva 转网页", "把菜单做成点餐网站", "扫码点餐", "桌号 QR 点餐", "饮料店点单系统", "咖啡店菜单网站", "店员看订单的页面", "做一个可以滑动选饮料的网页", "手机点餐 demo", "Canva 设计变成可以互动的网站", "make my Canva menu a website", "QR ordering for my shop", even if Canva isn't mentioned.
 ---
 
-# Canva design → mobile ordering demo
+# Menu → mobile ordering site (demo or real)
 
-Reels show a Canva menu "turning into an app" in one prompt. What actually happens: the menu's **content** (names, prices, options) becomes data, and a real web page is built around it. Canva doesn't export working HTML through the connector, and copying the poster as one big image makes a site that can't be tapped, read by screen readers, or updated. So this skill extracts the content into `menu.json`, keeps the look (colours, mood, photos the licence allows), and builds the interaction in code.
+A menu design becomes **data** (`menu.json`), and a tested site is built around it. Canva's connector gives text and images, not working HTML, and a poster pasted as one image can't be tapped, read aloud or updated. `assets/order-site/` is a complete, tested ordering system — start from it; don't write one from scratch.
 
-**It's a demo.** No payment, no real order, no personal data collected. Free hosts like GitHub Pages forbid commerce/payments anyway. If the user wants real ordering, say it needs a proper ordering/POS service and is out of scope.
+**What it is:** static pages (no build step, no CDN scripts) + a free Supabase Postgres database that does all the pricing and security. Without Supabase keys it runs as a **demo** in the browser, so the owner can try everything first.
+
+| File | Role |
+|---|---|
+| `index.html`, `app.js` | customer page: table (`?t=12`) or takeaway, Popular row, categories, options sheet, cart, checkout, live order status |
+| `staff.html`, `staff.js` | staff screen: order board with beep, status / paid / cancel, prices, sold out, hours, closed dates, charges, pause switch, printable table QR codes |
+| `supabase/schema.sql` | tables, row level security, `place_order()` (recalculates every price, checks hours, sold out, options, flood limits, idempotent retries), `order_status(token)`, `purge_personal_data()` |
+| `pricing.js` | the same price / hours rules for display; proven equal to the SQL by `tests/parity.js` and `tests/hours.js` |
+| `backend.js` | Supabase REST client + localStorage demo backend, same interface |
+| `i18n.js` | all UI text in en / zh / ms (AI-written: a native speaker should read the Malay and Chinese) |
+| `tools/menu_tool.py` | `check menu.json` (prices, ids, translations, halal wording, SST registration, hours) and `sql menu.json` (seed) |
+| `supabase/functions/notify-telegram/` | free Telegram message per new order |
+| `privacy.html`, `_headers`, `robots.txt`, `config.js`, `vendor/qrcode.js` (MIT) | PDPA notice template, security headers, settings |
 
 ## Workflow
 
-### 1. Connect Canva (user does the login)
-The Canva connector is a remote MCP server with OAuth.
-- **Claude Code:** the `canva` plugin is installed but must be authorized by the user with `/mcp` → canva → Authenticate. Without the plugin: `claude mcp add --transport http canva https://mcp.canva.com/mcp` (from a third-party guide).
-- **Codex:** add the same URL as a remote MCP server in `~/.codex/config.toml` (`[mcp_servers.canva]` with `url = "https://mcp.canva.com/mcp"`) and log in with `codex mcp login canva` — 未验证; check `codex mcp --help` on the user's version.
-The agent can't do the OAuth step; ask the user to. If they don't want to connect, they can export the design themselves (PNG/PDF) and type or paste the menu text — the rest of the workflow is the same.
+### 1. Get the menu content
+- **Canva** (ask before using the connector — T1 rule): the user authorizes it themselves (`/mcp` → canva). `read-design` gives all text and page thumbnails; `export-design` gives PNG/JPG/PDF for colours and photos — **never HTML or SVG**. Details, Codex setup and plan limits: `references/canva-connector-and-licensing.md`.
+- **No Canva:** a photo/PDF of the menu or typed text works the same.
 
-Ask before using the connector (T1 rule). Read `references/canva-connector-and-licensing.md`.
+### 2. Write `menu.json` and confirm it with the user
+Copy `menu.sample.json`. Fill shop name (3 languages), items with categories, prices in RM, option groups (single: size/sweetness/milk with a default; multi: toppings with per-item `max` and group `max_total`), allergens, dietary, featured, opening hours (`["18:00","02:00"]` runs past midnight), closed dates, payment methods.
+Then `python tools/menu_tool.py check menu.json` and fix every error. **Show the user the extracted names and prices** before building — stylised menu fonts are misread, and this is the cheapest moment to fix it. Mark guessed items, translations and allergens as guesses; allergens must be checked by the owner against supplier labels.
 
-### 2. Read the design
-- `search-designs` / the link the user gives → design id.
-- `read-design` → all text (names, prices, descriptions, option lists) plus page thumbnails. This is the menu source.
-- `export-design` → PNG/JPG (40–25000 px wide) for a visual reference and, if the licence allows, image crops. Formats: pdf, png, jpg, gif, pptx, mp4, csv — **no SVG or HTML** from the connector.
-- `get-design-dataset`, autofill, brand templates and resize need **Canva Pro or higher**. `get-design-dataset` is about autofill fields, not reading the menu — don't use it for that.
-Rate limit: export 20/min; all tools 300/min/user.
+### 3. Brand it
+Colours are tokens at the top of `styles.css` (`--bg`, `--accent`, …, light and dark). Item art: `color` swatches, or `image` paths for photos the licence allows. Free web font only (Canva fonts can't be extracted). Keep the structure and behaviours in `references/ordering-ui-and-hosting.md`.
 
-### 3. Write `menu.json`
-Copy `assets/order-demo-template/menu.json` and fill it from the design: shop name, currency, drinks (id, name, description, price, a colour from the design, whether milk applies), sizes, sweetness levels, milk options, toppings with prices and max count. Show the user the extracted list (names + prices) before building — OCR-like reading of decorative fonts gets prices wrong, and this is the cheapest moment to fix it. Mark anything you guessed.
+### 4. Demo first
+`python -m http.server` in the folder (fetch doesn't work from `file://`), open `index.html?t=3` and `staff.html` in two tabs. The owner can place orders, move them on the staff board, mark sold out, change hours — all stored in that browser only.
 
-### 4. Build from the template
-`assets/order-demo-template/` is a working static site (index.html + app.js + menu.json, ~300 lines, no build step, no dependencies):
-- drink carousel: native touch swipe (CSS scroll-snap) **plus** prev/next buttons and arrow keys — swipe is never the only way;
-- customise sheet (`<dialog>`): size, sweetness radio group, milk, toppings with −/+ steppers, quantity, live price;
-- cart sheet with remove, total, and a "Place order (demo)" button;
-- order-complete animation (circle + drawn check, < 1.5 s) with the text announced in a `role="status"` region;
-- `prefers-reduced-motion: reduce` swaps scale/slide for fades; targets ≥ 44 px (WCAG 2.5.8 minimum is 24×24 CSS px);
-- menu text is inserted with `textContent` (no HTML injection from design text).
-Preview with `python -m http.server` in that folder (fetching `menu.json` doesn't work from `file://`). Restyle it with the design's colours and a free web font; keep the structure. For a bigger app, port the same data and components to a tiny Vite app — only if the user wants it.
+### 5. Go live (only when the user wants real orders)
+Follow `references/backend-setup.md`: Supabase project → run `schema.sql` → `menu_tool.py sql` seed → keys into `config.js` → staff accounts (sign-ups off, `insert into staff`) → optional Telegram alerts and PDPA purge → host on Cloudflare Pages (**not GitHub Pages: it forbids commerce**) → first live test checklist → print QR codes from the staff screen. The owner does every signup, login and key step; publishing is their decision.
 
-Polish with existing skills — ask first: `impeccable` (critique/polish), `animate` (motion), `mobile-ios-design` (iOS-feeling sheets and controls), `design:ux-copy` (button text, empty cart, confirmation wording). Read `references/ordering-ui-and-hosting.md` for the interaction rules.
+### 6. Malaysian rules the site must respect
+Read `references/malaysia-rules.md` before switching any of these on:
+- **SST** 6% for F&B, only if registered (turnover ≥ RM1.5m); the template refuses SST without `sst_reg_no`.
+- **Service charge** dine-in only by default; SST on service charge is a setting.
+- **Halal** wording/logo only with a JAKIM certificate (number + expiry); the template hides it otherwise and `menu_tool.py` blocks the word.
+- **5-sen rounding** applies to cash totals only; card/e-wallet pay the exact amount.
+- **PDPA:** consent box, privacy notice in BM + English, minimal data, purge old names/phones, 72 h breach notification.
 
-### 5. Check before showing
-- `node --check app.js`, `menu.json` parses, page opens without console errors.
-- Phone width (375 px): no horizontal scroll, every control reachable and ≥ 44 px.
-- Keyboard only: Tab through, arrows move the carousel, Esc closes sheets, focus returns.
-- Turn on reduced motion (OS setting or devtools emulation): no sliding/scaling, only fades.
-- Prices and names match the design exactly.
+### 7. Payment
+Free defaults: pay at counter, and the shop's static **DuitNow QR** (customer types the order number as reference; staff confirm in the bank app and tap "Mark paid" — nothing is automatic, say so). Gateways (Billplz, ToyyibPay, Stripe, dynamic QR) are **付费**: describe them only if asked, ask before wiring one, follow `references/online-payments.md` (amount from the database, signed callbacks; code there is untested).
 
-### 6. Host (free) — ask before publishing
-Publishing is the user's call. Options and limits in `references/ordering-ui-and-hosting.md`: GitHub Pages (≤ 1 GB site, ~100 GB/month soft, no commerce/payments), Cloudflare Pages (25 MiB per file, 20,000 files), Netlify free credits, or a private Claude Artifact link for a quick share. Before any public URL, run through the licence checklist below.
+### 8. Test before handing over
+After any change to schema, pricing or pages, run `tests/` (see `tests/README.md`): SQL security + rules, JS/SQL price parity, hours parity, demo browser flow, live-mode flow through the PostgREST mock. At minimum: `node --check *.js`, `menu_tool.py check`, open both pages with no console errors at 320 px.
 
-## Licence checklist (Canva Content License — not legal advice)
-- Pro images on a website: each unedited file ≤ **480,000 px** (e.g. 600×800). Free content: no pixel limit. Mixed design → strictest category wins.
-- **Fonts can't be extracted or converted** → set the web text in a free web font that looks close (Google Fonts, OFL).
-- Canva content **can't be used as a logo/trademark** → the café's logo must be the user's own.
-- Don't offer Canva images as standalone downloads (no gallery of raw files); keep them part of the design.
-Tell the user to read the licence themselves for anything commercial.
+## Mistakes this template already prevents (don't reintroduce them)
+| Tempting shortcut | Why it's wrong |
+|---|---|
+| Let the page send prices/totals, or give `anon` insert on `orders` | anyone can edit the page and pay RM0.01; all orders go through `place_order()` |
+| Put the service_role / secret key in `config.js` | it bypasses RLS: every customer could read every phone number |
+| Load supabase-js or fonts from a CDN | extra failure point and CSP holes; the REST calls are ~100 lines in `backend.js` |
+| "Halal", "pork-free" or SST shown to look official | illegal without certification / registration |
+| Status via direct `select` on `orders` for customers | leaks other customers; customers use `order_status(token)` only |
+| Retry a failed submit with a new request | duplicates orders; the page reuses `client_ref` until the cart changes |
+| GitHub Pages for a live shop | its terms forbid commercial transactions |
 
-## Limits (say them, don't hide them)
-- The connector gives text, thumbnails and raster/PDF exports — not layout code. The site is a rebuild in the design's style, not a pixel copy.
-- Canva Code 2.0 (2026-07, free users) can generate sites inside Canva; whether it exports HTML is **未验证**. The Connect API has `html_bundle`/`html_standalone` exports, but the MCP connector doesn't expose them.
-- Text reading from stylised menus can be wrong; the user confirms prices.
-- The template was checked with `node --check`, a JSON parse and an HTML structure check, not in a real phone browser — say so, and preview it before sharing.
+## Limits to tell the user
+- Tested on local Postgres 16 with Supabase-like roles and a PostgREST look-alike, **not on a live Supabase project** — run the live checklist in `backend-setup.md` §6 before printing QR codes.
+- `?t=12` table numbers can be guessed; a prank order still has to be made by staff. If it happens, add random table tokens (not built).
+- Not built: online payment, kitchen/receipt printing, reports beyond CSV export from Supabase, adding new items from the staff screen (edit `menu.json` and re-run the seed), e-invoice.
+- Supabase Free pauses after about a week without activity and has no downloadable backups: export orders monthly.
+- The site is a rebuild in the design's style, not a pixel copy of the Canva poster.
+
+## Licence checklist for Canva content (not legal advice)
+- Pro images on a website: each unedited file ≤ **480,000 px** (e.g. 600×800). Free content: no pixel limit. Mixed design → strictest rule.
+- Fonts can't be extracted → use a free web font.
+- Canva content can't be a logo/trademark → the shop logo must be the owner's own.
+- No downloadable galleries of raw Canva images.
+Full rules and sources in `references/canva-connector-and-licensing.md`.

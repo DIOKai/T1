@@ -91,7 +91,7 @@ Blender 技能（retopology、lod-pipeline、asset-optimization、uv-workflow、
 - 用 Unreal 做互动展示、网页控制面板换家具，用 `unreal-mcp-archviz`。Unreal 免费（年营收 100 万美元以下），但要下载约 70 GB；装 Unreal 或 MCP 前先问。
 - 参数化外立面、鳍片、楼板堆叠，免费的用 `parametric-facade`（Blender 几何节点）。
 - 把渲染图用 AI 变成照片感图片或短片，用 `ai-archviz-render`：先用免费的本机 ComfyUI；装 ComfyUI 和下载模型前先问，模型授权照技能里写的看能不能商用。
-- Canva 设计（菜单等）做成互动网页，用 `canva-to-web`；Canva 连接器要用户自己在 `/mcp` 授权。
+- 菜单（Canva 设计、菜单照片或文字）做成手机点餐网站，用 `canva-to-web`：现在是正式版，桌号 QR 点餐、外带取餐时间、店员看单页面、自己改价钱/卖完/营业时间、中英马三语、SST 和服务费、清真和过敏原、柜台付款和 DuitNow QR、Telegram 新单通知，没有 Supabase 帐号时也能先在浏览器里试玩。Canva 连接器要用户自己在 `/mcp` 授权；开 Supabase 项目、登录、填密钥、上线都由用户自己做，上线前先问。网上付款（Billplz、ToyyibPay、Stripe）是付费的，用户问了才介绍，接之前先问。它的 `menu_tool.py` 和 `tests/` 都是本地运行。
 
 - 互动看房要加户型信息面板、指北针小地图、日照时间、剖切、测距、换材质时，看 `unreal-mcp-archviz` 或 `archviz-web-walkthrough` 各自的 `references/interactive-features.md`。
 - 楼一块块「盖起来」的动画、每个材质一种颜色的色块图、照平面图规划镜头路线，用 `archviz-cinematic`（`references/build-up-and-colormap.md`）；色块图或 3D 动画再交给 AI 转成真实影片，用 `ai-archviz-render`（`references/colormap-video-to-video.md`）。
