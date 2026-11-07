@@ -10,8 +10,8 @@ Sources: Sollumz wiki "Creating Interiors" and ytyp docs, Sollumz/szio source (`
 | `.ytd` | textures (or embedded in the `.ydr`) |
 | `.ybn` | collision; vanilla buildings have `name.ybn` and `hi@name.ybn` (the `hi@` one is high-detail, e.g. for bullets) |
 | `.ytyp` | archetype definitions: one per model, plus one **MLO archetype** holding rooms, portals, entities, entity sets, timecycle modifiers |
-| `.ymap` | places things in the world; an MLO is placed with a `CMloInstanceDef` entity whose `archetypeName` = the MLO archetype name |
-| `_manifest.ymf` | ytyp ↔ ymap dependencies; FiveM docs: generating it in CodeWalker "is necessary to load the models correctly" |
+| `.ymap` | places things in the world; an MLO is placed with a `CMloInstanceDef` entity whose `archetypeName` = the MLO archetype name. On this server: **one MLO per `<name>_milo_.ymap`, nothing else in it** |
+| `_manifest.ymf` | ytyp ↔ ymap dependencies; FiveM docs: generating it in CodeWalker "is necessary to load the models correctly". It is what loads the MLO ytyp (`INTERIOR_DATA` imap → ityp, plus `Interiors` → the MLO collision); **don't also `DLC_ITYP_REQUEST` an MLO ytyp** |
 | `.ymt` + `.dat151.rel` | audio occlusion (optional) |
 
 Resource: all of these in `stream/` (audio `.rel` in another folder), and `fxmanifest.lua`:
@@ -67,7 +67,7 @@ XML shape (what `check_mlo_resource.py` reads): `CMapTypes/archetypes/Item[@type
 
 1. Sollumz → Export (objects must be visible). Import the XML into a folder with CodeWalker RPF Explorer (drag in) to get binaries.
 2. CodeWalker → open the folder in the project manager → new **ymap** → new entity → set the archetype to the **MLO archetype name** → paste the location from Blender (Sollumz *Object Location & Rotation Tools* copy button).
-3. **Calculate Extents** and **Calculate All Flags** on the ymap, name it, save.
+3. **Calculate Extents** and **Calculate All Flags** on the ymap, name it `<name>_milo_.ymap`, save.
 4. **Tools → Manifest Generator → Generate → save `_manifest.ymf`.**
 5. Copy binaries (not XML) into `stream/`.
 

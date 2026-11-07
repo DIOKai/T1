@@ -1,0 +1,4 @@
+interface:
+  display_name: "Blender Vehicle Modeling"
+  short_description: "Model cars and helicopters from blueprints with clean reflections"
+  default_prompt: "Use $blender-vehicle-modeling to model this vehicle in Blender."

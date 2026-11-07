@@ -15,11 +15,12 @@ Three kinds of interior exist in FiveM, and choosing the right one decides every
 
 Housing scripts mostly use shells and IPLs; custom MLOs are for places that need to exist at a real address. Read the reference you need:
 
+- `references/blender-to-fivem-steps.md` — the click-by-click build (CodeWalker export → Blender → collision → ytyp → binaries → placement → occlusion → test) from two full video courses, with the tutors' on-camera mistakes, where their advice conflicts with this server's packaging rules, and a clothing-store section. Read it when actually doing the build or when a step "doesn't work".
 - `references/mlo-authoring.md` — making an MLO: picking a building, Blender + Sollumz modelling, vertex colours, collisions, ytyp (limbo, rooms, portals, entities, entity sets, flags), export, CodeWalker ymap, `_manifest.ymf`, doors, LODs, audio occlusion.
 - `references/interiors-in-scripts.md` — natives for interiors and entity sets, IPLs and bob74_ipl, doors, routing buckets.
 - `references/housing-systems.md` — qbx_properties, qb-houses/qb-apartments/qb-interior, ps-housing; shells vs IPL vs MLO in each; furniture and decorating; licences.
 - `references/troubleshooting.md` — symptom → cause → fix.
-- `references/video-study.md` — chapter-indexed MLO video study and the limits of what was verifiable without captions; use it to navigate demonstrations, not as a substitute for current Sollumz/Cfx documentation.
+- `references/video-study.md` — list of studied MLO videos (chapter-indexed) and the limits of what was verifiable without captions; use it to navigate demonstrations, not as a substitute for current Sollumz/Cfx documentation.
 
 Related skills: `fivem-pro` (Sollumz + CodeWalker basics, resmon), `fivem-script` (housing logic in Lua), `oxlib` / `ox-target` / `ox-inventory` (zones, interactions, stashes), Blender skills `set-dressing`, `archviz`, `prop-artist`, `environment-artist`, `uv-workflow`, `texture-workflow`, `lod-pipeline` (via the `blender` MCP — ask first), `muto-atlas` (vanilla archetype names, ask before `/asset-setup`), `fivem-graphics-pack` (room timecycle looks).
 
@@ -37,6 +38,15 @@ Follow `references/mlo-authoring.md`. The short version (Sollumz wiki "Creating 
 5. Export XML from Sollumz, import with CodeWalker RPF Explorer; in CodeWalker add a `.ymap` with an entity whose archetype is the MLO name at the right position, **Calculate Extents** and **Calculate All Flags**, then **Tools → Manifest Generator → `_manifest.ymf`**.
 6. Resource: everything in `stream/`, `fxmanifest.lua` with `this_is_a_map 'yes'`.
 
+**Packaging rules on this server** (from real client crashes and vanishing interiors; many online guides say otherwise — ignore them):
+- **One MLO instance per ymap, named `<name>_milo_.ymap`**, holding nothing else. Several MLOs in one ymap, or an MLO mixed with ordinary entities, crashed every client that came near.
+- **The `.ymf` loads the MLO ytyp. Never `data_file 'DLC_ITYP_REQUEST'` an MLO ytyp** (plain prop ytyps may stay). The ymf also needs the `Interiors` entry naming the MLO's collision.
+- **Portal normal `(c1−c0)×(c2−c0)` points away from roomFrom**, judged by points just either side of the portal — never by the room-box centre. Mixed facing made interiors vanish at some angles.
+- **Few rooms.** Extra rooms with internal portals flickered at their borders; one room per open space.
+- **Keep |UV| under ~50** (GTA stores UVs as half floats). Tutors scale UVs up to tile bricks; check before export (snippet in `blender-to-fivem-steps.md` §0).
+- A door attached to a portal must not also be in a room's `attachedObjects`.
+- Give every file and archetype a **unique project prefix** (e.g. `lore_lsq_clothes_…`), not generic names like `clothingshop_col` — map resources around busy areas often collide, and the later one silently wins (checker: `DUPLICATE_ASSET`, `ARCHETYPE_DUPLICATE`).
+
 ### 3. Using interiors from scripts
 Entity sets (furniture variants, upgrades, damage states) are toggled with `ActivateInteriorEntitySet` / `DeactivateInteriorEntitySet` + `RefreshInterior` on the interior id from `GetInteriorAtCoords`. Vanilla interiors: `RequestIpl` or bob74_ipl's API. Details and examples: `references/interiors-in-scripts.md`.
 
@@ -45,11 +55,13 @@ Follow `references/housing-systems.md`. Default recommendation for a Qbox server
 
 ### 5. Check
 Run `python .claude/skills/fivem-mlo-housing/scripts/check_mlo_resource.py <resource> [export-folder]` (local, read-only, Python only). Point it at both the map resource and the folder with the Sollumz/CodeWalker `.ytyp.xml`/`.ymap.xml`. It catches:
-- **Manifest:** missing `this_is_a_map`; a custom `.ytyp` without `_manifest.ymf` or `DLC_ITYP_REQUEST`; `data_file` paths that match nothing, including the audio `.dat` → `.dat151.rel` convention; XML left in `stream/`.
+- **Manifest:** missing `this_is_a_map`; a custom `.ytyp` without a `.ymf`; `DLC_ITYP_REQUEST` of a ytyp that holds an MLO (error; a note when only binaries are present and it can't tell); `data_file` paths that match nothing, including the audio `.dat` → `.dat151.rel` convention; XML left in `stream/`.
 - **Files:** files without an RSC7 header; assets over 16/48 MiB, decoded the same way FXServer does; duplicate file or archetype names across resources.
-- **MLO structure:** room 0 not limbo; portals pointing at missing rooms or the same room; portals without 4 corners; wrong `portalCount`; rooms with no portal; `attachedObjects` indices past the entity list; entities in no room (invisible inside); duplicate entity-set names.
+- **MLO structure:** room 0 not limbo; portals pointing at missing rooms or the same room; portals without 4 corners; wrong `portalCount`; rooms with no portal; `attachedObjects` indices past the entity list; entities in no room (invisible inside); entities on both a portal and a room; **portal facing**; duplicate entity-set names.
 - **Doors:** door archetypes without the Dynamic and Enable Door Physics flags.
-- **ymap:** zero streaming extents; MLO instances whose archetype isn't in the local ytyp.
+- **ymap:** zero streaming extents; MLO instances whose archetype isn't in the local ytyp; more than one MLO per ymap; an MLO mixed with other entities; an MLO ymap not named `*_milo_`.
+
+The XML checks need the Sollumz/CodeWalker `.xml` exports — binaries alone only get the file and manifest checks. Its tests: `python -I .claude/skills/fivem-mlo-housing/scripts/test_check_mlo_resource.py`.
 
 Then test in game: walk in and out through every portal, look out of every window, check day and night, rain, sound from outside, and at least two players at once (shells and instancing).
 

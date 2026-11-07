@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: jordan-style-feet-component
+expected_outcome: |
+  中文流程：先做鞋楦形状、鞋底、分片鞋面（不互相穿插）、鞋眼和鞋带、缝线；游戏版要贴着 freemode 脚重拓扑、把缝线鞋带细节烤进法线贴图、权重到脚的骨骼、换掉真实品牌，然后照 fivem-clothing-creator 打包成 feet 组件。

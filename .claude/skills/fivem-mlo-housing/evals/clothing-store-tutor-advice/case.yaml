@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: clothing-store-tutor-advice
+expected_outcome: |
+  指出教程的问题：MLO 的 ytyp 不能 DLC_ITYP_REQUEST（交给 .ymf）、ymap 改名 *_milo_ 而且只放那一个 MLO、衣架做成 ytyp 里的 MLO 实体、UV 不要放大 20 倍（|UV| < 50）；完整步骤包括导出两个 ybn、portal 每个门窗一个且朝外、镜子用 Mirror portal flag、试衣间不要另开房间、删 occluder、跑 check_mlo_resource.py。

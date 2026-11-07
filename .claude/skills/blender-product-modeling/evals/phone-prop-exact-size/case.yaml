@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: phone-prop-exact-size
+expected_outcome: |
+  一份可以直接跑的 bpy 脚本和中文步骤：1 BU = 1 m、尺寸精确到毫米，圆角加圆边的做法不会坏面，有给游戏用的低面数版本和三角面数目，最后交给 Sollumz 做 ydr、碰撞和 ytyp。

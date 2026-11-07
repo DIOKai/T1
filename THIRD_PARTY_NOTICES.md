@@ -85,6 +85,12 @@ No third-party code is included. `assets/timecycle_vars.txt` is a list of the ti
 
 No third-party code is included. The workflow summarises the Sollumz wiki (GPL-3 project), the FiveM documentation, and the public READMEs and configs of qbx_properties, qb-interior, qb-houses, ps-housing, bob74_ipl, object_gizmo and ht_mlotool; flag names and values were read from the Sollumz source (`ytyp/properties/flags.py`) and XML element names from Sollumz szio (MIT).
 
+## blender-vehicle-modeling, blender-product-modeling, blender-shoe-modeling (written for this repository)
+
+No third-party code, models or images are included. The workflows summarise public YouTube tutorials (captions and screenshots studied for learning; listed with links in each skill's `references/sources.md`) and the Blender, Sollumz and FiveM documentation. The bundled scripts (`vehicle_setup.py`, `product_body.py`, `stitches.py`) were written for this repository. Paid add-ons or services mentioned in the videos are marked as paid and are not required.
+
+The 2026-11-08 additions to `fivem-mlo-housing` (`references/blender-to-fivem-steps.md`) and `fivem-clothing-creator` (`references/clothing-step-by-step.md`) are summaries of the same kind of study, with citations to video timestamps; no text or images from the videos are reproduced.
+
 ## interactive-3d-textbook (written for this repository)
 
 No third-party code or assets are included. The rendering notes summarise the public documentation and source of three.js (MIT), pmndrs postprocessing (Zlib), spite/sketch (MIT) and popup-art-book (MIT); the lesson design summarises published research (White & Gunstone 1992; Crouch et al. 2004; Sadler 1998; PhET implicit scaffolding; Hattie & Timperley 2007). "Every Joule" (iamtechartist.com) was studied only as a style reference from its public pages and video; none of its code, text or images is copied. Suggested sound sources are Freesound CC0 clips, downloaded by the user.
