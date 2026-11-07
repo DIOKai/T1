@@ -91,6 +91,12 @@ No third-party code, models or images are included. The workflows summarise publ
 
 The 2026-11-08 additions to `fivem-mlo-housing` (`references/blender-to-fivem-steps.md`) and `fivem-clothing-creator` (`references/clothing-step-by-step.md`) are summaries of the same kind of study, with citations to video timestamps; no text or images from the videos are reproduced.
 
+## fivem-vehicle-sound, fivem-dance (written for this repository)
+
+No third-party code, audio or animation is included. `fivem-vehicle-sound` summarises the CodeWalker source (dexyfex; read for field names and file formats, no code copied — the scripts call the user's own CodeWalker.Core.dll at run time), Cfx documentation, forum posts and GitHub issues, Rockstar's GDC 2014 talk and public sound-pack pages; its scripts were written for this repository. `fivem-dance` summarises public tutorial videos, the rpemotes-reborn README and source (GPL-3.0; read only), the Sollumz source and the Blender manual; its scripts were written for this repository. Both skills cite their sources in `references/sources.md`.
+
+The 2026-11-08 update of `fivem-clothing-creator` summarises tutorial videos, docs.gta.clothing, the Sollumz docs and the grzyClothTool (GPL-3.0) and illenium-appearance sources (read only); `check_clothing_resource.py` was written for this repository.
+
 ## interactive-3d-textbook (written for this repository)
 
 No third-party code or assets are included. The rendering notes summarise the public documentation and source of three.js (MIT), pmndrs postprocessing (Zlib), spite/sketch (MIT) and popup-art-book (MIT); the lesson design summarises published research (White & Gunstone 1992; Crouch et al. 2004; Sadler 1998; PhET implicit scaffolding; Hattie & Timperley 2007). "Every Joule" (iamtechartist.com) was studied only as a style reference from its public pages and video; none of its code, text or images is copied. Suggested sound sources are Freesound CC0 clips, downloaded by the user.

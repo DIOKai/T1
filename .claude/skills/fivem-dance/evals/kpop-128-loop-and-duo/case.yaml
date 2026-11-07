@@ -1,0 +1,7 @@
+schema_version: "1.1"
+name: kpop-128-loop-and-duo
+expected_outcome: |
+  中文回答：128 BPM 在 30 fps 一拍 14.0625 帧，一个 8 拍不是整数帧，循环用 16 拍 = 225 帧（可用 dance_timing.py 算和 --check）；
+  免费动作来源（FreeMoCap 要两台以上相机，单机用 Open Mocap / PoseCap MediaPipe Lite 或照视频手 K），点出 SMPL/SMPL-X 非商用陷阱、不推荐付费工具；
+  Blender 里首尾同姿势、30 fps、律动在拍上；导出前把 Cycles/NLA 烘焙成一个 action（Sollumz 只导 action.frame_range，标明要进游戏测试）；
+  rpemotes 用 CustomDP.Dances + onFootFlag = AnimFlag.LOOP（不是已弃用的 EmoteLoop），双人用 CustomDP.Shared 第 4 个元素互指、SyncOffsetFront 等偏移、/nearby 邀请，并说明舞蹈不带音乐、双人片段不要有根位移。

@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: jacket-hat-illenium-invisible
+expected_outcome: |
+  中文回答，指出外套看不到是因为文件名和资源结构不对：没有 <ped>_<包名>^ 前缀、外套要放在 jbib（组件 11）并用 jbib_000_u / jbib_diff_000_a_uni 的格式、帽子是道具 p_head（<ped>_p_<包名>^p_head_000.ydd，贴图不带 _uni），还缺每个性别一个 YMT、ShopPedApparel meta（fullDlcName = pedName_dlcName，男角 eCharacter SCR_CHAR_MULTIPLAYER），以及 fxmanifest 的 files { meta } 和 data_file 'SHOP_PED_APPAREL_META_FILE'。建议用免费的 grzyClothTool（GPL-3.0）生成，不推荐付费的 Durty Cloth Tool。帽子压头发要在道具上设 hair scale（expressionMods[0]）并有被 meta 引用的 creaturemetadata YMT，而且头发要有 MH_Hair_Scale 骨骼、原版编号 36 以上才会缩。在 illenium-appearance 里不用登记，新衣服出现在外套（jackets）和帽子（hats）分类的最后面，编号会随 ensure 顺序和游戏版本变。说明正式伺服器串流自制衣服需要 Cfx Element Club（Argentum 以上，付费）的权益，请用户自己查自己的 key，但不推荐购买；本机测试服人数设小可以先测。改好后用 check_clothing_resource.py 检查（只读）。

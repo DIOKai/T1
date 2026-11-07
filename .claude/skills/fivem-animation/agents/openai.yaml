@@ -1,0 +1,4 @@
+interface:
+  display_name: "FiveM Animation"
+  short_description: "Make GTA V / FiveM emotes and animations with Blender + Sollumz"
+  default_prompt: "Use $fivem-animation to make this FiveM emote or animation."

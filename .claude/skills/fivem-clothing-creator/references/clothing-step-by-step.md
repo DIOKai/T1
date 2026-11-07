@@ -1,6 +1,6 @@
 # FiveM freemode clothing: concrete step-by-step
 
-Click-level workflow distilled 2026-11-08 from the videos and docs below (transcripts via yt-dlp; silent parts from frames). Numbers marked as someone's habit (e.g. D's blue-channel fill) are habits, not rules — compare with a vanilla texture first. Durty Cloth Tool is paid; the free route is YMTEditor + a hand-written meta (§11).
+Click-level workflow distilled 2026-11-08 from the videos and docs below (transcripts via yt-dlp; silent parts from frames). Numbers marked as someone's habit (e.g. D's blue-channel fill) are habits, not rules — compare with a vanilla texture first. Durty Cloth Tool is paid; the free route is **grzyClothTool** (GPL-3.0, builds the whole resource), or YMTEditor + a hand-written meta (§11). Round-2 additions and corrections live in `addon-pack-naming-and-manifest.md`, `components-props-and-flags.md`, `cloth-physics-and-extras.md` and `appearance-integration.md`.
 
 ## Sources
 
@@ -16,7 +16,7 @@ Click-level workflow distilled 2026-11-08 from the videos and docs below (transc
 - CodeWalker latest release, from the CodeWalker Discord #releases. Start GTA V once before CodeWalker's first load (D 4:48).
 - An image editor that writes DDS (DXT1/DXT5) and edits alpha. D uses the free Photoshop CS3 with the NVIDIA DDS plugin. Free alternatives such as GIMP or paint.net with DDS support are my suggestion, not tested by D.
 - Materialize (free) for height to normal maps (D 1:53, 55:50).
-- Durty Cloth Tool (DCT) for building packs. **The licensed version costs about €10/month.** The free version allows one 3D preview per launch and no animation preview (D 72:40–73:27). The free manual route is YMTEditor plus a hand-written meta (see §11), and [CFX] also mentions the author's grzyClothTool (licence unverified). Following T1 rules, do not recommend the paid licence.
+- Durty Cloth Tool (DCT) for building packs. **The licensed version costs about €10/month.** The free version allows one 3D preview per launch and no animation preview (D 72:40–73:27). The free routes are **grzyClothTool** (free, GPL-3.0 per its GitHub repo, active, v1.3.0 2026-07) or YMTEditor (free, no licence file, last release 2023-12) plus a hand-written meta (see §11). Following T1 rules, do not recommend the paid licence.
 
 ## 1. Export the base assets from CodeWalker (D 3:33–6:47, S steps 1–3)
 
@@ -66,7 +66,7 @@ Folder per piece: `xxx.ydd.xml` + `xxx\` (embedded normal/spec) + `xxx_diff_..._
 ## 5. Weights (D 41:05–51:16; DCT)
 
 1. Import a **vanilla component of the same type and similar shape** with its skeleton (D uses `jbib_003_u` for a dress). Tip: study an existing well-weighted mod of the same garment type as a reference, but do not copy it (D 41:22).
-2. Select the new mesh, then Shift-select the vanilla mesh (it becomes active). In **Weight Paint mode, run Weights > Transfer Weights**. Operator panel (frame D 44:15): Data Type **Vertex Group(s)**, **Create Data** on, Vertex Mapping **Nearest Vertex**, **Object Transform** on, Destination Layers **By Name**. D says "layers by name"; Source = All Layers is my inference.
+2. Select the new mesh, then Shift-select the vanilla mesh (it becomes active). In **Weight Paint mode, run Weights > Transfer Weights**. Operator panel (frame D 44:15): Data Type **Vertex Group(s)**, **Create Data** on, Vertex Mapping **Nearest Vertex**, **Object Transform** on, Destination Layers **By Name**. D says "layers by name"; Source = All Layers is my inference. Anurag (uBBHJ4vG4fM [5:16]) says the reverse (source by name, destination all layers): read the labels in the installed Blender and pose-test. A Data Transfer modifier is an alternative (`cloth-physics-and-extras.md` §6).
 3. Run **Weights > Smooth** with Subset **All Groups**, Factor 0.5, Iterations 1 (frame D 44:30). Raise the factor if the result is blotchy.
 4. A **hard seam line** usually means split vertices. Run **Mesh > Clean Up > Merge by Distance** (frame D 46:05; [S] also ticks **Sharp Edges** on every LOD), then **repeat the transfer and smooth** (D 45:41–46:27).
 5. Remove stray paint, such as a random blob on the chest, by hand (D 46:51).
@@ -100,7 +100,7 @@ Delete the imported colour attributes, then add two, both **Face Corner + Byte C
 
 ## 9. Export (D 66:59–69:23)
 
-- Delete the test body and keep the armature. Select the hierarchy (Outliner > Select Hierarchy [S]), then **File > Export > Codewalker XML** into a **new folder** so the originals are not overwritten.
+- Delete the test body and keep the armature. Select the hierarchy (Outliner > Select Hierarchy [S]), then **File > Export > Codewalker XML** (current Sollumz: **File > Export > RAGE Asset**, CW XML + Gen8) into a **new folder** so the originals are not overwritten.
 - Export panel (frame D 68:59): Include **Limit To Selected Objects** on, Fragment Toggle LODs **Very High + High–Very Low**, **Drawable Dictionary: Exclude Skeleton** on, everything else off.
 - If export fails, click the error bubble. D's usual causes are a skeleton or file-structure problem or a missing element (D 69:00).
 
@@ -119,14 +119,14 @@ Delete the imported colour attributes, then add two, both **Face Corner + Byte C
 **Naming:**
 - `_u.ydd` pairs with `_uni.ytd` (no skin). `_r.ydd` pairs with `_whi.ytd` (contains skin). Example: `feet_014_r` / `feet_diff_014_a_whi` (frame D 75:40).
 - Skin data applies only to Body/Legs/Shoes (uppr, lowr, feet) [DCT].
-- In YMTEditor, give `_r` drawables **propMask 17/19/21** [CFX].
+- In YMTEditor, give `_r` drawables **propMask 17/19/21** [CFX]. grzyClothTool writes propMask 17 and texId 1 for skin drawables automatically.
 
 **Category trick (D 66:59–67:26):** any category works for a top, but **footwear and leg garments must ship the matching body part** (feet or legs). That is why many downloaded skirts and pants live in the jbib/shirt slot.
 
 **Manual pack, no DCT [CFX]:**
 - Resource: `stream\` (ydd/ytd/ymt) + `mp_f_freemode_01_<dlc>.meta` + `fxmanifest.lua` with `data_file 'SHOP_PED_APPAREL_META_FILE' '<meta>'` and the meta listed in `files`.
 - Meta: `<ShopPedApparel><pedName>mp_f_freemode_01</pedName><dlcName>x</dlcName><fullDlcName>mp_f_freemode_01_x</fullDlcName><eCharacter>SCR_CHAR_MULTIPLAYER_F</eCharacter>…`. Male uses `SCR_CHAR_MULTIPLAYER`.
-- All names lowercase and identical across YMT, meta and files. Props use the `^` form: `mp_f_freemode_01_p_x^p_head_000.ydd`.
+- All names lowercase and identical across YMT, meta and files. Props use the `^` form: `mp_f_freemode_01_p_x^p_head_000.ydd`, and prop textures have no `_uni` (`…^p_head_diff_000_a.ytd`). Full table, creature metadata, first-person/alternate metas: `addon-pack-naming-and-manifest.md`.
 
 **Limits [DCT]:**
 - 26 textures per drawable.
@@ -140,11 +140,11 @@ Delete the imported colour attributes, then add two, both **Face Corner + Byte C
 - Shoes include the lower foot/ankle skin. Pants include the leg/foot joint area. Otherwise there is a hole with nothing for the shoe to join. **Check the seam against the default nude parts with no gap** (D 74:15–75:08).
 - Diffuse: skin area painted with a skin texture, **no alpha** (D 75:31).
 - Spec: the skin area uses the guide's skin colour, and the **spec alpha is black on skin and white everywhere else** (D 76:45–77:08).
-- DCT has a "has skin tone data" checkbox. High heels need the DCT **Is High Heels** flag with Heel Height tuned in **0.1 steps** until the feet stop clipping the floor [DCT].
+- DCT has a "has skin tone data" checkbox. High heels need a heel value tuned in **0.1 steps** until the feet stop clipping the floor [DCT]. Free route: grzyClothTool **EnableHighHeels** + value, which writes component `expressionMods[4]` and the creature-metadata YMT (source code, see `components-props-and-flags.md` §3, §8).
 
 ## 13. Testing
 
-Test on your own local test server, not only in the DCT preview (D 73:51). Then run the existing acceptance list in SKILL.md.
+Test on your own local test server, not only in the DCT preview (D 73:51). Without the Element Club clothing perk, keep `sv_maxclients` small there (`addon-pack-naming-and-manifest.md` §1). Run `scripts/check_clothing_resource.py`, then the acceptance list in SKILL.md.
 
 ## Common mistakes seen in the sources
 

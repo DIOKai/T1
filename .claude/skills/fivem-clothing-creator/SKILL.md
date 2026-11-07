@@ -1,45 +1,67 @@
 ---
 name: fivem-clothing-creator
-description: Create, fit, rig, texture, package, troubleshoot, and accept-test GTA V/FiveM freemode clothing such as shirts, jackets, pants, shoes, and accessories using Blender, Sollumz, and local FiveM testing.
+description: Use when the user makes, fits, fixes, packages or installs GTA V / FiveM freemode clothing or accessories (mp_m/mp_f_freemode_01) — tops, jackets, pants, shoes, masks, bags, hats, glasses, watches; add-on or replacement clothing packs; YMT, shop meta, creaturemetadata or fxmanifest; grzyClothTool or YMTEditor; Sollumz clothing export; cloth physics (YLD); adding clothes to illenium-appearance or another appearance menu; or when clothes are invisible, stretched, clipping, missing textures, in the wrong slot, crash on load, or a hat does not hide hair. Triggers: 做衣服, 自制衣服, 衣服不显示, 帽子, 眼镜, 配件, ymt, 衣服包, illenium-appearance 加衣服, 女角衣服.
 ---
 
 # FiveM Clothing Creator
 
-Produce clothing that fits the intended freemode body, deforms with the original GTA skeleton, renders correctly at every LOD, and is packaged as a verifiable resource.
+Clothing that fits the freemode body, deforms with the GTA skeleton, renders at every LOD, and loads into the menu.
 
-## Define the clothing contract
+> **Before you start: streaming entitlement**
+> Cfx lists **"Stream custom clothing"** as a perk of the paid Element Club tiers (**Argentum** and above, https://fivem.net/server-hosting). If the server key lacks it, streamed clothing does not appear on the live server; the user must check their own key. Local test servers with a small player cap are reported to work without it (10 slots per DCT/forum, 8 in older sources; unverified). State it as a fact to check and **do not recommend buying a tier** (T1: no paid services).
 
-Confirm male/female target, component slot, add-on versus replacement, Legacy/Gen8 versus Enhanced/Gen9, texture variants, body coverage, expected wardrobe system, and delivery format. Preserve the original files and verify modification rights.
+## Define the contract first
 
-Read [references/sollumz-clothing.md](references/sollumz-clothing.md) before importing, naming textures, or diagnosing missing/invisible garments.
+Male/female, component or prop slot (`components-props-and-flags.md`), add-on or replacement, Legacy or Enhanced, texture variants, skin showing (`_r`) or not (`_u`), the appearance script. Keep originals untouched; confirm the user may modify them.
 
-Read [references/clothing-step-by-step.md](references/clothing-step-by-step.md) for the concrete click path: CodeWalker export of the base body/skeleton, Import External Skeleton, fitting with safe sculpt brushes, Transfer Weights settings, DDS formats and sizes, the two vertex-colour values, LOD decimation, export options, CodeWalker variants, component ids, `_u/_uni` vs `_r/_whi` naming and the manual meta/fxmanifest pack.
+## Workflow
 
-For shoes and boots, model with the `blender-shoe-modeling` skill and follow its `gta-feet-component.md`, then come back here for the gates.
+1. **Base assets.** CodeWalker: export the freemode YFT, a vanilla donor of similar type and shape, and nude body parts; import with Sollumz **Import External Skeleton** (`clothing-step-by-step.md` §1–2).
+2. **Model or fit.** Free routes: sewing sim, mask extract, manual retopo (`cloth-physics-and-extras.md` §5). Fit to the vanilla body with Grab/Snake Hook/Elastic/Blob; leave breathing room; fit tops over the base arms (uppr).
+3. **Weights.** Transfer from the vanilla donor (Transfer Weights or a Data Transfer modifier), smooth, max 4 influences, Merge by Distance for seams. Pose-test, ideally with a real GTA clip on the NLA (`cloth-physics-and-extras.md` §6).
+4. **Textures and variants.** Diffuse per letter a–z (≤ 26), normal and spec embedded, never the diffuse. 1024 default, skin diffuse ≤ 512, power of two, mipmaps; BC7 for dark fabric (BC1 blocks), BC3 for alpha. Keep UVMap 0 (textures) and UVMap 1 (blood/tattoos). Vertex colours `#FF8000` a1 / `#000000` a0.
+5. **LODs and export.** High/Med/Low (Sollumz LOD Tools or manual decimate), shader `ped`/`ped_alpha`, export (current Sollumz: File > Export > RAGE Asset, CW XML + Gen8), convert in CodeWalker and preview there.
+6. **YMT, meta, resource — free tool.** **grzyClothTool** (free, GPL-3.0) writes the YMT, shop metas, fxmanifest, creaturemetadata (heels, hat hair scale), first-person/alternate metas, and splits oversized packs. YMTEditor (free, no licence file, last release 2023-12) clamps expressionMods to ±2 and once wiped props on re-save; make new YMTs. Durty Cloth Tool is **paid**: do not recommend.
+7. **Naming and fxmanifest.** `stream/<ped>_<pack>.ymt`, `<ped>_<pack>^jbib_000_u.ydd`, `…^jbib_diff_000_a_uni.ytd`, props `<ped>_p_<pack>^p_head_000.ydd` + `…^p_head_diff_000_a.ytd`; lowercase, no spaces, contiguous from 000, unique pack name. Metas in `files {}` plus `data_file 'SHOP_PED_APPAREL_META_FILE'` (and `PED_FIRST_PERSON_ALTERNATE_DATA` / `ALTERNATE_VARIATIONS_FILE` when used). Full table: `addon-pack-naming-and-manifest.md`.
+8. **Appearance script.** Add-on items appear at the end of each category with no registration. Blacklists and job outfits use absolute numbers that shift with build and `ensure` order; illenium-appearance's blacklist is a client-side filter only (`appearance-integration.md`).
+9. **Test.** Checker, then the local test server: start the pack before joining, check every variant, poses, LODs, first person, vehicles.
 
-Read [references/video-study.md](references/video-study.md) when the task involves weight transfer, vertex wind/sweat behavior, YMT/meta setup, cloth physics, or diagnosing a workflow copied from a video.
+## Checks
 
-## Production workflow
+- `py -3 -I scripts/check_clothing_resource.py <resource or folder>` — read-only, standard library: names, manifest ↔ meta ↔ YMT ↔ files, drawable/texture pairing, `_u`↔`uni` / `_r`↔`whi`, letters, numbering, 128/256 counts, RSC7 memory (16/48 MiB), escrow, cross-pack collisions. It cannot read texture formats, weights or YMT contents. Once the user agrees to this skill, run it directly.
+- Unit tests: `py -3 -I scripts/test_check_clothing_resource.py`.
+- Acceptance: starts without errors; right slot; every variant resolves; no pink, checkerboard, holes, wrong skin tint or bad clipping in walk, run, crouch, sit and arms-raised poses; LODs coherent; same after restart and reconnect.
 
-1. Import the matching freemode YFT skeleton and a known-good component YDD with the external-skeleton option.
-2. Build or fit the garment around the correct body components. Keep clothing separate from the body; resolve intersections at neutral and deformation poses.
-3. Use even topology around shoulders, elbows, hips, knees, waist, and cuffs. Use cloth simulation only to establish useful drape, then clean and retopologize for the game.
-4. Transfer weights from the appropriate base (Transfer Weights: Vertex Group(s), Nearest Vertex, By Name; then Smooth All Groups; Merge by Distance first if a hard seam appears), normalize them, remove unintended influences, and test motion. An exported YDD with empty or wrong vertex groups is not acceptable.
-5. Create and review high, medium, and low LODs. Preserve silhouette and coverage while reducing hidden detail.
-6. Prepare GTA-compatible materials and YTD content. Check diffuse, normal, specular, alpha, texture dimensions, mipmaps, embedded names, UV placement, and vertex colors against the chosen base component. Vertex colours: colour0 #FF8000 (alpha max), colour1 #000000 (alpha 0) — wrong values cause black shading, wind shake or a sweaty shine. Meshes that contain skin (`_r` + `_whi`) keep the diffuse ≤512 and spec alpha black on skin.
-7. Export through the installed Sollumz version's supported route. Package only the files required for the chosen add-on/replacement method; do not copy paths or assumptions from another server.
+Report ped, slot id, pack name, drawable/texture numbers seen in the menu, build tested, and what was not tested.
 
-## Acceptance tests
+## Common mistakes
 
-- The resource starts without manifest or data-file errors.
-- The garment appears in the intended slot and every texture variant resolves.
-- No pink/checkerboard/transparent material, missing body region, severe clipping, or incorrect skin tint appears.
-- Neutral, walk, run, crouch, seated, arm-raised, and extreme joint poses do not reveal unacceptable weight or intersection failures.
-- High/medium/low LOD transitions are present and visually coherent.
-- A restart and reconnect reproduce the same result on a local test server.
+| Symptom | Likely cause | Fix |
+|---|---|---|
+| Works locally, nothing on the live server | key lacks the clothing-streaming perk | user checks their tier; do not push a purchase |
+| Nothing shows at all | YMT / meta `fullDlcName` / file prefix differ, uppercase, missing `data_file`, YMT slot budget, another pack with the same name | run the checker; one YMT per gender |
+| Item invisible | not rigged / no vertex groups, top drawable dictionary not exported, backfaces | re-import with external skeleton; Backface Culling on |
+| Stretching or parts flying off | bad weights, unweighted vertices, more than 4 influences | re-transfer, smooth, pose-test on a real clip |
+| See-through arms or torso with a top | matching arms (uppr) not selected | pair an arms value per top |
+| Pink or checkerboard | missing diffuse / embedded normal or spec | embed normal+spec, diffuse as YTD |
+| Pants look like skin | `_r`/`_u` vs `whi`/`uni` mismatch | checker SKIN_MISMATCH |
+| Green/purple blocks on dark fabric | BC1 compression | BC7 |
+| Hat doesn't hide hair | hair lacks `MH_Hair_Scale`, hair id < 36, creaturemetadata missing or not referenced | hair scale on the prop; test hair ≥ 36 |
+| Heels sink or float | heel value untuned, creaturemetadata missing | grzyClothTool EnableHighHeels, 0.1 steps |
+| Crash while loading packs | YMT slots, shop-meta 65,520, TxdStore, alternate-variation caps, oversized textures | `addon-pack-naming-and-manifest.md` §6 |
+| Cloth piece falls away or crashes | unpinned top row in the YLD | pin the top row |
+| Wrong number in the menu | menus differ; numbers shift with build/ensure | read numbers on the test server |
 
-Report the exact ped, component code/index, drawable/texture identifiers, tested game generation, and anything not tested. Do not treat a higher slot count as proof that the garment renders correctly.
+## References
+
+- `references/clothing-step-by-step.md` — click path: CodeWalker export, fitting, weights, DDS, vertex colours, LODs, export.
+- `references/addon-pack-naming-and-manifest.md` — entitlement, file names, replacement, meta, fxmanifest, limits, build/Enhanced, test.
+- `references/components-props-and-flags.md` — ids, props, YMT fields, ePedCompFlags, hair hiding, first person, female, YMT tools.
+- `references/cloth-physics-and-extras.md` — YLD, UVs, vertex colours, compression, garment creation, weights, Sollumz LODs.
+- `references/appearance-integration.md` — illenium-appearance blacklist and config, shifting numbers.
+- `references/sollumz-clothing.md` (diagnostic order), `references/video-study.md` (sources).
+- Shoes: `blender-shoe-modeling` → `gta-feet-component.md`. Peds/skins: `fivem-ped-character`. Final gate: `fivem-asset-acceptance`.
 
 ## Boundaries
 
-Use only files the user may modify. Never decrypt escrowed assets or bypass entitlements. Ask before live Blender or FiveM MCP actions. Do not depend on author-specific absolute paths, private DLLs, or paid hosting features.
+Use only files the user may modify. Never decrypt escrowed assets or bypass entitlements. Ask before live Blender or FiveM MCP actions, before installing tools, and before touching server files. Recommend free tools only; name paid ones as paid.

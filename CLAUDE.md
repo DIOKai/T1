@@ -43,8 +43,9 @@
 - `qbcore-framework`、`qbox-framework`：QBCore / Qbox 的 API。先看用户用的是哪个框架（`qb-core` 还是 `qbx_core`），不要混用；Qbox 以 docs.qbox.re 为准
 - `fivem-security`：写伺服器代码时就防漏洞（事件验证、权限、限频）；写完再用 `fivem-security-audit` 审查
 - `fivem-basics`、`lua-basics`、`fivem-deployment`：FiveM 资源结构、Lua 基础、FXServer 版本和 server.cfg
-- 做素材：`fivem-prop-creator`（道具：Blender → Sollumz → CodeWalker，ydr/ytd/ytyp、碰撞、LOD）、`fivem-clothing-creator`（freemode 衣服、裤子、鞋）、`fivem-ped-character`（ped 的头、身体、皮肤、头发、胡子）、`fivem-map-world-editor`（户外地图、ymap、地形、外部碰撞；室内和 MLO 用 `fivem-mlo-housing`）。还没有模型时先用 `free-3d-assets` 找或生成，转成道具的步骤以 `fivem-prop-creator` 为主。做完上服前用 `fivem-asset-acceptance` 验收；整理已有素材库用 `fivem-asset-catalog`；处理买来的素材用 `fivem-authorized-asset-workflow`（先备份原档，照 LESSONS 1:1 转换）；打不开的文件用 `fivem-file-analysis` 判断是什么（只读，不破解 Asset Escrow）
+- 做素材：`fivem-prop-creator`（道具：Blender → Sollumz → CodeWalker，ydr/ytd/ytyp、碰撞、LOD）、`fivem-clothing-creator`（freemode 衣服、裤子、鞋、帽子眼镜这类配件、add-on 衣服包命名和 ymt、接 illenium-appearance；免费的 grzyClothTool 优先，Durty Cloth Tool 付费不推荐；它的 `check_clothing_resource.py` 本地只读，用户同意后可以直接跑。Cfx 写明串流自制衣服是付费 Element Club Argentum 以上的权益，只说明让用户自己查自己的 key，不推荐购买）、`fivem-ped-character`（ped 的头、身体、皮肤、头发、胡子）、`fivem-map-world-editor`（户外地图、ymap、地形、外部碰撞；室内和 MLO 用 `fivem-mlo-housing`）。还没有模型时先用 `free-3d-assets` 找或生成，转成道具的步骤以 `fivem-prop-creator` 为主。做完上服前用 `fivem-asset-acceptance` 验收；整理已有素材库用 `fivem-asset-catalog`；处理买来的素材用 `fivem-authorized-asset-workflow`（先备份原档，照 LESSONS 1:1 转换）；打不开的文件用 `fivem-file-analysis` 判断是什么（只读，不破解 Asset Escrow）
 - 声音：音效资源打包、没声音用 `fivem-audio-package-check`；pma-voice 语音、对讲机、电话用 `fivem-voice-radio`
+- 车的引擎声浪（装声浪包、一个包复制改名给几台车做不同版本、改音色变低沉或粗糙、调回火和涡轮、车没声音或变原版声）用 `fivem-vehicle-sound`。它的 `check_sound_resource.py` 是本地只读检查，用户同意用这个技能后可以直接跑；`sound_pack.ps1`（要 CodeWalker.Core）和 `revoice_wav.py` 只写到指定的新资料夹，原包不动。从录音从零做 granular 引擎声目前没有免费工具，照技能说的改用最接近的包换音色。声浪包多半含有作者无权授权的游戏音频，只能自己伺服器用，不能转发或卖
 - `qbox-economy-integrity`：检查买卖、交易、制作、奖励会不会被刷或重复发（数值怎么定仍用 `game-balance-economy`）
 - `fivem-performance-profile`：卡顿、掉帧用 resmon / profiler 的数据找原因，不要凭感觉调
 
@@ -63,6 +64,8 @@ Blender 技能（retopology、lod-pipeline、asset-optimization、uv-workflow、
 要免费图片、视频（NUI 背景、手机壁纸、商店图片、loading screen、贴图、生成 3D 用的参考图）或音乐、音效时，先建议 `pixabay-assets`。它的 `pixabay.py` 要用户自己的免费 API key（放在环境变量 `PIXABAY_API_KEY`，不要写进文件或提交），会连 pixabay.com，用户同意用这个技能后就可以直接跑。Pixabay 的音乐和音效没有 API，要手动下载。
 
 做 GTA/FiveM 角色动画或自定义表情时用 `fivem-animation`（流程：Blender → Sollumz → CodeWalker → rpemotes/TaskPlayAnim；Mixamo 动作用它的 `references/mixamo-to-gta.md`，经 muto-ped-rig 转到 GTA 骨骼，装 muto-ped-rig 前先问），它自带的 `check_anim_resource.py` 是本地只读检查，用户同意用这个技能后就可以直接跑。
+
+做跳舞动作（舞蹈表情、跟着歌的 BPM 循环卡点、双人舞和群舞、荧光棒这类道具舞、从手机影片或动捕取得舞蹈）用 `fivem-dance`（2026-11-08 加的，先问），共用的 Blender → Sollumz → rpemotes 流程仍以 `fivem-animation` 为主。它的 `dance_timing.py` 是本地计算，用户同意后可以直接跑；`bake_loop.py` 要在 Blender 里执行，经 `blender` MCP 前先问。单影片动捕工具（GVHMR、WHAM 这类用 SMPL/SMPL-X 的）只能非商业用，伺服器有付费内容时要提醒用户自己判断；Rokoko、DeepMotion、Move.ai 这类付费或额度制的不推荐。
 
 学或做动画时：先用 `motion-design` 讲原则（时间、间距、缓动、预备动作、跟随），再用 `blender-animation-rigging` 和 `animation` 在 Blender 里操作；用户想学的时候配合 `anthropic-skills:learn` 一步步教，每一步让用户自己动手。`blender-animation-rigging` 写的是 Blender Lab 官方 MCP，这里装的是 `blender` MCP（mcp-for-blender），用它的 `execute_blender_code` 执行同样的 bpy 代码。`motion-design` 提到的 blender-motion、aftereffects-motion 没有装（前者会接付费的 Higgsfield），不要去找。
 

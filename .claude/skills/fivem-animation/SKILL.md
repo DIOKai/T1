@@ -16,6 +16,10 @@ Read the reference you need:
 
 Related skills: `motion-design` (timing, spacing, easing, the 12 principles), `blender-animation-rigging` and `animation` (Blender keyframing, Graph Editor, NLA), `anthropic-skills:learn` (teaching), muto-atlas `/anim` (vanilla dictionary/clip names, real durations, skeleton bones — needs its data layers built first; ask before `/asset-setup`).
 
+## Dances
+
+For a dance emote use `fivem-dance` together with this skill: it adds the BPM → frame maths (loop = whole beats and whole frames at 30 fps), groove and loop craft, baking Cycles/NLA loops into one action before Sollumz export, free mocap sources and licences (SMPL/SMPL-X non-commercial), rpemotes `CustomDP.Dances` / prop / shared / group dances. This skill stays the source for the skeleton, Sollumz fields, CodeWalker and `check_anim_resource.py`.
+
 ## Teaching mode
 
 When the user is learning, teach one step at a time and let them do it in Blender: explain the why, give the exact menu path or setting, ask them to confirm or send a screenshot, then move on. Start with a small first win — a 2-second upper-body wave loop on the freemode male — before full-body or moving animations. Use `motion-design` for the art side (anticipation, follow-through, arcs, ease) so the result looks good, not just valid.
