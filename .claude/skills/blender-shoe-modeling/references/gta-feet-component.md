@@ -33,6 +33,6 @@
 
 **Remaining gates:** run `fivem-clothing-creator` → `references/clothing-step-by-step.md` §6–10 (vertex colours #FF8000 / #000 a0, LOD High/Med/Low with the silhouette kept, Sollumz export, CodeWalker preview).
 
-**Heeled shoes:** (DCT is paid — the free route is YMTEditor; the matching high-heel setting there is unverified, test in game) enable DCT **Is High Heels** and tune Heel Height in **0.1** steps until the feet stop sinking into the floor. Fix missing rig weights in Blender; the flag does not replace them [DCT high-heels].
+**Heeled shoes:** the free route is **grzyClothTool** (GPL-3.0): tick **EnableHighHeels** on the feet drawable and set the value. From its source (BuildResourceHelper.cs line 901, 1163–1240; GDrawable.cs 321) this writes component `expressionMods[4]` = the heel value (default 1.0) and a heel entry (`pedCompID 6`) into `mp_creaturemetadata_<m|f>_<pack>.ymt`, which the shop meta references through `<creatureMetaData>`. Tune in **0.1** steps (DCT: default 1.0, max about 3.0, a low heel about 0.1) until the feet stop sinking into or floating above the floor. DCT's **Is High Heels** does the same but is paid. YMTEditor clamps expressionMods to ±2. Heel walking sound: `hash_2FD08CEF` = `shoe_heels` (Cfx forum 4209989). Fix missing rig weights in Blender; the heel value does not replace them. Details: `fivem-clothing-creator` → `references/components-props-and-flags.md` §3, §8.
 
-**Then:** run the `fivem-asset-acceptance` checks. Test on the local test server only.
+**Then:** run `fivem-clothing-creator`'s `scripts/check_clothing_resource.py` on the resource and the `fivem-asset-acceptance` checks. Test on the local test server only.

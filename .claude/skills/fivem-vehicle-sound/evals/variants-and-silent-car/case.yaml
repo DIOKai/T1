@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: variants-and-silent-car
+expected_outcome: |
+  指出 data_file 不能用通配符（要每个档一行、写到 .dat 为止），变化版要连 dat54 的容器名称和所有记录一起改名，改音色时不能改 granular 串流的采样率和长度，用同一个 CodeWalker 版本来回转 XML，设 audioNameHash、先 ensure 声音、重连测试，并提醒授权不能转发。

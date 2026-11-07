@@ -1,0 +1,4 @@
+interface:
+  display_name: "FiveM Dance"
+  short_description: "Make beat-synced dance emotes, prop and pair dances for FiveM"
+  default_prompt: "Use $fivem-dance to make a looping dance emote for FiveM from this reference video."

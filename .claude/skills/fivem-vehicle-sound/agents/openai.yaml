@@ -1,0 +1,4 @@
+interface:
+  display_name: "FiveM Vehicle Sound"
+  short_description: "Install, clone and re-voice GTA V engine sound packs"
+  default_prompt: "Use $fivem-vehicle-sound to give this FiveM car its own engine sound."

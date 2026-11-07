@@ -30,7 +30,7 @@ Sollumz sorts animations and clips alphabetically by object name.
 - Errors to expect: "Action '…' has no keyframes … Cannot export empty action"; "Channel '…' is unsupported, skipping…" (Euler rotation — switch to quaternion); exported file tiny (Target set to the object).
 
 ## Compile with CodeWalker
-CodeWalker ▸ RPF Explorer ▸ **Import XML** recognises `*.ycd.xml` and builds a binary `.ycd`. Put only the binary `.ycd` in the resource. CodeWalker's ped viewer previews clips from game data only; it doesn't list a loose resource `.ycd`.
+CodeWalker ▸ RPF Explorer ▸ **Import XML** recognises `*.ycd.xml` and builds a binary `.ycd`. Put only the binary `.ycd` in the resource. CodeWalker's Ped Viewer reads clips from game data, so it doesn't list a loose resource `.ycd` (or one in a plain folder). It **does** list and play a custom `.ycd` that sits **inside an RPF archive** under the game's `mods\update\x64\dlcpacks\<your>.rpf` (RPF Explorer ▸ edit mode ▸ New RPF archive, drop the `.ycd.xml` in, then type the dictionary name in Ped Viewer) [Dc9E53_Y4Xw 17:46–18:57], [AUltLxjesXw 30:53–32:55]. If the name doesn't appear, the file isn't inside a proper RPF. This only touches the offline mods folder, not FiveM.
 
 ## Naming
 - Dictionary name = the `.ycd` file name without extension (FiveM registers streamed files by extension and file name). Lowercase, no spaces, unique — `@` is fine (`dio@wave`).
