@@ -56,6 +56,8 @@
 
 Blender 技能（retopology、lod-pipeline、asset-optimization、uv-workflow、rigging、animation、export-pipeline、vehicle-artist、hard-surface、collision-proxy、texture-workflow，以及做室内用的 set-dressing、archviz、prop-artist、environment-artist，做角色和细节用的 character-artist、sculpting、cloth-sim、hair-groom、materials）要通过 `blender` MCP 在用户自己的 Blender 里执行代码，用之前先问。`blender` MCP 怎么操作见 `mcp-for-blender` 技能（`dcc-mcp` 是另一套工具，用户点名才用）。做 GTA 模型时，在 Blender 里完成后提醒用户用 Sollumz 导出成 .ydr/.yft/.ycd；GTA 衣服和 ped 以 `fivem-clothing-creator`、`fivem-ped-character` 为主。
 
+照影片学来的建模技能（2026-11-08 加的，都要先问；在 Blender 里动手一样经 `blender` MCP）：从零建车或直升机（蓝图、拓扑、缝线、格栅、车灯、轮毂、轮胎）用 `blender-vehicle-modeling`，它管「怎么建」，比例和物件拆分原则仍看 `vehicle-artist`，转换或修改现成的车 mod 用 `fivem-vehicle-mod`；有真实尺寸的产品（手机、手表、盒子、家电）用 `blender-product-modeling`（毫米精确），只有照片时看它的 `references/image-to-fivem-prop.md`（本机 Hunyuan3D，免费），一般硬表面技巧仍看 `hard-surface`，打包成游戏道具以 `fivem-prop-creator` 为主；鞋子（球鞋、靴子、高跟鞋）用 `blender-shoe-modeling`，做成 freemode feet 组件时以 `fivem-clothing-creator` 为主。MLO 一步步的做法在 `fivem-mlo-housing` 的 `references/blender-to-fivem-steps.md`；教程或网上指南跟伺服器的打包规则冲突时（DLC_ITYP_REQUEST、ymap 命名、UV 放大），照技能里的伺服器规则。
+
 要 3D 模型（道具、家具、食物、角色）时先建议 `free-3d-assets`：常见的东西先从 Poly Haven / Poly Pizza / Sketchfab 找免费模型（`blender` MCP 的 `search_assets`），独特的东西用用户自己电脑上的 Hunyuan3D 从图片生成（不用 Tripo、Meshy、Rodin 和 Blender MCP Premium，都要付费）。它的 `hunyuan3d_client.py` 只连用户本机的 Hunyuan3D 服务器，用户同意用这个技能后就可以直接跑；帮用户装 Hunyuan3D、启动服务器、在 Blender 里执行代码前要先问。`blender` MCP 本地模式的 Inference Steps 要设 20（Hunyuan3D 2.1 最多 20）。Hunyuan3D 授权不适用于欧盟、英国、韩国，用户在那些地方要提醒。
 
 要免费图片、视频（NUI 背景、手机壁纸、商店图片、loading screen、贴图、生成 3D 用的参考图）或音乐、音效时，先建议 `pixabay-assets`。它的 `pixabay.py` 要用户自己的免费 API key（放在环境变量 `PIXABAY_API_KEY`，不要写进文件或提交），会连 pixabay.com，用户同意用这个技能后就可以直接跑。Pixabay 的音乐和音效没有 API，要手动下载。

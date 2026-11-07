@@ -18,6 +18,11 @@ Inspect the source first. Establish game edition/build, Blender/Sollumz/CodeWalk
 
 Read [asset-pipeline.md](references/asset-pipeline.md) for integration decisions and [acceptance.md](references/acceptance.md) for observable tests.
 
+Where the model comes from:
+- A product with real dimensions (phone, watch, box, appliance, bottle): model it with `blender-product-modeling` (exact millimetre sizes, bevel-and-subdivision method, its `for_game` low-poly body), then come back here for collision, YTYP and packaging.
+- Only a photo or a concept image: `blender-product-modeling`'s `references/image-to-fivem-prop.md` (free local Hunyuan3D route, then cleanup, retopology and baking before Sollumz). Common objects: search free libraries first with `free-3d-assets`.
+- Vehicles and shoes have their own skills (`blender-vehicle-modeling`, `blender-shoe-modeling`).
+
 ## Build and integrate
 
 1. Compare scale, orientation, and origin with a known-good game asset. Apply transforms deliberately, preserving hierarchy and placements.

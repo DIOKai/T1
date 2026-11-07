@@ -24,3 +24,9 @@ The first two videos had no exportable transcript during review. Use them to loc
 - Walk, run, crouch, sit, raise arms, and extreme joint poses show no severe deformation or exposed-body failure.
 - Wind/physics cannot detach the garment, explode the mesh, or penetrate unacceptably.
 - LOD changes are coherent, metadata selects the intended component, and a fresh conversion/reimport matches the saved source.
+
+## Added 2026-11-08 (full transcripts / frames)
+
+- [Druu — Making custom clothes/ytd/ydd for FiveM](https://www.youtube.com/watch?v=Pl703WrlCnE) (1:19:19, full transcript + frames): the source of most numbers in `clothing-step-by-step.md`.
+- [twobidona — Creating Clothes in Blender](https://www.youtube.com/watch?v=OGSo28XLkHM) (music only, read from frames): generic garment modeling (Mirror + Subdivision + Shrinkwrap above surface, Multires cloth brush, normal bake) — not GTA-specific.
+- Shoe videos (PixelicaCG, J Derinor, Blacknest) went into the `blender-shoe-modeling` skill.

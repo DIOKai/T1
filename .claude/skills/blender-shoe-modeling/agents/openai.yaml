@@ -1,0 +1,4 @@
+interface:
+  display_name: "Blender Shoe Modeling"
+  short_description: "Model sneakers and boots; turn them into FiveM feet items"
+  default_prompt: "Use $blender-shoe-modeling to model this shoe in Blender."

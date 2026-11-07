@@ -1,0 +1,4 @@
+interface:
+  display_name: "FiveM MLO & Housing"
+  short_description: "Build MLO interiors and set up housing in FiveM"
+  default_prompt: "Use $fivem-mlo-housing to build or fix this FiveM interior."

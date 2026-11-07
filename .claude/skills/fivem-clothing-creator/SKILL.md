@@ -13,6 +13,10 @@ Confirm male/female target, component slot, add-on versus replacement, Legacy/Ge
 
 Read [references/sollumz-clothing.md](references/sollumz-clothing.md) before importing, naming textures, or diagnosing missing/invisible garments.
 
+Read [references/clothing-step-by-step.md](references/clothing-step-by-step.md) for the concrete click path: CodeWalker export of the base body/skeleton, Import External Skeleton, fitting with safe sculpt brushes, Transfer Weights settings, DDS formats and sizes, the two vertex-colour values, LOD decimation, export options, CodeWalker variants, component ids, `_u/_uni` vs `_r/_whi` naming and the manual meta/fxmanifest pack.
+
+For shoes and boots, model with the `blender-shoe-modeling` skill and follow its `gta-feet-component.md`, then come back here for the gates.
+
 Read [references/video-study.md](references/video-study.md) when the task involves weight transfer, vertex wind/sweat behavior, YMT/meta setup, cloth physics, or diagnosing a workflow copied from a video.
 
 ## Production workflow
@@ -20,9 +24,9 @@ Read [references/video-study.md](references/video-study.md) when the task involv
 1. Import the matching freemode YFT skeleton and a known-good component YDD with the external-skeleton option.
 2. Build or fit the garment around the correct body components. Keep clothing separate from the body; resolve intersections at neutral and deformation poses.
 3. Use even topology around shoulders, elbows, hips, knees, waist, and cuffs. Use cloth simulation only to establish useful drape, then clean and retopologize for the game.
-4. Transfer weights from the appropriate base, normalize them, remove unintended influences, and test motion. An exported YDD with empty or wrong vertex groups is not acceptable.
+4. Transfer weights from the appropriate base (Transfer Weights: Vertex Group(s), Nearest Vertex, By Name; then Smooth All Groups; Merge by Distance first if a hard seam appears), normalize them, remove unintended influences, and test motion. An exported YDD with empty or wrong vertex groups is not acceptable.
 5. Create and review high, medium, and low LODs. Preserve silhouette and coverage while reducing hidden detail.
-6. Prepare GTA-compatible materials and YTD content. Check diffuse, normal, specular, alpha, texture dimensions, mipmaps, embedded names, UV placement, and vertex colors against the chosen base component.
+6. Prepare GTA-compatible materials and YTD content. Check diffuse, normal, specular, alpha, texture dimensions, mipmaps, embedded names, UV placement, and vertex colors against the chosen base component. Vertex colours: colour0 #FF8000 (alpha max), colour1 #000000 (alpha 0) — wrong values cause black shading, wind shake or a sweaty shine. Meshes that contain skin (`_r` + `_whi`) keep the diffuse ≤512 and spec alpha black on skin.
 7. Export through the installed Sollumz version's supported route. Package only the files required for the chosen add-on/replacement method; do not copy paths or assumptions from another server.
 
 ## Acceptance tests

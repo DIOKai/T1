@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: sports-car-from-blueprints
+expected_outcome: |
+  中文步骤：蓝图按真实尺寸摆好、车头朝 +Y；从最少的四边形笼子开始、拓扑均匀、反射检查、最后才切缝线；7 根辐条用径向阵列且圆的顶点数是 7 的倍数；进游戏要 GTA 骨骼名、背面剔除检查、三角面预算、交给 fivem-vehicle-mod。

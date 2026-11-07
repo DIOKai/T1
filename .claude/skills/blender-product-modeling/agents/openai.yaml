@@ -1,0 +1,4 @@
+interface:
+  display_name: "Blender Product Modeling"
+  short_description: "Model phones, watches and gadgets to spec; turn them into props"
+  default_prompt: "Use $blender-product-modeling to model this product accurately in Blender."

@@ -5,7 +5,9 @@ Primary visual workflow sources:
 - [Desertos — Creating custom MLO interior in Blender/Sollumz](https://www.youtube.com/watch?v=NN-fjCbPO1Q), 1:38:38. Its published chapters cover exterior export, interior modeling, coordinate recording, room division, collision, portals, MLO metadata, export, CodeWalker placement, visual fixes, vertex color, texture dictionary, exterior collision, props, FiveM streaming, occlusion, and in-game testing.
 - [Creating your own MLO with Blender/Sollumz for FiveM (2026)](https://www.youtube.com/watch?v=ul-obDJ3e1U), a newer complementary demonstration.
 
-No exportable transcript was available for either video during review. Therefore, use the videos to find visual demonstrations while deriving technical requirements from the current Sollumz and Cfx sources cited in `mlo-authoring.md`.
+Full step-by-step notes from two more courses (qDESAUCE "BLENDER TO FIVEM", 19 captioned parts, and Bady Design's 3 parts + live build, read from frames) are in `blender-to-fivem-steps.md`.
+
+No exportable transcript was available for either of the two videos above during review. Therefore, use the videos to find visual demonstrations while deriving technical requirements from the current Sollumz and Cfx sources cited in `mlo-authoring.md`.
 
 ## Workflow lessons reinforced by the chapter structure
 
