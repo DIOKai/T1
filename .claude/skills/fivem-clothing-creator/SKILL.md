@@ -1,6 +1,6 @@
 ---
 name: fivem-clothing-creator
-description: Use when the user makes, fits, fixes, packages or installs GTA V / FiveM freemode clothing or accessories (mp_m/mp_f_freemode_01) — tops, jackets, pants, shoes, masks, bags, hats, glasses, watches; add-on or replacement clothing packs; YMT, shop meta, creaturemetadata or fxmanifest; grzyClothTool or YMTEditor; Sollumz clothing export; cloth physics (YLD); adding clothes to illenium-appearance or another appearance menu; or when clothes are invisible, stretched, clipping, missing textures, in the wrong slot, crash on load, or a hat does not hide hair. Triggers: 做衣服, 自制衣服, 衣服不显示, 帽子, 眼镜, 配件, ymt, 衣服包, illenium-appearance 加衣服, 女角衣服.
+description: Use when the user makes, fits, fixes, packages or installs GTA V / FiveM freemode clothing or accessories (mp_m/mp_f_freemode_01) — tops, jackets, pants, shoes, masks, bags, hats, glasses, watches; add-on or replacement clothing packs; YMT, shop meta, creaturemetadata or fxmanifest; grzyClothTool or YMTEditor; Sollumz clothing export; cloth physics (YLD); adding clothes to illenium-appearance or another appearance menu; or when clothes are invisible, stretched, clipping, missing textures, in the wrong slot, crash on load, or a hat does not hide hair. Triggers include 做衣服, 自制衣服, 衣服不显示, 帽子, 眼镜, 配件, ymt, 衣服包, illenium-appearance 加衣服, 女角衣服.
 ---
 
 # FiveM Clothing Creator
