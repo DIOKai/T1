@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: wood-table-invisible-pushable
+expected_outcome: |
+  中文回答：两张未压缩 2048² 贴图让 ytd 大约 64 MiB，超过 FXServer 16/48 MiB 警告线，是看不到/串流出问题的头号嫌疑——改成 DXT1/DXT5（BC1/BC3）、256–1024 尺寸、完整 mipmap，但先报告、由用户决定是否重新压缩；碰撞要嵌入 Drawable，用 Bound Box/Cylinder 这类基本形状，Bound GeometryBVH 要套 Flag Preset General (Default)，选碰撞材质；要能推动就在 ytyp 勾 Dynamic（flag 18，原版街道道具还加 23/24/30），不要 Static；lodDist 200/hdTextureDist 100 是 Sollumz 预设，改成原版家具的 60–140 左右，并加一个约 15–30% 面数的 Medium LOD；DLC_ITYP_REQUEST 没问题，this_is_a_map 对只靠脚本生成的道具不需要（无害）；改完用检查器或 CodeWalker 确认，再到本机测试服走近走远、推、开枪、撞，不把静态检查当成游戏内通过。

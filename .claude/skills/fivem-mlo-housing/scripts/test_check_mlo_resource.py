@@ -87,6 +87,29 @@ class CheckMlo(unittest.TestCase):
         self.assertIn('ITYP_REQUEST_CHECK', found)
         self.assertNotIn('ITYP_REQUEST_MLO', found)
 
+    def test_ityp_request_matches_file_name_only(self):
+        # upstream rpemotes-reborn: 'stream/brummie_props.ytyp' while the file sits in stream/[Props]/Brummiee/
+        with tempfile.TemporaryDirectory() as d:
+            write(d, 'res/fxmanifest.lua', "data_file 'DLC_ITYP_REQUEST' 'stream/brummie_props.ytyp'\n"
+                                           "data_file 'DLC_ITYP_REQUEST' 'stream/missing_props.ytyp'\n")
+            write(d, 'res/stream/[Props]/Brummiee/brummie_props.ytyp', 'x')
+            found = chk.check([d])
+        msgs = [f['message'] for f in found if f['code'] == 'DATA_FILE_NO_MATCH']
+        self.assertEqual(len(msgs), 1)
+        self.assertIn('missing_props', msgs[0])
+
+    def test_door_attributes_9_10_12_need_door_flags(self):
+        items = ''.join(f'<Item type="CBaseArchetypeDef"><name>door_{a}</name><specialAttribute value="{a}" />'
+                        f'<flags value="0" /></Item>' for a in (9, 10, 12))
+        items += ('<Item type="CBaseArchetypeDef"><name>door_ok</name><specialAttribute value="10" />'
+                  f'<flags value="{(1 << 17) | (1 << 26)}" /></Item>')
+        with tempfile.TemporaryDirectory() as d:
+            write(d, 'export/doors.ytyp.xml', f'<CMapTypes><archetypes>{items}</archetypes></CMapTypes>')
+            found = chk.check([d])
+        door = [f['message'] for f in found if f['code'] == 'DOOR_FLAGS']
+        self.assertEqual(len(door), 3)
+        self.assertTrue(any('Sliding Vertical Door' in m for m in door))
+
     def test_facing_undecidable_when_box_spans_both_sides(self):
         box = ((0, 0, 0), (8, 4, 3))   # room box reaches past the portal plane
         self.assertIsNone(chk.portal_facing(OUT_CORNERS, box, None))

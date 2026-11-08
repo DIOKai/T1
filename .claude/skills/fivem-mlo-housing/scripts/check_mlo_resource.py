@@ -15,7 +15,9 @@ Checks
   custom .ytyp without a .ymf manifest (fivem-docs part 4: the manifest "is
   necessary to load the models correctly"); DLC_ITYP_REQUEST of a ytyp that
   holds an MLO archetype (crashed clients on the user's server - the .ymf
-  loads MLO ytyps); data_file paths that match nothing (AUDIO_GAMEDATA .dat ->
+  loads MLO ytyps); data_file paths that match nothing (DLC_ITYP_REQUEST is
+  matched by file name only, like FiveM LoadStreamingFile.cpp ParseBaseName, so
+  rpemotes-style 'stream/x.ytyp' with the file in a sub-folder is fine; AUDIO_GAMEDATA .dat ->
   .dat151.rel convention); .xml files left in stream/.
 - binary .ytyp/.ymap/.ybn/.ydr/.ytd: RSC7 header, memory over 16/48 MiB
   decoded from the header like FXServer; duplicate file names.
@@ -44,7 +46,9 @@ import xml.etree.ElementTree as ET
 MIB = 1024 * 1024
 MAP_EXT = ('.ymap', '.ytyp', '.ybn', '.ymt')
 RSC_EXT = ('.ymap', '.ytyp', '.ybn', '.ydr', '.ydd', '.yft', '.ytd')
-DOOR_ATTRS = {'5': 'Garage Door', '7': 'Normal Door', '8': 'Sliding Door'}  # fivem-docs part 8
+# Sollumz 2.9 ytyp.py SpecialAttribute (door kinds); fivem-docs part 8 uses 7 / 8 / 5, the Benny's roller door is 10
+DOOR_ATTRS = {'5': 'Garage Door', '7': 'Normal Door', '8': 'Sliding Door', '9': 'Barrier Door',
+              '10': 'Sliding Vertical Door', '12': 'Rail Crossing Barrier Door'}
 
 
 def rsc_page_size(flags):
@@ -168,6 +172,12 @@ def ints(el, tag):
         return []
 
 
+def ityp_base_name(path):
+    """FiveM LoadStreamingFile.cpp ParseBaseName: DLC_ITYP_REQUEST finds the .ytyp by file name only."""
+    base = path.replace('\\', '/').rsplit('/', 1)[-1].lower()
+    return base[:base.rfind('.')] if '.' in base else base
+
+
 def check(paths):
     findings = []
 
@@ -175,6 +185,8 @@ def check(paths):
         findings.append({'level': level, 'code': code, 'file': where, 'message': msg})
 
     files = walk(paths)
+    streamed_ytyp_stems = {os.path.basename(f).lower()[:-len('.ytyp')] for f in files
+                           if f.lower().endswith('.ytyp') and 'stream' in f.lower().replace(os.sep, '/')}
     ityp_requests = []      # (manifest rel path, requested ytyp path)
     ymf_resources = []      # manifests whose resource streams a .ymf and also uses DLC_ITYP_REQUEST
 
@@ -195,7 +207,9 @@ def check(paths):
             pl = p.replace('\\', '/').lower()
             if ':/' in pl or (t == 'DLC_ITYP_REQUEST' and '/' not in pl):
                 continue  # game path (x64c:/...) or a .ytyp streamed by another resource
-            if t == 'AUDIO_GAMEDATA' or t == 'AUDIO_SOUNDDATA' or t == 'AUDIO_DYNAMIXDATA':
+            if t == 'DLC_ITYP_REQUEST' and not any(c in pl for c in '*?'):
+                ok = ityp_base_name(pl) in streamed_ytyp_stems   # path is ignored, only the file name counts
+            elif t == 'AUDIO_GAMEDATA' or t == 'AUDIO_SOUNDDATA' or t == 'AUDIO_DYNAMIXDATA':
                 ok = any(x == pl or x.startswith(pl) for x in low_files)
             else:
                 ok = any(x == pl or fnmatch.fnmatch(x, pl) for x in low_files)

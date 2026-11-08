@@ -1,0 +1,4 @@
+interface:
+  display_name: "FiveM Vehicle Livery"
+  short_description: "Design, template, export and fix GTA V / FiveM car liveries"
+  default_prompt: "Use $fivem-vehicle-livery to make or fix the livery for this car."

@@ -1,6 +1,6 @@
 ---
 name: fivem-vehicle-sound
-description: Use when a GTA V / FiveM car needs its own engine sound — installing a downloaded engine-sound pack as an add-on resource, giving several cars distinct variants of one pack (clone, rename, deeper/raspier/quieter exhaust), re-voicing a pack with real recordings, tuning volume, idle, rev limiter, pops or turbo whine, or when a car is silent, plays the stock sound, crackles, has the wrong pitch, or clients crash after adding a sound. Also for 声浪, 引擎声, 换声浪, 排气声, 回火, 涡轮声, 车没声音, audioNameHash, dat151, dat54, awc, granular.
+description: Use when a GTA V / FiveM car needs its own engine sound — installing a downloaded engine-sound pack as an add-on resource, giving several cars distinct variants of one pack (clone, rename, deeper/raspier/quieter exhaust), re-voicing a pack with real recordings, tuning volume, idle, rev limiter, pops or turbo whine, building a server-side siren pack (custom wail/yelp/priority/horn tones for Renewed-Sirensync or LVC), or when a car or siren is silent, plays the stock sound, crackles, has the wrong pitch, or clients crash after adding a sound. Also for 声浪, 引擎声, 换声浪, 排气声, 回火, 涡轮声, 车没声音, 警笛声, 自制警笛, 警笛没声音, audioNameHash, dat151, dat54, awc, granular, siren pack.
 ---
 
 # FiveM vehicle engine sound
@@ -15,6 +15,7 @@ A car's sound is a chain: `vehicles.meta <audioNameHash>` → a dat151 **car** r
 | Use a downloaded pack | **A** install it as its own resource (`references/workflows.md` §4) | minutes |
 | Several cars, one pack, each slightly different | **B** clone + rename with `scripts/sound_pack.ps1 clone` | ~15 min per variant |
 | Change the tone (deeper, raspier, quieter, real idle) | **B** + `scripts/revoice_wav.py` on the exported WAVs | ~30 min |
+| Custom siren tones for police/EMS (server-side siren pack) | `scripts/siren_pack.ps1 build` → `references/siren-sounds.md` | ~30 min once the WAV loops are clean |
 | Brand-new sound from your own recordings | **C** — not possible with documented free tools; re-voice the closest pack instead (`workflows.md` §6) | — |
 
 Prefer REL volume fields for pure loudness changes; touch WAVs only for tone.
@@ -37,6 +38,7 @@ Needs only CodeWalker (free; the folder with `CodeWalker.Core.dll`) and Python. 
 - A `data_file` pointing at a missing file can crash clients on join.
 - Keep every `.awc` name unique server-wide; FiveM indexes wave packs by their first 8 characters, and around 190 add-on banks the last ones go silent (cfx issue #2515).
 - CodeWalker imports only mono 16-bit PCM WAV and does not update the sample count — a changed length silently breaks the grain table (`sound_pack.ps1` refuses it).
+- **Names in a REL are hashed exactly as written by CodeWalker, but the game hashes them in lowercase** — write names lowercase in any XML you build (verified against vanilla dat54; an uppercase REL plays nothing).
 - Units of volume (≈ 0.01 dB) and pitch (≈ cents) are inferred, not documented — change in small steps and listen.
 
 ## Checks before calling it done
@@ -68,7 +70,8 @@ Most community packs contain audio ripped from commercial games (DIRT Rally, NFS
 - `references/audio-structure.md` — record chain, data-file types, field names new ↔ old CodeWalker, AWC format and grains.
 - `references/workflows.md` — free/paid tools, workflow A install, B clone/rename, C recordings (honest limits).
 - `references/tuning-and-troubleshooting.md` — what each parameter changes, A/B testing, symptom → cause, open questions.
+- `references/siren-sounds.md` — server-side siren packs: SoundSet → SimpleSound → AWC chain, the lowercase-hash rule, building/dumping with `siren_pack.ps1`, controller wiring, troubleshooting.
 - `references/sources.md` — CodeWalker source, Cfx docs/issues/forum, Rockstar GDC talk, pack pages, videos; what the user's installed packs showed.
-- `scripts/sound_pack.ps1` (dump/clone, CodeWalker.Core), `scripts/revoice_wav.py` (EQ/saturation/gain, length-safe), `scripts/check_sound_resource.py` (read-only checker), `scripts/test_scripts.py`.
+- `scripts/sound_pack.ps1` (dump/clone, CodeWalker.Core), `scripts/revoice_wav.py` (EQ/saturation/gain, length-safe), `scripts/check_sound_resource.py` (read-only checker), `scripts/siren_pack.ps1` (build/dump siren packs), `scripts/test_scripts.py`.
 
 Related: `fivem-vehicle-mod` (the car resource, `audioNameHash`), `fivem-audio-package-check` (generic audio packaging), `audio-loop-editing` and `audio-quality-check` (preparing real recordings), `ffmpeg-skill`.

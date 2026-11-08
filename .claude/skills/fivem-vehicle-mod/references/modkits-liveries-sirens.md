@@ -81,6 +81,8 @@ Root `<CVehicleModelInfoVarGlobal>` with `<Kits>`, `<Lights>`, `<Sirens>`.
 
 ## Liveries
 
+Designing/painting the livery itself: see fivem-vehicle-livery.
+
 **Method A — texture liveries (simplest):** set `FLAG_HAS_LIVERY` in vehicles.meta; the game cycles liveries from the vehicle's texture dictionary, up to 30 (Cfx docs vehicle-flags). Textures are conventionally `<model>_sign_1`, `_sign_2`, … and the paint material must reference the sign texture (community; exact shader slot unverified). DDS with full mipmaps. `GetVehicleLiveryCount` returns -1 when the vehicle has none.
 
 **Method B — modkit livery parts:** separate `.yft` files (e.g. `mycar_livery1.yft`) listed in carcols `visibleMods` with `<type>VMT_LIVERY_MOD</type>` and `<bone>chassis</bone>`; selected through the mod system. The Curiosity-GitHub/addon-liveries guide removes `FLAG_HAS_LIVERY` for this method. Good for many liveries or for police/EMS packs where liveries are added later without touching the base ytd.
