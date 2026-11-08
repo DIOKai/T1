@@ -91,6 +91,10 @@ No third-party code, models or images are included. The workflows summarise publ
 
 The 2026-11-08 additions to `fivem-mlo-housing` (`references/blender-to-fivem-steps.md`) and `fivem-clothing-creator` (`references/clothing-step-by-step.md`) are summaries of the same kind of study, with citations to video timestamps; no text or images from the videos are reproduced.
 
+## blender-vehicle-modeling engine bay / interior / accessories references (2026-11-08)
+
+Summaries written for this repository from public tutorial videos (captions, and frames for a few uncaptioned ones), Sollumz documentation, modding-forum guides and measurements of vanilla GTA V vehicle files exported read-only from the user's own game with CodeWalker.Core. No models, textures, code or text are reproduced. Sources are listed in each reference.
+
 ## fivem-vehicle-sound, fivem-dance (written for this repository)
 
 No third-party code, audio or animation is included. `fivem-vehicle-sound` summarises the CodeWalker source (dexyfex; read for field names and file formats, no code copied — the scripts call the user's own CodeWalker.Core.dll at run time), Cfx documentation, forum posts and GitHub issues, Rockstar's GDC 2014 talk and public sound-pack pages; its scripts were written for this repository. `fivem-dance` summarises public tutorial videos, the rpemotes-reborn README and source (GPL-3.0; read only), the Sollumz source and the Blender manual; its scripts were written for this repository. Both skills cite their sources in `references/sources.md`.

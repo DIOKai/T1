@@ -207,7 +207,7 @@ There are two proven approaches.
 5. Solidify the text.
 6. KG considered a displacement texture and rejected it because it gives ugly shapes.
 
-**Underside and engine bay (KG16 32:40, KG19 16:14):** a plain plane filled from the outline hides the empty interior. KG never models the engine.
+**Underside and engine bay (KG16 32:40, KG19 16:14):** a plain plane filled from the outline hides the empty interior. KG never models the engine. Not enough for a shipped GTA car: see `engine-bay-and-underbody.md` and `interior.md`.
 
 **Gas cap (KG17 AHbDrcFkCUs 0:49):** make it last, on a copy whose Mirror modifier has been applied, because it is asymmetric.
 

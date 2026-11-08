@@ -1,6 +1,6 @@
 # Police, EMS and fire vehicles
 
-Sources: FiveM docs vehicle flags; real add-on packs' meta files (lds-lorevehicles); citizenfx/natives `SET_VEHICLE_EXTRA`; qbx_police / qbx_core and qb-policejob configs; Renewed-Sirensync, pma-sirensync, Luxart Vehicle Control, ELS-FiveM, WMServerSirens and Live Lights READMEs/configs; Sollumz wiki (siren glass); muto-atlas bone tags.
+Sources: FiveM docs vehicle flags; real add-on packs' meta files (lds-lorevehicles); citizenfx/natives `SET_VEHICLE_EXTRA`; qbx_police / qbx_core and qb-policejob configs; Renewed-Sirensync, pma-sirensync, Luxart Vehicle Control, ELS-FiveM, WMServerSirens and Live Lights READMEs/configs; Sollumz wiki (siren glass); muto-atlas bone tags; modding-forum guides (emergency lights, rotators/wig-wags, extra components).
 
 A modded police car is a normal add-on vehicle (everything in the other references applies) plus five things: **emergency flags and class**, **siren lights** (bones + a carcols siren setting), **liveries**, **extras** (lightbars, push bars, equipment toggled on/off), and **siren sound/control** in game.
 
@@ -21,6 +21,12 @@ A modded police car is a normal add-on vehicle (everything in the other referenc
 ```
 
 Flag meanings (FiveM docs): `FLAG_LAW_ENFORCEMENT` — helicopter searchlights, wanted-level dynamics; `FLAG_EMERGENCY_SERVICE` — ped reactions and how theft is perceived; `FLAG_EXTRAS_STRONG` — extras don't break off; `FLAG_EXTRAS_ALL` — spawn with all extras; `FLAG_EXTRAS_REQUIRE` — at least one extra; `FLAG_EXTRAS_MATCH_LIVERY` — extra matching the livery id; `FLAG_HAS_LIVERY` — texture liveries (up to 30); `FLAG_NO_RESPRAY`; `FLAG_DONT_SPAWN_IN_CARGEN` — not parked around the map.
+
+**Extras spawn rules** (modding-forum "Extra Components" guide, https://www.modding-forum.com/guide/25-extra-components/):
+- `FLAG_EXTRAS_ALL` always spawns extras 1–8 (overrides `FLAG_EXTRAS_SCRIPT`). `FLAG_EXTRAS_REQUIRE` spawns exactly one of 1–8. `FLAG_EXTRAS_SCRIPT` stops 5–9 spawning randomly (required/included extras and scripts still can). `FLAG_EXTRAS_RARE` lowers the chance of 1–8. `FLAG_EXTRAS_TAXI` always one of 5–8. `FLAG_EXTRAS_CONVERTIBLE` extra 1 or 2 (never 1 in rain). `FLAG_EXTRAS_ONLY_BREAK_WHEN_DESTROYED` extras fall off only when the car is destroyed. `FLAG_HAS_INTERIOR_EXTRAS` spawns one of 10–12 or none.
+- `<requiredExtras>EXTRA_1 EXTRA_2</requiredExtras>`: at least one listed extra always spawns (a single entry always spawns).
+- `<extraIncludes><Item>EXTRA_1 EXTRA_2</Item></extraIncludes>`: when one extra of a set spawns, the whole set spawns. Random extras can still appear on top (YouTube H4Ze4Mc2HX8 7:09).
+- An extra with child sirens or nested extras needs its own collision, or the children stay visible when it is off. Model side: `blender-vehicle-modeling` → `references/accessories-and-parts.md`.
 
 `carvariations.meta` links the siren setting: `<sirenSettings value="190"/>` (and `<lightSettings>`). `plateProbabilities` can force a government plate.
 
@@ -58,12 +64,14 @@ Flag meanings (FiveM docs): `FLAG_LAW_ENFORCEMENT` — helicopter searchlights, 
 
 - `sequencer` is a 32-bit on/off pattern stepped at `sequencerBpm`: `4294967295` (all bits) = always on, `0` = off; complementary patterns such as `2863311530` (0xAAAAAAAA) and `1431655765` (0x55555555) alternate — give left and right lights complementary patterns for a wig-wag.
 - `rotate` + `rotation.speed` make rotating beacons; `flash` + `flashiness.sequencer` make LED flashers.
+- **Size, direction, start** (modding-forum "Setting Up Emergency Lights", https://modding-forum.com/guide/18-setting-up-emergency-lights): the game flashes a light by scaling its mesh, so mesh scale × `scaleFactor` = visible size (default mesh 0.5 with `scaleFactor` 2; keep `scaleFactor` low, high values drift after collisions). The emitter model points to the car's front and `delta` (radians, 180° = 3.14159274) turns it; an angled light needs a matching `start`, or the corona falls out of sync. The corona sits at the siren bone.
+- **Rotator speed** (modding-forum "Rotator Lightbars and Wig-Wags", https://www.modding-forum.com/guide/20-emergency-lights-rotator-lightbars-and-wig-wags/): with `syncToBpm` off, speed = BPM/100 × 8 for sequencer `2863311530`, × 4 for `2290649224`, × 2 for `2155905152`, × 1 for `2147516416` (keep the spacing of 1s and 0s). Constant rotator: rotation sequencer `4294967295`, `rotate` true, `scale` and `flash` false.
 - **Ids are one byte** and shared server-wide: two packs both using 190 → one gets the other's pattern. Keep a list; `check_vehicle_resource.py` reports duplicates and ids > 255 across every scanned resource. SSLA (more ids/lights) is a client mod — not for FiveM servers, never on Enhanced.
 - **Design patterns live**: *Live Lights* (free RagePluginHook plugin for **single-player** GTA V) edits every siren parameter in game and imports/exports carcols.meta. It runs on the user's PC in story mode only — ask before suggesting the install.
 
 ## 3. Extras and liveries from scripts
 
-`SetVehicleExtra(vehicle, extraId, disable)` — the third argument is **disable**: `false`/0 turns the extra **on**, `true`/1 turns it **off** (citizenfx/natives note). Check `DoesExtraExist` first. qbx_core wraps it the readable way: `qbx.setVehicleExtra(veh, id, enable)` calls `SetVehicleExtra(veh, id, not enable)`.
+`SetVehicleExtra(vehicle, extraId, disable)` — the third argument is **disable**: `false`/0 turns the extra **on**, `true`/1 turns it **off** (citizenfx/natives note). Check `DoesExtraExist` first. Community reports (unverified in the docs): turning an extra on **repairs the vehicle**, which players abuse, so scripts check body health first or block it (cfx forum "SetVehicleAutoRepairDisabled with SetVehicleExtra"; Luxart docs "Extra Integrations"); an extra with collision only takes effect after a repair/respawn (YouTube HnpvnOLblLA 9:21). qbx_core wraps it the readable way: `qbx.setVehicleExtra(veh, id, enable)` calls `SetVehicleExtra(veh, id, not enable)`.
 
 Police job configs:
 - **qbx_police** `config/client.lua`: `authorizedVehicles[grade] = { spawnname = 'Label' }` per grade; `vehicleSettings[model] = { extras = { [1] = true, ... }, livery = 1 }` applied on spawn (`qbx.setVehicleExtras`, `SetVehicleLivery`).
