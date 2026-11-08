@@ -15,7 +15,7 @@ Per-type checkers (looked up next to this skill, ../../<skill>/scripts/<file>):
   prop      fivem-prop-creator/check_prop_resource.py
   vehicle   fivem-vehicle-mod/check_vehicle_resource.py (+ fivem-vehicle-livery/check_livery.py)
   clothing  fivem-clothing-creator/check_clothing_resource.py
-  map       fivem-mlo-housing/check_mlo_resource.py
+  map       fivem-mlo-housing/check_mlo_resource.py + fivem-map-world-editor/check_map_resource.py
   weapon    fivem-weapon/check_weapon_resource.py
   anim      fivem-animation/check_anim_resource.py
   sound     fivem-vehicle-sound/check_sound_resource.py
@@ -62,7 +62,8 @@ CHECKERS = {   # type -> [(skill folder, script, optional)]
     'vehicle': [('fivem-vehicle-mod', 'check_vehicle_resource.py', False),
                 ('fivem-vehicle-livery', 'check_livery.py', True)],
     'clothing': [('fivem-clothing-creator', 'check_clothing_resource.py', False)],
-    'map': [('fivem-mlo-housing', 'check_mlo_resource.py', False)],
+    'map': [('fivem-mlo-housing', 'check_mlo_resource.py', False),
+            ('fivem-map-world-editor', 'check_map_resource.py', False)],
     'weapon': [('fivem-weapon', 'check_weapon_resource.py', False)],
     'anim': [('fivem-animation', 'check_anim_resource.py', False)],
     'sound': [('fivem-vehicle-sound', 'check_sound_resource.py', False)],

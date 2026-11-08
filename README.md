@@ -28,6 +28,7 @@
 - **跳舞动作**：`fivem-dance`（本仓库自己写的，2026-11-08，学自 40 部教学影片和 rpemotes、Sollumz 源码）——从手机影片或免费动捕取得舞蹈、跟着 BPM 算出不会越跳越不卡点的循环帧数、律动和卡点、导出前把循环烘焙成单一 action、rpemotes 单人/双人/群舞和荧光棒道具舞，并标出 SMPL 类动捕只能非商用。附 `dance_timing.py`、`bake_loop.py`
 - **武器**：`fivem-weapon`（本仓库自己写的，2026-11-08）——自制或加枪进 FiveM：Blender 建枪、原版骨骼和挂点（核对过 26 把原版枪）、weapons/archetypes/components/animations meta、fxmanifest、接 ox_inventory、伺服器判定，附只读检查 `check_weapon_resource.py`
 - **车身涂装**：`fivem-vehicle-livery`（本仓库自己写的，2026-11-08）——三种涂装做法（sign 贴图、VMT_LIVERY_MOD、画死在车身）、从车的 UV1 画模板（`livery_template.py`）、警车涂装设计、导出设定、只读检查 `check_livery.py`
+- **地图编辑**：`fivem-map-world-editor` 补完（2026-11-08）——CodeWalker 编辑 ymap、删或移原版建筑（遮挡体、LOD/SLOD、hei_ 版本、索引和 numChildren）、地形和碰撞、自制户外建筑，附只读检查 `check_map_resource.py`（也读编好的二进制 ymap、和原版对比）
 - **道具和上服验收**：`fivem-prop-creator`、`fivem-asset-acceptance` 补完（2026-11-08）——原版道具实测预算、碰撞和旗标、门、直接读编好的 ydr/ytd/ytyp 的 `check_prop_resource.py`；`asset_gate.py` 自动判断素材类型、跑对应检查脚本、汇总结果
 - **室内和房屋**：`fivem-mlo-housing`（本仓库自己写的）——三种室内怎么选（MLO、原版 IPL、shell），用 Blender + Sollumz + CodeWalker 做 MLO（limbo、房间、portal、实体、entity set、房间 timecycle、门、碰撞、顶点色灯光、`_manifest.ymf`、ht_mlotool 声音遮挡），在脚本里切换 entity set 和 IPL，以及 qbx_properties / qb-houses / ps-housing 怎么用 shell 和公寓、家具摆放和授权。附 `check_mlo_resource.py`，检查 this_is_a_map、manifest、portal 连错房间、房间没 portal、实体没放进房间（进屋看不到）、门的 flag、ymap extents、撞名。资料来自 Sollumz wiki 和源码、FiveM 官方资产教程和源码、citizenfx/natives 以及各房屋脚本自己的代码
 - **记住纠正**：`correction-memory`（本仓库自己写的）——你说我哪里做错、或说"下次/记住…"时，先改好，再把规则写进仓库根目录的 `LESSONS.md`。CLAUDE.md 用 `@LESSONS.md` 导入它，所以以后每次对话都会自动读到。新对话从 main 开始，所以经验要合并进 main 才生效

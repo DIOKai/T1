@@ -8,7 +8,7 @@
 | 车辆 | vehicles/handling/carcols/carvariations meta 或 `_hi.yft` | `fivem-vehicle-mod/scripts/check_vehicle_resource.py` | meta 互相引用、modkit/警笛/灯光 id、16/48 MiB | 引擎舱、破洞、外观（LESSONS 人工） |
 | 车辆涂装 | 同上（有就跑） | `fivem-vehicle-livery/scripts/check_livery.py` | livery 贴图存在、FLAG_HAS_LIVERY、_sign_N、各 LOD 有涂装层、贴图格式 | 涂装好不好看、字是否反 |
 | 服装 | stream 名字有 `^` 或 SHOP_PED_APPAREL_META_FILE | `fivem-clothing-creator/scripts/check_clothing_resource.py` | 命名、meta、贴图配对、编号、FXAP | YDD/YMT 内容 |
-| 地图/MLO | .ymap/.ymf、MLO ytyp（二进制也认得）、this_is_a_map + .ybn | `fivem-mlo-housing/scripts/check_mlo_resource.py` | manifest、MLO 规则（portal 朝向、房间）、ymap、重名、16/48 MiB | 二进制 ymap 内容 |
+| 地图/MLO | .ymap/.ymf、MLO ytyp（二进制也认得）、this_is_a_map + .ybn | `fivem-mlo-housing/scripts/check_mlo_resource.py` + `fivem-map-world-editor/scripts/check_map_resource.py` | MLO 规则（portal 朝向、房间）；地图：manifest、跨资源覆盖同一个原版档、ymap 范围和 flags、LOD 索引（也读二进制 ymap）、和原版对比（`--orig`）、ybn/ydr/ynd XML、16/48 MiB | 实际游戏里的 LOD 切换距离、遮挡效果 |
 | 武器 | WEAPONINFO_FILE 等或 weapons*.meta | `fivem-weapon/scripts/check_weapon_resource.py` | meta 引用、配件、骨骼（XML）、ox_inventory | 手感、动画 |
 | 动画 | .ycd（不属于车辆/武器）或 AnimationList*.lua | `fivem-animation/scripts/check_anim_resource.py` | ycd 头、clip hash、rpemotes 清单 | 动作好不好看 |
 | 音效 | .awc、AUDIO_WAVEPACK、.dat*.rel（地图里的 .dat151.rel 是声音遮挡，不算） | `fivem-vehicle-sound/scripts/check_sound_resource.py` | data_file ↔ .rel、awc 头、8 字前缀、CREDITS | 音色、音量 |
