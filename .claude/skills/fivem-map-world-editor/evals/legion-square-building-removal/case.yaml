@@ -1,0 +1,7 @@
+schema_version: "1.1"
+name: legion-square-building-removal
+expected_outcome: |
+  诊断出两个问题的原因：城市消失是原版遮挡体（dt1_occl_* 和 hei_ 版的 box/model occluder）还在，删楼不会删它；远处还看到旧楼是 LOD/SLOD1（在区块 ymap）没处理，约 750 m 以外是 SLOD2/SLOD3 合并模型，只能改模型。
+  修法：在 strm 里直接删有 LOD 关系的实体有风险（parentIndex 错位、子实体变孤儿），父实体移到地下而不是删，删的话要重新对应 parentIndex 并减 numChildren；hei_ 版 ymap 也要一样改（FiveM 载入 hei_ 那份）；世界碰撞 ybn（普通、hi@、ma@）要一起挖掉；顺便清车生成点/timecycle；改完 Calculate Extents + Calculate All Flags，新楼的 ytyp 要在 CodeWalker 里载入后再算 extents，并生成 manifest。
+  冲突：同一个原版文件只能由一个资源覆盖，先搜全部资源，和警局地图改的同名 ymap/occl 合并成一份放在一个资源里。
+  验证：跑 check_map_resource.py（可配 --orig 原版 XML），再在本机测试服站在广场转一圈、从远处飞近、走过/开过/开枪测碰撞、重启资源和重连。
