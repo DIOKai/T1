@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: type38-addon-invisible-in-hand
+expected_outcome: |
+  中文回答：add-on 不替换原版，所有名字都新取（WEAPON_TYPE38、SLOT、COMPONENT、HumanNameHash）；从最接近的原版枪（有 WAPScop、Gun_Cock1 的重狙）导入骨架，网格挂在原版骨架、顶点组用骨骼名，弹夹/瞄准镜是独立模型（AAPClip/AAPScop）；本体 ydr（带碰撞）+ _hi.ydr + 外部 ytd，weaponarchetypes 里写每个模型；五个 meta 和 fxmanifest data_file（weapons.meta 最后、都写进 files）、AddTextEntry；ox_inventory 的 key 等于 weapons.meta 的 Name，瞄准镜要在 AttachPoints 和 ox Components 两边；看不见时依次查 ox key、meta 有没有载入、Model→archetype→ydr 名字一致、不是只有 _hi、骨架/顶点组，并跑 check_weapon_resource.py；提醒建模前先看同类教学和参考照片、给枪要由服务器背包给。

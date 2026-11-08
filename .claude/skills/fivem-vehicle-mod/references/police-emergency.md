@@ -111,3 +111,5 @@ and the controller requests the bank (`RequestScriptAudioBank('DLC_MYSIRENS\\SIR
 - [ ] extras on the right bones (`extra_ten`!), `FLAG_EXTRAS_STRONG` if they shouldn't fall off
 - [ ] liveries show and cycle; police job config lists the spawn name, extras and livery
 - [ ] siren controller tones set for the model; lights/sound synced for a second player watching
+
+Custom siren *sounds* (your own wail/yelp/horn tones as a server-side audio pack, the lowercase-name rule, a build script): `fivem-vehicle-sound` → `references/siren-sounds.md`.

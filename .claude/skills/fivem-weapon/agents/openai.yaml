@@ -1,0 +1,4 @@
+interface:
+  display_name: "FiveM Weapons"
+  short_description: "Model, package and install add-on or replacement GTA V weapons"
+  default_prompt: "Use $fivem-weapon to build, install or fix this FiveM weapon."

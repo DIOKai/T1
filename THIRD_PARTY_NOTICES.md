@@ -91,6 +91,10 @@ No third-party code, models or images are included. The workflows summarise publ
 
 The 2026-11-08 additions to `fivem-mlo-housing` (`references/blender-to-fivem-steps.md`) and `fivem-clothing-creator` (`references/clothing-step-by-step.md`) are summaries of the same kind of study, with citations to video timestamps; no text or images from the videos are reproduced.
 
+## fivem-weapon, fivem-vehicle-livery; fivem-prop-creator / fivem-asset-acceptance / fivem-vehicle-sound siren updates (2026-11-08)
+
+Written for this repository. They summarise public tutorial videos (captions; frames for a few), docs.fivem.net, Sollumz documentation and source, the FiveM source (LoadStreamingFile.cpp etc., read only), the overextended ox_inventory source (read only) and measurements of vanilla GTA V files exported read-only from the user's own game with CodeWalker.Core. No game assets, code or text are reproduced; the scripts (checkers, `livery_template.py`, `rsc_probe.py`, `asset_gate.py`, `siren_pack.ps1`) were written for this repository. Sources are listed in each skill's references.
+
 ## blender-vehicle-modeling engine bay / interior / accessories references (2026-11-08)
 
 Summaries written for this repository from public tutorial videos (captions, and frames for a few uncaptioned ones), Sollumz documentation, modding-forum guides and measurements of vanilla GTA V vehicle files exported read-only from the user's own game with CodeWalker.Core. No models, textures, code or text are reproduced. Sources are listed in each reference.

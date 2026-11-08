@@ -44,8 +44,11 @@
 - `fivem-security`：写伺服器代码时就防漏洞（事件验证、权限、限频）；写完再用 `fivem-security-audit` 审查
 - `fivem-basics`、`lua-basics`、`fivem-deployment`：FiveM 资源结构、Lua 基础、FXServer 版本和 server.cfg
 - 做素材：`fivem-prop-creator`（道具：Blender → Sollumz → CodeWalker，ydr/ytd/ytyp、碰撞、LOD）、`fivem-clothing-creator`（freemode 衣服、裤子、鞋、帽子眼镜这类配件、add-on 衣服包命名和 ymt、接 illenium-appearance；免费的 grzyClothTool 优先，Durty Cloth Tool 付费不推荐；它的 `check_clothing_resource.py` 本地只读，用户同意后可以直接跑。Cfx 写明串流自制衣服是付费 Element Club Argentum 以上的权益，只说明让用户自己查自己的 key，不推荐购买）、`fivem-ped-character`（ped 的头、身体、皮肤、头发、胡子）、`fivem-map-world-editor`（户外地图、ymap、地形、外部碰撞；室内和 MLO 用 `fivem-mlo-housing`）。还没有模型时先用 `free-3d-assets` 找或生成，转成道具的步骤以 `fivem-prop-creator` 为主。做完上服前用 `fivem-asset-acceptance` 验收；整理已有素材库用 `fivem-asset-catalog`；处理买来的素材用 `fivem-authorized-asset-workflow`（先备份原档，照 LESSONS 1:1 转换）；打不开的文件用 `fivem-file-analysis` 判断是什么（只读，不破解 Asset Escrow）
-- 声音：音效资源打包、没声音用 `fivem-audio-package-check`；pma-voice 语音、对讲机、电话用 `fivem-voice-radio`
+- 声音：音效资源打包、没声音用 `fivem-audio-package-check`；自制警笛声包（给 Renewed-Sirensync / LVC）用 `fivem-vehicle-sound` 的 `references/siren-sounds.md` 和 `siren_pack.ps1`（REL 里的名字一定要小写，否则没声音）；pma-voice 语音、对讲机、电话用 `fivem-voice-radio`
 - 车的引擎声浪（装声浪包、一个包复制改名给几台车做不同版本、改音色变低沉或粗糙、调回火和涡轮、车没声音或变原版声）用 `fivem-vehicle-sound`。它的 `check_sound_resource.py` 是本地只读检查，用户同意用这个技能后可以直接跑；`sound_pack.ps1`（要 CodeWalker.Core）和 `revoice_wav.py` 只写到指定的新资料夹，原包不动。从录音从零做 granular 引擎声目前没有免费工具，照技能说的改用最接近的包换音色。声浪包多半含有作者无权授权的游戏音频，只能自己伺服器用，不能转发或卖
+- 自制或加枪（add-on 武器、换皮、配件、瞄准镜、武器没伤害或手上看不见）用 `fivem-weapon`（2026-11-08 加的，先问）：骨骼和文件规则都核对过原版 26 把枪；它的 `check_weapon_resource.py` 本地只读，用户同意后可以直接跑。建枪前照 LESSONS 先看同类教学、照真枪照片描轮廓；武器、子弹、伤害一律伺服器判定（配合 `fivem-security`）；别的游戏扒来的枪不能转发。
+- 车身涂装（警车涂装、拉花、涂装模板、涂装模糊或只出现一边）用 `fivem-vehicle-livery`（2026-11-08 加的，先问），meta 那边（涂装数、modkit）仍看 `fivem-vehicle-mod`。它的 `livery_template.py`（从车的 UV1 画模板）和 `check_livery.py`（只读）用户同意后可以直接跑。涂装文字只用用户自己的虚构机构，不放真实徽章和真实车厂；原车贴图照 1:1 规则，太大的只报告。
+- 上服前验收任何素材（车、道具、衣服、MLO、地图、声音、武器）用 `fivem-asset-acceptance` 的 `asset_gate.py`：自动判断类型、跑对应的检查脚本、汇总结果，本地只读，用户同意后可以直接跑。
 - `qbox-economy-integrity`：检查买卖、交易、制作、奖励会不会被刷或重复发（数值怎么定仍用 `game-balance-economy`）
 - `fivem-performance-profile`：卡顿、掉帧用 resmon / profiler 的数据找原因，不要凭感觉调
 

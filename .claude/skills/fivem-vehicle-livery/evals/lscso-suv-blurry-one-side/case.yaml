@@ -1,0 +1,7 @@
+schema_version: "1.1"
+name: lscso-suv-blurry-one-side
+expected_outcome: |
+  中文回答。先说明涂装层原理：vehicle_paint3/4 等材质用 DiffuseSampler2 读 UV1（UVMap 1），paint1/2 没有涂装层；贴图名必须和 shader 里的名字完全一样（如 <前缀>_sign_1、_sign_2），两套要能切换需要 vehicles.meta 的 FLAG_HAS_LIVERY（或改用 VMT_LIVERY_MOD 涂装 yft），编号连续。
+  模糊：原因是贴图太小/字太小（低于约 40 px）、徽章反复缩放、DXT 压缩、或贴图内存超标显示低级 mip；做法是 4096 画、导出 2048 DXT5（BC3）带完整 mipmap，字放在平整、不拉伸的面上；明确不要用「mip 改成 1」的偏方；也要检查 lscsoxl+hi.ytd 里是否还有同名旧贴图（两个字典都要换）。
+  只有一边/字反：右侧 UV 岛在模板别处、旋转 180° 或镜像，或图只画在左侧岛上；先用方向测试贴图（格子、L/R、指向车头的箭头）在游戏里看；复制到另一侧时图形可以翻转但文字不能水平翻转，要重打或旋转。
+  设计：只用伺服器自己的虚构单位名（LSCSO），不用真实警长徽章、州徽或真实车厂 logo/车名，徽章自己设计。工具用免费的（GIMP、paint.net、Krita、Inkscape、Blender、texconv），Photoshop/ZModeler 不是必需。放进 CodeWalker 的 ytd 时名字不变，切换用 SetVehicleLivery（或 VMT_LIVERY_MOD 用 SetVehicleModKit + SetVehicleMod 48），meta 部分交给 fivem-vehicle-mod。

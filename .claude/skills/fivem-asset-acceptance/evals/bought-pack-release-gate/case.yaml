@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: bought-pack-release-gate
+expected_outcome: |
+  中文回答：先在交付副本上做只读检查、原档不动、不自动压缩或改模型；按类型跑静态检查（车辆、MLO/地图、道具各自的检查器或一个总闸门），包括 manifest/data_file、stream 里的 XML 和源文件、两个资源同名文件和 id 冲突、按 RSC 头算的 16/48 MiB（不是磁盘大小）、LOD、碰撞、贴图格式；.fxap / 开头 FXAP 的文件是 Cfx Asset Escrow，只能在有授权的伺服器 key 上跑，内容看不到要列为未验证，绝不解密；查来源和授权（CREDITS/LICENSE，买的授权只限自己伺服器，朋友给的来路不明要先确认授权和安全）；最后在本机测试服按类型做游戏内测试（车每个画质等级的 LOD、MLO 每个 portal 和碰撞、道具碰撞和距离、控制台 16/48 MiB / entitlement 警告），报告分通过、失败、未验证，静态通过不等于可以上服。

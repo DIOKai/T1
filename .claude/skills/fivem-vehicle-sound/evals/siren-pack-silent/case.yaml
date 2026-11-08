@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: siren-pack-silent
+expected_outcome: |
+  指出 CodeWalker 照写的大小写算 hash、游戏用小写名字的 hash，所以大写写进 REL 的名字找不到；正确做法是小写名字、SoundSet 条目照 hash 排序、单声道 16 位 PCM 循环档、客户端载入声音库、data_file 写对、重连测试。
