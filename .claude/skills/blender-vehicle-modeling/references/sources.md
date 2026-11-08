@@ -2,6 +2,12 @@
 
 Videos studied 2026-11-08 (subtitles with yt-dlp; time-lapse / silent parts from frames). Notes are original summaries.
 
+## Part references (each keeps its own full source list with video ids, timestamps and web pages)
+- `engine-bay-and-underbody.md`: videos (Alessiuccio V8 and intake, TheMadeMan GTA SA undercarriage, Versus 53 underbody, Infect3dmodelz caliper and cables, pipe/cable/exhaust/coilover/baking tutorials, ZModeler belt videos), Blender manual, Sollumz shader and wheel docs, muto-atlas bone tags, modding-forum LOD and shared-texture guides, plus triangle counts measured from the user's vanilla exports (buffalo, bison, sadler, granger, vigero2).
+- `interior.md`: videos (On Mars 3D interior series, Infect3dmodelz dashboard, Aryan seats/wheel/vents, SCRAT GTA interior shaders and digital dials, Onslaught tint in Sollumz), Sollumz shader docs, modding-forum extras guide, alt:V bone list, measured counts from buffalo, granger, sadler, police, police3, sheriff2.
+- `accessories-and-parts.md`: videos (Lola Car Dev tuning parts in Sollumz, Amply lightbars and sirens, Fadilj sirens, McGinlay/Cesta/Paul ZModeler police lights, 13Stewartc mod parts, BillyMcDev low-poly truck parts), modding-forum emergency-light, rotator, glass-collision and extras guides, Sollumz docs, citizenfx natives, plus dumps of vanilla police3, sheriff2, fbi2, police4 and the user's police cars.
+
+## Body course and helicopter videos (car-workflow.md, helicopter-workflow.md)
 - Kevin Gallant, "Model a 3d Car" playlist, 20 parts (Dodge Challenger, Blender 2.7x): https://www.youtube.com/playlist?list=PLOs8m1ECfMkhhGXVMbcz5GIs52jlE1zV-
   KG1 H8Fo0mfyab0, KG2 yD4TTW2ke5M, KG3 Wj4LbDuQAmI, KG4 OxH8hkRZYXI, KG5 RBmqmjYRLkU, KG6 A1W6jFOhOrQ, KG7 7EYTh7dBBLA, KG8 Fw8G-oKm2ug, KG9 HRWYa25jF1s, KG10 uzC3Q-xkeIA, KG11 KEjSA-iO3C0, KG12 UE239-dIy5Y, KG13 f7JLeAL-CWg, KG14 meBJL9UTijY, KG15 mS5H8WNVxbM, KG16 E3xQqNW2jKk, KG17 AHbDrcFkCUs, KG18 rumh7P0wRNQ, KG19 TN52oH2WxjU, KG20 U40IczuCI8M
 - JOYCE 3D, "Blender Car Modeling Tutorial: From Basics to Pro Level Details" (Blender 4.x): https://www.youtube.com/watch?v=Rs_w0CSDWJ8

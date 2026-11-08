@@ -1,0 +1,4 @@
+interface:
+  display_name: "FiveM Vehicle Mod"
+  short_description: "Build, fix and ship FiveM add-on vehicle resources"
+  default_prompt: "Use $fivem-vehicle-mod to add or fix this FiveM vehicle."

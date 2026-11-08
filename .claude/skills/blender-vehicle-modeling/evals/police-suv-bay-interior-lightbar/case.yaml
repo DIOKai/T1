@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: police-suv-bay-interior-lightbar
+expected_outcome: |
+  中文回答，分引擎舱/底盘、内饰、警灯三部分：引擎舱是完整立体零件（水箱和风扇、水管、副水箱、发电机、冷气压缩机、空滤和进气、电瓶、保险丝盒、ECU、刹车助力器和总泵），每个 LOD 都有，水管两头接上并走低处；刹车卡钳绑 hub_*，不是 wheel_*；引擎网格蒙在 chassis；用背面剔除 + 玩家视角红色地面渲染检查破洞，内叶子板做成连续的墙，不加会露出来的整块底板。仪表是 dials 骨骼上的平面，vehicle_dash_emissive + script_rt_dials 贴图 + 对应的 dashboardType，不建指针；方向盘在 steeringwheel 骨骼，座椅网格在 chassis。警灯外壳在 misc_* 或 extra 上，灯罩 siren_glassN（会碎的玻璃碰撞），发光片在 sirenN，而且都是外壳/extra 的子骨骼；发光片朝车头、模型比例配合 scaleFactor；给出各 LOD 的三角面预算，meta 部分交给 fivem-vehicle-mod。
