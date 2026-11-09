@@ -113,7 +113,8 @@ def parse_manifest(res):
     path = os.path.join(res, 'fxmanifest.lua')
     if not os.path.isfile(path):
         path = os.path.join(res, '__resource.lua')
-    text = strip_lua_comments(open(path, encoding='utf-8', errors='replace').read())
+    with open(path, encoding='utf-8', errors='replace') as fh:
+        text = strip_lua_comments(fh.read())
     files = []
     for block in re.findall(r'\bfiles\s*\{(.*?)\}', text, flags=re.S):
         files += re.findall(r'["\']([^"\']+)["\']', block)
@@ -137,6 +138,29 @@ def glob_match(pattern, relpath):
         regex = re.escape(pattern).replace(r'\*\*/', '(?:.*/)?').replace(r'\*\*', '.*').replace(r'\*', '[^/]*').replace(r'\?', '[^/]')
         return re.fullmatch(regex, relpath, flags=re.I) is not None
     return fnmatch.fnmatch(relpath.lower(), pattern.lower())
+
+
+# Audio data_file entries do not name the file on disk. For the .rel types the manifest path ends in
+# '.dat' and FiveM loads '<path>NN.rel' (dat151 game, dat54 sounds, dat10 synth/amp, dat15 dynamix,
+# dat16 curves, dat4 speech); AUDIO_WAVEPACK names a folder of .awc files.
+AUDIO_REL_TYPES = {
+    'AUDIO_GAMEDATA', 'AUDIO_SOUNDDATA', 'AUDIO_SYNTHDATA',
+    'AUDIO_DYNAMIXDATA', 'AUDIO_CURVEDATA', 'AUDIO_SPEECHDATA',
+}
+REL_SUFFIX = re.compile(r'\d+\.rel$', flags=re.I)
+
+
+def data_file_matches(dtype, pattern, relpath):
+    """True when the data_file pattern refers to relpath, following FiveM's audio conventions."""
+    if glob_match(pattern, relpath):
+        return True
+    if dtype in AUDIO_REL_TYPES:
+        stripped = REL_SUFFIX.sub('', relpath)
+        return stripped != relpath and glob_match(pattern, stripped)
+    if dtype == 'AUDIO_WAVEPACK':
+        folder = pattern.replace('\\', '/').rstrip('/')
+        return glob_match(folder + '/**', relpath)
+    return False
 
 
 def xml_root(path):
@@ -193,8 +217,14 @@ def check(paths):
                 add('warn', 'DATA_FILE_INVALID_TYPE', res, f"data_file 类型 '{dtype}' 不是有效类型，FiveM 会忽略（常见的错误写法：DLCTEXT_FILE、CARCONTENTUNLOCKS_FILE）")
         for dtype, patterns in declared_types.items():
             for pattern in patterns:
-                if not any(glob_match(pattern, rp) for rp in allrel):
-                    add('error', 'DATA_FILE_NO_MATCH', res, f"data_file '{dtype}' '{pattern}' 对不上任何文件（路径或大小写写错）")
+                if not any(data_file_matches(dtype, pattern, rp) for rp in allrel):
+                    if dtype in AUDIO_REL_TYPES:
+                        hint = f"音频要有对应的 {pattern}NN.rel，例如 _game.dat151.rel、_sounds.dat54.rel、_amp.dat10.rel"
+                    elif dtype == 'AUDIO_WAVEPACK':
+                        hint = '这个文件夹里没有任何文件（应该放 .awc）'
+                    else:
+                        hint = '路径或大小写写错'
+                    add('error', 'DATA_FILE_NO_MATCH', res, f"data_file '{dtype}' '{pattern}' 对不上任何文件（{hint}）")
 
         for base, rps in metas.items():
             dtype = DATA_FILE_TYPES[base]
@@ -369,6 +399,8 @@ def main():
     ap.add_argument('paths', nargs='+')
     ap.add_argument('--json', action='store_true')
     args = ap.parse_args()
+    if hasattr(sys.stdout, 'reconfigure'):
+        sys.stdout.reconfigure(encoding='utf-8', errors='replace')  # Windows consoles default to cp1252
     findings, resources = check(args.paths)
     if args.json:
         print(json.dumps({'resources': [os.path.basename(r) for r in resources], 'findings': findings}, ensure_ascii=False, indent=2))
